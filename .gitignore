@@ -1,0 +1,11 @@
+/target/
+/.settings/
+.classpath
+.project
+.DS_Store
+extent.html
+/test-output/
+/.idea/
+/logs/
+/auto-screenshot/
+/error-screenshot/

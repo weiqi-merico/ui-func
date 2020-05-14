@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Merico_Ee_Ui_Func_Test_Suite" parallel="false" thread-count="1">
+  <!-- In order to improve the test efficiency, there is no listener when test execution on the server -->
+  <listeners>
+    <listener class-name="com.merico.selenium.listener.LogSeperateTestListener"></listener>
+	<listener class-name="com.merico.selenium.listener.ErrorSpecScreenshotListener"></listener>
+	<listener class-name="com.merico.selenium.autoscreenshot.AutoScreenshotListener"></listener>
+	<!-- <listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" /> -->
+  </listeners>
+  
+  <!-- <test name="Login_Ee_Test" preserve-order="true">
+	<groups>
+		<run>
+			<include name="BVT"></include>
+			<include name="ACCEPTANCE"></include>
+			<include name="COMPREHENSIVE"></include>
+			<exclude name="CURRENT_DEBUG"></exclude>
+			<exclude name="DEPRECATED"></exclude>
+		</run>
+	</groups>
+    <classes>
+    		<class name="com.merico.selenium.test.ee.test.LoginPageTest" />
+    </classes>
+  </test> -->
+  
+  <test name="Add_Repo_Test" preserve-order="true">
+	<groups>
+		<run>
+			<include name="BVT"></include>
+			<include name="ACCEPTANCE"></include>
+			<include name="COMPREHENSIVE"></include>
+			<exclude name="CURRENT_DEBUG"></exclude>
+			<exclude name="DEPRECATED"></exclude>
+		</run>
+	</groups>
+    <classes>
+    		<class name="com.merico.selenium.test.ee.test.AddRepoTest" />
+    </classes>
+  </test>
+</suite>
