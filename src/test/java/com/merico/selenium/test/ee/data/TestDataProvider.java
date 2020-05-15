@@ -41,4 +41,17 @@ public class TestDataProvider {
 				{ repoUrl }
 		};
 	}
+	
+	@DataProvider(name="addRepoWithSecretProvider")
+	public static Object[][] addRepoWithSecretProviderImpl() throws Exception {
+
+		String repoUrl = "https://github.com/51ias/gloudapi2.git";
+		String pwd4Git = "js0205081q2w3e";
+		
+		Crypt crypt = new Crypt();
+		
+		return new Object[][]{
+				{ repoUrl, "qiwei-51ias", crypt.encrypt(pwd4Git), crypt }
+		};
+	}
 }

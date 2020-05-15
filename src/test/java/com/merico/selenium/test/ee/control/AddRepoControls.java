@@ -40,6 +40,21 @@ public class AddRepoControls {
     public static final String Repo_Url_TextBox_Css = getProperty("repo_url_textbox_css");
     
     /**
+     * Account Access Radio Button
+     */
+    public static final String Account_Access_Radio_Btn_Css = getProperty("account_access_radio_btn_css");
+    
+    /**
+     * Account TextBox
+     */
+    public static final String Account_Textbox_Css = getProperty("account_textbox_css");
+    
+    /**
+     * Account Password TextBox
+     */
+    public static final String Pwd_Textbox_Css = getProperty("pwd_textbox_css");
+    
+    /**
      * Steps Button
      */
     public static final String Steps_Btn_Css = getProperty("steps_btn_css");

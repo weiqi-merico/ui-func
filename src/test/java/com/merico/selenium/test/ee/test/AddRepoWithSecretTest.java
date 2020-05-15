@@ -18,8 +18,8 @@ import com.merico.selenium.test.ee.page.LoginPage;
 import com.merico.selenium.test.ee.page.LogoutPage;
 import com.merico.selenium.test.ee.utils.Crypt;
 
-public class AddRepoTest extends TestBase {
-	protected Logger logger = LoggerFactory.getLogger(getClass());
+public class AddRepoWithSecretTest extends TestBase {
+protected Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Override
 	protected void initBeforeClass() {
@@ -48,26 +48,26 @@ public class AddRepoTest extends TestBase {
 		Assert.assertEquals(username, loginPage.getAccountName(), "Admin login failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
-	public void testAddRepoDirectly(String repoUrl) throws Exception {
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	public void testAddRepoWithSecret(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
-		addRepoPage.addRepoDirectly(repoUrl);
+		addRepoPage.addRepoWithSecret(repoUrl, accountName, crypt.decrypt(pwd));
 	
-		Assert.assertTrue(addRepoPage.getAddedRepoName().contains("kubernetes"), "Add Repository Directly Failed!");
+		Assert.assertTrue(addRepoPage.getAddedRepoName().contains("gloudapi2"), "Add Repository with Secret Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddRepoDirectly"}, alwaysRun = true)
-	public void testAddExitedRepoDirectly(String repoUrl) throws Exception {
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddRepoWithSecret"}, alwaysRun = true)
+	public void testAddExistedRepoWithSecret(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
-		addRepoPage.addExitedRepoDirectly(repoUrl);
+		addRepoPage.addExistedRepoWithSecret(repoUrl, accountName, crypt.decrypt(pwd));
 	
-		Assert.assertEquals("代码库已存在", addRepoPage.getRepoExistedErrPromptMsg(), "Add Existed Repo Directly Failed!");
+		Assert.assertEquals("代码库已存在", addRepoPage.getRepoExistedErrPromptMsg(), "Add Existed Repo with Secret Failed!");
 		
 		addRepoPage.cancelAddRepo();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddRepoDirectly"}, alwaysRun = true)
-	public void testDelRepo(String repoUrl) throws Exception {
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddExistedRepoWithSecret"}, alwaysRun = true)
+	public void testDelRepo(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.delAddedRepo(repoUrl);
 		

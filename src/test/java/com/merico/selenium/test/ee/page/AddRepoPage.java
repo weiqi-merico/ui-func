@@ -28,7 +28,26 @@ public class AddRepoPage extends Page {
         driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).click();
         driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).sendKeys(repoUrl);
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
+        Utilities.staticTimeDelay(6000);
+        driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
         Utilities.staticTimeDelay(4000);
+        driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
+        Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void addRepoWithSecret(String repoUrl, String accountName, String pwd) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Add_Repo_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Add_Repo_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).click();
+        driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).sendKeys(repoUrl);
+        driver.findElement(By.cssSelector(AddRepoControls.Account_Access_Radio_Btn_Css)).click();
+        driver.findElement(By.cssSelector(AddRepoControls.Account_Textbox_Css)).click();
+        driver.findElement(By.cssSelector(AddRepoControls.Account_Textbox_Css)).sendKeys(accountName);
+        driver.findElement(By.cssSelector(AddRepoControls.Pwd_Textbox_Css)).sendKeys(pwd);
+        driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
+        Utilities.staticTimeDelay(6000);
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
         Utilities.staticTimeDelay(4000);
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
@@ -42,12 +61,27 @@ public class AddRepoPage extends Page {
     }
     
     @AutoIntercept
-    public void addExitedRepoDirectly(String repoUrl) {
+    public void addExistedRepoDirectly(String repoUrl) {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Add_Repo_Btn_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Add_Repo_Btn_Css)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).click();
         driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).sendKeys(repoUrl);
+        driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
+        Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void addExistedRepoWithSecret(String repoUrl, String accountName, String pwd) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Add_Repo_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Add_Repo_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).click();
+        driver.findElement(By.cssSelector(AddRepoControls.Repo_Url_TextBox_Css)).sendKeys(repoUrl);
+        driver.findElement(By.cssSelector(AddRepoControls.Account_Access_Radio_Btn_Css)).click();
+        driver.findElement(By.cssSelector(AddRepoControls.Account_Textbox_Css)).click();
+        driver.findElement(By.cssSelector(AddRepoControls.Account_Textbox_Css)).sendKeys(accountName);
+        driver.findElement(By.cssSelector(AddRepoControls.Pwd_Textbox_Css)).sendKeys(pwd);
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
         Utilities.staticTimeDelay(1000);
     }
