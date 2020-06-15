@@ -3,10 +3,11 @@ package com.merico.selenium.test.ee.data;
 import org.testng.annotations.DataProvider;
 
 import com.merico.selenium.test.ee.utils.Crypt;
+import com.merico.selenium.test.ee.utils.Utilities;
 
 public class TestDataProvider {
 
-	public static String TT_Title = "EE-" + System.currentTimeMillis();
+	public static String projectGroupName = "AutoProjectGroup_" + System.currentTimeMillis();
 
 	@DataProvider(name="loginData4AdminProvider")
 	public static Object[][] loginData4AdminProviderImpl() throws Exception {

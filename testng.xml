@@ -39,4 +39,19 @@
     		<class name="com.merico.selenium.test.ee.test.AddRepoWithSecretTest" />
     </classes>
   </test>
+  
+  <test name="Project_Group_Test" preserve-order="true">
+	<groups>
+		<run>
+			<include name="BVT"></include>
+			<include name="ACCEPTANCE"></include>
+			<include name="COMPREHENSIVE"></include>
+			<exclude name="CURRENT_DEBUG"></exclude>
+			<exclude name="DEPRECATED"></exclude>
+		</run>
+	</groups>
+    <classes>
+    		<class name="com.merico.selenium.test.ee.test.ProjectGroupTest" />
+    </classes>
+  </test>
 </suite>
