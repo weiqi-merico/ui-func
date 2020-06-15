@@ -31,7 +31,7 @@ public class LogoutPage extends Page {
 	      Actions builder = new Actions(driver);
 	      builder.moveToElement(element, 0, 0).perform();
 	    }
-	
+		Utilities.staticTimeDelay(1000);
 		Utilities.waitForControlPresent(driver, By.xpath(LogoutControls.Logout_Xpath));
 		driver.findElement(By.xpath(LogoutControls.Logout_Xpath)).click();
 		Utilities.staticTimeDelay(1000);
