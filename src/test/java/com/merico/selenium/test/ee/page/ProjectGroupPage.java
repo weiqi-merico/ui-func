@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.merico.selenium.autoscreenshot.AutoIntercept;
 import com.merico.selenium.page.Page;
+import com.merico.selenium.test.ee.control.AddRepoControls;
 import com.merico.selenium.test.ee.control.ProjectGroupControls;
 import com.merico.selenium.test.ee.data.TestDataProvider;
 import com.merico.selenium.test.ee.utils.Utilities;
@@ -74,5 +75,8 @@ public class ProjectGroupPage extends Page {
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).sendKeys(TestDataProvider.projectGroupName);
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Confirm_Btn_Css)).click();
     	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Operating_Toast_Close_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Operating_Toast_Close_Css)).click();
+        Utilities.staticTimeDelay(2000);
     }
 }
