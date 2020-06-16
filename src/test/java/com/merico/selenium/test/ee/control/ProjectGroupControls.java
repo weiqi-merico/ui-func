@@ -34,7 +34,7 @@ public class ProjectGroupControls {
     /**
      * Project Group Navigation bar
      */
-    public static String Project_Group_Link_LinkText = Utilities.utf8Char(getProperty("project_group_link_linktext"));
+    public static String Project_Group_Link_Xpath = getProperty("project_group_link_xpath");
     
     /**
      * Add Project Group Button

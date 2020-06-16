@@ -7,7 +7,6 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.merico.selenium.autoscreenshot.AutoIntercept;
 import com.merico.selenium.page.Page;
-import com.merico.selenium.test.ee.control.AddRepoControls;
 import com.merico.selenium.test.ee.control.ProjectGroupControls;
 import com.merico.selenium.test.ee.data.TestDataProvider;
 import com.merico.selenium.test.ee.utils.Utilities;
@@ -26,8 +25,8 @@ public class ProjectGroupPage extends Page {
     
     @AutoIntercept
     public void navigateProjectGroup() {
-    	Utilities.waitForControlPresent(driver, By.linkText(ProjectGroupControls.Project_Group_Link_LinkText));
-    	driver.findElement(By.linkText(ProjectGroupControls.Project_Group_Link_LinkText)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(ProjectGroupControls.Project_Group_Link_Xpath));
+    	driver.findElement(By.xpath(ProjectGroupControls.Project_Group_Link_Xpath)).click();
     	Utilities.staticTimeDelay(4000);
     }
     
