@@ -95,4 +95,9 @@ public class ProjectGroupControls {
      * Delete Project Group Confirm Button
      */
     public static String Del_Project_Group_Confirm_Btn_Css = getProperty("del_project_group_confirm_btn_css");
+    
+    /**
+     * Toast
+     */
+    public static String Operating_Toast_Close_Css = getProperty("operating_toast_close_css");
 }

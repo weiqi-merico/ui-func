@@ -3,7 +3,6 @@ package com.merico.selenium.test.ee.data;
 import org.testng.annotations.DataProvider;
 
 import com.merico.selenium.test.ee.utils.Crypt;
-import com.merico.selenium.test.ee.utils.Utilities;
 
 public class TestDataProvider {
 
