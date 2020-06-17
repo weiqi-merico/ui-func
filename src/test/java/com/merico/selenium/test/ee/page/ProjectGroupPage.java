@@ -30,12 +30,7 @@ public class ProjectGroupPage extends Page {
     	Utilities.staticTimeDelay(4000);
     }
     
-    @AutoIntercept
-    public void addProjectGroup() {
-    	this.navigateProjectGroup();
-    	
-    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css));
-    	driver.findElement(By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css)).click();
+    private void addProjectGroupDialog() {
     	Utilities.waitForControlPresent(driver, By.id(ProjectGroupControls.Project_Group_Name_Id));
     	driver.findElement(By.id(ProjectGroupControls.Project_Group_Name_Id)).clear();
     	driver.findElement(By.id(ProjectGroupControls.Project_Group_Name_Id)).sendKeys(TestDataProvider.projectGroupName);
@@ -43,6 +38,16 @@ public class ProjectGroupPage extends Page {
     	driver.findElement(By.id(ProjectGroupControls.Project_Group_Description_Id)).sendKeys(Utilities.getRandomString(100));
     	driver.findElement(By.cssSelector(ProjectGroupControls.Project_Group_Confirm_Btn_Css)).click();
     	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void addProjectGroup() {
+    	this.navigateProjectGroup();
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css)).click();
+    	
+    	this.addProjectGroupDialog();
     }
     
     public String getSearchResultItem() {
@@ -56,8 +61,7 @@ public class ProjectGroupPage extends Page {
     	return searchResult;
     }
     
-    @AutoIntercept
-    public void delProjectGroup() {
+    private void hover4MoreBtn() {
     	Utilities.staticTimeDelay(1000);
     	int tree_node_num = driver.findElements(By.cssSelector(ProjectGroupControls.Project_Group_Treenode_Css)).size();
    	
@@ -67,11 +71,37 @@ public class ProjectGroupPage extends Page {
     	      Actions builder = new Actions(driver);
     	      builder.moveToElement(element).perform();
     	}
+    }
+    
+    @AutoIntercept
+    public void addSubProjectGroup() {
+    	this.hover4MoreBtn();
+    	
+    	Utilities.staticTimeDelay(1000);
+    	driver.findElement(By.xpath(ProjectGroupControls.Add_Sub_Project_Group_Xpath)).click();
+    	
+    	this.addProjectGroupDialog();
+    }
+    
+    @AutoIntercept
+    public void editProjectGroup() {
+    	this.hover4MoreBtn();
+    	
+    	Utilities.staticTimeDelay(1000);
+    	driver.findElement(By.xpath(ProjectGroupControls.Edit_Project_Group_Xpath)).click();
+    	
+    	this.addProjectGroupDialog();
+    }
+    
+    @AutoIntercept
+    public void delProjectGroup() {
+    	this.hover4MoreBtn();
     	Utilities.staticTimeDelay(1000);
     	driver.findElement(By.xpath(ProjectGroupControls.Del_Project_Group_Xpath)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css));
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).clear();
-    	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).sendKeys(TestDataProvider.projectGroupName);
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).sendKeys(
+    			TestDataProvider.projectGroupName + TestDataProvider.projectGroupName);
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Confirm_Btn_Css)).click();
     	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css));

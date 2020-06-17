@@ -56,6 +56,18 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddProjectGroup"}, alwaysRun = true)
+	public void testAddSubProjectGroup() throws Exception {
+		ProjectGroupPage projectGroupPage = PageFactory.createPage(ProjectGroupPage.class, driver);
+		projectGroupPage.addSubProjectGroup();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddSubProjectGroup"}, alwaysRun = true)
+	public void testEditSubProjectGroup() throws Exception {
+		ProjectGroupPage projectGroupPage = PageFactory.createPage(ProjectGroupPage.class, driver);
+		projectGroupPage.editProjectGroup();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEditSubProjectGroup"}, alwaysRun = true)
 	public void testDelProjectGroup() throws Exception {
 		ProjectGroupPage projectGroupPage = PageFactory.createPage(ProjectGroupPage.class, driver);
 		projectGroupPage.delProjectGroup();

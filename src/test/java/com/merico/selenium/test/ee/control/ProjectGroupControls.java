@@ -82,6 +82,21 @@ public class ProjectGroupControls {
     public static String Treenode_Trigger_Right_Css = getProperty("treenode_trigger_right_css");
     
     /**
+     * Add Sub Project Group
+     */
+    public static String Add_Sub_Project_Group_Xpath = Utilities.utf8Char(getProperty("add_sub_project_group_xpath"));
+    
+    /**
+     * Edit Project Group
+     */
+    public static String Edit_Project_Group_Xpath = Utilities.utf8Char(getProperty("edit_project_group_xpath"));
+    
+    /**
+     * Move Project Group
+     */
+    public static String Move_Project_Group_Xpath = Utilities.utf8Char(getProperty("move_project_group_xpath"));
+    
+    /**
      * Delete Project Group
      */
     public static String Del_Project_Group_Xpath = Utilities.utf8Char(getProperty("del_project_group_xpath"));
