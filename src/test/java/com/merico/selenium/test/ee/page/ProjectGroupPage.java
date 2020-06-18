@@ -37,7 +37,9 @@ public class ProjectGroupPage extends Page {
     	driver.findElement(By.id(ProjectGroupControls.Project_Group_Description_Id)).clear();
     	driver.findElement(By.id(ProjectGroupControls.Project_Group_Description_Id)).sendKeys(Utilities.getRandomString(100));
     	driver.findElement(By.cssSelector(ProjectGroupControls.Project_Group_Confirm_Btn_Css)).click();
-    	Utilities.staticTimeDelay(4000);
+    	Utilities.staticTimeDelay(2000);
+    	this.closeToast();
+        Utilities.staticTimeDelay(1000);
     }
     
     @AutoIntercept
@@ -73,6 +75,11 @@ public class ProjectGroupPage extends Page {
     	}
     }
     
+    private void closeToast() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css));
+        driver.findElement(By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css)).click();
+    }
+    
     @AutoIntercept
     public void addSubProjectGroup() {
     	this.hover4MoreBtn();
@@ -104,8 +111,7 @@ public class ProjectGroupPage extends Page {
     			TestDataProvider.projectGroupName + TestDataProvider.projectGroupName);
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Confirm_Btn_Css)).click();
     	Utilities.staticTimeDelay(2000);
-    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css));
-        driver.findElement(By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css)).click();
-        Utilities.staticTimeDelay(2000);
+    	this.closeToast();
+        Utilities.staticTimeDelay(1000);
     }
 }
