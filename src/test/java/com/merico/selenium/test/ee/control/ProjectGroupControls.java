@@ -112,6 +112,16 @@ public class ProjectGroupControls {
     public static String Del_Project_Group_Confirm_Btn_Css = getProperty("del_project_group_confirm_btn_css");
     
     /**
+     * Move Input Textbox
+     */
+    public static String Move_Input_Textbox_Css = getProperty("move_input_textbox_css");
+    
+    /**
+     * Move Project Group Confirm Button
+     */
+    public static String Move_Project_Group_Confirm_Btn_Css = getProperty("move_project_group_confirm_btn_css");
+    
+    /**
      * Toast
      */
     public static String Operating_Toast_Close_Css = getProperty("operating_toast_close_css");
