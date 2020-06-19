@@ -54,6 +54,8 @@ public class ProjectGroupPage extends Page {
     }
     
     public String getSearchResultItem() {
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Search_Textbox_Css));
     	driver.findElement(By.cssSelector(ProjectGroupControls.Search_Textbox_Css)).clear();
     	driver.findElement(By.cssSelector(ProjectGroupControls.Search_Textbox_Css)).sendKeys(TestDataProvider.projectGroupName);
