@@ -72,6 +72,21 @@ public class ProjectGroupControls {
     public static String Project_Group_Treenode_Css = getProperty("project_group_treenode_css");
     
     /**
+     * Batch Checkbox
+     */
+    public static String Batch_Checkbox_Css = getProperty("batch_checkbox_css");
+    
+    /**
+     * Batch Move Button
+     */
+    public static String Batch_Move_Btn_Css = getProperty("batch_move_btn_css");
+    
+    /**
+     * Batch Delete Button
+     */
+    public static String Batch_Del_Btn_Css = getProperty("batch_del_btn_css");
+    
+    /**
      * Tree Node Trigger Left
      */
     public static String Treenode_Trigger_Left_Css = getProperty("treenode_trigger_left_css");
@@ -80,6 +95,11 @@ public class ProjectGroupControls {
      * Tree Node Trigger Right
      */
     public static String Treenode_Trigger_Right_Css = getProperty("treenode_trigger_right_css");
+    
+    /**
+     * Tree Node Item Checkbox Right
+     */
+    public static String Treenode_Item_Checkbox_Right_Css = getProperty("treenode_item_checkbox_right_css");
     
     /**
      * Add Sub Project Group
@@ -114,7 +134,7 @@ public class ProjectGroupControls {
     /**
      * Move Input Textbox
      */
-    public static String Move_Input_Textbox_Css = getProperty("move_input_textbox_css");
+    public static String Move_Input_Textbox_Id = getProperty("move_input_textbox_id");
     
     /**
      * Move Project Group Confirm Button

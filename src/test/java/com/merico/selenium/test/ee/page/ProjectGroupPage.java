@@ -78,6 +78,21 @@ public class ProjectGroupPage extends Page {
     	}
     }
     
+    private void hover4BatchCheckboxBtnAndClick() {
+    	Utilities.staticTimeDelay(1000);
+    	int tree_node_num = driver.findElements(By.cssSelector(ProjectGroupControls.Project_Group_Treenode_Css)).size();
+   	
+    	{
+    	      WebElement element = driver.findElement(By.cssSelector(ProjectGroupControls.Treenode_Trigger_Left_Css + 
+    	    		  tree_node_num + ProjectGroupControls.Treenode_Item_Checkbox_Right_Css));
+    	      Actions builder = new Actions(driver);
+    	      builder.moveToElement(element).perform();
+    	}
+    	
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Treenode_Trigger_Left_Css + 
+	    		  tree_node_num + ProjectGroupControls.Treenode_Item_Checkbox_Right_Css)).click();
+    }
+    
     private void closeToast() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css));
         driver.findElement(By.cssSelector(ProjectGroupControls.Operating_Toast_Close_Css)).click();
@@ -120,10 +135,10 @@ public class ProjectGroupPage extends Page {
     	Utilities.waitForControlPresent(driver, By.xpath(ProjectGroupControls.Move_Project_Group_Xpath));
     	driver.findElement(By.xpath(ProjectGroupControls.Move_Project_Group_Xpath)).click();
     	Utilities.staticTimeDelay(5000);
-    	driver.findElement(By.id("rc_select_0")).sendKeys(Keys.TAB);
-    	driver.findElement(By.id("rc_select_0")).sendKeys(Keys.TAB);
-    	driver.findElement(By.id("rc_select_0")).sendKeys("Merico");
-    	driver.findElement(By.id("rc_select_0")).sendKeys(Keys.ENTER);
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys(Keys.TAB);
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys(Keys.TAB);
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys("Merico");
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys(Keys.ENTER);
     	driver.findElement(By.cssSelector(ProjectGroupControls.Move_Project_Group_Confirm_Btn_Css)).click();
     	Utilities.staticTimeDelay(2000);
     	this.closeToast();
@@ -135,6 +150,46 @@ public class ProjectGroupPage extends Page {
     	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css));
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).clear();
     	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).sendKeys(projectGroupA);
+    	Utilities.staticTimeDelay(2000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    	this.closeToast();
+        Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void batchMoveProjectGroup(String projectGroupName) {
+    	String projectGroupBatch = projectGroupName + "_Bat";
+
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(4000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css)).click();
+    	this.addProjectGroupDialog(projectGroupBatch);
+
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Batch_Checkbox_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Batch_Checkbox_Css)).click();
+
+    	this.hover4BatchCheckboxBtnAndClick();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Batch_Move_Btn_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Batch_Move_Btn_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys(Keys.TAB);
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys(Keys.TAB);
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys("Merico");
+    	driver.findElement(By.id(ProjectGroupControls.Move_Input_Textbox_Id)).sendKeys(Keys.ENTER);
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Move_Project_Group_Confirm_Btn_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	this.closeToast();
+        Utilities.staticTimeDelay(1000);
+        Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Batch_Del_Btn_Css));
+        driver.findElement(By.cssSelector(ProjectGroupControls.Batch_Del_Btn_Css)).click();
+        Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).clear();
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Del_Project_Group_Textbox_Css)).sendKeys("DELETE");
     	Utilities.staticTimeDelay(2000);
     	Actions builder = new Actions(driver);
     	builder.sendKeys(Keys.TAB).perform();
