@@ -54,4 +54,12 @@ public class TestDataProvider {
 				{ repoUrl, "qiwei-51ias", crypt.encrypt(pwd4Git), crypt }
 		};
 	}
+	
+	@DataProvider(name="focusProjectGroupProvider")
+	public static Object[][] focusProjectGroupProviderImpl() throws Exception {
+		
+		return new Object[][]{
+				{ "Merico" }
+		};
+	}
 }

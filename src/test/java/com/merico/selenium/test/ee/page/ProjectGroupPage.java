@@ -24,8 +24,7 @@ public class ProjectGroupPage extends Page {
         return true;
     }
     
-    @AutoIntercept
-    public void navigateProjectGroup() {
+    private void navigateProjectGroup() {
     	Utilities.waitForControlPresent(driver, By.xpath(ProjectGroupControls.Project_Group_Link_Xpath));
     	driver.findElement(By.xpath(ProjectGroupControls.Project_Group_Link_Xpath)).click();
     	Utilities.staticTimeDelay(4000);
@@ -45,8 +44,6 @@ public class ProjectGroupPage extends Page {
     
     @AutoIntercept
     public void addProjectGroup(String projectGroupName) {
-    	this.navigateProjectGroup();
-    	
     	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css));
     	driver.findElement(By.cssSelector(ProjectGroupControls.Add_Project_Group_Btn_Css)).click();
     	
@@ -198,6 +195,29 @@ public class ProjectGroupPage extends Page {
     	Utilities.staticTimeDelay(2000);
     	this.closeToast();
         Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void focusProjectGroup(String projectGroupName) {
+    	this.navigateProjectGroup();
+    	
+    	int tree_node_num = 1;
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Treenode_Trigger_Left_Css + 
+	    		  tree_node_num + ProjectGroupControls.Treenode_Focus_Btn_Right_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Treenode_Trigger_Left_Css + 
+	    		  tree_node_num + ProjectGroupControls.Treenode_Focus_Btn_Right_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	this.closeToast();
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Focus_Project_Group_Tab_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.Treenode_Trigger_Left_Css + 
+	    		  tree_node_num + ProjectGroupControls.Treenode_Unfocus_Btn_Right_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.Treenode_Trigger_Left_Css + 
+	    		  tree_node_num + ProjectGroupControls.Treenode_Unfocus_Btn_Right_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	this.closeToast();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(ProjectGroupControls.All_Project_Group_Tab_Css));
+    	driver.findElement(By.cssSelector(ProjectGroupControls.All_Project_Group_Tab_Css)).click();
+    	Utilities.staticTimeDelay(2000);
     }
     
     @AutoIntercept

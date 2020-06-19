@@ -48,7 +48,13 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertEquals(username, loginPage.getAccountName(), "Admin login failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "focusProjectGroupProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	public void testFocusProjectGroup(String projectGroupName) throws Exception {
+		ProjectGroupPage projectGroupPage = PageFactory.createPage(ProjectGroupPage.class, driver);
+		projectGroupPage.focusProjectGroup(projectGroupName);
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFocusProjectGroup"}, alwaysRun = true)
 	public void testAddProjectGroup() throws Exception {
 		ProjectGroupPage projectGroupPage = PageFactory.createPage(ProjectGroupPage.class, driver);
 		projectGroupPage.addProjectGroup(TestDataProvider.projectGroupName);

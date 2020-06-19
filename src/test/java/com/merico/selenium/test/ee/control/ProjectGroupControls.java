@@ -102,6 +102,26 @@ public class ProjectGroupControls {
     public static String Treenode_Item_Checkbox_Right_Css = getProperty("treenode_item_checkbox_right_css");
     
     /**
+     * Tree Node Focus Button
+     */
+    public static String Treenode_Focus_Btn_Right_Css = getProperty("treenode_focus_btn_right_css");
+    
+    /**
+     * Tree Node Unfocus Button
+     */
+    public static String Treenode_Unfocus_Btn_Right_Css = getProperty("treenode_unfocus_btn_right_css");
+    
+    /**
+     * All Project Group Tab
+     */
+    public static String All_Project_Group_Tab_Css = getProperty("all_project_group_tab_css");
+    
+    /**
+     * Focus Project Group Tab
+     */
+    public static String Focus_Project_Group_Tab_Css = getProperty("focus_project_group_tab_css");
+    
+    /**
      * Add Sub Project Group
      */
     public static String Add_Sub_Project_Group_Xpath = Utilities.utf8Char(getProperty("add_sub_project_group_xpath"));
