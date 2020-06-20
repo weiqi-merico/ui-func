@@ -85,6 +85,16 @@ public class AddRepoControls {
     public static final String Search_By_Git_Addr_TextBox_Css = getProperty("search_by_git_addr_textbox_css");
     
     /**
+     * 
+     */
+    public static final String Search_By_Project_Group_Css = getProperty("search_by_project_group_css");
+    
+    /**
+     * Delete Flag in Name or Addr Search Box
+     */
+    public static final String Delete_Flag_In_Name_Or_Addr_Search_Box_Css = getProperty("delete_flag_in_name_or_addr_search_box_css");
+    
+    /**
      * Delete Repo Button
      */
     public static final String Delete_Repo_Btn_Css = getProperty("delete_repo_btn_css");

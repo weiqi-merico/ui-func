@@ -1,7 +1,9 @@
 package com.merico.selenium.test.ee.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import com.merico.selenium.autoscreenshot.AutoIntercept;
 import com.merico.selenium.page.Page;
@@ -99,12 +101,40 @@ public class AddRepoPage extends Page {
         Utilities.staticTimeDelay(1000);
     }
     
-    @AutoIntercept
-    public void delAddedRepo(String repoUrl) {
+    private void searchRepoByNameOrGitAddr(String repoUrl) {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css)).click();
     	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css)).sendKeys(repoUrl);
-        Utilities.staticTimeDelay(2000);
+        Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void searchNonExistedRepoByNameOrGitAddr(String repoUrl) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css)).click();
+    	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css)).sendKeys(repoUrl);
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void searchRepoByProjectGroup(String repoUrl) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Delete_Flag_In_Name_Or_Addr_Search_Box_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Delete_Flag_In_Name_Or_Addr_Search_Box_Css)).click();
+        Utilities.staticTimeDelay(5000);
+        
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Search_By_Project_Group_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Project_Group_Css)).click();
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys("Merico").perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void delAddedRepo(String repoUrl) {
+    	this.searchRepoByNameOrGitAddr(repoUrl);
         Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Delete_Repo_Btn_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Delete_Repo_Btn_Css)).click();
         Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Confirm_Yes_Btn_4_Del_Repo_Css));

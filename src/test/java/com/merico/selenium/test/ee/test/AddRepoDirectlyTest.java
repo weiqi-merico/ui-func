@@ -66,7 +66,23 @@ public class AddRepoDirectlyTest extends TestBase {
 		addRepoPage.cancelAddRepo();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddRepoDirectly"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddExistedRepoDirectly"}, alwaysRun = true)
+	public void testSearchNonExistedRepoByNameOrGitAddr() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.searchNonExistedRepoByNameOrGitAddr("Does not exist");
+		
+		Assert.assertEquals("暂无数据", addRepoPage.getNoDataPromptMsg(), "Search Repo By Name or Git Addr Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchNonExistedRepoByNameOrGitAddr"}, alwaysRun = true)
+	public void testSearchRepoByProjectGroup() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.searchRepoByProjectGroup("Merico");
+		
+		Assert.assertTrue(addRepoPage.getAddedRepoName().contains("kubernetes"), "Search By Project Group Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testSearchRepoByProjectGroup"}, alwaysRun = true)
 	public void testDelRepo(String repoUrl) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.delAddedRepo(repoUrl);
