@@ -85,7 +85,7 @@ public class AddRepoControls {
     public static final String Search_By_Git_Addr_TextBox_Css = getProperty("search_by_git_addr_textbox_css");
     
     /**
-     * 
+     * Search By Project Group
      */
     public static final String Search_By_Project_Group_Css = getProperty("search_by_project_group_css");
     
