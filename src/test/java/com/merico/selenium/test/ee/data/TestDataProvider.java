@@ -16,7 +16,7 @@ public class TestDataProvider {
 		Crypt crypt = new Crypt();
 		
 		return new Object[][]{
-				{"sigma@meri.co", crypt.encrypt(pwd4Admin), crypt}
+				{"autotest@test.com", crypt.encrypt(pwd4Admin), crypt}
 		};
 	}
 	
