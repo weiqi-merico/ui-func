@@ -118,4 +118,29 @@ public class AddRepoControls {
      * Prompt Msg for No Data
      */
     public static final String No_data_Prompt_Msg_Css = getProperty("no_data_prompt_msg_css");
+    
+    /**
+     * Sort By Dev Equivalent Descend
+     */
+    public static final String Sort_By_Dev_Equivalent_Descend_Css = getProperty("sort_by_dev_equivalent_descend_css");
+    
+    /**
+     * Sort By Commits Descend
+     */
+    public static final String Sort_By_Commits_Descend_Css = getProperty("sort_by_commits_descend_css");
+    
+    /**
+     * Sort By Contributor Descend
+     */
+    public static final String Sort_By_Contributors_Descend_Css = getProperty("sort_by_contributors_descend_css");
+    
+    /**
+     * Sort By Update Time Stamp Descend
+     */
+    public static final String Sort_By_Update_Timestamp_Descend_Css = getProperty("sort_by_update_timestamp_descend_css");
+    
+    /**
+     * Sort By Subscription Time Stamp Descend
+     */
+    public static final String Sort_By_Subscription_Timestamp_Descend_Css = getProperty("sort_by_subscription_timestamp_descend_css");
 }

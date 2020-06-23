@@ -39,7 +39,8 @@ public class AddRepoDirectlyTest extends TestBase {
 		logoutPage.logout();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "loginData4AdminProvider", dataProviderClass = TestDataProvider.class, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "loginData4AdminProvider", dataProviderClass = TestDataProvider.class, 
+			alwaysRun = true)
 	public void testLogin4Admin(String username, String password, Crypt crypt) throws Exception {
 		LoginPage loginPage = PageFactory.createPage(LoginPage.class, driver);
 		loginPage.inputUsernameAndPwd(username, crypt.decrypt(password));
@@ -48,7 +49,8 @@ public class AddRepoDirectlyTest extends TestBase {
 		Assert.assertEquals(username, loginPage.getAccountName(), "Admin login failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, 
+			dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
 	public void testAddRepoDirectly(String repoUrl) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.addRepoDirectly(repoUrl);
@@ -56,7 +58,8 @@ public class AddRepoDirectlyTest extends TestBase {
 		Assert.assertTrue(addRepoPage.getAddedRepoName().contains("kubernetes"), "Add Repository Directly Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddRepoDirectly"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, 
+			dependsOnMethods = {"testAddRepoDirectly"}, alwaysRun = true)
 	public void testAddExistedRepoDirectly(String repoUrl) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.addExistedRepoDirectly(repoUrl);
@@ -82,7 +85,38 @@ public class AddRepoDirectlyTest extends TestBase {
 		Assert.assertTrue(addRepoPage.getAddedRepoName().contains("kubernetes"), "Search By Project Group Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testSearchRepoByProjectGroup"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchRepoByProjectGroup"}, alwaysRun = true)
+	public void testSortByDevEquivalent() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.sortByDevEquivalent();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByDevEquivalent"}, alwaysRun = true)
+	public void testSortByCommits() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.sortByCommits();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByCommits"}, alwaysRun = true)
+	public void testSortByContributors() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.sortByContributors();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByContributors"}, alwaysRun = true)
+	public void testSortByUpdateTimestamps() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.sortByUpdateTimestamps();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByUpdateTimestamps"}, alwaysRun = true)
+	public void testSortBySubscriptionTimestamps() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.sortBySubscriptionTimestamps();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, 
+			dependsOnMethods = {"testSortBySubscriptionTimestamps"}, alwaysRun = true)
 	public void testDelRepo(String repoUrl) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.delAddedRepo(repoUrl);

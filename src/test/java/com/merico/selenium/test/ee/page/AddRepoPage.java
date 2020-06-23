@@ -133,6 +133,46 @@ public class AddRepoPage extends Page {
     }
     
     @AutoIntercept
+    public void sortByDevEquivalent() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(5000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Dev_Equivalent_Descend_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Dev_Equivalent_Descend_Css)).click();
+        Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void sortByCommits() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Commits_Descend_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Commits_Descend_Css)).click();
+        Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void sortByContributors() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Contributors_Descend_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Contributors_Descend_Css)).click();
+        Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void sortByUpdateTimestamps() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Update_Timestamp_Descend_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Update_Timestamp_Descend_Css)).click();
+        Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void sortBySubscriptionTimestamps() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Subscription_Timestamp_Descend_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Subscription_Timestamp_Descend_Css)).click();
+        Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
     public void delAddedRepo(String repoUrl) {
     	this.searchRepoByNameOrGitAddr(repoUrl);
         Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Delete_Repo_Btn_Css));
