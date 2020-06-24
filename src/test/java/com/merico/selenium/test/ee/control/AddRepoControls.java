@@ -143,4 +143,34 @@ public class AddRepoControls {
      * Sort By Subscription Time Stamp Descend
      */
     public static final String Sort_By_Subscription_Timestamp_Descend_Css = getProperty("sort_by_subscription_timestamp_descend_css");
+    
+    /**
+     * All Repo Tab
+     */
+    public static final String All_Repo_Tab_Css = getProperty("all_repo_tab_css");
+    
+    /**
+     * Waiting Repo Tab
+     */
+    public static final String Waiting_Repo_Tab_Css = getProperty("waiting_repo_tab_css");
+    
+    /**
+     * Underway Repo Tab
+     */
+    public static final String Underway_Repo_Tab_Css = getProperty("underway_repo_tab_css");
+    
+    /**
+     * Finished Repo Tab
+     */
+    public static final String Finished_Repo_Tab_Css = getProperty("finished_repo_tab_css");
+    
+    /**
+     * Abnormal Repo Tab
+     */
+    public static final String Abnormal_Repo_Tab_Css = getProperty("abnormal_repo_tab_css");
+    
+    /**
+     * Repo Status
+     */
+    public static final String Repo_Status_Css = getProperty("repo_status_css");
 }

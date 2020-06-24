@@ -115,8 +115,42 @@ public class AddRepoDirectlyTest extends TestBase {
 		addRepoPage.sortBySubscriptionTimestamps();
 	}
 	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortBySubscriptionTimestamps"}, alwaysRun = true)
+	public void testWaitingRepoTab() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.waitingRepoTab();
+		
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("等待中"), "Waiting Repo Tab Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testWaitingRepoTab"}, alwaysRun = true)
+	public void testUnderwayRepoTab() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.underwayRepoTab();
+		
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("处理中"), "Waiting Repo Tab Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testUnderwayRepoTab"}, alwaysRun = true)
+	public void testFinishedRepoTab() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.finishedRepoTab();
+		
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("已完成"), "Waiting Repo Tab Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFinishedRepoTab"}, alwaysRun = true)
+	public void testAbnormalRepoTab() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.abnormalRepoTab();
+		
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("有异常"), "Waiting Repo Tab Failed!");
+		
+		addRepoPage.allRepoTab();
+	}
+	
 	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, 
-			dependsOnMethods = {"testSortBySubscriptionTimestamps"}, alwaysRun = true)
+			dependsOnMethods = {"testAbnormalRepoTab"}, alwaysRun = true)
 	public void testDelRepo(String repoUrl) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.delAddedRepo(repoUrl);

@@ -173,6 +173,48 @@ public class AddRepoPage extends Page {
     }
     
     @AutoIntercept
+    public void allRepoTab() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.All_Repo_Tab_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.All_Repo_Tab_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void waitingRepoTab() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Waiting_Repo_Tab_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Waiting_Repo_Tab_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void underwayRepoTab() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Underway_Repo_Tab_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Underway_Repo_Tab_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void finishedRepoTab() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Finished_Repo_Tab_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Finished_Repo_Tab_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void abnormalRepoTab() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Abnormal_Repo_Tab_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Abnormal_Repo_Tab_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    public String getRepoStatus() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Status_Css));
+    	String repoStatus = driver.findElement(By.cssSelector(AddRepoControls.Repo_Status_Css)).getText().trim();
+    	
+    	return repoStatus;
+    }
+    
+    @AutoIntercept
     public void delAddedRepo(String repoUrl) {
     	this.searchRepoByNameOrGitAddr(repoUrl);
         Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Delete_Repo_Btn_Css));
