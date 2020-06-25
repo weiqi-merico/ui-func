@@ -173,4 +173,29 @@ public class AddRepoControls {
      * Repo Status
      */
     public static final String Repo_Status_Css = getProperty("repo_status_css");
+    
+    /**
+     * Analysis Parameter Config Button
+     */
+    public static final String Analasys_Para_Config_Btn_Css = getProperty("analysis_para_config_btn_css");
+    
+    /**
+     * Stop Analysis Button
+     */
+    public static final String Stop_Analysis_Btn_Css = getProperty("stop_analysis_btn_css");
+    
+    /**
+     * View Report Button
+     */
+    public static final String View_Report_Btn_Xpath = getProperty("view_report_btn_xpath");
+    
+    /**
+     * View Report Page Title
+     */
+    public static final String View_Report_Page_Title_Xpath = getProperty("view_report_page_title_xpath");
+    
+    /**
+     * Analysis Parameter Config Page Title
+     */
+    public static final String Analysis_Para_Config_Page_Title_Css = getProperty("analysis_para_config_page_title_css");
 }

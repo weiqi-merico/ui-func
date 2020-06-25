@@ -128,7 +128,7 @@ public class AddRepoDirectlyTest extends TestBase {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.underwayRepoTab();
 		
-		Assert.assertTrue(addRepoPage.getRepoStatus().contains("处理中"), "Waiting Repo Tab Failed!");
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("处理中"), "Underway Repo Tab Failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testUnderwayRepoTab"}, alwaysRun = true)
@@ -136,7 +136,7 @@ public class AddRepoDirectlyTest extends TestBase {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.finishedRepoTab();
 		
-		Assert.assertTrue(addRepoPage.getRepoStatus().contains("已完成"), "Waiting Repo Tab Failed!");
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("已完成"), "Finished Repo Tab Failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFinishedRepoTab"}, alwaysRun = true)
@@ -144,13 +144,31 @@ public class AddRepoDirectlyTest extends TestBase {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.abnormalRepoTab();
 		
-		Assert.assertTrue(addRepoPage.getRepoStatus().contains("有异常"), "Waiting Repo Tab Failed!");
+		Assert.assertTrue(addRepoPage.getRepoStatus().contains("有异常"), "Abnormal Repo Tab Failed!");
+		
+		addRepoPage.allRepoTab();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAbnormalRepoTab"}, alwaysRun = true)
+	public void testAnalysisParameterConfig() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.analysisParameterConfig();
+		
+		Assert.assertEquals("分析参数配置", addRepoPage.getAnalysisParaConfigPageTitle(), "Analysis Parameter Config Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAnalysisParameterConfig"}, alwaysRun = true)
+	public void testStopAnalysis() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.stopAnalysis();
+		
+//		Assert.assertEquals("暂无数据", addRepoPage.getNoDataPromptMsg(), "Stop Analysis Failed!");
 		
 		addRepoPage.allRepoTab();
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoDirectlyProvider", dataProviderClass = TestDataProvider.class, 
-			dependsOnMethods = {"testAbnormalRepoTab"}, alwaysRun = true)
+			dependsOnMethods = {"testStopAnalysis"}, alwaysRun = true)
 	public void testDelRepo(String repoUrl) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.delAddedRepo(repoUrl);

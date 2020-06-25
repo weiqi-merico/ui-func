@@ -32,7 +32,7 @@ public class AddRepoPage extends Page {
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
         Utilities.staticTimeDelay(6000);
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
-        Utilities.staticTimeDelay(4000);
+        Utilities.staticTimeDelay(6000);
         driver.findElement(By.cssSelector(AddRepoControls.Steps_Btn_Css)).click();
         Utilities.staticTimeDelay(6000);
     }
@@ -113,7 +113,7 @@ public class AddRepoPage extends Page {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css)).click();
     	driver.findElement(By.cssSelector(AddRepoControls.Search_By_Git_Addr_TextBox_Css)).sendKeys(repoUrl);
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
@@ -129,7 +129,7 @@ public class AddRepoPage extends Page {
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
@@ -141,70 +141,70 @@ public class AddRepoPage extends Page {
     	Utilities.staticTimeDelay(5000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Dev_Equivalent_Descend_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Dev_Equivalent_Descend_Css)).click();
-        Utilities.staticTimeDelay(5000);
+        Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void sortByCommits() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Commits_Descend_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Commits_Descend_Css)).click();
-        Utilities.staticTimeDelay(5000);
+        Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void sortByContributors() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Contributors_Descend_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Contributors_Descend_Css)).click();
-        Utilities.staticTimeDelay(5000);
+        Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void sortByUpdateTimestamps() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Update_Timestamp_Descend_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Update_Timestamp_Descend_Css)).click();
-        Utilities.staticTimeDelay(5000);
+        Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void sortBySubscriptionTimestamps() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Sort_By_Subscription_Timestamp_Descend_Css));
         driver.findElement(By.cssSelector(AddRepoControls.Sort_By_Subscription_Timestamp_Descend_Css)).click();
-        Utilities.staticTimeDelay(5000);
+        Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void allRepoTab() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.All_Repo_Tab_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.All_Repo_Tab_Css)).click();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void waitingRepoTab() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Waiting_Repo_Tab_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Waiting_Repo_Tab_Css)).click();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void underwayRepoTab() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Underway_Repo_Tab_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Underway_Repo_Tab_Css)).click();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void finishedRepoTab() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Finished_Repo_Tab_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Finished_Repo_Tab_Css)).click();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     @AutoIntercept
     public void abnormalRepoTab() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Abnormal_Repo_Tab_Css));
     	driver.findElement(By.cssSelector(AddRepoControls.Abnormal_Repo_Tab_Css)).click();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(7000);
     }
     
     public String getRepoStatus() {
@@ -212,6 +212,50 @@ public class AddRepoPage extends Page {
     	String repoStatus = driver.findElement(By.cssSelector(AddRepoControls.Repo_Status_Css)).getText().trim();
     	
     	return repoStatus;
+    }
+    
+    @AutoIntercept
+    public void analysisParameterConfig() {
+    	this.underwayRepoTab();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Analasys_Para_Config_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Analasys_Para_Config_Btn_Css)).click();
+    	Utilities.staticTimeDelay(7000);
+    }
+    
+    public String getAnalysisParaConfigPageTitle() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Analysis_Para_Config_Page_Title_Css));
+    	
+    	String analysisParaConfigPageTitle = driver.findElement(By.cssSelector(AddRepoControls.Analysis_Para_Config_Page_Title_Css)).
+    			getText().trim();
+    	
+    	return analysisParaConfigPageTitle;
+    }
+
+    @AutoIntercept
+    public void viewReport() {
+    	Utilities.staticTimeDelay(1000);
+    	driver.navigate().back();
+    	Utilities.waitForControlPresent(driver, By.xpath(AddRepoControls.View_Report_Btn_Xpath));
+    	driver.findElement(By.xpath(AddRepoControls.View_Report_Btn_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    public String getViewReportPageTitle() {
+    	Utilities.waitForControlPresent(driver, By.xpath(AddRepoControls.View_Report_Page_Title_Xpath));
+    	
+    	String viewReportPageTitle = driver.findElement(By.xpath(AddRepoControls.View_Report_Page_Title_Xpath)).
+    			getText().trim();
+    	
+    	return viewReportPageTitle;
+    }
+    
+    @AutoIntercept
+    public void stopAnalysis() {
+    	Utilities.staticTimeDelay(1000);
+    	driver.navigate().back();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Stop_Analysis_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Stop_Analysis_Btn_Css)).click();
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
