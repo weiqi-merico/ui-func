@@ -175,4 +175,16 @@ public class AddRepoDirectlyTest extends TestBase {
 		
 		Assert.assertEquals("暂无数据", addRepoPage.getNoDataPromptMsg(), "Delete Repo Directly Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDelRepo"}, alwaysRun = true)
+	public void testReanalysisRepo() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.clickDelFlag();
+		addRepoPage.finishedRepoTab();
+		int originalNum = addRepoPage.getFinishedRepoTabNum();
+		addRepoPage.reanalysisRepo();
+		int reanalysisNum = addRepoPage.getFinishedRepoTabNum();
+		
+		Assert.assertEquals(reanalysisNum, originalNum - 1, "Reanalysis Repo Failed!");
+	}
 }

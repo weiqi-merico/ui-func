@@ -56,6 +56,7 @@ public class AddRepoPage extends Page {
         Utilities.staticTimeDelay(6000);
     }
     
+    @AutoIntercept
     public String getAddedRepoName() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Added_Repo_Name_Css));
     	String addedRepoName = driver.findElement(By.cssSelector(AddRepoControls.Added_Repo_Name_Css)).getText().trim();
@@ -88,6 +89,7 @@ public class AddRepoPage extends Page {
         Utilities.staticTimeDelay(1000);
     }
     
+    @AutoIntercept
     public String getRepoExistedErrPromptMsg() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Exited_Prompt_Msg_Css));
     	String errPromptMsg = driver.findElement(By.cssSelector(AddRepoControls.Repo_Exited_Prompt_Msg_Css)).getText().trim();
@@ -207,6 +209,7 @@ public class AddRepoPage extends Page {
     	Utilities.staticTimeDelay(7000);
     }
     
+    @AutoIntercept
     public String getRepoStatus() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Status_Css));
     	String repoStatus = driver.findElement(By.cssSelector(AddRepoControls.Repo_Status_Css)).getText().trim();
@@ -222,6 +225,7 @@ public class AddRepoPage extends Page {
     	Utilities.staticTimeDelay(7000);
     }
     
+    @AutoIntercept
     public String getAnalysisParaConfigPageTitle() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Analysis_Para_Config_Page_Title_Css));
     	
@@ -240,6 +244,7 @@ public class AddRepoPage extends Page {
     	Utilities.staticTimeDelay(3000);
     }
     
+    @AutoIntercept
     public String getViewReportPageTitle() {
     	Utilities.waitForControlPresent(driver, By.xpath(AddRepoControls.View_Report_Page_Title_Xpath));
     	
@@ -271,10 +276,38 @@ public class AddRepoPage extends Page {
         Utilities.staticTimeDelay(2000);
     }
     
+    @AutoIntercept
     public String getNoDataPromptMsg() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.No_data_Prompt_Msg_Css));
     	String noDataPromptMsg = driver.findElement(By.cssSelector(AddRepoControls.No_data_Prompt_Msg_Css)).getText().trim();
         return noDataPromptMsg;
+    }
+    
+    @AutoIntercept
+    public void reanalysisRepo() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Reanalysis_Btn_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Reanalysis_Btn_Css)).click();
+        Utilities.staticTimeDelay(1000);
+        Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Operating_Toast_Close_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Operating_Toast_Close_Css)).click();
+        Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void clickDelFlag() {
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Delete_Flag_In_Name_Or_Addr_Search_Box_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Delete_Flag_In_Name_Or_Addr_Search_Box_Css)).click();
+        Utilities.staticTimeDelay(5000);   
+    }
+    
+    @AutoIntercept
+    public int getFinishedRepoTabNum() {
+    	Utilities.waitForControlPresent(driver, By.xpath(AddRepoControls.finished_repo_tab_num_xpath));
+        String numberStr = driver.findElement(By.xpath(AddRepoControls.finished_repo_tab_num_xpath)).getAttribute("title").trim();
+        System.out.println("Number is: " + numberStr);
+        int number = Integer.parseInt(numberStr);
+        return number;
     }
 }
 

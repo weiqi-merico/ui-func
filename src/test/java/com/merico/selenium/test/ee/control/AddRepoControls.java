@@ -185,6 +185,16 @@ public class AddRepoControls {
     public static final String Stop_Analysis_Btn_Css = getProperty("stop_analysis_btn_css");
     
     /**
+     * Reanalysis Button
+     */
+    public static final String Reanalysis_Btn_Css = getProperty("reanalysis_btn_css");
+    
+    /**
+     * Finished Repo Tab Number
+     */
+    public static final String finished_repo_tab_num_xpath = getProperty("finished_repo_tab_num_xpath");
+    
+    /**
      * View Report Button
      */
     public static final String View_Report_Btn_Xpath = getProperty("view_report_btn_xpath");

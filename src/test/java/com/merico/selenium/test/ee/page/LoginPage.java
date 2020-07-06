@@ -37,7 +37,7 @@ public class LoginPage extends Page {
 		this.languageSwitch();
 		Utilities.waitForControlPresent(driver, By.cssSelector(LoginControls.Login_Button_Css));
 		driver.findElement(By.cssSelector(LoginControls.Login_Button_Css)).click();
-		Utilities.staticTimeDelay(12000);
+		Utilities.staticTimeDelay(15000);
 	}
 	
 	public String getAccountName() {
@@ -52,7 +52,7 @@ public class LoginPage extends Page {
 //		this.languageSwitch();
 		Utilities.waitForControlPresent(driver, By.cssSelector(LoginControls.Login_Button_4_Ldap_Css));
 		driver.findElement(By.cssSelector(LoginControls.Login_Button_4_Ldap_Css)).click();
-		Utilities.staticTimeDelay(12000);
+		Utilities.staticTimeDelay(15000);
 	}
 	
 	private void languageSwitch() {

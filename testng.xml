@@ -4,8 +4,8 @@
   <!-- In order to improve the test efficiency, there is no listener when test execution on the server -->
   <listeners>
     <listener class-name="com.merico.selenium.listener.LogSeperateTestListener"></listener>
-	<listener class-name="com.merico.selenium.listener.ErrorSpecScreenshotListener"></listener>
-	<listener class-name="com.merico.selenium.autoscreenshot.AutoScreenshotListener"></listener>
+	<!-- <listener class-name="com.merico.selenium.listener.ErrorSpecScreenshotListener"></listener>
+	<listener class-name="com.merico.selenium.autoscreenshot.AutoScreenshotListener"></listener> -->
 	<listener class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />
   </listeners>
   
