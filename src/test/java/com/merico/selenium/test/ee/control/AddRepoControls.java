@@ -208,4 +208,49 @@ public class AddRepoControls {
      * Analysis Parameter Config Page Title
      */
     public static final String Analysis_Para_Config_Page_Title_Css = getProperty("analysis_para_config_page_title_css");
+    
+    /**
+     * Multiple Selection Button
+     */
+    public static final String Multi_Selection_Btn_Css = getProperty("multi_selection_btn_css");
+    
+    /**
+     * Cancel Multi Selection Button
+     */
+    public static final String Cancel_Multi_Selection_Btn_Css = getProperty("cancel_multi_selection_btn_css");
+    
+    /**
+     * All Selection Button
+     */
+    public static final String All_Selection_Btn_Css = getProperty("all_selection_btn_css");
+    
+    /**
+     * Cancel All Selection Button
+     */
+    public static final String Cancel_All_Selection_Btn_Css = getProperty("cancel_all_selection_btn_css");
+    
+    /**
+     * First Item Selection Checkbox
+     */
+    public static final String First_Item_Selection_Checkbox_Css = getProperty("first_item_selection_checkbox_css");
+    
+    /**
+     * Batch Delete Repo Button
+     */
+    public static final String Batch_Del_Repo_Btn_Css = getProperty("batch_del_repo_btn_css");
+    
+    /**
+     * Batch Access Authentication Button
+     */
+    public static final String Batch_Access_Auth_Btn_Css = getProperty("batch_access_auth_btn_css");
+    
+    /**
+     * Batch Stop Analysis Button 
+     */
+    public static final String Batch_Stop_Analysis_Btn_Css = getProperty("batch_stop_analysis_btn_css");
+    
+    /**
+     * Batch Start Analysis Button
+     */
+    public static final String Batch_Start_Analysis_Btn_Css = getProperty("batch_start_analysis_btn_css");
 }

@@ -309,5 +309,43 @@ public class AddRepoPage extends Page {
         int number = Integer.parseInt(numberStr);
         return number;
     }
+    
+    @AutoIntercept
+    public void allSelect() {
+    	this.clickMulitiSelectBtn();
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.All_Selection_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.All_Selection_Btn_Css)).click();
+    }
+    
+    @AutoIntercept
+    public void cacelAllSelect() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Cancel_All_Selection_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Cancel_All_Selection_Btn_Css)).click();
+    }
+    
+    @AutoIntercept
+    public void clickMulitiSelectBtn() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Multi_Selection_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Multi_Selection_Btn_Css)).click();
+    	
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public void clickCacelMulitiSelectBtn() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Cancel_Multi_Selection_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Cancel_Multi_Selection_Btn_Css)).click();
+    	
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getMultiSelectionCheckboxLabelInfo() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css));
+    	String labelInfo = driver.findElement(By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css)).getText().trim();
+    	
+    	return labelInfo;
+    }
 }
 

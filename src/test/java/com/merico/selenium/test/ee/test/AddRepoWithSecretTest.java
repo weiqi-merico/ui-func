@@ -39,7 +39,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		logoutPage.logout();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "loginData4AdminProvider", dataProviderClass = TestDataProvider.class, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "loginData4AdminProvider", dataProviderClass = TestDataProvider.class, 
+			alwaysRun = true)
 	public void testLogin4Admin(String username, String password, Crypt crypt) throws Exception {
 		LoginPage loginPage = PageFactory.createPage(LoginPage.class, driver);
 		loginPage.inputUsernameAndPwd(username, crypt.decrypt(password));
@@ -48,7 +49,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertEquals(username, loginPage.getAccountName(), "Admin login failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, 
+			dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
 	public void testAddRepoWithSecret(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.addRepoWithSecret(repoUrl, accountName, crypt.decrypt(pwd));
@@ -56,7 +58,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertTrue(addRepoPage.getAddedRepoName().contains("gloudapi2"), "Add Repository with Secret Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddRepoWithSecret"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, 
+			dependsOnMethods = {"testAddRepoWithSecret"}, alwaysRun = true)
 	public void testAddExistedRepoWithSecret(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.addExistedRepoWithSecret(repoUrl, accountName, crypt.decrypt(pwd));
@@ -66,7 +69,26 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		addRepoPage.cancelAddRepo();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testAddExistedRepoWithSecret"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddExistedRepoWithSecret"}, alwaysRun = true)
+	public void testMultiSelection() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.allSelect();
+	
+		Assert.assertEquals(addRepoPage.getMultiSelectionCheckboxLabelInfo(), "已勾选", "Multiple Selection Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMultiSelection"}, alwaysRun = true)
+	public void testCancelMultiSelection() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.cacelAllSelect();
+	
+		Assert.assertEquals(addRepoPage.getMultiSelectionCheckboxLabelInfo(), "点击选择项目", "Multiple Selection Failed!");
+		
+		addRepoPage.clickCacelMulitiSelectBtn();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, 
+			dependsOnMethods = {"testCancelMultiSelection"}, alwaysRun = true)
 	public void testDelRepo(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
 		addRepoPage.delAddedRepo(repoUrl);
