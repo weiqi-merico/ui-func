@@ -87,12 +87,27 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		addRepoPage.clickCacelMulitiSelectBtn();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "addRepoWithSecretProvider", dataProviderClass = TestDataProvider.class, 
-			dependsOnMethods = {"testCancelMultiSelection"}, alwaysRun = true)
-	public void testDelRepo(String repoUrl, String accountName, String pwd, Crypt crypt) throws Exception {
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCancelMultiSelection"}, alwaysRun = true)
+	public void testBatchStopAnalysis() throws Exception {
 		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
-		addRepoPage.delAddedRepo(repoUrl);
-		
-		Assert.assertEquals("暂无数据", addRepoPage.getNoDataPromptMsg(), "Delete Repo Directly Failed!");
+		addRepoPage.batchStopAnalysis();
+		addRepoPage.clickCacelMulitiSelectBtn();
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBatchStopAnalysis"}, alwaysRun = true)
+	public void testBatchStartAnalysis() throws Exception {
+		AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+		addRepoPage.allRepoTab();
+		addRepoPage.batchStartAnalysis();
+		addRepoPage.clickCacelMulitiSelectBtn();
+	}
+	
+	
+   @Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBatchStartAnalysis"}, alwaysRun = true) 
+   public void testDelRepo() throws Exception { 
+	   AddRepoPage addRepoPage = PageFactory.createPage(AddRepoPage.class, driver);
+	   addRepoPage.batchDelRepo();
+	   Assert.assertEquals("暂无数据", addRepoPage.getNoDataPromptMsg(), "Batch Delete Repo Directly Failed!"); 
+	   addRepoPage.clickCacelMulitiSelectBtn();
+  } 
 }

@@ -347,5 +347,49 @@ public class AddRepoPage extends Page {
     	
     	return labelInfo;
     }
+    
+    @AutoIntercept
+    public void batchStopAnalysis() {
+    	this.searchRepoByNameOrGitAddr("https://github.com/51ias/gloudapi2.git");
+    	this.underwayRepoTab();
+		this.clickMulitiSelectBtn();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Batch_Stop_Analysis_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Batch_Stop_Analysis_Btn_Css)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void batchStartAnalysis() {
+//    	this.searchRepoByNameOrGitAddr("https://github.com/51ias/gloudapi2.git");
+    	this.clickMulitiSelectBtn();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Batch_Start_Analysis_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Batch_Start_Analysis_Btn_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+        Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Operating_Toast_Close_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Operating_Toast_Close_Css)).click();
+        Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void batchDelRepo() {
+    	this.clickMulitiSelectBtn();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.First_Item_Selection_Checkbox_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Batch_Del_Repo_Btn_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Batch_Del_Repo_Btn_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Confirm_Yes_Btn_4_Del_Repo_Css));
+    	driver.findElement(By.cssSelector(AddRepoControls.Confirm_Yes_Btn_4_Del_Repo_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Operating_Toast_Close_Css));
+        driver.findElement(By.cssSelector(AddRepoControls.Operating_Toast_Close_Css)).click();
+        Utilities.staticTimeDelay(2000);
+    }
 }
 
