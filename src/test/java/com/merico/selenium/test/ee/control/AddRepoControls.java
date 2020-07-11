@@ -8,7 +8,7 @@ public class AddRepoControls {
     static {
         try {
             props = new Properties();
-            InputStream in = LoginControls.class.getClassLoader().getResourceAsStream("add-repo-control.properties");
+            InputStream in = AddRepoControls.class.getClassLoader().getResourceAsStream("add-repo-control.properties");
             props.load(in);
         } catch (Exception e) {
             throw new RuntimeException("Failed to initiate the configuration file", e);

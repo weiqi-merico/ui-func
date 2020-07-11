@@ -10,7 +10,7 @@ public class ProjectGroupControls {
     static {
         try {
             props = new Properties();
-            InputStream in = LoginControls.class.getClassLoader().getResourceAsStream("project-group-control.properties");
+            InputStream in = ProjectGroupControls.class.getClassLoader().getResourceAsStream("project-group-control.properties");
             props.load(in);
         } catch (Exception e) {
             throw new RuntimeException("Failed to initiate the configuration file", e);
