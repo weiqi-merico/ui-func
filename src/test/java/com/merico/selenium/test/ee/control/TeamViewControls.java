@@ -38,4 +38,9 @@ public class TeamViewControls {
      * Search Team Member Textbox
      */
     public static final String Search_Teams_Member_Textbox_Css = getProperty("search_teams_member_textbox_css");
+    
+    /**
+     * Team Css Search Status
+     */
+    public static final String Team_Css_Search_Status_Xpath = getProperty("team_css_search_status_xpath");
 }
