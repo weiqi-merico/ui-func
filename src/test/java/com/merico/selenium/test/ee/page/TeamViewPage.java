@@ -1,7 +1,10 @@
 package com.merico.selenium.test.ee.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.merico.selenium.autoscreenshot.AutoIntercept;
 import com.merico.selenium.page.Page;
@@ -43,5 +46,173 @@ public class TeamViewPage extends Page {
     	System.out.println(rgb);
     	
     	return rgb;
+    }
+    
+    @AutoIntercept
+    public void efficiencyAsc() {
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(13000);
+
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 12; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getEfficiencyDataFlag() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Efficiency_Data_Flag_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Efficiency_Data_Flag_Xpath)).getText().trim();
+    	System.out.println(dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public void qualityAsc() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void qualityDesc() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getQualityDataFlag() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Quality_Data_Flag_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Quality_Data_Flag_Xpath)).getText().trim();
+    	System.out.println(dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public void aTozSort() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void zToaSort() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getCharSortDataFlag() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Char_Sort_Data_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Char_Sort_Data_Xpath)).getText().trim();
+    	System.out.println(dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastWeek() {
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(13000);
+
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 10; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastTwoWeek() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastThreeMonths() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastOneYear() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getRootNodeDataFlag() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Root_Node_Data_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Root_Node_Data_Xpath)).getText().trim();
+    	System.out.println(dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public void memberTooltip() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Member_Css));
+    	{
+	    	WebElement element = driver.findElement(By.cssSelector(TeamViewControls.Member_Css));
+	    	Actions builder = new Actions(driver);
+	        builder.moveToElement(element).perform();
+    	}
+    }
+    
+    @AutoIntercept
+    public void subGroupTooltip() {
+    	driver.navigate().refresh();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Sub_Group_Css));
+    	{
+	    	WebElement element = driver.findElement(By.cssSelector(TeamViewControls.Sub_Group_Css));
+	    	Actions builder = new Actions(driver);
+	        builder.moveToElement(element).perform();
+    	}
+    }
+    
+    @AutoIntercept
+    public String getTooltipVal() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Member_Tooltip_Css));
+    	String dataFlag = driver.findElement(By.cssSelector(TeamViewControls.Member_Tooltip_Css)).getText().trim();
+    	System.out.println(dataFlag);
+    	
+    	return dataFlag;
     }
 }

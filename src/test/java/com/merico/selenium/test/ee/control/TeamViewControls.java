@@ -43,4 +43,49 @@ public class TeamViewControls {
      * Team Css Search Status
      */
     public static final String Team_Css_Search_Status_Xpath = getProperty("team_css_search_status_xpath");
+    
+    /**
+     * Filter Box
+     */
+    public static final String Filter_Box_Id = getProperty("filter_box_id");
+    
+    /**
+     * No Data Flag
+     */
+    public static final String Efficiency_Data_Flag_Xpath = getProperty("efficiency_data_flag_xpath");
+    
+    /**
+     * Quality Data Flag
+     */
+    public static final String Quality_Data_Flag_Xpath = getProperty("quality_data_flag_xpath");
+    
+    /**
+     * Char Sort Data
+     */
+    public static final String Char_Sort_Data_Xpath = getProperty("char_sort_data_xpath");
+    
+    /**
+     * Root Node Data
+     */
+    public static final String Root_Node_Data_Xpath = getProperty("root_node_data_xpath");
+    
+    /**
+     * Member
+     */
+    public static final String Member_Css = getProperty("member_css");
+    
+    /**
+     * Member Tooltip
+     */
+    public static final String Member_Tooltip_Css = getProperty("member_tooltip_css");
+    
+    /**
+     * Sub Group
+     */
+    public static final String Sub_Group_Css = getProperty("sub_group_css");
+    
+    /**
+     * Sub Group Tooltip
+     */
+    public static final String Sub_Group_Tooltip_Css = getProperty("sub_group_tooltip_css");
 }

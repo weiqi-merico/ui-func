@@ -56,4 +56,92 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 
 		Assert.assertEquals(teamViewPage.getSearchCssStatus(), "rgba(255, 255, 66, 1)", "Search Developer failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchDeveloper"}, alwaysRun = true)
+	public void testEffiencyAsc() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.efficiencyAsc();
+
+		Assert.assertEquals(teamViewPage.getEfficiencyDataFlag(), "无数据", "Efficiency Asc failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEffiencyAsc"}, alwaysRun = true)
+	public void testQualityAsc() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.qualityAsc();
+
+		Assert.assertTrue(teamViewPage.getQualityDataFlag().contains("%"), "Quality Asc failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testQualityAsc"}, alwaysRun = true)
+	public void testQualityDesc() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.qualityDesc();
+
+		Assert.assertTrue(teamViewPage.getQualityDataFlag().contains("无数据"), "Quality Desc failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testQualityDesc"}, alwaysRun = true)
+	public void testAtoZSort() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.aTozSort();
+		
+		Assert.assertEquals(teamViewPage.getCharSortDataFlag(), "Analysis Engine", "A to Z Sort failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAtoZSort"}, alwaysRun = true)
+	public void testZtoASort() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.zToaSort();
+		
+		Assert.assertEquals(teamViewPage.getCharSortDataFlag(), "运维部", "A to Z Sort failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testZtoASort"}, alwaysRun = true)
+	public void testTimeRange4PastWeek() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastWeek();
+		
+		Assert.assertEquals(teamViewPage.getRootNodeDataFlag(), "Merico", "Data Range for Past Week failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastWeek"}, alwaysRun = true)
+	public void testTimeRange4PastTwoWeek() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastTwoWeek();
+		
+		Assert.assertEquals(teamViewPage.getRootNodeDataFlag(), "Merico", "Data Range for Past Week failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastTwoWeek"}, alwaysRun = true)
+	public void testTimeRange4PastThreeMonths() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastThreeMonths();
+		
+		Assert.assertEquals(teamViewPage.getRootNodeDataFlag(), "Merico", "Data Range for Past Week failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastThreeMonths"}, alwaysRun = true)
+	public void testTimeRange4PastOneYear() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastOneYear();
+		
+		Assert.assertEquals(teamViewPage.getRootNodeDataFlag(), "Merico", "Data Range for Past Week failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastOneYear"}, alwaysRun = true)
+	public void testMemberTooltip() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.memberTooltip();
+		
+		Assert.assertTrue(teamViewPage.getTooltipVal().contains("成员"), "Member Tooltip Render failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMemberTooltip"}, alwaysRun = true)
+	public void testSubGroupTooltip() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.subGroupTooltip();
+		
+		Assert.assertTrue(teamViewPage.getTooltipVal().contains("团队"), "Subgroup Tooltip Render failed!");
+	}
 }
