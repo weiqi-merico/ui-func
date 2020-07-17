@@ -144,4 +144,10 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertTrue(teamViewPage.getTooltipVal().contains("团队"), "Subgroup Tooltip Render failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSubGroupTooltip"}, alwaysRun = true)
+	public void testTimeRageOfPastWeek4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRangeOfPastWeek4TDV();
+	}
 }

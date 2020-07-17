@@ -215,4 +215,25 @@ public class TeamViewPage extends Page {
     	
     	return dataFlag;
     }
+    
+    @AutoIntercept
+    public void timeRangeOfPastWeek4TDV() {
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.root_node_css));
+    	driver.findElement(By.cssSelector(TeamViewControls.root_node_css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Efficiency_Label_Xpath));
+    	
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 3; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
 }

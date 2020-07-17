@@ -3,6 +3,8 @@ package com.merico.selenium.test.ee.control;
 import java.io.InputStream;
 import java.util.Properties;
 
+import com.merico.selenium.test.ee.utils.Utilities;
+
 public class TeamViewControls {
 	private static Properties props = null;
     static {
@@ -88,4 +90,14 @@ public class TeamViewControls {
      * Sub Group Tooltip
      */
     public static final String Sub_Group_Tooltip_Css = getProperty("sub_group_tooltip_css");
+    
+    /**
+     * Root Node
+     */
+    public static final String root_node_css = getProperty("root_node_css");
+    
+    /**
+     * Efficiency Label
+     */
+    public static final String Efficiency_Label_Xpath = Utilities.utf8Char(getProperty("efficiency_label_xpath"));
 }
