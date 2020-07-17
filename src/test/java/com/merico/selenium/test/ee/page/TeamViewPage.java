@@ -236,4 +236,44 @@ public class TeamViewPage extends Page {
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(2000);
     }
+    
+    @AutoIntercept
+    public void timeRangeOfPastTwoWeek4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRangeOfPastThreeMonths4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRangeOfPastOneYear4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getEfficiencyLabelVal() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Efficiency_Label_Xpath));
+    	String val = driver.findElement(By.xpath(TeamViewControls.Efficiency_Label_Xpath)).getText().trim();
+    	System.out.println("Efficiency Label Value is: " + val);
+    	
+    	return val;
+    }
 }

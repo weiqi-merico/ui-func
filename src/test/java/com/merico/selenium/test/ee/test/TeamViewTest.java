@@ -149,5 +149,31 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	public void testTimeRageOfPastWeek4TDV() throws Exception {
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.timeRangeOfPastWeek4TDV();
+		
+		Assert.assertEquals(teamViewPage.getEfficiencyLabelVal(), "团队生产力", "Time Range of Past Week for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRageOfPastWeek4TDV"}, alwaysRun = true)
+	public void testTimeRageOfPastTwoWeek4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRangeOfPastTwoWeek4TDV();
+		
+		Assert.assertEquals(teamViewPage.getEfficiencyLabelVal(), "团队生产力", "Time Range of Past Two Week for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRageOfPastTwoWeek4TDV"}, alwaysRun = true)
+	public void testTimeRageOfPastThreeMonths4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRangeOfPastThreeMonths4TDV();
+		
+		Assert.assertEquals(teamViewPage.getEfficiencyLabelVal(), "团队生产力", "Time Range of Past Three Months for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRageOfPastThreeMonths4TDV"}, alwaysRun = true)
+	public void testTimeRageOfPastOneYear4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRangeOfPastOneYear4TDV();
+		
+		Assert.assertEquals(teamViewPage.getEfficiencyLabelVal(), "团队生产力", "Time Range of Past One Year for Team Detail View failed!");
 	}
 }
