@@ -97,7 +97,17 @@ public class TeamViewControls {
     public static final String root_node_css = getProperty("root_node_css");
     
     /**
-     * Efficiency Label
+     * Productivity Label
      */
-    public static final String Efficiency_Label_Xpath = Utilities.utf8Char(getProperty("efficiency_label_xpath"));
+    public static final String Productivity_Label_Xpath = Utilities.utf8Char(getProperty("productivity_label_xpath"));
+    
+    /**
+     * Code Number Label
+     */
+    public static final String Code_Number_Laber_Xpath = Utilities.utf8Char(getProperty("code_number_laber_xpath"));
+    
+    /**
+     * Team Productivity Step By Day
+     */
+    public static final String Team_Productivity_Step_Css = getProperty("team_productivity_step_css");
 }

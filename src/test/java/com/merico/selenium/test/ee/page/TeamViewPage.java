@@ -223,7 +223,7 @@ public class TeamViewPage extends Page {
     	
     	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.root_node_css));
     	driver.findElement(By.cssSelector(TeamViewControls.root_node_css)).click();
-    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Efficiency_Label_Xpath));
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Productivity_Label_Xpath));
     	
     	Utilities.staticTimeDelay(1000);
     	Actions builder = new Actions(driver);
@@ -269,11 +269,50 @@ public class TeamViewPage extends Page {
     }
     
     @AutoIntercept
-    public String getEfficiencyLabelVal() {
-    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Efficiency_Label_Xpath));
-    	String val = driver.findElement(By.xpath(TeamViewControls.Efficiency_Label_Xpath)).getText().trim();
+    public String getProductivityLabelVal() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Productivity_Label_Xpath));
+    	String val = driver.findElement(By.xpath(TeamViewControls.Productivity_Label_Xpath)).getText().trim();
     	System.out.println("Efficiency Label Value is: " + val);
     	
     	return val;
+    }
+    
+    @AutoIntercept
+    public void codeNumberOfProductivity4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void commitNumberOfProductivity4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void productivityStepByWeek4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    	builder.sendKeys(Keys.SHIFT, Keys.TAB).perform();
+    	Utilities.staticTimeDelay(500);
+//    	builder.moveToElement(driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css))).sendKeys("2");
+    	builder.sendKeys(driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css)), "2");
+//    	driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css)).sendKeys("2");
+    	Utilities.staticTimeDelay(2000);
     }
 }
