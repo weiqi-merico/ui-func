@@ -102,6 +102,11 @@ public class TeamViewControls {
     public static final String Productivity_Label_Xpath = Utilities.utf8Char(getProperty("productivity_label_xpath"));
     
     /**
+     * Quality Label
+     */
+    public static final String Quality_Label_Xpath = Utilities.utf8Char(getProperty("quality_label_xpath"));
+    
+    /**
      * Code Number Label
      */
     public static final String Code_Number_Laber_Xpath = Utilities.utf8Char(getProperty("code_number_laber_xpath"));

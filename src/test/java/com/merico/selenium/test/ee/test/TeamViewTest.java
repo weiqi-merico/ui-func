@@ -222,6 +222,30 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.productivityStepByYear4TDV();
 		
-		Assert.assertEquals(teamViewPage.getProductivityLabelVal(), "团队生产力", "Productivity Step of Month for Team Detail View failed!");
+		Assert.assertEquals(teamViewPage.getProductivityLabelVal(), "团队生产力", "Productivity Step of Year for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testProductivityStepOfYear4TDV"}, alwaysRun = true)
+	public void testQualityStepOfMonth4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.qualityStepByMonth4TDV();
+		
+		Assert.assertEquals(teamViewPage.getQualityLabelVal(), "团队质量", "Quality Step of Month for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testQualityStepOfMonth4TDV"}, alwaysRun = true)
+	public void testQualityStepOfQuarter4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.qualityStepByQuarter4TDV();
+		
+		Assert.assertEquals(teamViewPage.getQualityLabelVal(), "团队质量", "Quality Step of Quarter for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testQualityStepOfQuarter4TDV"}, alwaysRun = true)
+	public void testQualityStepOfYear4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.qualityStepByYear4TDV();
+		
+		Assert.assertEquals(teamViewPage.getQualityLabelVal(), "团队质量", "Quality Step of Year for Team Detail View failed!");
 	}
 }

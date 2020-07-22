@@ -272,7 +272,7 @@ public class TeamViewPage extends Page {
     public String getProductivityLabelVal() {
     	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Productivity_Label_Xpath));
     	String val = driver.findElement(By.xpath(TeamViewControls.Productivity_Label_Xpath)).getText().trim();
-    	System.out.println("Efficiency Label Value is: " + val);
+    	System.out.println("Productivity Label Value is: " + val);
     	
     	return val;
     }
@@ -344,5 +344,46 @@ public class TeamViewPage extends Page {
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void qualityStepByMonth4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void qualityStepByQuarter4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void qualityStepByYear4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getQualityLabelVal() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Quality_Label_Xpath));
+    	String val = driver.findElement(By.xpath(TeamViewControls.Quality_Label_Xpath)).getText().trim();
+    	System.out.println("Quality Label Value is: " + val);
+    	
+    	return val;
     }
 }
