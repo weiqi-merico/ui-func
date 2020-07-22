@@ -307,12 +307,42 @@ public class TeamViewPage extends Page {
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
-    	Utilities.staticTimeDelay(2000);
-    	builder.sendKeys(Keys.SHIFT, Keys.TAB).perform();
-    	Utilities.staticTimeDelay(500);
+    	Utilities.staticTimeDelay(1000);
+//    	builder.sendKeys(Keys.SHIFT, Keys.TAB).perform();
+//    	Utilities.staticTimeDelay(500);
 //    	builder.moveToElement(driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css))).sendKeys("2");
-    	builder.sendKeys(driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css)), "2");
+//    	builder.sendKeys(driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css)), "2");
 //    	driver.findElement(By.cssSelector(TeamViewControls.Team_Productivity_Step_Css)).sendKeys("2");
-    	Utilities.staticTimeDelay(2000);
+//    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void productivityStepByMonth4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void productivityStepByQuarter4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void productivityStepByYear4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
     }
 }

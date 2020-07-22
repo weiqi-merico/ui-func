@@ -200,4 +200,28 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(teamViewPage.getProductivityLabelVal(), "团队生产力", "Productivity Step of Week for Team Detail View failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testProductivityStepOfWeek4TDV"}, alwaysRun = true)
+	public void testProductivityStepOfMonth4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.productivityStepByMonth4TDV();
+		
+		Assert.assertEquals(teamViewPage.getProductivityLabelVal(), "团队生产力", "Productivity Step of Month for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testProductivityStepOfMonth4TDV"}, alwaysRun = true)
+	public void testProductivityStepOfQuarter4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.productivityStepByQuarter4TDV();
+		
+		Assert.assertEquals(teamViewPage.getProductivityLabelVal(), "团队生产力", "Productivity Step of Month for Team Detail View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testProductivityStepOfMonth4TDV"}, alwaysRun = true)
+	public void testProductivityStepOfYear4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.productivityStepByYear4TDV();
+		
+		Assert.assertEquals(teamViewPage.getProductivityLabelVal(), "团队生产力", "Productivity Step of Month for Team Detail View failed!");
+	}
 }
