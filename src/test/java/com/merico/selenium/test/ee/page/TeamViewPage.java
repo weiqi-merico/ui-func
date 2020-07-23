@@ -386,4 +386,184 @@ public class TeamViewPage extends Page {
     	
     	return val;
     }
+    
+    @AutoIntercept
+    public void searchTeamMember4TDV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Team_Member_Search_Box_Css));
+    	WebElement element = driver.findElement(By.cssSelector(TeamViewControls.Team_Member_Search_Box_Css));
+    	element.click();
+    	element.sendKeys("wei.qi");
+    	Utilities.staticTimeDelay(4000);
+    	Utilities.movePageToLocation(driver, "500");
+    }
+    
+    @AutoIntercept
+    public void closeTeamMemberFlag4TDV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Team_Member_Close_Css));
+    	driver.findElement(By.cssSelector(TeamViewControls.Team_Member_Close_Css)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getTeamMember() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Team_Member_Email_Css));
+    	String teamMember = driver.findElement(By.cssSelector(TeamViewControls.Team_Member_Email_Css)).getText().trim();
+    	System.out.println("Team Member Email is: " + teamMember);
+    	
+    	return teamMember;
+    }
+    
+    @AutoIntercept
+    public void teamMemberSortByEfficiencyAsc4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getEfficiencyDataFlag4TDV() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Efficiency_Data_Flag_4_Tdv_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Efficiency_Data_Flag_4_Tdv_Xpath)).getText().trim();
+    	System.out.println("Efficiency Data Flag for Team Detail View: " + dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public void teamMemberSortByQualityDesc4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void teamMemberSortByQualityAsc4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void teamMemberSortByAtoZ4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void teamMemberSortByZtoA4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getQualityDataFlag4TDV() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Quality_Data_Head_Flag_4_Tdv_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Quality_Data_Head_Flag_4_Tdv_Xpath)).getText().trim();
+    	System.out.println("Quality Data Head Flag for Team Detail View: " + dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public String getQualityNoDataFlag4TDV() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Quality_No_data_Flag_4_Tdv_Xpath));
+    	String dataFlag = driver.findElement(By.xpath(TeamViewControls.Quality_No_data_Flag_4_Tdv_Xpath)).getText().trim();
+    	System.out.println("Quality No Data Flag for Team Detail View: " + dataFlag);
+    	
+    	return dataFlag;
+    }
+    
+    @AutoIntercept
+    public void pagingRightAngleBracket4TDV() {
+    	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Paging_Right_Angle_Bracket_Css));
+    	driver.findElement(By.cssSelector(TeamViewControls.Paging_Right_Angle_Bracket_Css)).click();
+    	Utilities.movePageToLocation(driver, "-10");
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void pagingLeftAngleBracket4TDV() {
+    	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Paging_Left_Angle_Bracket_Css));
+    	driver.findElement(By.cssSelector(TeamViewControls.Paging_Left_Angle_Bracket_Css)).click();
+    	Utilities.movePageToLocation(driver, "-10");
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void pagingToPageTwo4TDV() {
+    	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	driver.findElement(By.linkText("2")).click();
+    	Utilities.movePageToLocation(driver, "-10");
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void pagingToPageOne4TDV() {
+    	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	driver.findElement(By.linkText("1")).click();
+    	Utilities.movePageToLocation(driver, "-10");
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void pagingSwitchPage4TDV() {
+    	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Paging_Selection_Box_Css));
+    	driver.findElement(By.cssSelector(TeamViewControls.Paging_Selection_Box_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public int getPagingTotalItems4TDV() {
+    	Utilities.waitForControlPresent(driver, By.xpath(TeamViewControls.Paging_Total_Items_Xpath));
+    	int totalPagingItemsNum = driver.findElements(By.xpath(TeamViewControls.Paging_Total_Items_Xpath)).size();
+    	System.out.println("Total Paging Items Number is: " + totalPagingItemsNum);
+    	
+    	return totalPagingItemsNum;
+    }
+    
+    @AutoIntercept
+    public void pagingInputPage4TDV() {
+    	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Paging_Input_Box_Css));
+    	WebElement element = driver.findElement(By.cssSelector(TeamViewControls.Paging_Input_Box_Css));
+    	element.click();
+    	element.sendKeys("10000");
+    	
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(6000);
+    	Utilities.movePageToBottom(driver);
+    	builder.sendKeys(Keys.TAB);
+    	builder.sendKeys("1");
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.movePageToLocation(driver, "-10");
+    	Utilities.staticTimeDelay(6000);
+    }
 }

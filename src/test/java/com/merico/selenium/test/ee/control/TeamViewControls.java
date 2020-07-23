@@ -115,4 +115,59 @@ public class TeamViewControls {
      * Team Productivity Step By Day
      */
     public static final String Team_Productivity_Step_Css = getProperty("team_productivity_step_css");
+    
+    /**
+     * Team Member Search Box
+     */
+    public static final String Team_Member_Search_Box_Css = getProperty("team_member_search_box_css");
+    
+    /**
+     * Team Member Email
+     */
+    public static final String Team_Member_Email_Css = getProperty("team_member_email_css");
+    
+    /**
+     * Team Member Close
+     */
+    public static final String Team_Member_Close_Css = getProperty("team_member_close_css");
+    
+    /**
+     * Efficiency Data Flag for Team Detail View
+     */
+    public static final String Efficiency_Data_Flag_4_Tdv_Xpath = getProperty("efficiency_data_flag_4_tdv_xpath");
+    
+    /**
+     * Quality Data Head Flag for Team Detail View
+     */
+    public static final String Quality_Data_Head_Flag_4_Tdv_Xpath = getProperty("quality_data_head_flag_4_tdv_xpath");
+    
+    /**
+     * Quality No Data Flag for Team Detail View
+     */
+    public static final String Quality_No_data_Flag_4_Tdv_Xpath = getProperty("quality_no_data_flag_4_tdv_xpath");
+    
+    /**
+     * Paging Right Angle Bracket
+     */
+    public static final String Paging_Right_Angle_Bracket_Css = getProperty("paging_right_angle_bracket_css");
+    
+    /**
+     * Paing Left Angle Bracket
+     */
+    public static final String Paging_Left_Angle_Bracket_Css = getProperty("paging_left_angle_bracket_css");
+    
+    /**
+     * Paging Selection Box
+     */
+    public static final String Paging_Selection_Box_Css = getProperty("paging_selection_box_css");
+    
+    /**
+     * Paging Input Box
+     */
+    public static final String Paging_Input_Box_Css = getProperty("paging_input_box_css");
+    
+    /**
+     * Paging Total Items
+     */
+    public static final String Paging_Total_Items_Xpath = getProperty("paging_total_items_xpath");
 }

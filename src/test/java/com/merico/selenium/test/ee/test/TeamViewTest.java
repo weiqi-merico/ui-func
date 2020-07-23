@@ -248,4 +248,102 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(teamViewPage.getQualityLabelVal(), "团队质量", "Quality Step of Year for Team Detail View failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testQualityStepOfYear4TDV"}, alwaysRun = true)
+	public void testSearchTeamMember4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.searchTeamMember4TDV();
+		
+		Assert.assertEquals(teamViewPage.getTeamMember(), "wei.qi@meri.co", "Search Team Member failed!");
+		
+		teamViewPage.closeTeamMemberFlag4TDV();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchTeamMember4TDV"}, alwaysRun = true)
+	public void testTeamMemberSortByEfficiencyAsc4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.teamMemberSortByEfficiencyAsc4TDV();
+		
+		Assert.assertEquals(teamViewPage.getEfficiencyDataFlag4TDV(), "无数据", "Team Member Sort By Efficiency ASC failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamMemberSortByEfficiencyAsc4TDV"}, alwaysRun = true)
+	public void testTeamMemberSortByQualityDesc4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.teamMemberSortByQualityDesc4TDV();
+		
+		Assert.assertEquals(teamViewPage.getQualityDataFlag4TDV(), "质量", "Team Member Sort By Quality DESC failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamMemberSortByQualityDesc4TDV"}, alwaysRun = true)
+	public void testTeamMemberSortByQualityAsc4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.teamMemberSortByQualityAsc4TDV();
+		
+		Assert.assertEquals(teamViewPage.getQualityNoDataFlag4TDV(), "无数据", "Team Member Sort By Quality ASC failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamMemberSortByQualityAsc4TDV"}, alwaysRun = true)
+	public void testTeamMemberSortByAtoZ4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.teamMemberSortByAtoZ4TDV();
+		
+		Assert.assertEquals(teamViewPage.getTeamMember(), "4kvfbg6w@linshiyouxiang.net", "Team Member Sort By A to Z failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamMemberSortByAtoZ4TDV"}, alwaysRun = true)
+	public void testTeamMemberSortByZtoA4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.teamMemberSortByZtoA4TDV();
+		
+		Assert.assertEquals(teamViewPage.getTeamMember(), "jinglei@meri.co", "Team Member Sort By Z to A failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamMemberSortByZtoA4TDV"}, alwaysRun = true)
+	public void testPagingRightAngleBracket4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.pagingRightAngleBracket4TDV();
+		
+		Assert.assertFalse(teamViewPage.getTeamMember().contains("jinglei@meri.co"), "Paging Right Angle Bracket failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingRightAngleBracket4TDV"}, alwaysRun = true)
+	public void testPagingLeftAngleBracket4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.pagingLeftAngleBracket4TDV();
+		
+		Assert.assertTrue(teamViewPage.getTeamMember().contains("jinglei@meri.co"), "Paging Left Angle Bracket failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingLeftAngleBracket4TDV"}, alwaysRun = true)
+	public void testPagingToPageTwo4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.pagingToPageTwo4TDV();
+		
+		Assert.assertFalse(teamViewPage.getTeamMember().contains("jinglei@meri.co"), "Paging To Page 2 failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingToPageTwo4TDV"}, alwaysRun = true)
+	public void testPagingToPageOne4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.pagingToPageOne4TDV();
+		
+		Assert.assertTrue(teamViewPage.getTeamMember().contains("jinglei@meri.co"), "Paging To Page 1 failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingToPageOne4TDV"}, alwaysRun = true)
+	public void testPagingSwitchPage4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.pagingSwitchPage4TDV();
+		
+//		Assert.assertEquals(teamViewPage.getPagingTotalItems4TDV(), 20, "Switch Page failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingSwitchPage4TDV"}, alwaysRun = true)
+	public void testPagingInputPage4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.pagingInputPage4TDV();
+		
+		Assert.assertTrue(teamViewPage.getTeamMember().contains("jinglei@meri.co"), "Input Page Number failed!");
+	}
 }
