@@ -566,4 +566,145 @@ public class TeamViewPage extends Page {
     	Utilities.movePageToLocation(driver, "-10");
     	Utilities.staticTimeDelay(6000);
     }
+    
+    @AutoIntercept
+    public void DeveloperName4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Team_Member_Search_Box_Css));
+    	WebElement element = driver.findElement(By.cssSelector(TeamViewControls.Team_Member_Search_Box_Css));
+    	element.click();
+    	element.sendKeys("yanghui");
+    	Utilities.staticTimeDelay(4000);
+    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Team_Member_Primary_Email_Css));
+    	driver.findElement(By.cssSelector(TeamViewControls.Team_Member_Primary_Email_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getDeveloperName4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Developer_Name_4_Tdevv_Css));
+    	String devName = driver.findElement(By.cssSelector(TeamViewControls.Developer_Name_4_Tdevv_Css)).getText().trim();
+    	System.out.println(devName);
+    	
+    	return devName;
+    }
+    
+    @AutoIntercept
+    public String getDeveloperEmail4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Developer_Email_4_Tdevv_Css));
+    	String email = driver.findElement(By.cssSelector(TeamViewControls.Developer_Email_4_Tdevv_Css)).getText().trim();
+    	System.out.println(email);
+    	
+    	return email;
+    }
+    
+    @AutoIntercept
+    public String getMainCodeRepo4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Main_Code_Repo_4_Tdevv_Css));
+    	String mainCodeRepo = driver.findElement(By.cssSelector(TeamViewControls.Main_Code_Repo_4_Tdevv_Css)).getText().trim();
+    	System.out.println(mainCodeRepo);
+    	
+    	return mainCodeRepo;
+    }
+    
+    @AutoIntercept
+    public String getTopSkills4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Top_Skills_4_Tdevv_Css));
+    	String topSkills = driver.findElement(By.cssSelector(TeamViewControls.Top_Skills_4_Tdevv_Css)).getText().trim();
+    	System.out.println(topSkills);
+    	
+    	return topSkills;
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastWeek4TDevv() {
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastTwoWeek4TDevv() {
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastThreeMonths4TDevv() {
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void timeRange4PastOneYear4TDevv() {
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getDevProductivityLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Dev_Productivity_Label_Css));
+    	String devProdLabel = driver.findElement(By.cssSelector(TeamViewControls.Dev_Productivity_Label_Css)).getText().trim();
+    	System.out.println(devProdLabel);
+    	
+    	return devProdLabel;
+    }
+    
+    @AutoIntercept
+    public void devproductivityStepByWeek4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void devproductivityStepByMonth4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void devproductivityStepByQuarter4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public void devproductivityStepByYear4TDV() {
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
 }

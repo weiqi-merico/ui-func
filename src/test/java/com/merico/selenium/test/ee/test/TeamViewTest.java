@@ -346,4 +346,79 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertTrue(teamViewPage.getTeamMember().contains("jinglei@meri.co"), "Input Page Number failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingInputPage4TDV"}, alwaysRun = true)
+	public void testDeveloperName4TDevV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.DeveloperName4TDevV();
+		
+		Assert.assertTrue(teamViewPage.getDeveloperName4TDevV().contains("yanghui@meri.co"), "Get Developer Name failed!");
+		Assert.assertTrue(teamViewPage.getDeveloperEmail4TDevV().contains("yanghui@meri.co"), "Get Developer Email failed!");
+		Assert.assertTrue(teamViewPage.getMainCodeRepo4TDevV().contains("主要代码库"), "Get Main Code Repo failed!");
+		Assert.assertTrue(teamViewPage.getTopSkills4TDevV().contains("最有价值技能"), "Get Top Skills failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDeveloperName4TDevV"}, alwaysRun = true)
+	public void testTimeRange4PastWeek4TDevv() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastWeek4TDevv();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Time Range of Past Week for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastWeek4TDevv"}, alwaysRun = true)
+	public void testTimeRange4PastTwoWeek4TDevv() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastTwoWeek4TDevv();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Time Range of Past Two Week for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastTwoWeek4TDevv"}, alwaysRun = true)
+	public void testTimeRange4PastThreeMonths4TDevv() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastThreeMonths4TDevv();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Time Range of Past Three Months for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastThreeMonths4TDevv"}, alwaysRun = true)
+	public void testTimeRange4PastOneYear4TDevv() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.timeRange4PastOneYear4TDevv();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Time Range of Past One Year for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastOneYear4TDevv"}, alwaysRun = true)
+	public void testDevproductivityStepByWeek4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.devproductivityStepByWeek4TDV();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Week for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDevproductivityStepByWeek4TDV"}, alwaysRun = true)
+	public void testDevproductivityStepByMonth4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.devproductivityStepByMonth4TDV();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Month for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDevproductivityStepByMonth4TDV"}, alwaysRun = true)
+	public void testDevproductivityStepByQuarter4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.devproductivityStepByQuarter4TDV();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Quarter for TDev View failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDevproductivityStepByQuarter4TDV"}, alwaysRun = true)
+	public void testDevproductivityStepByYear4TDV() throws Exception {
+		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
+		teamViewPage.devproductivityStepByYear4TDV();
+		
+		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Year for TDev View failed!");
+	}
 }

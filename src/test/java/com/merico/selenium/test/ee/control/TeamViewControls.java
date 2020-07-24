@@ -122,6 +122,11 @@ public class TeamViewControls {
     public static final String Team_Member_Search_Box_Css = getProperty("team_member_search_box_css");
     
     /**
+     * Team Member Primary Email
+     */
+    public static final String Team_Member_Primary_Email_Css = getProperty("team_member_primary_email_css");
+    
+    /**
      * Team Member Email
      */
     public static final String Team_Member_Email_Css = getProperty("team_member_email_css");
@@ -170,4 +175,29 @@ public class TeamViewControls {
      * Paging Total Items
      */
     public static final String Paging_Total_Items_Xpath = getProperty("paging_total_items_xpath");
+    
+    /**
+     * Developer Name for Team Dev View
+     */
+    public static final String Developer_Name_4_Tdevv_Css = getProperty("developer_name_4_tdevv_css");
+    
+    /**
+     * Developer Email for Team Dev View
+     */
+    public static final String Developer_Email_4_Tdevv_Css = getProperty("developer_email_4_tdevv_css");
+    
+    /**
+     * Main Code Repo
+     */
+    public static final String Main_Code_Repo_4_Tdevv_Css = getProperty("main_code_repo_4_tdevv_css");
+    
+    /**
+     * Top Skills
+     */
+    public static final String Top_Skills_4_Tdevv_Css = getProperty("top_skills_4_tdevv_css");
+    
+    /**
+     * Developer Productivity Label
+     */
+    public static final String Dev_Productivity_Label_Css = getProperty("dev_productivity_label_css");
 }
