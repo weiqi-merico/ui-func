@@ -379,7 +379,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.timeRange4PastThreeMonths4TDevv();
 		
-		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Time Range of Past Three Months for TDev View failed!");
+		Assert.assertTrue(teamViewPage.getQualityLabel4TDevV().contains("质量"), "Time Range of Past Three Months for TDev View failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastThreeMonths4TDevv"}, alwaysRun = true)
@@ -387,7 +387,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.timeRange4PastOneYear4TDevv();
 		
-		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Time Range of Past One Year for TDev View failed!");
+		Assert.assertTrue(teamViewPage.getIssueRateLabel4TDevV().contains("问题率"), "Time Range of Past One Year for TDev View failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTimeRange4PastOneYear4TDevv"}, alwaysRun = true)
@@ -403,7 +403,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.devproductivityStepByMonth4TDV();
 		
-		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Month for TDev View failed!");
+		Assert.assertTrue(teamViewPage.getDocCoverageLabel4TDevV().contains("注释覆盖度"), "Step by Month for TDev View failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDevproductivityStepByMonth4TDevv"}, alwaysRun = true)
@@ -411,7 +411,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.devproductivityStepByQuarter4TDV();
 		
-		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Quarter for TDev View failed!");
+		Assert.assertTrue(teamViewPage.getTestCoverageLabel4TDevV().contains("测试覆盖度"), "Step by Quarter for TDev View failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDevproductivityStepByQuarter4TDevv"}, alwaysRun = true)
@@ -419,7 +419,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.devproductivityStepByYear4TDV();
 		
-		Assert.assertTrue(teamViewPage.getDevProductivityLabel4TDevV().contains("开发者生产力"), "Step by Year for TDev View failed!");
+		Assert.assertTrue(teamViewPage.getModularityLabel4TDevV().contains("模块性"), "Step by Year for TDev View failed!");
 	}
 	
 

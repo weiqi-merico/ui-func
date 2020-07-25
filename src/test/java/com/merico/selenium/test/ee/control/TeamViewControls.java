@@ -200,4 +200,34 @@ public class TeamViewControls {
      * Developer Productivity Label
      */
     public static final String Dev_Productivity_Label_Css = getProperty("dev_productivity_label_css");
+    
+    /**
+     * Quality Label
+     */
+    public static final String Quality_Label_Css = getProperty("quality_label_css");
+    
+    /**
+     * Issue Rate Label
+     */
+    public static final String Issue_Rate_Label_Css = getProperty("issue_rate_label_css");
+    
+    /**
+     * Dryness Label
+     */
+    public static final String Dryness_Label_Css = getProperty("Dryness_Label_Css");
+    
+    /**
+     * Doc Coverage Label
+     */
+    public static final String Doc_Coverage_Label_Css = getProperty("doc_coverage_label_css");
+    
+    /**
+     * Test Coverage Label
+     */
+    public static final String Test_Coverage_Label_Css = getProperty("test_coverage_label_css");
+    
+    /**
+     * Modularity Label
+     */
+    public static final String Modularity_Label_Css = getProperty("modularity_label_css");
 }

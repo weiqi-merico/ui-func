@@ -728,4 +728,58 @@ public class TeamViewPage extends Page {
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(2000);
     }
+    
+    @AutoIntercept
+    public String getQualityLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Quality_Label_Css));
+    	String label = driver.findElement(By.cssSelector(TeamViewControls.Quality_Label_Css)).getText().trim();
+    	System.out.println(label);
+    	
+    	return label;
+    }
+    
+    @AutoIntercept
+    public String getIssueRateLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Issue_Rate_Label_Css));
+    	String label = driver.findElement(By.cssSelector(TeamViewControls.Issue_Rate_Label_Css)).getText().trim();
+    	System.out.println(label);
+    	
+    	return label;
+    }
+    
+    @AutoIntercept
+    public String getDrynessLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Dryness_Label_Css));
+    	String label = driver.findElement(By.cssSelector(TeamViewControls.Dryness_Label_Css)).getText().trim();
+    	System.out.println(label);
+    	
+    	return label;
+    }
+    
+    @AutoIntercept
+    public String getDocCoverageLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Doc_Coverage_Label_Css));
+    	String label = driver.findElement(By.cssSelector(TeamViewControls.Doc_Coverage_Label_Css)).getText().trim();
+    	System.out.println(label);
+    	
+    	return label;
+    }
+    
+    @AutoIntercept
+    public String getTestCoverageLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Test_Coverage_Label_Css));
+    	String label = driver.findElement(By.cssSelector(TeamViewControls.Test_Coverage_Label_Css)).getText().trim();
+    	System.out.println(label);
+    	
+    	return label;
+    }
+    
+    @AutoIntercept
+    public String getModularityLabel4TDevV() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(TeamViewControls.Modularity_Label_Css));
+    	String label = driver.findElement(By.cssSelector(TeamViewControls.Modularity_Label_Css)).getText().trim();
+    	System.out.println(label);
+    	
+    	return label;
+    }
 }
