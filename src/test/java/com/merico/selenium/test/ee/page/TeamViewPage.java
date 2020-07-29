@@ -560,6 +560,10 @@ public class TeamViewPage extends Page {
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(6000);
     	Utilities.movePageToBottom(driver);
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	driver.findElement(By.linkText("2")).click();
+    	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.TAB);
     	builder.sendKeys(Keys.TAB);
     	builder.sendKeys("1");
     	builder.sendKeys(Keys.ENTER).perform();

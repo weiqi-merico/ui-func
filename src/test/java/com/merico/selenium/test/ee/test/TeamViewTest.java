@@ -352,7 +352,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.DeveloperName4TDevV();
 		
-		Assert.assertTrue(teamViewPage.getDeveloperName4TDevV().contains("yanghui@meri.co"), "Get Developer Name failed!");
+		Assert.assertTrue(teamViewPage.getDeveloperName4TDevV().contains("Yanghui Lin"), "Get Developer Name failed!");
 		Assert.assertTrue(teamViewPage.getDeveloperEmail4TDevV().contains("yanghui@meri.co"), "Get Developer Email failed!");
 		Assert.assertTrue(teamViewPage.getMainCodeRepo4TDevV().contains("主要代码库"), "Get Main Code Repo failed!");
 		Assert.assertTrue(teamViewPage.getTopSkills4TDevV().contains("最有价值技能"), "Get Top Skills failed!");

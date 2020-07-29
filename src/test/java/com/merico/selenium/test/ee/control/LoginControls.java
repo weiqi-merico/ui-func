@@ -42,7 +42,7 @@ public class LoginControls {
 	/**
 	 * Login Button
 	 */
-	public static final String Login_Button_Css = getProperty("login_button_css");
+	public static final String Login_Button_Xpath = getProperty("login_button_xpath");
 	
 	/**
 	 * Account Name

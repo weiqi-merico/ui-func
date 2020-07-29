@@ -35,8 +35,8 @@ public class LoginPage extends Page {
 	@AutoIntercept
 	public void login4Admin() {
 		this.languageSwitch();
-		Utilities.waitForControlPresent(driver, By.cssSelector(LoginControls.Login_Button_Css));
-		driver.findElement(By.cssSelector(LoginControls.Login_Button_Css)).click();
+		Utilities.waitForControlPresent(driver, By.xpath(LoginControls.Login_Button_Xpath));
+		driver.findElement(By.xpath(LoginControls.Login_Button_Xpath)).click();
 		Utilities.staticTimeDelay(15000);
 	}
 	
