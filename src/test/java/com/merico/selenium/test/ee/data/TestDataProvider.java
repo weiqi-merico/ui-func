@@ -62,4 +62,14 @@ public class TestDataProvider {
 				{ "Merico" }
 		};
 	}
+	
+	@DataProvider(name="searchRepoProvider")
+	public static Object[][] searchRepoProviderImpl() throws Exception {
+		
+		String repoUrl = "git@gitlab.com:meri.co/vdev.co.git";
+		
+		return new Object[][]{
+				{ repoUrl }
+		};
+	}
 }
