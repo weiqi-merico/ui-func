@@ -58,4 +58,74 @@ public class RepoReportControls {
      * General Report Header Name
      */
     public static final String General_Report_Header_Name_Xpath = getProperty("general_report_header_name_xpath");
+    
+    /**
+     * Accumulation Dev Eq Tab
+     */
+    public static final String Accumulation_Dev_Eq_Tab_Css = getProperty("accumulation_dev_eq_tab_css");
+    
+    /**
+     * Daily Dev Eq Tab
+     */
+    public static final String Daily_Dev_Eq_Tab_Css = getProperty("daily_dev_eq_tab_css");
+    
+    /**
+     * Dev Eq Canvas
+     */
+    public static final String Dev_Eq_Canvas_Css = getProperty("dev_eq_canvas_css");
+    
+    /**
+     * Modularity Label
+     */
+    public static final String Modularity_Label_Xpath = getProperty("modularity_label_xpath");
+    
+    /**
+     * Codebase Growth Label
+     */
+    public static final String Codebase_Growth_Label_Xpath = getProperty("codebase_growth_label_xpath");
+    
+    /**
+     * Team Robustness Label
+     */
+    public static final String Team_Robustness_Label_Xpath = getProperty("team_robustness_label_xpath");
+    
+    /**
+     * Team Robustness Detail Link
+     */
+    public static final String Team_Robustness_Detail_Link_Css = getProperty("team_robustness_detail_link_css");
+    
+    /**
+     * Codebase Dryness Label
+     */
+    public static final String codebase_dryness_label_xpath = getProperty("codebase_dryness_label_xpath");
+    
+    /**
+     * Codebase Dryness Detail Link
+     */
+    public static final String Codebase_Dryness_Detail_Link_Css = getProperty("codebase_dryness_detail_link_css");
+    
+    /**
+     * Test Coverage Label
+     */
+    public static final String Test_Coverage_Label_Xpath = getProperty("test_coverage_label_xpath");
+    
+    /**
+     * Test Coverage Detail Link
+     */
+    public static final String Test_Coverage_Detail_Link_Css = getProperty("test_coverage_detail_link_css");
+    
+    /**
+     * Doc Coverage Label
+     */
+    public static final String Doc_Coverage_Label_Xpath = getProperty("doc_coverage_label_xpath");
+    
+    /**
+     * Doc Coverage Detail Link
+     */
+    public static final String Doc_Coverage_Detail_Link_Css = getProperty("doc_coverage_detail_link_css"); 
+    
+    /**
+     * Radar Tooltip
+     */
+    public static final String Radar_Tooltip_Xpath = getProperty("radar_tooltip_xpath");
 }

@@ -39,8 +39,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		logoutPage.logout();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "loginData4AdminProvider", dataProviderClass = TestDataProvider.class, 
-			alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "loginData4AdminProvider", dataProviderClass = TestDataProvider.class, alwaysRun = true)
 	public void testLogin4Admin(String username, String password, Crypt crypt) throws Exception {
 		LoginPage loginPage = PageFactory.createPage(LoginPage.class, driver);
 		loginPage.inputUsernameAndPwd(username, crypt.decrypt(password));
@@ -49,13 +48,33 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertEquals(username, loginPage.getAccountName(), "Admin login failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, 
-			dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	@Test(groups = {CasePriority.BVT}, dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
 	public void testFocusProjectGroup(String repoUrl) throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
 		Assert.assertEquals(repoReportPage.getGeneralReportHeader(), "综合报告", "Get General Report Header Name Failed!");
 		repoReportPage.analysisRecently();
 		Assert.assertEquals(repoReportPage.getHashCopyTooltip(), "复制成功", "Get Hash Copy Tooltip Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFocusProjectGroup"}, alwaysRun = true)
+	public void testAccumulationDevEq() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.accumulationDevEq();
+		Assert.assertTrue(repoReportPage.getDevEqCanvas(), "Get Accumulation Dev Eq Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAccumulationDevEq"}, alwaysRun = true)
+	public void testDailyDevEq() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.dailyDevEq();
+		Assert.assertTrue(repoReportPage.getDevEqCanvas(), "Get Daily Dev Eq Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDailyDevEq"}, alwaysRun = true)
+	public void testModularity4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.modularity4Radar();
+		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Modularity for Radar Failed!");
 	}
 }

@@ -2,6 +2,8 @@ package com.merico.selenium.test.ee.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.merico.selenium.autoscreenshot.AutoIntercept;
 import com.merico.selenium.page.Page;
@@ -28,7 +30,7 @@ public class RepoReportPage extends Page {
         Utilities.staticTimeDelay(3000);
         Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.View_Report_Btn_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.View_Report_Btn_Xpath)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -58,5 +60,48 @@ public class RepoReportPage extends Page {
     	System.out.println(tooltip);
     	
     	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void accumulationDevEq() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Collapse_Flag_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Collapse_Flag_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void dailyDevEq() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Daily_Dev_Eq_Tab_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Daily_Dev_Eq_Tab_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public Boolean getDevEqCanvas() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Dev_Eq_Canvas_Css));
+    	boolean flag = driver.findElement(By.cssSelector(RepoReportControls.Dev_Eq_Canvas_Css)).isDisplayed();
+    	System.out.println("Dev Eq Canvas is Existed? " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void modularity4Radar() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Modularity_Label_Xpath));
+		WebElement element = driver.findElement(By.xpath(RepoReportControls.Modularity_Label_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public Boolean getRadarTooltip() {
+//    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Radar_Tooltip_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Radar_Tooltip_Xpath)).isDisplayed();
+    	System.out.println("Tooltip Displayed: " + flag);
+    	
+    	return flag;
     }
 }
