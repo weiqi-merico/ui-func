@@ -72,9 +72,116 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDailyDevEq"}, alwaysRun = true)
-	public void testModularity4Radar() throws Exception {
+	public void testModularityLabel4Radar() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.modularity4Radar();
+		repoReportPage.modularityLabel4Radar();
 		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Modularity for Radar Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testModularityLabel4Radar"}, alwaysRun = true)
+	public void testCodebaseGrowthLabel4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.codebaseGrowthLabel4Radar();
+		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Codebase Growth for Radar Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCodebaseGrowthLabel4Radar"}, alwaysRun = true)
+	public void testTeamRobustnessLabel4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.teamRobustnessLabel4Radar();
+		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Team Robustness for Radar Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamRobustnessLabel4Radar"}, alwaysRun = true)
+	public void testTeamRobustnessDetailPage4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.teamRobustnessDetailPage4Radar();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "团队鲁棒性", "Navigate to Team Robustness Detail Page for Radar Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTeamRobustnessDetailPage4Radar"}, alwaysRun = true)
+	public void testCodebaseDrynessLabel4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.codebaseDrynessLabel4Radar();
+		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Codebase Dryness for Radar Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCodebaseDrynessLabel4Radar"}, alwaysRun = true)
+	public void testCodebaseDrynessDetailPage4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.codebaseDrynessDetailPage4Radar();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码复用", "Navigate to Codebase Dryness Detail Page for Radar Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCodebaseDrynessDetailPage4Radar"}, alwaysRun = true)
+	public void testTestCoverageLabel4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.testCoverageLabel4Radar();
+		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Test Coverage for Radar Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTestCoverageLabel4Radar"}, alwaysRun = true)
+	public void testTestCoverageDetailPage4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.testCoverageDetailPage4Radar();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "测试覆盖度", "Navigate to Test Coverage Detail Page for Radar Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTestCoverageDetailPage4Radar"}, alwaysRun = true)
+	public void testDocCoverageLabel4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.docCoverageLabel4Radar();
+		Assert.assertTrue(repoReportPage.getRadarTooltip(), "Doc Coverage Label for Radar Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDocCoverageLabel4Radar"}, alwaysRun = true)
+	public void testDocCoverageDetailPage4Radar() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.docCoverageDetailPage4Radar();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "注释覆盖度", "Navigate to Doc Coverage Detail Page for Radar Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDocCoverageDetailPage4Radar"}, alwaysRun = true)
+	public void testTopContributorsAllTimeTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topContributorsAllTimeTab();
+		
+		Assert.assertTrue(repoReportPage.getTopContributorsFirstLine().contains("#1"), "All Time Tab for Top Contributors Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopContributorsAllTimeTab"}, alwaysRun = true)
+	public void testTopContributorsPastYearTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topContributorsPastYearTab();
+		
+		Assert.assertTrue(repoReportPage.getTopContributorsFirstLine().contains("#1"), "Past Year Tab for Top Contributors Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopContributorsPastYearTab"}, alwaysRun = true)
+	public void testTopContributorsPastMonthTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topContributorsPastMonthTab();
+		
+		Assert.assertTrue(repoReportPage.getTopContributorsFirstLine().contains("#1"), "Past Month Tab for Top Contributors Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopContributorsPastMonthTab"}, alwaysRun = true)
+	public void testTopContributorsPastWeekTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topContributorsPastWeekTab();
+		
+		Assert.assertTrue(repoReportPage.getTopContributorsFirstLine().contains("#1"), "Past Month Tab for Top Contributors Failed!");
 	}
 }

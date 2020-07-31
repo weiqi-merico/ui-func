@@ -97,7 +97,7 @@ public class RepoReportControls {
     /**
      * Codebase Dryness Label
      */
-    public static final String codebase_dryness_label_xpath = getProperty("codebase_dryness_label_xpath");
+    public static final String Codebase_Dryness_Label_Xpath = getProperty("codebase_dryness_label_xpath");
     
     /**
      * Codebase Dryness Detail Link
@@ -128,4 +128,49 @@ public class RepoReportControls {
      * Radar Tooltip
      */
     public static final String Radar_Tooltip_Xpath = getProperty("radar_tooltip_xpath");
+    
+    /**
+     * Function Page Header
+     */
+    public static final String Function_Page_Header_Xpath = getProperty("function_page_header_xpath");
+    
+    /**
+     * Top Contributors Header
+     */
+    public static final String Top_Contributors_Header_Css = getProperty("top_contributors_header_css");
+    
+    /**
+     * Top Contributors Details Link
+     */
+    public static final String Top_Contributors_Details_Link_Css = getProperty("top_contributors_details_link_css");
+    
+    /**
+     * Top Contributors All Time Tab
+     */
+    public static final String Top_Contributors_All_Time_Tab_Xpath = getProperty("top_contributors_all_time_tab_xpath");
+    
+    /**
+     * Top Contributors Past Year Tab
+     */
+    public static final String Top_Contributors_Past_Year_Tab_Xpath = getProperty("top_contributors_past_year_tab_xpath");
+    
+    /**
+     * Top Contributors Past Month Tab
+     */
+    public static final String Top_Contributors_Past_Month_Tab_Xpath = getProperty("top_contributors_past_month_tab_xpath");
+    
+    /**
+     * Top Contributors Past Week Tab
+     */
+    public static final String Top_Contributors_Past_Week_Tab_Xpath = getProperty("top_contributors_past_week_tab_xpath");
+    
+    /**
+     * Top Contributors List Item First Item
+     */
+    public static final String Top_Contributors_List_Item_First_Css = getProperty("top_contributors_list_item_first_css");
+    
+    /**
+     * Contributor Profile Header Title
+     */
+    public static final String Contributor_Profile_Header_Xpath = getProperty("contributor_profile_header_xpath");
 }

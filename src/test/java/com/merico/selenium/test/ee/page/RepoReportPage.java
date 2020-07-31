@@ -23,6 +23,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void back() {
+    	Utilities.staticTimeDelay(1000);
+    	driver.navigate().back();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public void searchRepoByNameOrGitAddr(String repoUrl) {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Search_By_Git_Addr_Textbox_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Search_By_Git_Addr_Textbox_Css)).click();
@@ -30,7 +37,7 @@ public class RepoReportPage extends Page {
         Utilities.staticTimeDelay(3000);
         Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.View_Report_Btn_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.View_Report_Btn_Xpath)).click();
-    	Utilities.staticTimeDelay(5000);
+    	Utilities.staticTimeDelay(8000);
     }
     
     @AutoIntercept
@@ -67,7 +74,7 @@ public class RepoReportPage extends Page {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Collapse_Flag_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Collapse_Flag_Css)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css)).click();
+//    	driver.findElement(By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css)).click();
     	Utilities.staticTimeDelay(2000);
     }
     
@@ -88,20 +95,139 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
-    public void modularity4Radar() {
+    public void modularityLabel4Radar() {
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Modularity_Label_Xpath));
 		WebElement element = driver.findElement(By.xpath(RepoReportControls.Modularity_Label_Xpath));
 	    Actions builder = new Actions(driver);
 	    builder.moveToElement(element).perform();
-	    Utilities.staticTimeDelay(500);
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public void codebaseGrowthLabel4Radar() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Codebase_Growth_Label_Xpath));
+		WebElement element = driver.findElement(By.xpath(RepoReportControls.Codebase_Growth_Label_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public void teamRobustnessLabel4Radar() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Team_Robustness_Label_Xpath));
+		WebElement element = driver.findElement(By.xpath(RepoReportControls.Team_Robustness_Label_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public void teamRobustnessDetailPage4Radar() {
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Team_Robustness_Detail_Link_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Team_Robustness_Detail_Link_Css)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void codebaseDrynessLabel4Radar() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Codebase_Dryness_Label_Xpath));
+		WebElement element = driver.findElement(By.xpath(RepoReportControls.Codebase_Dryness_Label_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public void codebaseDrynessDetailPage4Radar() {
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Codebase_Dryness_Detail_Link_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Codebase_Dryness_Detail_Link_Css)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void testCoverageLabel4Radar() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Label_Xpath));
+		WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Label_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public void testCoverageDetailPage4Radar() {
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_Detail_Link_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_Detail_Link_Css)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void docCoverageLabel4Radar() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Doc_Coverage_Label_Xpath));
+		WebElement element = driver.findElement(By.xpath(RepoReportControls.Doc_Coverage_Label_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public void docCoverageDetailPage4Radar() {
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Doc_Coverage_Detail_Link_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Doc_Coverage_Detail_Link_Css)).click();
+		Utilities.staticTimeDelay(2000);
     }
     
     @AutoIntercept
     public Boolean getRadarTooltip() {
-//    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Radar_Tooltip_Xpath));
-    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Radar_Tooltip_Xpath)).isDisplayed();
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Radar_Tooltip_Xpath)).isEnabled();
     	System.out.println("Tooltip Displayed: " + flag);
     	
     	return flag;
+    }
+    
+    @AutoIntercept
+    public String getFunctionPageHeader() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Function_Page_Header_Xpath));
+		String headerName = driver.findElement(By.xpath(RepoReportControls.Function_Page_Header_Xpath)).getText().trim();
+		System.out.println("Function Page Header Name is: " + headerName);
+		
+		return headerName;
+    }
+    
+    @AutoIntercept
+    public void topContributorsAllTimeTab() {
+    	Utilities.movePageToLocation(driver, "500");
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topContributorsPastYearTab() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_Past_Year_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_Past_Year_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topContributorsPastMonthTab() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_Past_Month_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_Past_Month_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topContributorsPastWeekTab() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_Past_Week_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_Past_Week_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getTopContributorsFirstLine() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Top_Contributors_List_Item_First_Css));
+		String firstLine = driver.findElement(By.cssSelector(RepoReportControls.Top_Contributors_List_Item_First_Css)).getText().trim();
+		System.out.println("Top Contributors First Line is: " + firstLine);
+		
+		return firstLine;
     }
 }
