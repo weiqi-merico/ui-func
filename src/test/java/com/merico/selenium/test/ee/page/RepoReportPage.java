@@ -230,4 +230,56 @@ public class RepoReportPage extends Page {
 		
 		return firstLine;
     }
+    
+    @AutoIntercept
+    public void topContributorsDetailLink() {
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Top_Contributors_Details_Link_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Top_Contributors_Details_Link_Css)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topCommitsAllTimeTab() {
+    	Utilities.movePageToLocation(driver, "500");
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topCommitsPastYearTab() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_Past_Year_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Commits_Past_Year_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topCommitsPastMonthTab() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_Past_Month_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Commits_Past_Month_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topCommitsPastWeekTab() {
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_Past_Week_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Commits_Past_Week_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getTopCommitsFirstLine() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.top_commits_list_item_first_css));
+		String firstLine = driver.findElement(By.cssSelector(RepoReportControls.top_commits_list_item_first_css)).getText().trim();
+		System.out.println("Top Commits First Line is: " + firstLine);
+		
+		return firstLine;
+    }
+    
+    @AutoIntercept
+    public void topCommitsDetailLink() {
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Top_Commits_Details_Link_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Top_Commits_Details_Link_Css)).click();
+		Utilities.staticTimeDelay(2000);
+    }
 }

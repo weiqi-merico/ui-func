@@ -184,4 +184,56 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertTrue(repoReportPage.getTopContributorsFirstLine().contains("#1"), "Past Month Tab for Top Contributors Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopContributorsPastWeekTab"}, alwaysRun = true)
+	public void testTopContributorsDetailLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topContributorsDetailLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "贡献者列表", "Navigate to Contributors Detail Page Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopContributorsDetailLink"}, alwaysRun = true)
+	public void testTopCommitsAllTimeTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topCommitsAllTimeTab();
+		
+		Assert.assertTrue(repoReportPage.getTopCommitsFirstLine().contains("#1"), "All Time Tab for Top Commits Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopCommitsAllTimeTab"}, alwaysRun = true)
+	public void testTopCommitsPastYearTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topCommitsPastYearTab();
+		
+		Assert.assertTrue(repoReportPage.getTopCommitsFirstLine().contains("#1"), "Past Year Tab for Top Commits Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopCommitsPastYearTab"}, alwaysRun = true)
+	public void testTopCommitsPastMonthTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topCommitsPastMonthTab();
+		
+		Assert.assertTrue(repoReportPage.getTopCommitsFirstLine().contains("#1"), "Past Month Tab for Top Commits Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopCommitsPastMonthTab"}, alwaysRun = true)
+	public void testTopCommitsPastWeekTab() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topCommitsPastWeekTab();
+		
+		Assert.assertTrue(repoReportPage.getTopCommitsFirstLine().contains("#1"), "Past Month Tab for Top Commits Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopCommitsPastWeekTab"}, alwaysRun = true)
+	public void testTopCommitsDetailLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topCommitsDetailLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "提交列表", "Navigate to Commits Detail Page Failed!");
+		
+		repoReportPage.back();
+	}
 }

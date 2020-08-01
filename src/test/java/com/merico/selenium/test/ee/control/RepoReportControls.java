@@ -173,4 +173,39 @@ public class RepoReportControls {
      * Contributor Profile Header Title
      */
     public static final String Contributor_Profile_Header_Xpath = getProperty("contributor_profile_header_xpath");
+    
+    /**
+     * Top Commits Header
+     */
+    public static final String Top_Commits_Header_Css = getProperty("top_commits_header_css");
+    
+    /**
+     * Top Commits Details Link
+     */
+    public static final String Top_Commits_Details_Link_Css = getProperty("top_commits_details_link_css");
+    
+    /**
+     * Top Commits All Time Tab
+     */
+    public static final String Top_Commits_All_Time_Tab_Xpath = getProperty("top_commits_all_time_tab_xpath");
+    
+    /**
+     * Top Commits Past Year Tab
+     */
+    public static final String Top_Commits_Past_Year_Tab_Xpath = getProperty("top_commits_past_year_tab_xpath");
+    
+    /**
+     * Top Commits Past Month Tab
+     */
+    public static final String Top_Commits_Past_Month_Tab_Xpath = getProperty("top_commits_past_month_tab_xpath");
+    
+    /**
+     * Top Commits Past Week Tab
+     */
+    public static final String Top_Commits_Past_Week_Tab_Xpath = getProperty("top_commits_past_week_tab_xpath");
+    
+    /**
+     * Top Commit List Item First Item
+     */
+    public static final String top_commits_list_item_first_css = getProperty("top_commits_list_item_first_css");
 }
