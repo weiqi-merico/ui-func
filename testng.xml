@@ -82,6 +82,7 @@
 	</groups>
     <classes>
     		<class name="com.merico.selenium.test.ee.test.RepoReportTest" />
+    		<class name="com.merico.selenium.test.ee.test.AnalysisTaskListReport" />
     </classes>
   </test>
 </suite>

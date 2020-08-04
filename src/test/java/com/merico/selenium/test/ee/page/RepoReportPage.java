@@ -428,4 +428,79 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.cssSelector(RepoReportControls.Info_Issues_Link_Css)).click();
     	Utilities.staticTimeDelay(2000);
     }
+    
+    @AutoIntercept
+    public void backwardAnalysis() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.analysis_task_list_link));
+    	driver.findElement(By.linkText(RepoReportControls.analysis_task_list_link)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Backward_Analysis_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Backward_Analysis_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.name(RepoReportControls.Due_Date_Input_Name));
+    	driver.findElement(By.name(RepoReportControls.Due_Date_Input_Name)).click();
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.First_Commit_Btn_Link));
+    	driver.findElement(By.linkText(RepoReportControls.First_Commit_Btn_Link)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Last_Commit_Btn_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Last_Commit_Btn_Link)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Before_End_Of_Selected_Day_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Before_End_Of_Selected_Day_Xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Date_Submit_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Date_Submit_Btn_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Cancel_Analysis_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Cancel_Analysis_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Failed_Status_Link_Css));
+        Actions builder = new Actions(driver);
+        builder.moveToElement(element).perform();
+        Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getAbnomalAnalysisInfo() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Abnormal_Info_Box_Css));
+    	String info =  driver.findElement(By.cssSelector(RepoReportControls.Abnormal_Info_Box_Css)).getText().trim();
+    	System.out.println("Abnormal Info is : " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public void paginationJumper4AnalysisTaskListTable() {
+    	Utilities.movePageToLocation(driver, "600");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css)).clear();
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css)).sendKeys("2");
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4AnalysisTaskList() {
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4AnalysisTaskListTable() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Css)).click();
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getTableRowNum4AnalysisTaskList() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Table_Tr_Css));
+    	int rowNum =  driver.findElements(By.cssSelector(RepoReportControls.Analysis_Task_List_Table_Tr_Css)).size();
+    	System.out.println("Row Number is : " + rowNum);
+    	
+    	return rowNum;
+    }
 }

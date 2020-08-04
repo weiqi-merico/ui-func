@@ -3,6 +3,8 @@ package com.merico.selenium.test.ee.control;
 import java.io.InputStream;
 import java.util.Properties;
 
+import com.merico.selenium.test.ee.utils.Utilities;
+
 public class RepoReportControls {
 	private static Properties props = null;
     static {
@@ -298,4 +300,69 @@ public class RepoReportControls {
      * Info Issues Link
      */
     public static final String Info_Issues_Link_Css = getProperty("info_issues_link_css");
+    
+    /**
+     * Analysis Task List Link
+     */
+    public static final String analysis_task_list_link = Utilities.utf8Char(getProperty("analysis_task_list_link"));
+    
+    /**
+     * Backward Analysis Button
+     */
+    public static final String Backward_Analysis_Btn_Css = getProperty("backward_analysis_btn_css");
+    
+    /**
+     * Due Date Input
+     */
+    public static final String Due_Date_Input_Name = getProperty("due_date_input_name");
+    
+    /**
+     * First Commit Button
+     */
+    public static final String First_Commit_Btn_Link = Utilities.utf8Char(getProperty("first_commit_btn_link"));
+    
+    /**
+     * Last Commit Button
+     */
+    public static final String Last_Commit_Btn_Link = Utilities.utf8Char(getProperty("last_commit_btn_link"));
+    
+    /**
+     * Before End Of Selected Day
+     */
+    public static final String Before_End_Of_Selected_Day_Xpath = getProperty("before_end_of_selected_day_xpath");
+    
+    /**
+     * Analysis Date Submit Button
+     */
+    public static final String Analysis_Date_Submit_Btn_Css = getProperty("analysis_date_submit_btn_css");
+    
+    /**
+     * Cancel Analysis Link
+     */
+    public static final String Cancel_Analysis_Link_Css = getProperty("cancel_analysis_link_css");
+    
+    /**
+     * Failed Status Link
+     */
+    public static final String Failed_Status_Link_Css = getProperty("failed_status_link_css");
+    
+    /**
+     * Abnormal Info box
+     */
+    public static final String Abnormal_Info_Box_Css = getProperty("abnormal_info_box_css");
+    
+    /**
+     * Analysis Task List Page Jummper
+     */
+    public static final String Analysis_Task_List_Page_Jumper_Css = getProperty("analysis_task_list_page_jumper_css");
+    
+    /**
+     * Analysis Task List Page Jumper Input
+     */
+    public static final String Analysis_Task_List_Page_Jumper_Input_Css = getProperty("analysis_task_list_page_jumper_input_css");
+    
+    /**
+     * Analysis Task List Table Table Row
+     */
+    public static final String Analysis_Task_List_Table_Tr_Css = getProperty("analysis_task_list_table_tr_css");
 }
