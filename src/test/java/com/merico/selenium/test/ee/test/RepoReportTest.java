@@ -236,4 +236,113 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		repoReportPage.back();
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopCommitsDetailLink"}, alwaysRun = true)
+	public void testManpowerAllocation() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		
+		Assert.assertTrue(repoReportPage.manpowerAllocation(), "Manpower Allocation Canvas Displayed Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testManpowerAllocation"}, alwaysRun = true)
+	public void testDeveloperStrengths() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.developerStrengths();
+		
+		Assert.assertTrue(repoReportPage.getHistogram4DeveloperStrengths(), "Histogram Canvas for Developer Strengths Displayed Failed!");
+		Assert.assertTrue(repoReportPage.getPie4DeveloperStrengths(), "Pie Canvas for Developer Strengths Displayed Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDeveloperStrengths"}, alwaysRun = true)
+	public void testTopicTags() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.topicTags();
+		
+		Assert.assertTrue(repoReportPage.getTopicTags(), "Topic Tags Displayed Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopicTags"}, alwaysRun = true)
+	public void testContributionPerspective() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.contributionPerspective();
+		
+		Assert.assertTrue(repoReportPage.getLeftContributionPerspective(), "Contribution Perspective Left Side Displayed Failed!");	
+		Assert.assertTrue(repoReportPage.getRightContributionPerspective(), "Contribution Perspective Right Side Displayed Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testContributionPerspective"}, alwaysRun = true)
+	public void testCodeContributionBySalary() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.codeContributionBySalary();
+		
+		Assert.assertTrue(repoReportPage.getCodeContribution(), "Code Contribution By Salary Displayed Failed!");	
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCodeContributionBySalary"}, alwaysRun = true)
+	public void testCodeContributionByLevel() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.codeContributionByLevel();
+		
+		Assert.assertTrue(repoReportPage.getCodeContribution(), "Code Contribution By Level Displayed Failed!");	
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCodeContributionByLevel"}, alwaysRun = true)
+	public void testCodeQualityDetailLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.codeQualityDetailLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码质量", "Detail Link for Code Quality Displayed Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCodeQualityDetailLink"}, alwaysRun = true)
+	public void testBlockIssuesLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.blockIssuesLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码质量", "Block Issues Link for Code Quality Displayed Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBlockIssuesLink"}, alwaysRun = true)
+	public void testCriticalIssuesLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.ctriticalIssuesLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码质量", "Critical Issues Link for Code Quality Displayed Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCriticalIssuesLink"}, alwaysRun = true)
+	public void testMajorIssuesLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.majorIssuesLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码质量", "Major Issues Link for Code Quality Displayed Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMajorIssuesLink"}, alwaysRun = true)
+	public void testMinorIssuesLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.minorIssuesLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码质量", "Minor Issues Link for Code Quality Displayed Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMinorIssuesLink"}, alwaysRun = true)
+	public void testInfoIssuesLink() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.infoIssuesLink();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "代码质量", "Info Issues Link for Code Quality Displayed Failed!");
+		
+		repoReportPage.back();
+	}
 }

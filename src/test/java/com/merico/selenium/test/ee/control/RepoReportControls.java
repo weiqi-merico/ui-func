@@ -208,4 +208,94 @@ public class RepoReportControls {
      * Top Commit List Item First Item
      */
     public static final String top_commits_list_item_first_css = getProperty("top_commits_list_item_first_css");
+    
+    /**
+     * Manpower Allocation
+     */
+    public static final String manpower_allocation_canvas_css = getProperty("manpower_allocation_canvas_css");
+    
+    /**
+     * Developer Strengths Header Title
+     */
+    public static final String Developer_Strengths_Header_Css = getProperty("developer_strengths_header_css");
+    
+    /**
+     * Developer Strengths Selection
+     */
+    public static final String Developer_Strengths_Selection_Css = getProperty("developer_strengths_selection_css");
+    
+    /**
+     * Developer Strengths Histogram
+     */
+    public static final String Developer_Strengths_Histogram_Xpath = getProperty("developer_strengths_histogram_xpath");
+    
+    /**
+     * Developer Strengths Pie
+     */
+    public static final String Developer_Strengths_Pie_Css = getProperty("developer_strengths_pie_css");
+    
+    /**
+     * Topic Tags Header Title
+     */
+    public static final String Topic_Tags_Header_Css = getProperty("topic_tags_header_css");
+    
+    /**
+     * Topic Tags Canvas
+     */
+    public static final String Topic_Tags_Canvas_Xpath = getProperty("topic_tags_canvas_xpath");
+    
+    /**
+     * Contribution Perspective Canvas Left side
+     */
+    public static final String Contribution_Perspective_Canvas_Left_Xpath = getProperty("contribution_perspective_canvas_left_xpath");
+    
+    /**
+     * Contribution Perspective Canvas Right side
+     */
+    public static final String Contribution_Perspective_Canvas_Right_Xpath = getProperty("contribution_perspective_canvas_right_xpath");
+    
+    /**
+     * Code Contribution And Salary Canvas
+     */
+    public static final String Code_Contribution_And_Salary_Canvas_Css = getProperty("code_contribution_and_salary_canvas_css");
+    
+    /**
+     * Code Contribution And Salary By Salary Button
+     */
+    public static final String Code_Contribution_And_Salary_By_Salary_Css = getProperty("code_contribution_and_salary_by_salary_css");
+    
+    /**
+     * Code Contribution And Salary By Level Button
+     */
+    public static final String Code_Contribution_And_Salary_By_Level_Css = getProperty("code_contribution_and_salary_by_level_css");
+    
+    /**
+     * Code Quality Issues Detail Link
+     */
+    public static final String Code_Quality_Issues_Detail_Link_Css = getProperty("code_quality_issues_detail_link_css");
+    
+    /**
+     * Block Issue Link
+     */
+    public static final String Block_Issue_Link_Css = getProperty("block_issue_link_css");
+    
+    /**
+     * Critical Issues Link
+     */
+    public static final String Critical_Issues_Link_Css = getProperty("critical_issues_link_css");
+    
+    /**
+     * Major Issues Link
+     */
+    public static final String Major_Issues_Link_Css = getProperty("major_issues_link_css");
+    
+    /**
+     * Minor Issues Link
+     */
+    public static final String Minor_Issues_Link_Css = getProperty("minor_issues_link_css");
+    
+    /**
+     * Info Issues Link
+     */
+    public static final String Info_Issues_Link_Css = getProperty("info_issues_link_css");
 }

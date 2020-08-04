@@ -1,6 +1,7 @@
 package com.merico.selenium.test.ee.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -195,7 +196,7 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void topContributorsAllTimeTab() {
-    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.movePageToLocation(driver, "600");
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath));
 		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath)).click();
 		Utilities.staticTimeDelay(2000);
@@ -240,7 +241,7 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void topCommitsAllTimeTab() {
-    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.movePageToLocation(driver, "600");
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath));
 		driver.findElement(By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath)).click();
 		Utilities.staticTimeDelay(2000);
@@ -281,5 +282,150 @@ public class RepoReportPage extends Page {
 		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Top_Commits_Details_Link_Css));
 		driver.findElement(By.cssSelector(RepoReportControls.Top_Commits_Details_Link_Css)).click();
 		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public Boolean manpowerAllocation() {
+    	Utilities.movePageToLocation(driver, "1400");
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.manpower_allocation_canvas_css));
+		boolean flag = driver.findElement(By.cssSelector(RepoReportControls.manpower_allocation_canvas_css)).isEnabled();
+		System.out.println("Manpower Allocation Displayed: " + flag);
+		
+		return flag;
+    }
+    
+    @AutoIntercept
+    public void developerStrengths() {
+    	Utilities.movePageToLocation(driver, "900");
+		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Developer_Strengths_Selection_Css));
+		driver.findElement(By.cssSelector(RepoReportControls.Developer_Strengths_Selection_Css)).click();
+		Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public Boolean getHistogram4DeveloperStrengths() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Developer_Strengths_Histogram_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Developer_Strengths_Histogram_Xpath)).isEnabled();
+    	System.out.println("Developer Strengths Histogram Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public Boolean getPie4DeveloperStrengths() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Developer_Strengths_Pie_Css));
+    	boolean flag = driver.findElement(By.cssSelector(RepoReportControls.Developer_Strengths_Pie_Css)).isEnabled();
+    	System.out.println("Developer Strengths Pie Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void topicTags() {
+    	Utilities.movePageToLocation(driver, "800");
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public Boolean getTopicTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Topic_Tags_Canvas_Xpath));
+    	boolean flag =  driver.findElement(By.xpath(RepoReportControls.Topic_Tags_Canvas_Xpath)).isEnabled();
+    	System.out.println("Topic Tags Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void contributionPerspective() {
+    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public Boolean getLeftContributionPerspective() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Contribution_Perspective_Canvas_Left_Xpath));
+    	boolean flag =  driver.findElement(By.xpath(RepoReportControls.Contribution_Perspective_Canvas_Left_Xpath)).isEnabled();
+    	System.out.println("Contribution Perspective Left Side Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public Boolean getRightContributionPerspective() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Contribution_Perspective_Canvas_Right_Xpath));
+    	boolean flag =  driver.findElement(By.xpath(RepoReportControls.Contribution_Perspective_Canvas_Right_Xpath)).isEnabled();
+    	System.out.println("Contribution Perspective Right Side Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void codeContributionBySalary() {
+    	Utilities.movePageToLocation(driver, "400");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_By_Salary_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_By_Salary_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void codeContributionByLevel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_By_Level_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_By_Level_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public Boolean getCodeContribution() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_Canvas_Css));
+    	boolean flag =  driver.findElement(By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_Canvas_Css)).isEnabled();
+    	System.out.println("Code Contribution Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void codeQualityDetailLink() {
+    	Utilities.movePageToLocation(driver, "400");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Quality_Issues_Detail_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Code_Quality_Issues_Detail_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void blockIssuesLink() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Block_Issue_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Block_Issue_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void ctriticalIssuesLink() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Critical_Issues_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Critical_Issues_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void majorIssuesLink() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Major_Issues_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Major_Issues_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void minorIssuesLink() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Minor_Issues_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Minor_Issues_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void infoIssuesLink() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Info_Issues_Link_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Info_Issues_Link_Css)).click();
+    	Utilities.staticTimeDelay(2000);
     }
 }
