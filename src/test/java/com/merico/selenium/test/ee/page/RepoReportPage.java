@@ -503,4 +503,25 @@ public class RepoReportPage extends Page {
     	
     	return rowNum;
     }
+    
+    @AutoIntercept
+    public void commitsSearch() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Commits_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Commits_Link_Link)).click();
+    	Utilities.waitForControlPresent(driver, By.id(RepoReportControls.Commits_Start_Date_Textbox_Id));
+    	driver.findElement(By.id(RepoReportControls.Commits_Start_Date_Textbox_Id)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Calendar_With_This_Year_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Calendar_With_This_Year_Btn_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css)).click();
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys("yanghui@meri.co").perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Search_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Search_Btn_Css)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }

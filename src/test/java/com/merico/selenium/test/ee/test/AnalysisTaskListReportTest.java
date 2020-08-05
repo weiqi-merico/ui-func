@@ -18,7 +18,7 @@ import com.merico.selenium.test.ee.page.LogoutPage;
 import com.merico.selenium.test.ee.page.RepoReportPage;
 import com.merico.selenium.test.ee.utils.Crypt;
 
-public class AnalysisTaskListReport extends TestBase {
+public class AnalysisTaskListReportTest extends TestBase {
 protected Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Override

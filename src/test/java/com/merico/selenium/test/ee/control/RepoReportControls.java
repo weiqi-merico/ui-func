@@ -365,4 +365,29 @@ public class RepoReportControls {
      * Analysis Task List Table Table Row
      */
     public static final String Analysis_Task_List_Table_Tr_Css = getProperty("analysis_task_list_table_tr_css");
+    
+    /**
+     * Commits Link
+     */
+    public static final String Commits_Link_Link = Utilities.utf8Char(getProperty("commits_link_link"));
+    
+    /**
+     * Commits Start Date Textbox
+     */
+    public static final String Commits_Start_Date_Textbox_Id = getProperty("commits_start_date_textbox_id");
+    
+    /**
+     * Commits Calendar with This Year Button
+     */
+    public static final String Commits_Calendar_With_This_Year_Btn_Css = getProperty("commits_calendar_with_this_year_btn_css");
+    
+    /**
+     * Commits Contributor Textbox
+     */
+    public static final String Commits_Contributor_Textbox_Css = getProperty("commits_contributor_textbox_css");
+    
+    /**
+     * Commits Search Button
+     */
+    public static final String Commits_Search_Btn_Css = getProperty("commits_search_btn_css");
 }
