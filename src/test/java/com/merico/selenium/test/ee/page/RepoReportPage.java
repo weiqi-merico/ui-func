@@ -522,6 +522,19 @@ public class RepoReportPage extends Page {
     	Utilities.staticTimeDelay(1000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Search_Btn_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Commits_Search_Btn_Css)).click();
-    	Utilities.staticTimeDelay(3000);
+    	Utilities.staticTimeDelay(4000);
+//    	
+//    	WebElement element  = driver.findElement(By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+//    	JavascriptExecutor js = (JavascriptExecutor) driver;
+//    	js.executeScript("arguments[0].scrollIntoView(false);",element);
+    }
+    
+    @AutoIntercept
+    public String getSearchResult4CommitsReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Info_Contributor_Email_Xpath));
+    	String email =  driver.findElement(By.xpath(RepoReportControls.Commits_Info_Contributor_Email_Xpath)).getText().trim();
+    	System.out.println("Email for Commits Report is : " + email);
+    	
+    	return email;
     }
 }

@@ -390,4 +390,14 @@ public class RepoReportControls {
      * Commits Search Button
      */
     public static final String Commits_Search_Btn_Css = getProperty("commits_search_btn_css");
+    
+    /**
+     * Commits Info Contributor Email
+     */
+    public static final String Commits_Info_Contributor_Email_Xpath = getProperty("commits_info_contributor_email_xpath");
+    
+    /**
+     * Commits Submit Time Col
+     */
+    public static final String Commits_Submit_Time_Col_Xpath = Utilities.utf8Char(getProperty("commits_submit_time_col_xpath"));
 }

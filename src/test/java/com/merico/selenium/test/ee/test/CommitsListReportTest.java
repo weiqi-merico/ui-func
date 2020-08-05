@@ -54,6 +54,6 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
 		repoReportPage.commitsSearch();
 		
-//		Assert.assertNotEquals(repoReportPage.getTableRowNum4AnalysisTaskList(), 10, "Fixed Pagination Jumper for Analysis Task List Page Failed!");
+		Assert.assertEquals(repoReportPage.getSearchResult4CommitsReport(), "yanghui@meri.co", "Search Result for Commits Report Page Failed!");
 	}
 }
