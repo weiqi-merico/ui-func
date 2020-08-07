@@ -400,4 +400,14 @@ public class RepoReportControls {
      * Commits Submit Time Col
      */
     public static final String Commits_Submit_Time_Col_Xpath = Utilities.utf8Char(getProperty("commits_submit_time_col_xpath"));
+    
+    /**
+     * Commits Detail Button Link
+     */
+    public static final String Commits_Detail_Btn_Link_Xpath = getProperty("commits_detail_btn_link_xpath");
+    
+    /**
+     * Commits Detail Page Dev Val
+     */
+    public static final String Commits_Detail_Page_Dev_Val_Xpath = getProperty("commits_detail_page_dev_val_xpath");
 }

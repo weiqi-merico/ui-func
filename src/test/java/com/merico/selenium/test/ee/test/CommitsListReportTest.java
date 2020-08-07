@@ -56,4 +56,14 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getSearchResult4CommitsReport(), "yanghui@meri.co", "Search Result for Commits Report Page Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testcommitsSearch"}, alwaysRun = true)
+	public void testcommitsDetail() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.commitsDetail();
+		
+		Assert.assertEquals(repoReportPage.getDetailInfo4CommitsReport(), "开发价值", "Detail Page Info for Commits Report Page Failed!");
+		
+		repoReportPage.back();
+	}
 }

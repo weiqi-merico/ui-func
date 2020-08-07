@@ -515,6 +515,7 @@ public class RepoReportPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css)).click();
+    	Utilities.staticTimeDelay(500);
     	Actions builder = new Actions(driver);
     	builder.sendKeys("yanghui@meri.co").perform();
     	builder.sendKeys(Keys.ENTER).perform();
@@ -536,5 +537,21 @@ public class RepoReportPage extends Page {
     	System.out.println("Email for Commits Report is : " + email);
     	
     	return email;
+    }
+    
+    @AutoIntercept
+    public void commitsDetail() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Detail_Btn_Link_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Commits_Detail_Btn_Link_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getDetailInfo4CommitsReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Detail_Page_Dev_Val_Xpath));
+    	String devVal =  driver.findElement(By.xpath(RepoReportControls.Commits_Detail_Page_Dev_Val_Xpath)).getText().trim();
+    	System.out.println("Detail Page Info for Commits Report is : " + devVal);
+    	
+    	return devVal;
     }
 }
