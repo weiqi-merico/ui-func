@@ -66,4 +66,20 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		repoReportPage.back();
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testcommitsDetail"}, alwaysRun = true)
+	public void testcommitsSearchByTitle() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.commitsSearchByTitle();
+		
+		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("Merge"), "Search Commit Title for Commits Report Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testcommitsSearchByTitle"}, alwaysRun = true)
+	public void testcommitsSearchTooltipByTitle() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.commitsSearchByTitleTooltip();
+		
+		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("Merge"), "Search Commit Title Tooltip for Commits Report Page Failed!");
+	}
 }

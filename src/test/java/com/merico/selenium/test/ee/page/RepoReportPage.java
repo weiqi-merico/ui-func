@@ -540,6 +540,34 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void commitsSearchByTitle() {
+    	Utilities.waitForControlPresent(driver, By.id(RepoReportControls.Commits_Search_Title_Textbox_Id));
+    	driver.findElement(By.id(RepoReportControls.Commits_Search_Title_Textbox_Id)).click();
+    	driver.findElement(By.id(RepoReportControls.Commits_Search_Title_Textbox_Id)).sendKeys("merge");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Search_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Search_Btn_Css)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getSearchTitleResult4CommitsReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Info_Xpath));
+    	String commitTitle =  driver.findElement(By.xpath(RepoReportControls.Commits_Info_Xpath)).getText().trim();
+    	System.out.println("Commit Title for Commits Report is : " + commitTitle);
+    	
+    	return commitTitle;
+    }
+    
+    @AutoIntercept
+    public void commitsSearchByTitleTooltip() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Info_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Commits_Info_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
     public void commitsDetail() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Detail_Btn_Link_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Commits_Detail_Btn_Link_Xpath)).click();
@@ -554,4 +582,6 @@ public class RepoReportPage extends Page {
     	
     	return devVal;
     }
+    
+    
 }

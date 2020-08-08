@@ -387,9 +387,24 @@ public class RepoReportControls {
     public static final String Commits_Contributor_Textbox_Css = getProperty("commits_contributor_textbox_css");
     
     /**
+     * Commits Search Title Textbox
+     */
+    public static final String Commits_Search_Title_Textbox_Id = getProperty("commits_search_title_textbox_id");
+    
+    /**
      * Commits Search Button
      */
     public static final String Commits_Search_Btn_Css = getProperty("commits_search_btn_css");
+    
+    /**
+     * Commits Info
+     */
+    public static final String Commits_Info_Xpath = getProperty("commits_info_xpath");
+    
+    /**
+     * Commits Info Tooltip
+     */
+    public static final String Commits_Info_Tooltip_Css = getProperty("commits_info_tooltip_css");
     
     /**
      * Commits Info Contributor Email
@@ -397,7 +412,12 @@ public class RepoReportControls {
     public static final String Commits_Info_Contributor_Email_Xpath = getProperty("commits_info_contributor_email_xpath");
     
     /**
-     * Commits Submit Time Col
+     * Dev Val Column
+     */
+    public static final String Dev_Val_Col_Xpath = Utilities.utf8Char(getProperty("dev_val_col_xpath"));
+    
+    /**
+     * Commits Submit Time Column
      */
     public static final String Commits_Submit_Time_Col_Xpath = Utilities.utf8Char(getProperty("commits_submit_time_col_xpath"));
     
