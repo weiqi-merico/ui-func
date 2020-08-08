@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import com.google.common.base.Function;
 import com.merico.selenium.page.PageUrlMapping;
@@ -216,6 +217,16 @@ public class Utilities {
 		String js = "document.body.scrollTop = document.body.scrollHeight;";
 		((JavascriptExecutor) driver).executeScript(js);
 		staticTimeDelay(1000);
+	}
+	
+	/**
+	 * Moving the scroll bar to the element
+	 * @param driver
+	 */
+	public static void movePageToElement(WebDriver driver, final By by) {
+		WebElement element  = driver.findElement(by);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+    	js.executeScript("arguments[0].scrollIntoView(false);",element);
 	}
 	
 	/**

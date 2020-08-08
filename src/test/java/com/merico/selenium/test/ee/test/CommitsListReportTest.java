@@ -49,7 +49,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
-	public void testcommitsSearch(String repoUrl) throws Exception {
+	public void testCommitsSearch(String repoUrl) throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
 		repoReportPage.commitsSearch();
@@ -57,8 +57,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertEquals(repoReportPage.getSearchResult4CommitsReport(), "yanghui@meri.co", "Search Result for Commits Report Page Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testcommitsSearch"}, alwaysRun = true)
-	public void testcommitsDetail() throws Exception {
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSearch"}, alwaysRun = true)
+	public void testCommitsDetail() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.commitsDetail();
 		
@@ -67,19 +67,50 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		repoReportPage.back();
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testcommitsDetail"}, alwaysRun = true)
-	public void testcommitsSearchByTitle() throws Exception {
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsDetail"}, alwaysRun = true)
+	public void testCommitsSearchByTitle() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.commitsSearchByTitle();
 		
 		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("Merge"), "Search Commit Title for Commits Report Page Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testcommitsSearchByTitle"}, alwaysRun = true)
-	public void testcommitsSearchTooltipByTitle() throws Exception {
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSearchByTitle"}, alwaysRun = true)
+	public void testCommitsSearchTooltipByTitle() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.commitsSearchByTitleTooltip();
 		
 		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("Merge"), "Search Commit Title Tooltip for Commits Report Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSearchTooltipByTitle"}, alwaysRun = true)
+	public void testCommitsSortByDevVal() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.commitsSortByDevVal();
+//		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击降序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		repoReportPage.commitsSortByDevVal();
+//		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "取消排序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		repoReportPage.commitsSortByDevVal();
+//		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击升序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSortByDevVal"}, alwaysRun = true)
+	public void testCommitsSortByCommitTime() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.moveToCommitTimeCol();
+		repoReportPage.commitsSortByCommitTime();
+		repoReportPage.moveToCommitTimeCol();
+		repoReportPage.hoverToCommitTimeCol();
+		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击降序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		
+		repoReportPage.commitsSortByCommitTime();
+		repoReportPage.moveToCommitTimeCol();
+		repoReportPage.hoverToCommitTimeCol();
+		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "取消排序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		
+		repoReportPage.commitsSortByCommitTime();
+		repoReportPage.moveToCommitTimeCol();
+		repoReportPage.hoverToCommitTimeCol();
+		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击升序", "Commit Sort by Dev Val for Commits Report Page Failed!");
 	}
 }

@@ -522,19 +522,14 @@ public class RepoReportPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css)).click();
-    	Utilities.staticTimeDelay(500);
-    	
+    	Utilities.staticTimeDelay(500);  	
     	builder.sendKeys("yanghui@meri.co").perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
     	Utilities.staticTimeDelay(1000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Search_Btn_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Commits_Search_Btn_Css)).click();
-    	Utilities.staticTimeDelay(4000);
-//    	
-//    	WebElement element  = driver.findElement(By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
-//    	JavascriptExecutor js = (JavascriptExecutor) driver;
-//    	js.executeScript("arguments[0].scrollIntoView(false);",element);
+    	Utilities.staticTimeDelay(6000);
     }
     
     @AutoIntercept
@@ -590,5 +585,43 @@ public class RepoReportPage extends Page {
     	return devVal;
     }
     
+    @AutoIntercept
+    public void commitsSortByDevVal() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Dev_Val_Col_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Dev_Val_Col_Xpath)).click();
+    	Utilities.staticTimeDelay(5000);
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Dev_Val_Col_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
     
+    @AutoIntercept
+    public void moveToCommitTimeCol() {
+    	Utilities.movePageToElement(driver, By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+    }
+    
+    @AutoIntercept
+    public void commitsSortByCommitTime() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void hoverToCommitTimeCol() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public String getCommitTableColTooltip4CommitsReport() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Info_Tooltip_Css));
+    	String tooltipVal =  driver.findElement(By.cssSelector(RepoReportControls.Commits_Info_Tooltip_Css)).getText().trim();
+    	System.out.println("Commit List Table Column Tooltip for Commits Report is : " + tooltipVal);
+    	
+    	return tooltipVal;
+    }
 }
