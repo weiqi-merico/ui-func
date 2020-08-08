@@ -510,13 +510,20 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.linkText(RepoReportControls.Commits_Link_Link)).click();
     	Utilities.waitForControlPresent(driver, By.id(RepoReportControls.Commits_Start_Date_Textbox_Id));
     	driver.findElement(By.id(RepoReportControls.Commits_Start_Date_Textbox_Id)).click();
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Calendar_With_This_Year_Btn_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Calendar_With_This_Year_Btn_Css)).click();
+    	driver.findElement(By.id(RepoReportControls.Commits_Start_Date_Textbox_Id)).sendKeys("2020-01-01");
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys("2020-12-31").perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Calendar_With_This_Year_Btn_Css));
+//    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Calendar_With_This_Year_Btn_Css)).click();
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css)).click();
     	Utilities.staticTimeDelay(500);
-    	Actions builder = new Actions(driver);
+    	
     	builder.sendKeys("yanghui@meri.co").perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
