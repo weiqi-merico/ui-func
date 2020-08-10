@@ -213,6 +213,7 @@ public class AddRepoPage extends Page {
     public String getRepoStatus() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(AddRepoControls.Repo_Status_Css));
     	String repoStatus = driver.findElement(By.cssSelector(AddRepoControls.Repo_Status_Css)).getText().trim();
+    	System.out.println("Repo Status is: " + repoStatus);
     	
     	return repoStatus;
     }
