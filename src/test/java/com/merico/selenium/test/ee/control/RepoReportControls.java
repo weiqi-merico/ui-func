@@ -435,4 +435,49 @@ public class RepoReportControls {
      * Commits List Page Jumper
      */
     public static final String Commits_List_Page_Jumper_Css = getProperty("commits_list_page_jumper_css");
+    
+    /**
+     * Contributor Link
+     */
+    public static final String Contributors_Link_Link = Utilities.utf8Char(getProperty("contributors_link_link"));
+    
+    /**
+     * Calendar Delete Link
+     */
+    public static final String Calendar_Delete_Link_Css = getProperty("calendar_delete_link_css");
+    
+    /**
+     * Contributors Calendar Start Date Textbox
+     */
+    public static final String Contributors_Calendar_Start_Date_Textbox_Id = getProperty("contributors_calendar_start_date_textbox_id");
+    
+    /**
+     * Contributors Search Button
+     */
+    public static final String contributors_search_btn_css = getProperty("contributors_search_btn_css");
+    
+    /**
+     * Contributors Export Data Button Button
+     */
+    public static final String Contributors_Export_Data_Btn_Css = getProperty("contributors_export_data_btn_css");
+    
+    /**
+     * Contributors Detail Button Link
+     */
+    public static final String contributors_detail_btn_link_xpath = getProperty("contributors_detail_btn_link_xpath");
+    
+    /**
+     * Contributors Table Contributor
+     */
+    public static final String contributors_table_contributor_css = getProperty("contributors_table_contributor_css");
+    
+    /**
+     * Contributors Table Dev Val
+     */
+    public static final String contributors_table_dev_val_xpath = Utilities.utf8Char(getProperty("contributors_table_dev_val_xpath"));
+    
+    /**
+     * Contributors Table Dev Eq
+     */
+    public static final String contributors_table_dev_eq_xpath = Utilities.utf8Char(getProperty("contributors_table_dev_eq_xpath"));
 }
