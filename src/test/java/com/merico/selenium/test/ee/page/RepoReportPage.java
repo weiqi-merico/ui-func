@@ -624,4 +624,47 @@ public class RepoReportPage extends Page {
     	
     	return tooltipVal;
     }
+    
+    @AutoIntercept
+    public void paginationJumper4CommitsListTable() {
+    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css)).clear();
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css)).sendKeys("2");
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4CommitsTaskList() {
+    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4CommitsTable() {
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Commits_List_Page_Jumper_Css));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getTableRowNum4CommitsList() {
+    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Table_Tr_Css));
+    	int rowNum =  driver.findElements(By.cssSelector(RepoReportControls.Analysis_Task_List_Table_Tr_Css)).size();
+    	System.out.println("Row Number is : " + rowNum);
+    	
+    	return rowNum;
+    }
 }

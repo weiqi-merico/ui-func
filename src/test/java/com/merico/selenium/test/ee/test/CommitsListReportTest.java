@@ -113,4 +113,20 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		repoReportPage.hoverToCommitTimeCol();
 		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击升序", "Commit Sort by Dev Val for Commits Report Page Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSortByCommitTime"}, alwaysRun = true)
+	public void testPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.paginationJumper4CommitsListTable();
+		
+		Assert.assertEquals(repoReportPage.getPaginationFocus4CommitsTaskList(), "rgba(202, 69, 33, 1)", "Pagination Jumper for Commits List Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagination"}, alwaysRun = true)
+	public void testFixedPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.fixedPagination4CommitsTable();
+		
+		Assert.assertNotEquals(repoReportPage.getTableRowNum4CommitsList(), 10, "Fixed Pagination Jumper for Commits List Page Failed!");
+	}
 }

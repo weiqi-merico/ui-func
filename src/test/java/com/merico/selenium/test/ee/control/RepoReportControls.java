@@ -430,4 +430,9 @@ public class RepoReportControls {
      * Commits Detail Page Dev Val
      */
     public static final String Commits_Detail_Page_Dev_Val_Xpath = getProperty("commits_detail_page_dev_val_xpath");
+    
+    /**
+     * Commits List Page Jumper
+     */
+    public static final String Commits_List_Page_Jumper_Css = getProperty("commits_list_page_jumper_css");
 }
