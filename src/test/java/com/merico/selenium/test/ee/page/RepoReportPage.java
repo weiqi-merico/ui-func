@@ -670,20 +670,47 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void contributorsSearch() {
-    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Contributors_Link_Link));
-    	driver.findElement(By.linkText(RepoReportControls.Contributors_Link_Link)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css));
+    	Actions builder = new Actions(driver);
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Calendar_Delete_Link_Css));
+    	builder.moveToElement(element).perform();
+    	element.click();
+    	Utilities.staticTimeDelay(500);
+    	
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Commits_Contributor_Textbox_Css)).click();
     	Utilities.staticTimeDelay(500);
-    	Actions builder = new Actions(driver);
+    	
     	builder.sendKeys("yanghui@meri.co").perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
     	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.contributors_search_btn_css));
+    	driver.findElement(By.cssSelector(RepoReportControls.contributors_search_btn_css)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void contributorsSearchByCalendar() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Contributors_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Contributors_Link_Link)).click();
+    	
+    	Utilities.waitForControlPresent(driver, By.id(RepoReportControls.Contributors_Calendar_Start_Date_Textbox_Id));
+    	Actions builder = new Actions(driver);
     	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Calendar_Delete_Link_Css));
     	builder.moveToElement(element).perform();
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Calendar_Delete_Link_Css));
     	element.click();
+    	Utilities.staticTimeDelay(500);
+    	
+    	Utilities.waitForControlPresent(driver, By.id(RepoReportControls.Contributors_Calendar_Start_Date_Textbox_Id));
+    	driver.findElement(By.id(RepoReportControls.Contributors_Calendar_Start_Date_Textbox_Id)).click();
+    	driver.findElement(By.id(RepoReportControls.Contributors_Calendar_Start_Date_Textbox_Id)).sendKeys("2020-01-01");
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys("2020-12-31").perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.contributors_search_btn_css));
     	driver.findElement(By.cssSelector(RepoReportControls.contributors_search_btn_css)).click();
@@ -697,5 +724,95 @@ public class RepoReportPage extends Page {
     	System.out.println("Contributor for Commits Report is : " + contributor);
     	
     	return contributor;
+    }
+    
+    @AutoIntercept
+    public void contributorsDetail() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.contributors_detail_btn_link_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.contributors_detail_btn_link_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void contributorsDeleteContributorFlagAndSearch() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Contributors_Contributor_Delete_Flag_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Contributors_Contributor_Delete_Flag_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.contributors_search_btn_css));
+    	driver.findElement(By.cssSelector(RepoReportControls.contributors_search_btn_css)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void contributorsSortByDevEq() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.contributors_table_dev_eq_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.contributors_table_dev_eq_xpath)).click();
+    	Utilities.staticTimeDelay(5000);
+    	Actions builder = new Actions(driver);
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.contributors_table_dev_eq_xpath));
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public String getContributorsTableColTooltip4ContributorsReport() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Info_Tooltip_Css));
+    	String tooltipVal =  driver.findElement(By.cssSelector(RepoReportControls.Commits_Info_Tooltip_Css)).getText().trim();
+    	System.out.println("Contributors List Table Column Tooltip for Commits Report is : " + tooltipVal);
+    	
+    	return tooltipVal;
+    }
+    
+    @AutoIntercept
+    public void paginationJumper4ContributorsListTable() {
+    	Utilities.movePageToLocation(driver, "900");
+    	
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Contributors_List_Page_Jumper_Css));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css)).clear();
+    	driver.findElement(By.cssSelector(RepoReportControls.Analysis_Task_List_Page_Jumper_Input_Css)).sendKeys("2");
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4ContributorsTaskList() {
+    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4ContributorsTable() {
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Contributors_List_Page_Jumper_Css));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getTableRowNum4ContributorsList() {
+    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Analysis_Task_List_Table_Tr_Css));
+    	int rowNum =  driver.findElements(By.cssSelector(RepoReportControls.Analysis_Task_List_Table_Tr_Css)).size();
+    	System.out.println("Row Number is : " + rowNum);
+    	
+    	return rowNum;
     }
 }

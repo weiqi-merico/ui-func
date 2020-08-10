@@ -48,12 +48,59 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertEquals(username, loginPage.getAccountName(), "Admin login failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
-	public void testCommitsSearch(String repoUrl) throws Exception {
+	@Test(groups = {CasePriority.BVT},  dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
+	public void testContributorsSearchByCalendar(String repoUrl) throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
+		repoReportPage.contributorsSearchByCalendar();
+		
+		Assert.assertNotEquals(repoReportPage.getSearchResult4ContributorsReport().length(), 0, "Search Result By Calendar for Contributors Report Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testContributorsSearchByCalendar"}, alwaysRun = true)
+	public void testContributorsSearch() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.contributorsSearch();
 		
 		Assert.assertEquals(repoReportPage.getSearchResult4ContributorsReport(), "Yanghui Lin", "Search Result for Contributors Report Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testContributorsSearch"}, alwaysRun = true)
+	public void testContributorsDetail() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.contributorsDetail();
+		
+		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "贡献者报告", "Detail Page Info for Contributors Report Page Failed!");
+		
+		repoReportPage.back();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testContributorsDetail"}, alwaysRun = true)
+	public void testContributorsSortByDevEq() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.contributorsDeleteContributorFlagAndSearch();
+		repoReportPage.contributorsSortByDevEq();
+//		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击降序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		repoReportPage.contributorsSortByDevEq();
+//		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "取消排序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		repoReportPage.contributorsSortByDevEq();
+//		Assert.assertEquals(repoReportPage.getCommitTableColTooltip4CommitsReport(), "点击升序", "Commit Sort by Dev Val for Commits Report Page Failed!");
+		repoReportPage.contributorsSortByDevEq();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testContributorsSortByDevEq"}, alwaysRun = true)
+	public void testPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.paginationJumper4ContributorsListTable();
+		
+		Assert.assertEquals(repoReportPage.getPaginationFocus4ContributorsTaskList(), "rgba(202, 69, 33, 1)", "Pagination Jumper for Contributors List Page Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagination"}, alwaysRun = true)
+	public void testFixedPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.fixedPagination4ContributorsTable();
+		
+		Assert.assertNotEquals(repoReportPage.getTableRowNum4ContributorsList(), 10, "Fixed Pagination Jumper for Commits List Page Failed!");
 	}
 }

@@ -480,4 +480,11 @@ public class RepoReportControls {
      * Contributors Table Dev Eq
      */
     public static final String contributors_table_dev_eq_xpath = Utilities.utf8Char(getProperty("contributors_table_dev_eq_xpath"));
+    
+    /**
+     * Contributors Contributor Delete Flag
+     */
+    public static final String Contributors_Contributor_Delete_Flag_Css = getProperty("contributors_contributor_delete_flag_css");
+    
+    public static final String Contributors_List_Page_Jumper_Css = getProperty("contributors_list_page_jumper_css");
 }
