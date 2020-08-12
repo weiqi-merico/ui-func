@@ -815,4 +815,23 @@ public class RepoReportPage extends Page {
     	
     	return rowNum;
     }
+    
+    @AutoIntercept
+    public void repoDisplay4MetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Metrics_Trends_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Metrics_Trends_Link_Link)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Repo_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Repo_Label_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public Boolean getCanvasDiagram4MetricTrends() {
+    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Canvas_Css));
+    	boolean canvasDisplayed = driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Canvas_Css)).isEnabled();
+    	System.out.println("Metric Trends Diagram is Displayed: " + canvasDisplayed);
+    	
+    	return canvasDisplayed;
+    }
 }

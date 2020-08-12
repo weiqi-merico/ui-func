@@ -487,4 +487,62 @@ public class RepoReportControls {
     public static final String Contributors_Contributor_Delete_Flag_Css = getProperty("contributors_contributor_delete_flag_css");
     
     public static final String Contributors_List_Page_Jumper_Css = getProperty("contributors_list_page_jumper_css");
+    
+    public static final String Metrics_Trends_Link_Link = Utilities.utf8Char(getProperty("metrics_trends_link_link"));
+    
+    public static final String Metrics_Trends_Collapse_Link_Css = getProperty("metrics_trends_collapse_link_css");
+    
+    public static final String Metrics_Trends_Contributors_Label_Css = getProperty("metrics_trends_contributors_label_css");
+    
+    public static final String Metrics_Trends_Repo_Label_Css = getProperty("metrics_trends_repo_label_css");
+    
+    public static final String Metrics_Trends_Dev_Eq_Label_Css = getProperty("metrics_trends_dev_eq_label_css");
+    
+    public static final String Metrics_Trends_Sloc_Label_Css = getProperty("metrics_trends_sloc_label_css");
+    
+    public static final String Metrics_Trends_Num_Of_Commits_Label_Css = getProperty("metrics_trends_num_of_commits_label_css");
+    
+    public static final String Metrics_Trends_Cyclomatic_Complexity_Label_Css = getProperty("metrics_trends_cyclomatic_complexity_label_css");
+    
+    public static final String Metrics_Trends_Doc_Coverage_label_css = getProperty("metrics_trends_doc_coverage_label_css");
+    
+    public static final String Metrics_Trends_Test_Coverage_Label_Css = getProperty("metrics_trends_test_coverage_label_css");
+    
+    public static final String Metrics_Trends_Velocity_Label_Css = getProperty("metrics_trends_velocity_label_css");
+    
+    public static final String Metrics_Trends_Reusability_Label_Css = getProperty("metrics_trends_reusability_label_css");
+    
+    public static final String Metrics_Trends_Modulatity_Label_Css = getProperty("metrics_trends_modulatity_label_css");
+    
+    public static final String Metrics_Trends_Robustness_Label_Css = getProperty("metrics_trends_robustness_label_css");
+    
+    public static final String Metrics_trends_blocker_issues_label_css = getProperty("metrics_trends_blocker_issues_label_css");
+    
+    public static final String metrics_trends_critical_issues_label_css = getProperty("metrics_trends_critical_issues_label_css");
+    
+    public static final String Metrics_Trends_Major_Issues_Label_Css = getProperty("metrics_trends_major_issues_label_css");
+    
+    public static final String Metrics_Trends_Minor_Issues_Label_Css = getProperty("metrics_trends_minor_issues_label_css");
+    
+    public static final String Metrics_Trends_Info_Issues_Label_Css = getProperty("metrics_trends_info_issues_label_css");
+    
+    public static final String Metrics_Trends_Guides_Label_Css = getProperty("metrics_trends_guides_label_css");
+    
+    public static final String Metrics_Trends_Guides_Tooltip_Css = getProperty("metrics_trends_guides_tooltip_css");
+    
+    public static final String Metrics_Trends_Last_Week_Label_Css = getProperty("metrics_trends_last_week_label_css");
+    
+    public static final String Metrics_Trends_Last_Month_Label_Css = getProperty("metrics_trends_last_month_label_css");
+    
+    public static final String Metrics_Trends_Last_Year_Label_Css = getProperty("metrics_trends_last_year_label_css");
+    
+    public static final String metrics_trends_all_time_label_css = getProperty("metrics_trends_all_time_label_css");
+    
+    public static final String Metrics_Trends_Custom_Label_Css = getProperty("metrics_trends_custom_label_css");
+    
+    public static final String Metrics_Trends_By_Day_Label_Css = getProperty("metrics_trends_by_day_label_css");
+    
+    public static final String Metrics_Trends_By_Week_Label_Css = getProperty("metrics_trends_by_week_label_css");
+    
+    public static final String Metrics_Trends_Canvas_Css = getProperty("metrics_trends_canvas_css");
 }
