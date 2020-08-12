@@ -544,5 +544,11 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_By_Week_Label_Css = getProperty("metrics_trends_by_week_label_css");
     
-    public static final String Metrics_Trends_Canvas_Css = getProperty("metrics_trends_canvas_css");
+    public static final String Metrics_Trends_Line_Chart_Label_Xpath = Utilities.utf8Char(getProperty("metrics_trends_line_chart_label_xpath"));
+    
+    public static final String Metrics_Trends_Bar_Chart_Label_Xpath = Utilities.utf8Char(getProperty("metrics_trends_bar_chart_label_xpath"));
+    
+    public static final String Metrics_Trends_Line_Chart_Canvas_Css = getProperty("metrics_trends_line_chart_canvas_css");
+    
+    public static final String Metrics_Trends_Bar_Chart_Canvas_xpath = getProperty("metrics_trends_bar_chart_canvas_xpath");
 }

@@ -817,19 +817,81 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
-    public void repoDisplay4MetricsTrends() {
+    public void repoLineChartDisplay4MetricsTrends() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Metrics_Trends_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Metrics_Trends_Link_Link)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Repo_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Repo_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath)).click();
     	Utilities.staticTimeDelay(2000);
     }
     
     @AutoIntercept
-    public Boolean getCanvasDiagram4MetricTrends() {
-    	Utilities.movePageToLocation(driver, "500");
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Canvas_Css));
-    	boolean canvasDisplayed = driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Canvas_Css)).isEnabled();
+    public void repoBarChartDisplay4MetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Repo_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Repo_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void devEqLineChartDisplay4MetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Dev_Eq_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Dev_Eq_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void devEqBarChartDisplay4MetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Dev_Eq_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Dev_Eq_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void slocLineChartDisplay4MetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Sloc_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Sloc_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void slocBarChartDisplay4MetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Sloc_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Sloc_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public Boolean getLineChartCanvasDiagram4MetricTrends() {
+//    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Line_Chart_Canvas_Css));
+    	boolean canvasDisplayed = driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Line_Chart_Canvas_Css)).isEnabled();
+    	System.out.println("Metric Trends Diagram is Displayed: " + canvasDisplayed);
+    	
+    	return canvasDisplayed;
+    }
+    
+    @AutoIntercept
+    public Boolean getBarChartCanvasDiagram4MetricTrends() {
+//    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Canvas_xpath));
+    	boolean canvasDisplayed = driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Canvas_xpath)).isEnabled();
     	System.out.println("Metric Trends Diagram is Displayed: " + canvasDisplayed);
     	
     	return canvasDisplayed;

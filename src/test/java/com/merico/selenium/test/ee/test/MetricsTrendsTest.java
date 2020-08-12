@@ -49,11 +49,33 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
-	public void testCommitsSearch(String repoUrl) throws Exception {
+	public void testRepoDisplay(String repoUrl) throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
-		repoReportPage.repoDisplay4MetricsTrends();
+		repoReportPage.repoLineChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Repo Line Chart Canvas Display Failed!");
 		
-		Assert.assertTrue(repoReportPage.getCanvasDiagram4MetricTrends(), "Metrics Trends Repo Canvas Display Failed!");
+		repoReportPage.repoBarChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Repo Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testRepoDisplay"}, alwaysRun = true)
+	public void testDevEqDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.devEqLineChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Dev Eq Line Chart Canvas Display Failed!");
+		
+		repoReportPage.devEqBarChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Dev Eq Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDevEqDisplay"}, alwaysRun = true)
+	public void testSlocDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.slocLineChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends SLOC Line Chart Canvas Display Failed!");
+	
+		repoReportPage.slocBarChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends SLOC Bar Chart Canvas Display Failed!");
 	}
 }
