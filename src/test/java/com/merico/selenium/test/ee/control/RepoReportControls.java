@@ -528,6 +528,8 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_Guides_Label_Css = getProperty("metrics_trends_guides_label_css");
     
+    public static final String Metrics_Trends_Guides_Question_Mark_Xpath = getProperty("metrics_trends_guides_question_mark_xpath");
+    
     public static final String Metrics_Trends_Guides_Tooltip_Css = getProperty("metrics_trends_guides_tooltip_css");
     
     public static final String Metrics_Trends_Last_Week_Label_Css = getProperty("metrics_trends_last_week_label_css");
