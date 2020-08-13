@@ -108,7 +108,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDocCoverageDisplay"}, alwaysRun = true)
 	public void testTestCoverageDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testCoverageBarChartDisplay4MetricsTrends();
+		repoReportPage.coverageBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Test Coverage Bar Chart Canvas Display Failed!");
 	}
@@ -116,7 +116,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTestCoverageDisplay"}, alwaysRun = true)
 	public void testVelocityDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testVelocityBarChartDisplay4MetricsTrends();
+		repoReportPage.velocityBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Velocity Bar Chart Canvas Display Failed!");
 	}
@@ -124,7 +124,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testVelocityDisplay"}, alwaysRun = true)
 	public void testReusabilityDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testReusabilityBarChartDisplay4MetricsTrends();
+		repoReportPage.reusabilityBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Reusability Bar Chart Canvas Display Failed!");
 	}
@@ -132,7 +132,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testReusabilityDisplay"}, alwaysRun = true)
 	public void testModulatityDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testModulatityBarChartDisplay4MetricsTrends();
+		repoReportPage.modulatityBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Modulatity Bar Chart Canvas Display Failed!");
 	}
@@ -140,7 +140,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testModulatityDisplay"}, alwaysRun = true)
 	public void testRobustnessDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testRobustnessBarChartDisplay4MetricsTrends();
+		repoReportPage.robustnessBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Robustness Bar Chart Canvas Display Failed!");
 	}
@@ -148,7 +148,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testRobustnessDisplay"}, alwaysRun = true)
 	public void testBlockerIssuesDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testBlockerIssuesBarChartDisplay4MetricsTrends();
+		repoReportPage.blockerIssuesBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Blocker Issues Bar Chart Canvas Display Failed!");
 	}
@@ -156,7 +156,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBlockerIssuesDisplay"}, alwaysRun = true)
 	public void testCriticalIssuesDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testCriticalIssuesBarChartDisplay4MetricsTrends();
+		repoReportPage.criticalIssuesBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Critical Issues Bar Chart Canvas Display Failed!");
 	}
@@ -164,7 +164,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCriticalIssuesDisplay"}, alwaysRun = true)
 	public void testMajorIssuesDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testMajorIssuesBarChartDisplay4MetricsTrends();
+		repoReportPage.majorIssuesBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Major Issues Bar Chart Canvas Display Failed!");
 	}
@@ -172,7 +172,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMajorIssuesDisplay"}, alwaysRun = true)
 	public void testMinorIssuesDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testMinorIssuesBarChartDisplay4MetricsTrends();
+		repoReportPage.minorIssuesBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Minor Issues Bar Chart Canvas Display Failed!");
 	}
@@ -180,7 +180,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMinorIssuesDisplay"}, alwaysRun = true)
 	public void testInfoIssuesDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testInfoIssuesBarChartDisplay4MetricsTrends();
+		repoReportPage.infoIssuesBarChartDisplay4MetricsTrends();
 		
 		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Info Issues Bar Chart Canvas Display Failed!");
 	}
@@ -196,8 +196,136 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGuidesTooltipDisplay"}, alwaysRun = true)
 	public void testGuidesDisplay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.testGuidesBarChartDisplay4MetricsTrends();
+		repoReportPage.guidesBarChartDisplay4MetricsTrends();
 		
-		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Guides  Bar Chart Canvas Display Failed!");
-	}	
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Guides Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGuidesDisplay"}, alwaysRun = true)
+	public void testLastWeekDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.lastWeekDisplay4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Last Week Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLastWeekDisplay"}, alwaysRun = true)
+	public void testLastMonthWithDayDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.lastMonthDisplayByDay4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Last Month With Day Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLastMonthWithDayDisplay"}, alwaysRun = true)
+	public void testLastMonthWithWeekDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.lastMonthDisplayByWeek4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Last Month With Week Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLastMonthWithWeekDisplay"}, alwaysRun = true)
+	public void testLastYearWithDayDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.lastYearDisplayByDay4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Last Year With Day Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLastYearWithDayDisplay"}, alwaysRun = true)
+	public void testLastYearWithWeekDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.lastYearDisplayByWeek4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Last Year With Week Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLastYearWithWeekDisplay"}, alwaysRun = true)
+	public void testLastYearWithMonthDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.lastYearDisplayByMonth4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Last Year With Month Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLastYearWithMonthDisplay"}, alwaysRun = true)
+	public void testAllTimeWithDayDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.allTimeDisplayByDay4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends All Time With Day Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAllTimeWithDayDisplay"}, alwaysRun = true)
+	public void testAllTimeWithWeekDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.allTimeDisplayByWeek4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends All Time With Week Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAllTimeWithWeekDisplay"}, alwaysRun = true)
+	public void testAllTimeWithMonthDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.allTimeDisplayByMonth4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends All Time With Month Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAllTimeWithMonthDisplay"}, alwaysRun = true)
+	public void testAllTimeWithYearDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.allTimeDisplayByYear4MetricsTrends();
+		
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends All Time With Year Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAllTimeWithYearDisplay"}, alwaysRun = true)
+	public void testCustomWithDayDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.customLineChartDisplayByDay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Day Line Chart Canvas Display Failed!");
+		
+		repoReportPage.customBarChartDisplayByDay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Day Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCustomWithDayDisplay"}, alwaysRun = true)
+	public void testCustomWithWeekDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.customLineChartDisplayByWeek4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Week Line Chart Canvas Display Failed!");
+		
+		repoReportPage.customBarChartDisplayByWeek4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Week Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCustomWithWeekDisplay"}, alwaysRun = true)
+	public void testCustomWithMonthDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.customLineChartDisplayByMonth4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Month Line Chart Canvas Display Failed!");
+		
+		repoReportPage.customBarChartDisplayByMonth4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Month Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCustomWithMonthDisplay"}, alwaysRun = true)
+	public void testCustomWithYearDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.customLineChartDisplayByYear4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Year Line Chart Canvas Display Failed!");
+		
+		repoReportPage.customBarChartDisplayByYear4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Custom With Year Bar Chart Canvas Display Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCustomWithYearDisplay"}, alwaysRun = true)
+	public void testCollapseDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.collapse4MetricsTrends();
+		
+		Assert.assertEquals(repoReportPage.getCollapseInfo4MetricTrends(), "展开条件", "Metrics Trends Collapse Display Failed!");
+	}
 }

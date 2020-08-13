@@ -546,6 +546,14 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_By_Week_Label_Css = getProperty("metrics_trends_by_week_label_css");
     
+    public static final String Metrics_Trends_By_Month_Label_Css = getProperty("metrics_trends_by_month_label_css");
+    
+    public static final String Metrics_Trends_By_Year_Label_Css = getProperty("metrics_trends_by_year_label_css");
+    
+    public static final String Metrics_Trends_Date_Start_Time_Textbox_Css = getProperty("metrics_trends_date_start_time_textbox_css");
+    
+    public static final String Metrics_Trends_Date_End_Time_Textbox_Xpath = Utilities.utf8Char(getProperty("metrics_trends_date_end_time_textbox_xpath"));
+    
     public static final String Metrics_Trends_Line_Chart_Label_Xpath = Utilities.utf8Char(getProperty("metrics_trends_line_chart_label_xpath"));
     
     public static final String Metrics_Trends_Bar_Chart_Label_Xpath = Utilities.utf8Char(getProperty("metrics_trends_bar_chart_label_xpath"));
