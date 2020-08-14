@@ -327,5 +327,17 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		repoReportPage.collapse4MetricsTrends();
 		
 		Assert.assertEquals(repoReportPage.getCollapseInfo4MetricTrends(), "展开条件", "Metrics Trends Collapse Display Failed!");
+		
+		repoReportPage.collapse4MetricsTrends();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCollapseDisplay"}, alwaysRun = true)
+	public void testContributorsDisplay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.contributorsLineChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getLineChartCanvasDiagram4MetricTrends(), "Metrics Trends Contributors Line Chart Display Failed!");
+		
+		repoReportPage.contributorsBarChartDisplay4MetricsTrends();
+		Assert.assertTrue(repoReportPage.getBarChartCanvasDiagram4MetricTrends(), "Metrics Trends Contributors Bar Chart Display Failed!");
 	}
 }

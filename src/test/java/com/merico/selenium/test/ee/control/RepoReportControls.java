@@ -492,6 +492,8 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_Collapse_Link_Css = getProperty("metrics_trends_collapse_link_css");
     
+    public static final String Metrics_Trends_Contributors_Selection_Textbox_Css = getProperty("metrics_trends_contributors_selection_textbox_css");
+    
     public static final String Metrics_Trends_Contributors_Label_Css = getProperty("metrics_trends_contributors_label_css");
     
     public static final String Metrics_Trends_Repo_Label_Css = getProperty("metrics_trends_repo_label_css");

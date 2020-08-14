@@ -1248,6 +1248,35 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void contributors4MetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Contributors_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Contributors_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Contributors_Selection_Textbox_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Contributors_Selection_Textbox_Css)).click();
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys("runjin@meri.co").perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public void contributorsLineChartDisplay4MetricsTrends() {
+    	contributors4MetricsTrends();
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void contributorsBarChartDisplay4MetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public Boolean getLineChartCanvasDiagram4MetricTrends() {
 //    	Utilities.movePageToLocation(driver, "500");
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Line_Chart_Canvas_Css));
