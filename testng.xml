@@ -86,6 +86,7 @@
     		<class name="com.merico.selenium.test.ee.test.CommitsListReportTest" />
     		<class name="com.merico.selenium.test.ee.test.ContributorsListReportTest" />
     		<class name="com.merico.selenium.test.ee.test.MetricsTrendsTest" />
+    		<class name="com.merico.selenium.test.ee.test.ReportProblemsTest" />
     </classes>
   </test>
 </suite>

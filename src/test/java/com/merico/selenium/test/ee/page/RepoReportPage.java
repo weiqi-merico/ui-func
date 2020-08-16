@@ -1295,4 +1295,28 @@ public class RepoReportPage extends Page {
     	
     	return canvasDisplayed;
     }
+    
+    @AutoIntercept
+    public void branchHashCopy4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Report_Problems_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Report_Problems_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Info_Svg_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Info_Svg_Xpath));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Info_Hash_Copy_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_Info_Hash_Copy_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getBranchHashCopyTooltip4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Info_Hash_Copy_Tooltip_Css));
+    	String tooltip = driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_Info_Hash_Copy_Tooltip_Css)).getText().trim();
+    	System.out.println("Branch Hash is: " + tooltip);
+    	
+    	return tooltip;
+    }
 }

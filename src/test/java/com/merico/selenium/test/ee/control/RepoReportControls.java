@@ -563,4 +563,54 @@ public class RepoReportControls {
     public static final String Metrics_Trends_Line_Chart_Canvas_Css = getProperty("metrics_trends_line_chart_canvas_css");
     
     public static final String Metrics_Trends_Bar_Chart_Canvas_xpath = getProperty("metrics_trends_bar_chart_canvas_xpath");
+    
+    public static final String Report_Problems_Link_Link = Utilities.utf8Char(getProperty("report_problems_link_link"));
+    
+    public static final String Report_Problems_Info_Svg_Xpath = getProperty("report_problems_info_svg_xpath");
+    
+    public static final String Report_Problems_Info_Hash_Copy_Css = getProperty("report_problems_info_hash_copy_css");
+    
+    public static final String Report_Problems_Info_Hash_Copy_Tooltip_Css = getProperty("report_problems_info_hash_copy_tooltip_css");
+    
+    public static final String Report_Problems_Select_Branch_Css = getProperty("report_problems_select_branch_css");
+    
+    public static final String Report_Problems_Another_Branch_Checkbox_Xpath = getProperty("report_problems_another_branch_checkbox_xpath");
+    
+    public static final String Report_Problems_Another_Branch_Dropdown_Id = getProperty("report_problems_another_branch_dropdown_id");
+    
+    public static final String Report_Problems_New_Analysis_Btn_Css = getProperty("report_problems_new_analysis_btn_css");
+    
+    public static final String Report_Problems_New_Analysis_Refresh_Btn_Css = getProperty("report_problems_new_analysis_refresh_btn_css");
+    
+    public static final String Report_Problems_New_Analysis_Selection_Box_Css = getProperty("report_problems_new_analysis_selection_box_css");
+    
+    public static final String Report_Problems_New_Analysis_Branch_Hash_Info_Css = getProperty("report_problems_new_analysis_branch_hash_info_css");
+    
+    public static final String Report_Problems_New_Analysis_Cancel_Btn_Css = getProperty("report_problems_new_analysis_cancel_btn_css");
+    
+    public static final String Report_Problems_New_Analysis_Submit_Btn_Xpath = getProperty("report_problems_new_analysis_submit_btn_xpath");
+    
+    public static final String Report_Problems_Total_Issues_Num_Label_Css = getProperty("report_problems_total_issues_num_label_css");
+    
+    public static final String Report_Problems_All_Authors_Dropdown_Xpath = getProperty("report_problems_all_authors_dropdown_xpath");
+    
+    public static final String Report_Problems_All_Rules_Dropdown_Xpath = getProperty("report_problems_all_rules_dropdown_xpath");
+    
+    public static final String Report_Problems_All_Types_Dropdown_Xpath = getProperty("report_problems_all_types_dropdown_xpath");
+    
+    public static final String Report_Problems_Severities_Dropdown_Xpath = getProperty("report_problems_severities_dropdown_xpath");
+    
+    public static final String Report_Problems_Unix_Glob_Syntax_Textbox_Xpath = getProperty("report_problems_unix_glob_syntax_textbox_xpath");
+    
+    public static final String Report_Problems_Rule_Alone_Label_Xpath = getProperty("report_problems_rule_alone_label_xpath");
+    
+    public static final String Report_Problems_Severity_Alone_Label_Xpath = getProperty("report_problems_severity_alone_label_xpath");
+    
+    public static final String Report_Problems_Type_Alone_Label_Xpath = getProperty("report_problems_type_alone_label_xpath");
+    
+    public static final String Report_Problems_Author_Alone_Label_Xpath = getProperty("report_problems_author_alone_label_xpath");
+    
+    public static final String Report_Problems_Page_Fixed_Jumper_Xpath = getProperty("report_problems_page_fixed_jumper_xpath");
+    
+    public static final String Report_Problems_Page_Jumper_Input_Textbox_Xpath = getProperty("report_problems_page_jumper_input_textbox_xpath");
 }
