@@ -62,7 +62,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.selectBranch4ReportProblems();
 		
-		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("问题"), "Branch Hash Copy Failed!");
+		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("问题"), "Select Branch Failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSelectBranch"}, alwaysRun = true)
@@ -70,6 +70,16 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.branchCompare4ReportProblems();
 		
-		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("独有的代码质量问题"), "Branch Hash Copy Failed!");
+		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("独有的代码质量问题"), "Branch Compare Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBranchCompare"}, alwaysRun = true)
+	public void testNewAnalysisBranchRefresh() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.newAnalysisRefresh4ReportProblems();
+		
+		Assert.assertTrue(repoReportPage.getNewAnalysisBranchRefresh4ReportProblems().contains("最近一次提交"), "New Analysis Branch Refresh Failed!");
+		
+		repoReportPage.newAnalysisDialogCancelBtn4ReportProblems();
 	}
 }

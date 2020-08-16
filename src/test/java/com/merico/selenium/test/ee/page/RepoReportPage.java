@@ -1354,4 +1354,31 @@ public class RepoReportPage extends Page {
     	
     	return info;
     }
+    
+    @AutoIntercept
+    public void newAnalysisRefresh4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_New_Analysis_Btn_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_New_Analysis_Btn_Xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_New_Analysis_Refresh_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_New_Analysis_Refresh_Btn_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    }
+    
+    @AutoIntercept
+    public void newAnalysisDialogCancelBtn4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_New_Analysis_Cancel_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_New_Analysis_Cancel_Btn_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getNewAnalysisBranchRefresh4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_New_Analysis_Branch_Hash_Info_Css));
+    	String info = driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_New_Analysis_Branch_Hash_Info_Css)).getText().trim();
+    	System.out.println("New Analysis Branch Refresh Info is: " + info);
+    	
+    	return info;
+    }
 }
