@@ -71,6 +71,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		repoReportPage.branchCompare4ReportProblems();
 		
 		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("独有的代码质量问题"), "Branch Compare Failed!");
+		
+		repoReportPage.unCheckBranchCompare4ReportProblems();
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBranchCompare"}, alwaysRun = true)
@@ -81,5 +83,55 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertTrue(repoReportPage.getNewAnalysisBranchRefresh4ReportProblems().contains("最近一次提交"), "New Analysis Branch Refresh Failed!");
 		
 		repoReportPage.newAnalysisDialogCancelBtn4ReportProblems();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testNewAnalysisBranchRefresh"}, alwaysRun = true)
+	public void testSearchByAuthor() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.searchByAuthor4ReportProblems();
+		
+		Assert.assertFalse(repoReportPage.getSearchResultByAuthor4ReportProblems().isEmpty(), "Search By Author Failed!");
+		
+		repoReportPage.clearAuthor4ReportProblems();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchByAuthor"}, alwaysRun = true)
+	public void testSearchByRule() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.searchByRule4ReportProblems();
+		
+		Assert.assertFalse(repoReportPage.getSearchResultByRule4ReportProblems().isEmpty(), "Search By Rule Failed!");
+		
+		repoReportPage.clearRule4ReportProblems();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchByRule"}, alwaysRun = true)
+	public void testSearchByType() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.searchByType4ReportProblems();
+		
+		Assert.assertTrue(repoReportPage.getSearchResultByType4ReportProblems().contains("漏洞"), "Search By Type Failed!");
+		
+		repoReportPage.clearType4ReportProblems();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchByType"}, alwaysRun = true)
+	public void testSearchBySeverity() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.searchBySeverity4ReportProblems();
+		
+		Assert.assertTrue(repoReportPage.getSearchResultBySeverity4ReportProblems().contains("阻塞"), "Search By Severity Failed!");
+		
+		repoReportPage.clearSeverity4ReportProblems();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchBySeverity"}, alwaysRun = true)
+	public void testSearchByFile() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.searchByFile4ReportProblems();
+		
+		Assert.assertTrue(repoReportPage.getSearchResultByFile4ReportProblems().contains(".js"), "Search By File Failed!");
+		
+		repoReportPage.clearFile4ReportProblems();
 	}
 }

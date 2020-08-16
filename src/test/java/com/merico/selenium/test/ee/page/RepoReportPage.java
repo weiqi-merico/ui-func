@@ -1347,6 +1347,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void unCheckBranchCompare4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Another_Branch_Checkbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Another_Branch_Checkbox_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
     public String getTotalIssuesNum4ReportProblems() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Total_Issues_Num_Label_Css));
     	String info = driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_Total_Issues_Num_Label_Css)).getText().trim();
@@ -1380,5 +1387,160 @@ public class RepoReportPage extends Page {
     	System.out.println("New Analysis Branch Refresh Info is: " + info);
     	
     	return info;
+    }
+    
+    @AutoIntercept
+    public void searchByAuthor4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_All_Authors_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_All_Authors_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void clearAuthor4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[3]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[3]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getSearchResultByAuthor4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Author_Alone_Label_Xpath));
+    	String author = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Author_Alone_Label_Xpath)).getText().trim();
+    	System.out.println("Search Result By Author is: " + author);
+    	
+    	return author;
+    }
+    
+    @AutoIntercept
+    public void searchByRule4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_All_Rules_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_All_Rules_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void clearRule4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[4]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[4]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getSearchResultByRule4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Rule_Alone_Label_Xpath));
+    	String rule = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Rule_Alone_Label_Xpath)).getText().trim();
+    	System.out.println("Search Result By Rule is: " + rule);
+    	
+    	return rule;
+    }
+    
+    @AutoIntercept
+    public void searchByType4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_All_Types_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_All_Types_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void clearType4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[5]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[5]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getSearchResultByType4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Type_Alone_Label_Xpath));
+    	String type = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Type_Alone_Label_Xpath)).getText().trim();
+    	System.out.println("Search Result By Type is: " + type);
+    	
+    	return type;
+    }
+    
+    @AutoIntercept
+    public void searchBySeverity4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Severities_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Severities_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void clearSeverity4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[6]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[6]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getSearchResultBySeverity4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Severity_Alone_Label_Xpath));
+    	String severity = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Severity_Alone_Label_Xpath)).getText().trim();
+    	System.out.println("Search Result By Severity is: " + severity);
+    	
+    	return severity;
+    }
+    
+    @AutoIntercept
+    public void searchByFile4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys("*.js").perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void clearFile4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++)	{
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getSearchResultByFile4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_File_Alone_Label_Css));
+    	String file = driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_File_Alone_Label_Css)).getText().trim();
+    	System.out.println("Search Result By File is: " + file);
+    	
+    	return file;
     }
 }

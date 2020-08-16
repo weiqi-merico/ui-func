@@ -592,13 +592,13 @@ public class RepoReportControls {
     
     public static final String Report_Problems_Total_Issues_Num_Label_Css = getProperty("report_problems_total_issues_num_label_css");
     
-    public static final String Report_Problems_All_Authors_Dropdown_Xpath = getProperty("report_problems_all_authors_dropdown_xpath");
+    public static final String Report_Problems_All_Authors_Dropdown_Xpath = Utilities.utf8Char(getProperty("report_problems_all_authors_dropdown_xpath"));
     
-    public static final String Report_Problems_All_Rules_Dropdown_Xpath = getProperty("report_problems_all_rules_dropdown_xpath");
+    public static final String Report_Problems_All_Rules_Dropdown_Xpath = Utilities.utf8Char(getProperty("report_problems_all_rules_dropdown_xpath"));
     
-    public static final String Report_Problems_All_Types_Dropdown_Xpath = getProperty("report_problems_all_types_dropdown_xpath");
+    public static final String Report_Problems_All_Types_Dropdown_Xpath = Utilities.utf8Char(getProperty("report_problems_all_types_dropdown_xpath"));
     
-    public static final String Report_Problems_Severities_Dropdown_Xpath = getProperty("report_problems_severities_dropdown_xpath");
+    public static final String Report_Problems_Severities_Dropdown_Xpath = Utilities.utf8Char(getProperty("report_problems_severities_dropdown_xpath"));
     
     public static final String Report_Problems_Unix_Glob_Syntax_Textbox_Xpath = getProperty("report_problems_unix_glob_syntax_textbox_xpath");
     
@@ -609,6 +609,8 @@ public class RepoReportControls {
     public static final String Report_Problems_Type_Alone_Label_Xpath = getProperty("report_problems_type_alone_label_xpath");
     
     public static final String Report_Problems_Author_Alone_Label_Xpath = getProperty("report_problems_author_alone_label_xpath");
+    
+    public static final String Report_Problems_File_Alone_Label_Css = getProperty("report_problems_file_alone_label_css");
     
     public static final String Report_Problems_Page_Fixed_Jumper_Xpath = getProperty("report_problems_page_fixed_jumper_xpath");
     
