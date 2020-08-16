@@ -576,7 +576,7 @@ public class RepoReportControls {
     
     public static final String Report_Problems_Another_Branch_Checkbox_Xpath = getProperty("report_problems_another_branch_checkbox_xpath");
     
-    public static final String Report_Problems_Another_Branch_Dropdown_Id = getProperty("report_problems_another_branch_dropdown_id");
+    public static final String Report_Problems_Another_Branch_Dropdown_Xpath = getProperty("report_problems_another_branch_dropdown_xpath");
     
     public static final String Report_Problems_New_Analysis_Btn_Css = getProperty("report_problems_new_analysis_btn_css");
     

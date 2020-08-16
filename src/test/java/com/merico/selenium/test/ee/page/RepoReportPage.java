@@ -1319,4 +1319,39 @@ public class RepoReportPage extends Page {
     	
     	return tooltip;
     }
+    
+    @AutoIntercept
+    public void selectBranch4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Select_Branch_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_Select_Branch_Css)).click();
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public void branchCompare4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Another_Branch_Checkbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Another_Branch_Checkbox_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	for (int i = 0; i < 6; i++) {
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getTotalIssuesNum4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Total_Issues_Num_Label_Css));
+    	String info = driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_Total_Issues_Num_Label_Css)).getText().trim();
+    	System.out.println("Total Issues Number Info is: " + info);
+    	
+    	return info;
+    }
 }

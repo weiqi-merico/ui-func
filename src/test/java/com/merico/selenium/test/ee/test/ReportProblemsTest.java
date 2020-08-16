@@ -56,4 +56,20 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getBranchHashCopyTooltip4ReportProblems(), "复制成功", "Branch Hash Copy Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBranchHashCopy"}, alwaysRun = true)
+	public void testSelectBranch() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.selectBranch4ReportProblems();
+		
+		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("问题"), "Branch Hash Copy Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSelectBranch"}, alwaysRun = true)
+	public void testBranchCompare() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.branchCompare4ReportProblems();
+		
+		Assert.assertTrue(repoReportPage.getTotalIssuesNum4ReportProblems().contains("独有的代码质量问题"), "Branch Hash Copy Failed!");
+	}
 }
