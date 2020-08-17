@@ -134,4 +134,20 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		repoReportPage.clearFile4ReportProblems();
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchByFile"}, alwaysRun = true)
+	public void testPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.paginationJumper4ReportProblems();
+		
+		Assert.assertEquals(repoReportPage.getPaginationFocus4ReportProblems(), "rgba(202, 69, 33, 1)", "Pagination Jumper for Report Problems Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagination"}, alwaysRun = true)
+	public void testFixedPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.fixedPagination4ReportProblems();
+		
+		Assert.assertNotEquals(repoReportPage.getTableRowNum4ReportProblems(), 10, "Fixed Pagination Jumper for Commits List Page Failed!");
+	}
 }

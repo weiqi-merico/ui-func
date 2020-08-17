@@ -1543,4 +1543,55 @@ public class RepoReportPage extends Page {
     	
     	return file;
     }
+    
+    @AutoIntercept
+    public void paginationJumper4ReportProblems() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.movePageToLocation(driver, "900");
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Page_Jumper_Input_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Jumper_Input_Textbox_Xpath)).clear();
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Jumper_Input_Textbox_Xpath)).sendKeys("2");
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4ReportProblems() {
+//    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4ReportProblems() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getTableRowNum4ReportProblems() {
+//    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Page_Row_Count_Css));
+    	int rowNum =  driver.findElements(By.cssSelector(RepoReportControls.Report_Problems_Page_Row_Count_Css)).size();
+    	System.out.println("Row Number is : " + rowNum);
+    	
+    	return rowNum;
+    }
 }
