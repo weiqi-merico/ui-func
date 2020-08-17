@@ -1,5 +1,7 @@
 package com.merico.selenium.test.ee.page;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -1608,6 +1610,109 @@ public class RepoReportPage extends Page {
 //    	Utilities.movePageToLocation(driver, "900");
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Page_Row_Count_Css));
     	int rowNum =  driver.findElements(By.cssSelector(RepoReportControls.Report_Problems_Page_Row_Count_Css)).size();
+    	System.out.println("Row Number is : " + rowNum);
+    	
+    	return rowNum;
+    }
+    
+    @AutoIntercept
+    public void branchHashCopy4CodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Code_Duplicates_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Code_Duplicates_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Info_Svg_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Info_Svg_Xpath));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(500);
+    	List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Code_Duplicates_Info_Hash_Copy_Css));
+    	elements.get(elements.size() - 1).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getBranchHashCopyTooltip4CodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Info_Hash_Copy_Tooltip_Xpath));
+    	String tooltip = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Info_Hash_Copy_Tooltip_Xpath)).getText().trim();
+    	System.out.println("Branch Hash is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void selectBranch4CodeProblems() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Duplicates_Select_Branch_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Code_Duplicates_Select_Branch_Css)).click();
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getGroup4CodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Group_Label_Xpath));
+    	String group = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Group_Label_Xpath)).getText().trim();
+    	System.out.println("Group is: " + group);
+    	
+    	return group;
+    }
+    
+    @AutoIntercept
+    public Boolean getFile4CodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Code_File_Label_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Code_File_Label_Xpath)).isEnabled();
+    	System.out.println("File is Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public Boolean getSource4CodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Source_Line_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Source_Line_Xpath)).isEnabled();
+    	System.out.println("Source is: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void selectFileToCompare4CodeDuplicates() {
+    	Utilities.staticTimeDelay(1000);
+    	driver.findElements(By.xpath(RepoReportControls.Code_Duplicates_File_Checkbox_Xpath)).get(0).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getCompareTooltip4CodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-tooltip-inner'])[1]"));
+    	String tooltip = driver.findElement(By.xpath("(//div[@class='ant-tooltip-inner'])[1]")).getText().trim();
+    	System.out.println("Compare Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4CodeDuplicates() {
+    	Utilities.movePageToLocation(driver, "1000");
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getTableRowNum4CodeDuplicates() {
+    	Utilities.movePageToLocation(driver, "1000");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Duplicates_Page_Row_Count_Css));
+    	int rowNum =  driver.findElements(By.cssSelector(RepoReportControls.Code_Duplicates_Page_Row_Count_Css)).size();
     	System.out.println("Row Number is : " + rowNum);
     	
     	return rowNum;

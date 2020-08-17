@@ -621,4 +621,26 @@ public class RepoReportControls {
     public static final String Report_Problems_Page_Jumper_Input_Textbox_Xpath = getProperty("report_problems_page_jumper_input_textbox_xpath");
     
     public static final String Report_Problems_Page_Row_Count_Css = getProperty("report_problems_page_row_count_css");
+    
+    public static final String Code_Duplicates_Link_Link = Utilities.utf8Char(getProperty("code_duplicates_link_link"));
+    
+    public static final String Code_Duplicates_Info_Hash_Copy_Css = getProperty("code_duplicates_info_hash_copy_css");
+    
+    public static final String Code_Duplicates_Info_Hash_Copy_Tooltip_Xpath = Utilities.utf8Char(getProperty("code_duplicates_info_hash_copy_tooltip_xpath"));
+    
+    public static final String Code_Duplicates_Select_Branch_Css = getProperty("code_duplicates_select_branch_css");
+    
+    public static final String Code_Duplicates_Group_Label_Xpath = getProperty("code_duplicates_group_label_xpath");
+    
+    public static final String Code_Duplicates_Info_Svg_Xpath = getProperty("code_duplicates_info_svg_xpath");
+    
+    public static final String Code_Duplicates_Code_File_Label_Xpath = getProperty("code_duplicates_code_file_label_xpath");
+    
+    public static final String Code_Duplicates_Source_Line_Xpath = getProperty("code_duplicates_source_line_xpath");
+    
+    public static final String Code_Duplicates_File_Checkbox_Xpath = getProperty("code_duplicates_file_checkbox_xpath");
+    
+    public static final String Code_Duplicates_Page_Fixed_Jumper_Xpath = getProperty("code_duplicates_page_fixed_jumper_xpath");
+    
+    public static final String Code_Duplicates_Page_Row_Count_Css = getProperty("code_duplicates_page_row_count_css");
 }
