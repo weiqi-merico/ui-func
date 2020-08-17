@@ -612,6 +612,10 @@ public class RepoReportControls {
     
     public static final String Report_Problems_File_Alone_Label_Css = getProperty("report_problems_file_alone_label_css");
     
+    public static final String Report_Problems_File_Diagram_Label_Xpath = getProperty("report_problems_file_diagram_label_xpath");
+    
+    public static final String Report_Problems_File_Source_Xpath = getProperty("report_problems_file_source_xpath");
+    
     public static final String Report_Problems_Page_Fixed_Jumper_Xpath = getProperty("report_problems_page_fixed_jumper_xpath");
     
     public static final String Report_Problems_Page_Jumper_Input_Textbox_Xpath = getProperty("report_problems_page_jumper_input_textbox_xpath");

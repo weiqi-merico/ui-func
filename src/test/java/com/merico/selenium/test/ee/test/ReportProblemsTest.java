@@ -131,6 +131,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		repoReportPage.searchByFile4ReportProblems();
 		
 		Assert.assertTrue(repoReportPage.getSearchResultByFile4ReportProblems().contains(".js"), "Search By File Failed!");
+		Assert.assertTrue(repoReportPage.getSearchResultByFileDiagram4ReportProblems().contains(".js"), "Search By File Diagram Failed!");
+		Assert.assertTrue(repoReportPage.getSearchResultByFileSource4ReportProblems(), "Source File Diagram Displayed Failed!");
 		
 		repoReportPage.clearFile4ReportProblems();
 	}

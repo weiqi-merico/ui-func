@@ -1545,6 +1545,24 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public String getSearchResultByFileDiagram4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_File_Diagram_Label_Xpath));
+    	String file = driver.findElement(By.xpath(RepoReportControls.Report_Problems_File_Diagram_Label_Xpath)).getText().trim();
+    	System.out.println("Search Result By File Diagram is: " + file);
+    	
+    	return file;
+    }
+    
+    @AutoIntercept
+    public Boolean getSearchResultByFileSource4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_File_Source_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Report_Problems_File_Source_Xpath)).isEnabled();	
+    	System.out.println("Source File Diagram Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
     public void paginationJumper4ReportProblems() {
     	WebElement element = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Fixed_Jumper_Xpath));
 	    Actions builder = new Actions(driver);
