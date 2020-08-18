@@ -1717,4 +1717,29 @@ public class RepoReportPage extends Page {
     	
     	return rowNum;
     }
+    
+    @AutoIntercept
+    public void HashCopy4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Test_Coverage_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Test_Coverage_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Info_Svg_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Info_Svg_Xpath));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(500);
+    	List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_Info_Hash_Copy_Css));
+    	elements.get(elements.size() - 1).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getHashCopyTooltip4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Info_Hash_Copy_Tooltip_Xpath));
+    	String tooltip = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Info_Hash_Copy_Tooltip_Xpath)).getText().trim();
+    	System.out.println("Branch Hash is: " + tooltip);
+    	
+    	return tooltip;
+    }
 }

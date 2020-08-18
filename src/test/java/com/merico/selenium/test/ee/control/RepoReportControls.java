@@ -643,4 +643,26 @@ public class RepoReportControls {
     public static final String Code_Duplicates_Page_Fixed_Jumper_Xpath = getProperty("code_duplicates_page_fixed_jumper_xpath");
     
     public static final String Code_Duplicates_Page_Row_Count_Css = getProperty("code_duplicates_page_row_count_css");
+    
+    public static final String Test_Coverage_Link_Link = Utilities.utf8Char(getProperty("test_coverage_link_link"));
+    
+    public static final String Test_Coverage_Select_Branch_Css = getProperty("test_coverage_select_branch_css");
+    
+    public static final String Test_Coverage_Info_Svg_Xpath = getProperty("test_coverage_info_svg_xpath");
+    
+    public static final String Test_Coverage_Info_Hash_Copy_Css = getProperty("test_coverage_info_hash_copy_css");
+    
+    public static final String Test_Coverage_Info_Hash_Copy_Tooltip_Xpath = Utilities.utf8Char(getProperty("test_coverage_info_hash_copy_tooltip_xpath"));
+    
+    public static final String Test_Coverage_Canvas_Id = getProperty("test_coverage_canvas_id");
+    
+    public static final String Test_Coverage_Uncovered_Functions_Load_More_Btn_Css = getProperty("test_coverage_uncovered_functions_load_more_btn_css");
+    
+    public static final String Test_Coverage_By_Files_Load_More_Btn_Css = getProperty("test_coverage_by_files_load_more_btn_css");
+    
+    public static final String Test_Coverage_Files_Table_Repo_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_table_repo_col_xpath"));
+    
+    public static final String Test_Coverage_Files_Table_File_Path_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_table_file_path_col_xpath"));
+    
+    public static final String Test_Coverage_Files_Coverage_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_coverage_col_xpath"));
 }
