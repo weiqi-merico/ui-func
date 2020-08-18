@@ -556,7 +556,7 @@ public class RepoReportPage extends Page {
     @AutoIntercept
     public String getSearchTitleResult4CommitsReport() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Commits_Info_Xpath));
-    	String commitTitle =  driver.findElement(By.xpath(RepoReportControls.Commits_Info_Xpath)).getText().trim();
+    	String commitTitle =  driver.findElement(By.xpath(RepoReportControls.Commits_Info_Xpath)).getText().trim().toLowerCase();
     	System.out.println("Commit Title for Commits Report is : " + commitTitle);
     	
     	return commitTitle;

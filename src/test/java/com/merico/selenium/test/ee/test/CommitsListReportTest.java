@@ -72,7 +72,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.commitsSearchByTitle();
 		
-		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("Merge"), "Search Commit Title for Commits Report Page Failed!");
+		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("merge"), "Search Commit Title for Commits Report Page Failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSearchByTitle"}, alwaysRun = true)
@@ -80,7 +80,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.commitsSearchByTitleTooltip();
 		
-		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("Merge"), "Search Commit Title Tooltip for Commits Report Page Failed!");
+		Assert.assertTrue(repoReportPage.getSearchTitleResult4CommitsReport().contains("merge"), "Search Commit Title Tooltip for Commits Report Page Failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCommitsSearchTooltipByTitle"}, alwaysRun = true)
