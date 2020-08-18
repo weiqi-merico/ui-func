@@ -1719,7 +1719,7 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
-    public void HashCopy4TestCoverage() {
+    public void branchHashCopy4TestCoverage() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Test_Coverage_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Test_Coverage_Link_Link)).click();
     	Utilities.staticTimeDelay(2000);
@@ -1741,5 +1741,169 @@ public class RepoReportPage extends Page {
     	System.out.println("Branch Hash is: " + tooltip);
     	
     	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void selectBranch4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_Select_Branch_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_Select_Branch_Css)).click();
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public Boolean getCanvas4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Canvas_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Canvas_Xpath)).isEnabled();
+    	System.out.println("Canvas is Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public int getAllCanvas4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_All_Canvas_Css));
+    	int count = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_All_Canvas_Css)).size();
+    	System.out.println("Canvas Count is: " + count);
+    	
+    	return count;
+    }
+    
+    @AutoIntercept
+    public void uncoveredFunctionsFileTooltip4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.test_coverage_uncovered_functions_file_name_label_css));
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.test_coverage_uncovered_functions_file_name_label_css));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
+    public String getUncoveredFunctionsFileTooltip4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_Tooltip_Css));
+    	List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_Tooltip_Css));
+    	String tooltip = elements.get(0).getText().trim();
+    	System.out.println("Uncovered Funtions File Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void uncoveredFunctionsLoadMore4TestCoverage() {
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_Uncovered_Functions_Load_More_Btn_Css));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+//	    Utilities.movePageToElement(driver, By.cssSelector(RepoReportControls.Test_Coverage_Uncovered_Functions_Load_More_Btn_Css));
+//	    Utilities.movePageToLocation(driver, "50");
+	    for (int i = 0; i < 2; i++) {
+	    	builder.sendKeys(Keys.TAB).perform();
+	    }
+	    builder.sendKeys(Keys.ENTER).perform();
+//    	element.click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public Boolean getUncoveredFunctionsItems4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Uncovered_Functions_Items_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Uncovered_Functions_Items_Xpath)).isEnabled();
+    	System.out.println("Uncovered Functions is Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void sortByRepoName4TestCoverage() {
+    	Utilities.movePageToLocation(driver, "300");
+    	for (int i = 0; i < 3; i++) {
+    		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath));
+        	driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath)).click();
+        	Utilities.staticTimeDelay(1000);
+    	}
+    }
+    
+    @AutoIntercept
+    public String getRepoColTooltip4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath));
+    	Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+
+	    List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_Tooltip_Css));
+    	int size = elements.size();
+    	String tooltip = elements.get(size - 1).getText().trim();
+    	System.out.println("Repo Column Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void sortByFilePath4TestCoverage() {
+    	for (int i = 0; i < 3; i++) {
+    		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Table_File_Path_Col_Xpath));
+        	driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Table_File_Path_Col_Xpath)).click();
+        	Utilities.staticTimeDelay(1000);
+    	}
+    }
+    
+    @AutoIntercept
+    public String getFilePathColTooltip4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Table_File_Path_Col_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Table_File_Path_Col_Xpath));
+    	Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+
+	    List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_Tooltip_Css));
+    	int size = elements.size();
+    	String tooltip = elements.get(size - 1).getText().trim();
+    	System.out.println("File Path Column Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void sortByFileCoverage4TestCoverage() {
+    	for (int i = 0; i < 3; i++) {
+    		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Coverage_Col_Xpath));
+        	driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Coverage_Col_Xpath)).click();
+        	Utilities.staticTimeDelay(1000);
+    	}
+    }
+    
+    @AutoIntercept
+    public String getFileCoverageColTooltip4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Coverage_Col_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Coverage_Col_Xpath));
+    	Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+
+	    List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_Tooltip_Css));
+    	int size = elements.size();
+    	String tooltip = elements.get(size - 1).getText().trim();
+    	System.out.println("File Path Column Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void fileCoverageLoadMore4TestCoverage() {
+    	Utilities.movePageToLocation(driver, "1200");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_By_Files_Load_More_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_By_Files_Load_More_Btn_Css)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getFileCoverageTableRowCount4TestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_By_Files_Table_Row_Xpath));
+    	int rowCount = driver.findElements(By.xpath(RepoReportControls.Test_Coverage_By_Files_Table_Row_Xpath)).size();
+    	System.out.println("File Coverage Table Row Count is: " + rowCount);
+    	
+    	return rowCount;
     }
 }

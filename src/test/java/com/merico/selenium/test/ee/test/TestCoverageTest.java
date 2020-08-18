@@ -52,8 +52,65 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	public void testBranchHashCopy(String repoUrl) throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
-		repoReportPage.HashCopy4TestCoverage();
+		repoReportPage.branchHashCopy4TestCoverage();
 		
 		Assert.assertEquals(repoReportPage.getHashCopyTooltip4TestCoverage(), "复制成功", "Hash Copy for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBranchHashCopy"}, alwaysRun = true)
+	public void testSelectBranchHashCopy() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.selectBranch4TestCoverage();
+		
+		Assert.assertTrue(repoReportPage.getCanvas4TestCoverage(), "Select Branch for Test Coverage Failed!");
+		Assert.assertEquals(repoReportPage.getAllCanvas4TestCoverage(), 3, "Select Branch for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSelectBranchHashCopy"}, alwaysRun = true)
+	public void testUncoveredFunctionsLoadMore() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.uncoveredFunctionsLoadMore4TestCoverage();
+		
+		Assert.assertTrue(repoReportPage.getUncoveredFunctionsItems4TestCoverage(), "Uncovered Functions Load More for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testUncoveredFunctionsLoadMore"}, alwaysRun = true)
+	public void testUncoveredFunctionsFileTooltip() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.uncoveredFunctionsFileTooltip4TestCoverage();
+		
+		Assert.assertFalse(repoReportPage.getUncoveredFunctionsFileTooltip4TestCoverage().isEmpty(), "Uncovered Functions File Tooltip for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testUncoveredFunctionsFileTooltip"}, alwaysRun = true)
+	public void testSortByRepoName() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.sortByRepoName4TestCoverage();
+		
+		Assert.assertEquals(repoReportPage.getRepoColTooltip4TestCoverage(), "点击升序", "Sort By Repo Name for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByRepoName"}, alwaysRun = true)
+	public void testSortByFilePath() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.sortByFilePath4TestCoverage();
+		
+		Assert.assertEquals(repoReportPage.getFilePathColTooltip4TestCoverage(), "点击升序", "Sort By File Path for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByFilePath"}, alwaysRun = true)
+	public void testSortByFileCoverage() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.sortByFileCoverage4TestCoverage();
+		
+		Assert.assertEquals(repoReportPage.getFileCoverageColTooltip4TestCoverage(), "点击升序", "Sort By Coverage for Test Coverage Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByFileCoverage"}, alwaysRun = true)
+	public void testFileCoverageLoadMore() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.fileCoverageLoadMore4TestCoverage();
+		
+		Assert.assertNotEquals(repoReportPage.getFileCoverageTableRowCount4TestCoverage(), 20, "Sort By Coverage for Test Coverage Failed!");
 	}
 }

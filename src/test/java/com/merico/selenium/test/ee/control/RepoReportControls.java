@@ -654,11 +654,21 @@ public class RepoReportControls {
     
     public static final String Test_Coverage_Info_Hash_Copy_Tooltip_Xpath = Utilities.utf8Char(getProperty("test_coverage_info_hash_copy_tooltip_xpath"));
     
-    public static final String Test_Coverage_Canvas_Id = getProperty("test_coverage_canvas_id");
+    public static final String Test_Coverage_Canvas_Xpath = getProperty("test_coverage_canvas_xpath");
+    
+    public static final String Test_Coverage_All_Canvas_Css = getProperty("test_coverage_all_canvas_css");
+    
+    public static final String test_coverage_uncovered_functions_file_name_label_css = getProperty("test_coverage_uncovered_functions_file_name_label_css");
+    
+    public static final String Test_Coverage_Tooltip_Css = getProperty("test_coverage_tooltip_css");
     
     public static final String Test_Coverage_Uncovered_Functions_Load_More_Btn_Css = getProperty("test_coverage_uncovered_functions_load_more_btn_css");
     
+    public static final String Test_Coverage_Uncovered_Functions_Items_Xpath = getProperty("test_coverage_uncovered_functions_items_xpath");
+    
     public static final String Test_Coverage_By_Files_Load_More_Btn_Css = getProperty("test_coverage_by_files_load_more_btn_css");
+    
+    public static final String Test_Coverage_By_Files_Table_Row_Xpath = getProperty("test_coverage_by_files_table_row_xpath");
     
     public static final String Test_Coverage_Files_Table_Repo_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_table_repo_col_xpath"));
     
