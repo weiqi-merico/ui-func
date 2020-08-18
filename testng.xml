@@ -89,6 +89,7 @@
     		<class name="com.merico.selenium.test.ee.test.ReportProblemsTest" />
     		<class name="com.merico.selenium.test.ee.test.CodeDuplicatesTest" />
     		<class name="com.merico.selenium.test.ee.test.TestCoverageTest" />
+    		<class name="com.merico.selenium.test.ee.test.DocCoverageTest" />
     </classes>
   </test>
 </suite>

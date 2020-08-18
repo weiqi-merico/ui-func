@@ -675,4 +675,6 @@ public class RepoReportControls {
     public static final String Test_Coverage_Files_Table_File_Path_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_table_file_path_col_xpath"));
     
     public static final String Test_Coverage_Files_Coverage_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_coverage_col_xpath"));
+    
+    public static final String Doc_Coverage_Link_Link = Utilities.utf8Char(getProperty("doc_coverage_link_link"));
 }
