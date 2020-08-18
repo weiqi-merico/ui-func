@@ -90,6 +90,7 @@
     		<class name="com.merico.selenium.test.ee.test.CodeDuplicatesTest" />
     		<class name="com.merico.selenium.test.ee.test.TestCoverageTest" />
     		<class name="com.merico.selenium.test.ee.test.DocCoverageTest" />
+    		<class name="com.merico.selenium.test.ee.test.ComplexityFunctionsTest" />
     </classes>
   </test>
 </suite>

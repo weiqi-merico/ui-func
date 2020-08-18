@@ -1922,4 +1922,27 @@ public class RepoReportPage extends Page {
     	elements.get(elements.size() - 1).click();
     	Utilities.staticTimeDelay(500);
     }
+    
+    @AutoIntercept
+    public void branchHashCopy4ComplexityFunctions() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Complexity_Functions_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Complexity_Functions_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Complexity_Functions_Branch_Collapse_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Complexity_Functions_Branch_Collapse_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Hash_Copy_Btn_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Hash_Copy_Btn_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getHashCopyTooltip4ComplexityFunctions() {
+    	List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Complexity_Functions_Hash_Copy_Tooltip_Css));
+    	int size = elements.size();
+    	String tooltip = elements.get(size - 1).getText().trim();
+    	System.out.println(tooltip);
+    	
+    	return tooltip;
+    }
 }

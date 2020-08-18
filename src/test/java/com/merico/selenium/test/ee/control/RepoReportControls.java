@@ -677,4 +677,12 @@ public class RepoReportControls {
     public static final String Test_Coverage_Files_Coverage_Col_Xpath = Utilities.utf8Char(getProperty("test_coverage_files_coverage_col_xpath"));
     
     public static final String Doc_Coverage_Link_Link = Utilities.utf8Char(getProperty("doc_coverage_link_link"));
+    
+    public static final String Complexity_Functions_Link_Link = Utilities.utf8Char(getProperty("complexity_functions_link_link"));
+    
+    public static final String Complexity_Functions_Branch_Collapse_Css = getProperty("complexity_functions_branch_collapse_css");
+    
+    public static final String Complexity_Functions_Hash_Copy_Btn_Xpath = getProperty("complexity_functions_hash_copy_btn_xpath");
+    
+    public static final String Complexity_Functions_Hash_Copy_Tooltip_Css = getProperty("complexity_functions_hash_copy_tooltip_css");
 }
