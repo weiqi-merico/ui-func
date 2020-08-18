@@ -1885,7 +1885,7 @@ public class RepoReportPage extends Page {
 	    List<WebElement> elements = driver.findElements(By.cssSelector(RepoReportControls.Test_Coverage_Tooltip_Css));
     	int size = elements.size();
     	String tooltip = elements.get(size - 1).getText().trim();
-    	System.out.println("File Path Column Tooltip is: " + tooltip);
+    	System.out.println("File Coverage Column Tooltip is: " + tooltip);
     	
     	return tooltip;
     }
@@ -1944,5 +1944,113 @@ public class RepoReportPage extends Page {
     	System.out.println(tooltip);
     	
     	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void sortBySignature4ComplexityFunctions() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Complexity_Functions_Branch_Collapse_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Complexity_Functions_Branch_Collapse_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	for (int i = 0; i < 4; i++) {
+    		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Signature_Col_Xpath));
+        	driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Signature_Col_Xpath)).click();
+        	Utilities.staticTimeDelay(2000);
+    	}
+    }
+    
+    @AutoIntercept
+    public String getSignatureColTooltip4ComplexityFunctions() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Signature_Col_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Signature_Col_Xpath));
+    	Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+	    WebElement element1 = driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Tooltip_Xpath));
+    	
+    	String tooltip = element1.getText().trim();
+    	System.out.println("Signature Column Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void filterByLocation4ComplexityFunctions() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Complexity_Functions_Filter_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Complexity_Functions_Filter_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.name(RepoReportControls.Complexity_Functions_Filter_Textbox_Name));
+    	driver.findElement(By.name(RepoReportControls.Complexity_Functions_Filter_Textbox_Name)).click();
+    	driver.findElement(By.name(RepoReportControls.Complexity_Functions_Filter_Textbox_Name)).clear();
+    	driver.findElement(By.name(RepoReportControls.Complexity_Functions_Filter_Textbox_Name)).sendKeys("*.ts");
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Filter_Confirm_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Filter_Confirm_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void resetFilterByLocation4ComplexityFunctions() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Complexity_Functions_Filter_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Complexity_Functions_Filter_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Filter_Reset_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Filter_Reset_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getFilterByLocationResult4ComplexityFunctions() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Table_Row_Col_Xpath));
+    	String name = driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Table_Row_Col_Xpath)).getText().trim();
+    	System.out.println("Filter Result By Location is: " + name);
+    	
+    	return name;
+    }
+    
+    @AutoIntercept
+    public void paginationJumper4ComplexityFunctions() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.movePageToLocation(driver, "900");
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Complexity_Functions_Page_Jumper_Input_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Page_Jumper_Input_Textbox_Xpath)).clear();
+    	driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Page_Jumper_Input_Textbox_Xpath)).sendKeys("2");
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4ComplexityFunctions() {
+//    	Utilities.movePageToLocation(driver, "900");
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4ComplexityFunctions() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Complexity_Functions_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getTableRowNum4ComplexityFunctions() {
+//    	Utilities.movePageToLocation(driver, "900");
+    	int rowNum =  driver.findElements(By.xpath(RepoReportControls.Complexity_Functions_Table_Row_Xpath)).size();
+    	System.out.println("Row Number is : " + rowNum);
+    	
+    	return rowNum;
     }
 }

@@ -56,4 +56,44 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getHashCopyTooltip4ComplexityFunctions(), "复制成功", "Hash Copy for Complexity Functions Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBranchHashCopy"}, alwaysRun = true)
+	public void testSortBySignature() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.sortBySignature4ComplexityFunctions();
+		
+//		Assert.assertEquals(repoReportPage.getSignatureColTooltip4ComplexityFunctions(), "点击降序", "Sort By Signature for Complexity Functions Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortBySignature"}, alwaysRun = true)
+	public void testFilterByLocation() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.filterByLocation4ComplexityFunctions();
+		
+		Assert.assertTrue(repoReportPage.getFilterByLocationResult4ComplexityFunctions().contains(".ts"), "Filter By Location for Complexity Functions Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFilterByLocation"}, alwaysRun = true)
+	public void testResetFilterByLocation() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.resetFilterByLocation4ComplexityFunctions();
+		
+		Assert.assertNotEquals(repoReportPage.getFilterByLocationResult4ComplexityFunctions().length(), 0, "Reset Filter By Location for Complexity Functions Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testResetFilterByLocation"}, alwaysRun = true)
+	public void testPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.paginationJumper4ComplexityFunctions();
+		
+		Assert.assertEquals(repoReportPage.getPaginationFocus4ComplexityFunctions(), "rgba(202, 69, 33, 1)", "Pagination Jumper for Complexity Functions Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagination"}, alwaysRun = true)
+	public void testFixedPagination() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.fixedPagination4ComplexityFunctions();
+		
+		Assert.assertNotEquals(repoReportPage.getTableRowNum4ComplexityFunctions(), 10, "Fixed Pagination Jumper for Complexity Functions Failed!");
+	}
 }

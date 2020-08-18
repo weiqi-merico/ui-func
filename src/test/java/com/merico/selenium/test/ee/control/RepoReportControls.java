@@ -685,4 +685,24 @@ public class RepoReportControls {
     public static final String Complexity_Functions_Hash_Copy_Btn_Xpath = getProperty("complexity_functions_hash_copy_btn_xpath");
     
     public static final String Complexity_Functions_Hash_Copy_Tooltip_Css = getProperty("complexity_functions_hash_copy_tooltip_css");
+    
+    public static final String Complexity_Functions_Signature_Col_Xpath = Utilities.utf8Char(getProperty("complexity_functions_signature_col_xpath"));
+    
+    public static final String Complexity_Functions_Tooltip_Xpath = getProperty("complexity_functions_tooltip_xpath");
+    
+    public static final String Complexity_Functions_Filter_Label_Css = getProperty("complexity_functions_filter_label_css");
+    
+    public static final String Complexity_Functions_Table_Row_Col_Xpath = getProperty("complexity_functions_table_row_col_xpath");
+    
+    public static final String Complexity_Functions_Filter_Textbox_Name = getProperty("complexity_functions_filter_textbox_name");
+    
+    public static final String Complexity_Functions_Filter_Confirm_Xpath = getProperty("complexity_functions_filter_confirm_xpath");
+    
+    public static final String Complexity_Functions_Filter_Reset_Xpath = getProperty("complexity_functions_filter_reset_xpath");
+    
+    public static final String Complexity_Functions_Page_Fixed_Jumper_Xpath = getProperty("complexity_functions_page_fixed_jumper_xpath");
+    
+    public static final String Complexity_Functions_Page_Jumper_Input_Textbox_Xpath = getProperty("complexity_functions_page_jumper_input_textbox_xpath");
+    
+    public static final String Complexity_Functions_Table_Row_Xpath = getProperty("complexity_functions_table_row_xpath");
 }
