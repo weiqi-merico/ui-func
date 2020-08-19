@@ -719,4 +719,16 @@ public class RepoReportControls {
     public static final String Ranking_List_Dev_Value_Canvas_Xpath = getProperty("ranking_list_dev_value_canvas_xpath");
     
     public static final String Ranking_List_Dev_Eq_Canvas_Xpath = getProperty("ranking_list_dev_eq_canvas_xpath");
+    
+    public static final String Talent_Search_Link_Link = Utilities.utf8Char(getProperty("talent_search_link_link"));
+    
+    public static final String Talent_Search_Searching_Textbox_Id = getProperty("talent_search_searching_textbox_id");
+    
+    public static final String Talent_Search_Tech_Tag_Xpath = Utilities.utf8Char(getProperty("talent_search_tech_tag_xpath"));
+    
+    public static final String Talent_Search_Canvas_Xpath = getProperty("talent_search_canvas_xpath");
+    
+    public static final String Talent_Search_Close_Talent_Tag_Css = getProperty("talent_search_close_talent_tag_css");
+    
+    public static final String Talent_Search_View_Individual_Detail_Info_Xpath = getProperty("talent_search_view_individual_detail_info_xpath");
 }

@@ -2113,4 +2113,29 @@ public class RepoReportPage extends Page {
     	
     	return info;
     }
+    
+    @AutoIntercept
+    public void talentSearch4TalentSearch() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Talent_Search_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Talent_Search_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys("远程过程调用").perform();
+    	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String talentSearchResult4TalentSearch() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Talent_Search_Tech_Tag_Xpath));
+    	String cssVal = driver.findElement(By.xpath(RepoReportControls.Talent_Search_Tech_Tag_Xpath)).getCssValue("background").trim();
+    	System.out.println("Talent Search Tech Tag CSS Attribute is: " + cssVal);
+    	
+    	return cssVal;
+    }
 }
