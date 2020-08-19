@@ -2059,7 +2059,22 @@ public class RepoReportPage extends Page {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Ranking_List_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Ranking_List_Link_Link)).click();
     	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public Boolean getAllCanvasDisplay4RankingList() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Ranking_List_Dev_Value_Canvas_Xpath));
+    	boolean canvas4DevVal = driver.findElement(By.xpath(RepoReportControls.Ranking_List_Dev_Value_Canvas_Xpath)).isEnabled();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Ranking_List_Dev_Eq_Canvas_Xpath));
+    	boolean canvas4DevEq = driver.findElement(By.xpath(RepoReportControls.Ranking_List_Dev_Eq_Canvas_Xpath)).isEnabled();
+    	System.out.println("Canvas Dev Val is Displayed: " + canvas4DevVal);
+    	System.out.println("Canvas Dev Eq is Displayed: " + canvas4DevVal);
     	
+    	return canvas4DevVal && canvas4DevEq;
+    }
+    
+    @AutoIntercept
+    public void canvasDisplayByDate4RankingList() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath)).click();
     	driver.findElement(By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath)).clear();
@@ -2075,11 +2090,27 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
-    public String getCanvasDisplayMsg4RankingList() {
+    public String getCanvasDisplayMsgByDate4RankingList() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Ranking_List_Alert_Msg_Label_Css));
     	String prompt = driver.findElement(By.cssSelector(RepoReportControls.Ranking_List_Alert_Msg_Label_Css)).getText().trim();
     	System.out.println("Ranking List Prompt Msg: " + prompt);
     	
     	return prompt;
+    }
+    
+    @AutoIntercept
+    public void contributorMainPage4RankingList() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Ranking_List_Contributor_Link_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_Contributor_Link_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getContributorInfo4RankingList() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Function_Page_Header_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Function_Page_Header_Xpath)).getText().trim();
+    	System.out.println("Contributor Header is: " + info);
+    	
+    	return info;
     }
 }

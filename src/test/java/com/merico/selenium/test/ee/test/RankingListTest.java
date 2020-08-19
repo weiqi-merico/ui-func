@@ -49,11 +49,27 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dataProvider = "searchRepoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
-	public void testBranchHashCopy(String repoUrl) throws Exception {
+	public void testCanvasDisplay(String repoUrl) throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.searchRepoByNameOrGitAddr(repoUrl);
 		repoReportPage.canvasDisplay4RankingList();
 		
-		Assert.assertEquals(repoReportPage.getCanvasDisplayMsg4RankingList(), "一些榜单并未显示是因为它们不支持限定时间范围", "Get Canvas Display for Ranking List Failed!");
+		Assert.assertTrue(repoReportPage.getAllCanvasDisplay4RankingList(), "Get All Canvas Display for Ranking List Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCanvasDisplay"}, alwaysRun = true)
+	public void testCanvasDisplayByDate() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.canvasDisplayByDate4RankingList();
+		
+		Assert.assertEquals(repoReportPage.getCanvasDisplayMsgByDate4RankingList(), "一些榜单并未显示是因为它们不支持限定时间范围", "Get Canvas Display By Date for Ranking List Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testCanvasDisplayByDate"}, alwaysRun = true)
+	public void testContributorMainPage() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.contributorMainPage4RankingList();
+		
+		Assert.assertNotEquals(repoReportPage.getContributorInfo4RankingList().length(), 0, "Contributor Main Page Displays for Ranking List Failed!");
 	}
 }

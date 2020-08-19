@@ -718,5 +718,5 @@ public class RepoReportControls {
     
     public static final String Ranking_List_Dev_Value_Canvas_Xpath = getProperty("ranking_list_dev_value_canvas_xpath");
     
-    public static final String ranking_list_dev_eq_canvas_xpath = getProperty("ranking_list_dev_eq_canvas_xpath");
+    public static final String Ranking_List_Dev_Eq_Canvas_Xpath = getProperty("ranking_list_dev_eq_canvas_xpath");
 }
