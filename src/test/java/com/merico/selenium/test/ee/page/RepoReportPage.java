@@ -2165,4 +2165,47 @@ public class RepoReportPage extends Page {
     	
     	return info;
     }
+    
+    @AutoIntercept
+    public void content4TeamRobustness() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Team_Robustness_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Team_Robustness_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getContributorNum4TeamRobustness() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Team_Robustness_Contributors_Num_Label_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Team_Robustness_Contributors_Num_Label_Xpath)).getText().trim();
+    	System.out.println("Contributors Nums is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public String getTeamAvg4TeamRobustness() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Team_Robustness_Avg_Label_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Team_Robustness_Avg_Label_Xpath)).getText().trim();
+    	System.out.println("Team Avg is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public Boolean getCanvas4TeamRobustness() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Team_Robustness_Canvas_Xpath));
+    	boolean flag = driver.findElement(By.xpath(RepoReportControls.Team_Robustness_Canvas_Xpath)).isEnabled();
+    	System.out.println("Canvas is Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public void teamAvgTooltip4TeamRobustness() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Team_Robusstness_Flag_Label_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Team_Robusstness_Flag_Label_Xpath));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(100);
+    }
 }

@@ -731,4 +731,14 @@ public class RepoReportControls {
     public static final String Talent_Search_Close_Talent_Tag_Css = getProperty("talent_search_close_talent_tag_css");
     
     public static final String Talent_Search_View_Individual_Detail_Info_Xpath = Utilities.utf8Char(getProperty("talent_search_view_individual_detail_info_xpath"));
+    
+    public static final String Team_Robustness_Link_Link = Utilities.utf8Char(getProperty("team_robustness_link_link"));
+    
+    public static final String Team_Robustness_Contributors_Num_Label_Xpath = getProperty("team_robustness_contributors_num_label_xpath");
+    
+    public static final String Team_Robustness_Avg_Label_Xpath = getProperty("team_robustness_avg_label_xpath");
+    
+    public static final String Team_Robusstness_Flag_Label_Xpath = getProperty("team_robusstness_flag_label_xpath");
+    
+    public static final String Team_Robustness_Canvas_Xpath = getProperty("team_robustness_canvas_xpath");
 }
