@@ -2131,11 +2131,38 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void talentSearchLonely4TalentSearch() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Talent_Search_Close_Talent_Tag_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Talent_Search_Close_Talent_Tag_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Talent_Search_Tech_Tag_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Talent_Search_Tech_Tag_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public String talentSearchResult4TalentSearch() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Talent_Search_Tech_Tag_Xpath));
     	String cssVal = driver.findElement(By.xpath(RepoReportControls.Talent_Search_Tech_Tag_Xpath)).getCssValue("background").trim();
     	System.out.println("Talent Search Tech Tag CSS Attribute is: " + cssVal);
     	
     	return cssVal;
+    }
+    
+    @AutoIntercept
+    public void viewIndividualDetail4TalentSearch() {
+    	Utilities.movePageToLocation(driver, "300");
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Talent_Search_View_Individual_Detail_Info_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Talent_Search_View_Individual_Detail_Info_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getIndividualDetail4TalentSearch() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Function_Page_Header_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Function_Page_Header_Xpath)).getText().trim();
+    	System.out.println("Contributor Header is: " + info);
+    	
+    	return info;
     }
 }

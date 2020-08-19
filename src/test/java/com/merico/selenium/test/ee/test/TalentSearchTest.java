@@ -56,4 +56,21 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertTrue(repoReportPage.talentSearchResult4TalentSearch().contains("rgb(255, 255, 0)"), "Talent Search for Talent Search Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTalentSearch"}, alwaysRun = true)
+	public void testTalentSearchLonely() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.talentSearchLonely4TalentSearch();
+		
+		Assert.assertTrue(repoReportPage.getHashCopyTooltip().contains("远程过程调用"), "Individual Info Tooltip for Talent Search Failed!");
+		Assert.assertTrue(repoReportPage.talentSearchResult4TalentSearch().contains("rgb(255, 255, 0)"), "Talent Search Lonely for Talent Search Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTalentSearchLonely"}, alwaysRun = true)
+	public void testViewIndividualDetail() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.viewIndividualDetail4TalentSearch();
+		
+		Assert.assertNotEquals(repoReportPage.getIndividualDetail4TalentSearch(), 0, "View Talent Individual Detail for Talent Search Failed!");
+	}
 }

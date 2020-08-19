@@ -730,5 +730,5 @@ public class RepoReportControls {
     
     public static final String Talent_Search_Close_Talent_Tag_Css = getProperty("talent_search_close_talent_tag_css");
     
-    public static final String Talent_Search_View_Individual_Detail_Info_Xpath = getProperty("talent_search_view_individual_detail_info_xpath");
+    public static final String Talent_Search_View_Individual_Detail_Info_Xpath = Utilities.utf8Char(getProperty("talent_search_view_individual_detail_info_xpath"));
 }
