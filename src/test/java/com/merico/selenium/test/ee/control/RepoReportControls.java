@@ -741,4 +741,42 @@ public class RepoReportControls {
     public static final String Team_Robusstness_Flag_Label_Xpath = getProperty("team_robusstness_flag_label_xpath");
     
     public static final String Team_Robustness_Canvas_Xpath = getProperty("team_robustness_canvas_xpath");
+    
+    public static final String Members_Link_Link = Utilities.utf8Char(getProperty("members_link_link"));
+    
+    public static final String Members_Dev_Select_Dropdown_Xpath = Utilities.utf8Char(getProperty("members_dev_select_dropdown_xpath"));
+    
+    public static final String Members_Add_Btn_Css = getProperty("members_add_btn_css");
+    
+    public static final String Members_Close_Toast_Css = getProperty("members_close_toast_css");
+    
+    public static final String Members_Email_Info_Label_Xpath = getProperty("members_email_info_label_xpath");
+    
+    public static final String Members_Authorized_Info_Label_Xpath = getProperty("members_authorized_info_label_xpath");
+    
+    public static final String Members_Remove_Btn_Css = getProperty("members_remove_btn_css");
+    
+    public static final String Members_Remove_Btn_Cancel_Btn_Css = getProperty("members_remove_btn_cancel_btn_css");
+    
+    public static final String Members_Remove_Btn_Confirm_Btn_Css = getProperty("members_remove_btn_confirm_btn_css");
+    
+    public static final String Members_Invite_Members_Btn_Css = getProperty("members_invite_members_btn_css");
+    
+    public static final String Members_Invite_Members_Textbox_Css = getProperty("members_invite_members_textbox_css");
+    
+    public static final String Members_Team_Leader_Dropdown_Xpath = Utilities.utf8Char(getProperty("members_team_leader_dropdown_xpath"));
+    
+    public static final String Members_Invite_Btn_Css = getProperty("members_invite_btn_css");
+    
+    public static final String Members_Invite_Email_Info_Css = getProperty("members_invite_email_info_css");
+    
+    public static final String Members_Invited_Info_Label_Css = getProperty("members_invited_info_label_css");
+    
+    public static final String Members_Invite_Cancel_Btn_Css = getProperty("members_invite_cancel_btn_css");
+    
+    public static final String Members_Invite_Cancel_Cancel_Btn_Css = getProperty("members_invite_cancel_cancel_btn_css");
+    
+    public static final String Members_Invite_Cancel_Confirm_Btn_Css = getProperty("members_invite_cancel_confirm_btn_css");
+    
+    public static final String Members_Invite_Close_Btn_Css = getProperty("members_invite_close_btn_css");
 }

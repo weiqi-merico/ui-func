@@ -2208,4 +2208,73 @@ public class RepoReportPage extends Page {
     	builder.moveToElement(element).perform();
     	Utilities.staticTimeDelay(100);
     }
+    
+    @AutoIntercept
+    public void addDevMember4Members() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Members_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Members_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Function_Page_Header_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Function_Page_Header_Xpath)).click();
+
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 2; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys("members@linshiyouxiang.net").perform();
+    	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Add_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Add_Btn_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    }
+    
+    @AutoIntercept
+    public void modifyRoleToTeamLeader4Members() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Members_Dev_Select_Dropdown_Xpath));
+    	List<WebElement> elements = driver.findElements(By.xpath(RepoReportControls.Members_Dev_Select_Dropdown_Xpath));
+    	int size = elements.size();
+    	elements.get(size -1).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    }
+    
+    @AutoIntercept
+    public String getEmailInfo4Members() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Members_Email_Info_Label_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Members_Email_Info_Label_Xpath)).getText().trim();
+    	System.out.println("Email Info is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public void delMember4Members() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Remove_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Remove_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Remove_Btn_Confirm_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Remove_Btn_Confirm_Btn_Css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    }
+    
+    @AutoIntercept
+    public String getTeamLeaderInfo4Members() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Members_Team_Leader_Dropdown_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Members_Team_Leader_Dropdown_Xpath)).getText().trim();
+    	System.out.println("Team Leader Info is: " + info);
+    	
+    	return info;
+    }
 }
