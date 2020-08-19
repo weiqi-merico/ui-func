@@ -705,4 +705,18 @@ public class RepoReportControls {
     public static final String Complexity_Functions_Page_Jumper_Input_Textbox_Xpath = getProperty("complexity_functions_page_jumper_input_textbox_xpath");
     
     public static final String Complexity_Functions_Table_Row_Xpath = getProperty("complexity_functions_table_row_xpath");
+    
+    public static final String Ranking_List_Link_Link = Utilities.utf8Char(getProperty("ranking_list_link_link"));
+    
+    public static final String Ranking_List_Start_Date_Textbox_Xpath = Utilities.utf8Char(getProperty("ranking_list_start_date_textbox_xpath"));
+    
+    public static final String Ranking_List_End_Date_Textbox_Xpath = Utilities.utf8Char(getProperty("ranking_list_end_date_textbox_xpath"));
+    
+    public static final String Ranking_List_Alert_Msg_Label_Css = getProperty("ranking_list_alert_msg_label_css");
+    
+    public static final String Ranking_List_Contributor_Link_Xpath = getProperty("ranking_list_contributor_link_xpath");
+    
+    public static final String Ranking_List_Dev_Value_Canvas_Xpath = getProperty("ranking_list_dev_value_canvas_xpath");
+    
+    public static final String ranking_list_dev_eq_canvas_xpath = getProperty("ranking_list_dev_eq_canvas_xpath");
 }

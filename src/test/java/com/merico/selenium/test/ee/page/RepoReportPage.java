@@ -2053,4 +2053,33 @@ public class RepoReportPage extends Page {
     	
     	return rowNum;
     }
+    
+    @AutoIntercept
+    public void canvasDisplay4RankingList() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Ranking_List_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Ranking_List_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath)).click();
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath)).clear();
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_Start_Date_Textbox_Xpath)).sendKeys("2020-01-01");
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_End_Date_Textbox_Xpath)).click();
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_End_Date_Textbox_Xpath)).clear();
+    	driver.findElement(By.xpath(RepoReportControls.Ranking_List_End_Date_Textbox_Xpath)).sendKeys("2020-12-31");
+    	
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getCanvasDisplayMsg4RankingList() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Ranking_List_Alert_Msg_Label_Css));
+    	String prompt = driver.findElement(By.cssSelector(RepoReportControls.Ranking_List_Alert_Msg_Label_Css)).getText().trim();
+    	System.out.println("Ranking List Prompt Msg: " + prompt);
+    	
+    	return prompt;
+    }
 }

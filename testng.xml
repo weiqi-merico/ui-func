@@ -91,6 +91,7 @@
     		<class name="com.merico.selenium.test.ee.test.TestCoverageTest" />
     		<class name="com.merico.selenium.test.ee.test.DocCoverageTest" />
     		<class name="com.merico.selenium.test.ee.test.ComplexityFunctionsTest" />
+    		<class name="com.merico.selenium.test.ee.test.RankingListTest" />
     </classes>
   </test>
 </suite>
