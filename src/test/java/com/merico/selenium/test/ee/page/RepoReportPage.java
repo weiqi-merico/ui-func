@@ -1710,8 +1710,8 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void selectBranch4CodeProblems() {
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Duplicates_Select_Branch_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Code_Duplicates_Select_Branch_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Select_Branch_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Select_Branch_Xpath)).click();
     	Actions builder = new Actions(driver);
     	for (int i = 0; i < 4; i++) {
     		builder.sendKeys(Keys.ARROW_DOWN).perform();
@@ -1756,8 +1756,8 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public String getCompareTooltip4CodeDuplicates() {
-    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-tooltip-inner'])[1]"));
-    	String tooltip = driver.findElement(By.xpath("(//div[@class='ant-tooltip-inner'])[1]")).getText().trim();
+    	Utilities.waitForControlPresent(driver, By.xpath("//div[contains(@class,'ant-tooltip-inner')]"));
+    	String tooltip = driver.findElement(By.xpath("//div[contains(@class,'ant-tooltip-inner')]")).getText().trim();
     	System.out.println("Compare Tooltip is: " + tooltip);
     	
     	return tooltip;

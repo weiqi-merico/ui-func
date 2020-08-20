@@ -628,7 +628,7 @@ public class RepoReportControls {
     
     public static final String Code_Duplicates_Info_Hash_Copy_Tooltip_Xpath = Utilities.utf8Char(getProperty("code_duplicates_info_hash_copy_tooltip_xpath"));
     
-    public static final String Code_Duplicates_Select_Branch_Css = getProperty("code_duplicates_select_branch_css");
+    public static final String Code_Duplicates_Select_Branch_Xpath = getProperty("code_duplicates_select_branch_xpath");
     
     public static final String Code_Duplicates_Group_Label_Xpath = getProperty("code_duplicates_group_label_xpath");
     
