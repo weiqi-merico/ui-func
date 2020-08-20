@@ -1813,8 +1813,8 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void selectBranch4TestCoverage() {
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_Select_Branch_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_Select_Branch_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Select_Branch_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Select_Branch_Xpath)).click();
     	Actions builder = new Actions(driver);
     	for (int i = 0; i < 4; i++) {
     		builder.sendKeys(Keys.ARROW_DOWN).perform();

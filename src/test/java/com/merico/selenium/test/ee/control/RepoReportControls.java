@@ -646,7 +646,7 @@ public class RepoReportControls {
     
     public static final String Test_Coverage_Link_Link = Utilities.utf8Char(getProperty("test_coverage_link_link"));
     
-    public static final String Test_Coverage_Select_Branch_Css = getProperty("test_coverage_select_branch_css");
+    public static final String Test_Coverage_Select_Branch_Xpath = getProperty("test_coverage_select_branch_xpath");
     
     public static final String Test_Coverage_Info_Svg_Xpath = getProperty("test_coverage_info_svg_xpath");
     
