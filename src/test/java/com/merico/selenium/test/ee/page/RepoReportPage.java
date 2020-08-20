@@ -2277,4 +2277,77 @@ public class RepoReportPage extends Page {
     	
     	return info;
     }
+    
+    @AutoIntercept
+    public void inviteTeamLeaderMember4Members() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css)).click();
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Members_Textbox_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Textbox_Css)).click();
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Textbox_Css)).clear();
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Textbox_Css)).sendKeys("invited@autotest.com");
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Btn_Css)).click();
+    	Utilities.staticTimeDelay(7000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css)).click();
+    }
+    
+    @AutoIntercept
+    public void modifyInvitedMemberRole4Members() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Members_Team_Leader_Dropdown_Xpath));
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 3; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	Utilities.staticTimeDelay(100);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css)).click();
+    }
+    
+    @AutoIntercept
+    public void closeInviteMembersDialog4Members() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Close_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Close_Btn_Css)).click();
+    	Utilities.staticTimeDelay(300);
+    }
+    
+    @AutoIntercept
+    public void cancelInvitedMembers4Members() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Members_Invite_Cancel_Cancel_Btn_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Members_Invite_Cancel_Cancel_Btn_Xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Cancel_Confirm_Btn_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Cancel_Confirm_Btn_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getInvitedTeamLeaderInfo4Members() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Email_Info_Css));
+    	String info = driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Email_Info_Css)).getText().trim();
+    	System.out.println("Invited Team Leader Info is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public String getDevInfo4Members() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Members_Dev_Select_Dropdown_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Members_Dev_Select_Dropdown_Xpath)).getText().trim();
+    	System.out.println("Team Leader Info is: " + info);
+    	
+    	return info;
+    }
 }

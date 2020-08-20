@@ -94,6 +94,7 @@
     		<class name="com.merico.selenium.test.ee.test.RankingListTest" />
     		<class name="com.merico.selenium.test.ee.test.TalentSearchTest" />
     		<class name="com.merico.selenium.test.ee.test.TeamRobustnessTest" />
+    		<class name="com.merico.selenium.test.ee.test.MembersTest" />
     </classes>
   </test>
 </suite>

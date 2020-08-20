@@ -774,7 +774,7 @@ public class RepoReportControls {
     
     public static final String Members_Invite_Cancel_Btn_Css = getProperty("members_invite_cancel_btn_css");
     
-    public static final String Members_Invite_Cancel_Cancel_Btn_Css = getProperty("members_invite_cancel_cancel_btn_css");
+    public static final String Members_Invite_Cancel_Cancel_Btn_Xpath = getProperty("members_invite_cancel_cancel_btn_xpath");
     
     public static final String Members_Invite_Cancel_Confirm_Btn_Css = getProperty("members_invite_cancel_confirm_btn_css");
     

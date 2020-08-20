@@ -65,4 +65,21 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertTrue(repoReportPage.getTeamLeaderInfo4Members().contains("项目负责人"), "Modify Member Role To Team Leader for Members Failed!");
 		repoReportPage.delMember4Members();
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testModifyRoleToTeamLeader"}, alwaysRun = true)
+	public void testInviteTeamLeaderMember() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.inviteTeamLeaderMember4Members();
+		
+		Assert.assertTrue(repoReportPage.getInvitedTeamLeaderInfo4Members().contains("invited@autotest.com"), "Invite Team Leader for Members Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testInviteTeamLeaderMember"}, alwaysRun = true)
+	public void testModifyInvitedMember() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.modifyInvitedMemberRole4Members();
+		
+		Assert.assertTrue(repoReportPage.getDevInfo4Members().contains("开发者"), "Modify Invited Team Member To Dev for Members Failed!");
+		repoReportPage.cancelInvitedMembers4Members();
+	}
 }
