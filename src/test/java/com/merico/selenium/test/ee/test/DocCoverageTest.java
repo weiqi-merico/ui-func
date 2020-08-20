@@ -83,7 +83,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testUncoveredFunctionsFileTooltip"}, alwaysRun = true)
-	public void testSortByProjectName() throws Exception {
+	public void testSortByRepoName() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.sortByRepoName4TestCoverage();
 		
