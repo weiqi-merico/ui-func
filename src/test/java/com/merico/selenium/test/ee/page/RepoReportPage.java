@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import com.merico.selenium.autoscreenshot.AutoIntercept;
 import com.merico.selenium.page.Page;
+import com.merico.selenium.test.ee.control.ProjectGroupControls;
 import com.merico.selenium.test.ee.control.RepoReportControls;
 import com.merico.selenium.test.ee.utils.Utilities;
 
@@ -78,6 +79,12 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.cssSelector(RepoReportControls.Collapse_Flag_Css)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css));
 //    	driver.findElement(By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void accumulationDevEq4Group() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Accumulation_Dev_Eq_Tab_Css));
     	Utilities.staticTimeDelay(2000);
     }
     
@@ -205,6 +212,14 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void topContributorsAllTimeTab4Group() {
+    	Utilities.movePageToLocation(driver, "1000");
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public void topContributorsPastYearTab() {
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_Past_Year_Tab_Xpath));
 		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_Past_Year_Tab_Xpath)).click();
@@ -244,6 +259,14 @@ public class RepoReportPage extends Page {
     @AutoIntercept
     public void topCommitsAllTimeTab() {
     	Utilities.movePageToLocation(driver, "600");
+		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath));
+		driver.findElement(By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath)).click();
+		Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void topCommitsAllTimeTab4Group() {
+    	Utilities.movePageToLocation(driver, "1000");
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath));
 		driver.findElement(By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath)).click();
 		Utilities.staticTimeDelay(2000);
@@ -308,6 +331,22 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void developerStrengths4Group() {
+//    	Utilities.movePageToLocation(driver, "2000");
+//		Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Developer_Strengths_Selection_Css));
+//		driver.findElement(By.cssSelector(RepoReportControls.Developer_Strengths_Selection_Css)).click();
+    	WebElement element = driver.findElement(By.xpath("(//span[contains(@class,'ant-select-selection-item')])[11]"));
+		Actions builder = new Actions(driver);
+		builder.moveToElement(element).perform();
+		Utilities.movePageToLocation(driver, "500");
+		element.click();
+		Utilities.staticTimeDelay(200);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public Boolean getHistogram4DeveloperStrengths() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Developer_Strengths_Histogram_Xpath));
     	boolean flag = driver.findElement(By.xpath(RepoReportControls.Developer_Strengths_Histogram_Xpath)).isEnabled();
@@ -320,6 +359,15 @@ public class RepoReportPage extends Page {
     public Boolean getPie4DeveloperStrengths() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Developer_Strengths_Pie_Css));
     	boolean flag = driver.findElement(By.cssSelector(RepoReportControls.Developer_Strengths_Pie_Css)).isEnabled();
+    	System.out.println("Developer Strengths Pie Displayed: " + flag);
+    	
+    	return flag;
+    }
+    
+    @AutoIntercept
+    public Boolean getPie4DeveloperStrengths4Group() {
+    	Utilities.waitForControlPresent(driver, By.xpath("//div[@class='ant-col ant-col-8 css-1w8glkx']"));
+    	boolean flag = driver.findElement(By.xpath("//div[@class='ant-col ant-col-8 css-1w8glkx']")).isEnabled();
     	System.out.println("Developer Strengths Pie Displayed: " + flag);
     	
     	return flag;
@@ -373,9 +421,29 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void codeContributionBySalary4Group() {
+//    	Utilities.movePageToLocation(driver, "400");
+//    	Utilities.waitForControlPresent(driver, By.xpath("//span[contains(.,'按成本')]"));
+//    	driver.findElement(By.xpath("//span[contains(.,'按成本')]")).click();
+    	WebElement element = driver.findElement(By.xpath("//span[contains(.,'按成本')]"));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.movePageToLocation(driver, "500");
+    	element.click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public void codeContributionByLevel() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_By_Level_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Code_Contribution_And_Salary_By_Level_Css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void codeContributionByLevel4Group() {
+    	Utilities.waitForControlPresent(driver, By.xpath("//span[contains(.,'按职级')]"));
+    	driver.findElement(By.xpath("//span[contains(.,'按职级')]")).click();
     	Utilities.staticTimeDelay(2000);
     }
     
@@ -2349,5 +2417,16 @@ public class RepoReportPage extends Page {
     	System.out.println("Team Leader Info is: " + info);
     	
     	return info;
+    }
+    
+    @AutoIntercept
+    public void enterIntoOverallReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(ProjectGroupControls.Project_Group_Link_Xpath));
+    	driver.findElement(By.xpath(ProjectGroupControls.Project_Group_Link_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Project_Group_Top_Node_View_Report_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Project_Group_Top_Node_View_Report_Xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.General_Report_Header_Name_Xpath));
+    	Utilities.staticTimeDelay(2000);
     }
 }

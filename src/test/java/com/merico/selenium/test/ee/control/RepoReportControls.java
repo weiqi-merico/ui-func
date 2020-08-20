@@ -779,4 +779,6 @@ public class RepoReportControls {
     public static final String Members_Invite_Cancel_Confirm_Btn_Css = getProperty("members_invite_cancel_confirm_btn_css");
     
     public static final String Members_Invite_Close_Btn_Css = getProperty("members_invite_close_btn_css");
+    
+    public static final String Project_Group_Top_Node_View_Report_Xpath = Utilities.utf8Char(getProperty("project_group_top_node_view_report_xpath"));
 }
