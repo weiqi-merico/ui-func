@@ -668,7 +668,11 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void moveToCommitTimeCol() {
-    	Utilities.movePageToElement(driver, By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+//    	Utilities.movePageToElement(driver, By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Commits_Submit_Time_Col_Xpath));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(500);
     }
     
     @AutoIntercept
@@ -718,11 +722,13 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void fixedPagination4CommitsTable() {
-    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Commits_List_Page_Jumper_Css));
+    	Utilities.movePageToLocation(driver, "900");
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Commits_List_Page_Jumper_Xpath));
 	    Actions builder = new Actions(driver);
-	    builder.moveToElement(element).perform();
-	    Utilities.staticTimeDelay(100);
-    	element.click();
+//	    builder.moveToElement(element).perform();
+//	    Utilities.movePageToBottom(driver);
+//	    Utilities.staticTimeDelay(100);
+    	builder.moveToElement(element).click().perform();
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(3000);

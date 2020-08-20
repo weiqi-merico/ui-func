@@ -434,7 +434,7 @@ public class RepoReportControls {
     /**
      * Commits List Page Jumper
      */
-    public static final String Commits_List_Page_Jumper_Css = getProperty("commits_list_page_jumper_css");
+    public static final String Commits_List_Page_Jumper_Xpath = Utilities.utf8Char(getProperty("commits_list_page_jumper_xpath"));
     
     /**
      * Contributor Link
