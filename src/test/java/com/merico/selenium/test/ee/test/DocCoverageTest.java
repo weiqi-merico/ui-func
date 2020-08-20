@@ -83,7 +83,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testUncoveredFunctionsFileTooltip"}, alwaysRun = true)
-	public void testSortByRepoName() throws Exception {
+	public void testSortByProjectName() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.sortByRepoName4TestCoverage();
 		
@@ -107,7 +107,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByFileCoverage"}, alwaysRun = true)
-	public void testFileCoverageLoadMore() throws Exception {
+	public void testCoverageByFileLoadMore() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.fileCoverageLoadMore4TestCoverage();
 		
