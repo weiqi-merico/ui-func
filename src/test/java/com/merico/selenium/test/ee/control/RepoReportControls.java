@@ -572,7 +572,7 @@ public class RepoReportControls {
     
     public static final String Report_Problems_Info_Hash_Copy_Tooltip_Css = getProperty("report_problems_info_hash_copy_tooltip_css");
     
-    public static final String Report_Problems_Select_Branch_Css = getProperty("report_problems_select_branch_css");
+    public static final String Report_Problems_Select_Branch_Xpath = getProperty("report_problems_select_branch_xpath");
     
     public static final String Report_Problems_Another_Branch_Checkbox_Xpath = getProperty("report_problems_another_branch_checkbox_xpath");
     
