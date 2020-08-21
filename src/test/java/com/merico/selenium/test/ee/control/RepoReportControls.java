@@ -664,6 +664,8 @@ public class RepoReportControls {
     
     public static final String Code_Duplicates_Page_Fixed_Jumper_Xpath = getProperty("code_duplicates_page_fixed_jumper_xpath");
     
+    public static final String Group_Code_Duplicates_Page_Fixed_Jumper_Xpath = getProperty("group_code_duplicates_page_fixed_jumper_xpath");
+    
     public static final String Code_Duplicates_Page_Row_Count_Css = getProperty("code_duplicates_page_row_count_css");
     
     public static final String Test_Coverage_Link_Link = Utilities.utf8Char(getProperty("test_coverage_link_link"));

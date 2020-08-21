@@ -1926,6 +1926,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void enterIntoCodeDuplicates4GroupCodeDuplicates() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Code_Duplicates_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Code_Duplicates_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public String getBranchHashCopyTooltip4CodeDuplicates() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Code_Duplicates_Info_Hash_Copy_Tooltip_Xpath));
     	String tooltip = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Info_Hash_Copy_Tooltip_Xpath)).getText().trim();
@@ -1993,6 +2000,19 @@ public class RepoReportPage extends Page {
     public void fixedPagination4CodeDuplicates() {
     	Utilities.movePageToLocation(driver, "1000");
     	WebElement element = driver.findElement(By.xpath(RepoReportControls.Code_Duplicates_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4GroupCodeDuplicates() {
+    	Utilities.movePageToLocation(driver, "1000");
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Group_Code_Duplicates_Page_Fixed_Jumper_Xpath));
 	    Actions builder = new Actions(driver);
 	    builder.moveToElement(element).perform();
 	    Utilities.staticTimeDelay(100);
