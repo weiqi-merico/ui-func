@@ -119,6 +119,7 @@
     		<class name="com.merico.selenium.test.ee.test.GroupDocCoverageTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupRankingListTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupTalentSearchTest" />
+    		<class name="com.merico.selenium.test.ee.test.GroupTeamRobustnessTest" />
     </classes>
   </test>
 </suite>

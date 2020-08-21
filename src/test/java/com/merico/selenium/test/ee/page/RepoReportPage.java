@@ -2530,6 +2530,14 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void content4GroupTeamRobustness() {
+    	Utilities.staticTimeDelay(5000);
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Team_Robustness_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Team_Robustness_Link_Link)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
     public String getContributorNum4TeamRobustness() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Team_Robustness_Contributors_Num_Label_Xpath));
     	String info = driver.findElement(By.xpath(RepoReportControls.Team_Robustness_Contributors_Num_Label_Xpath)).getText().trim();
