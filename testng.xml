@@ -111,6 +111,7 @@
     <classes>
     		<class name="com.merico.selenium.test.ee.test.GroupOverallReportTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupCommitsListReportTest" />
+    		<class name="com.merico.selenium.test.ee.test.GroupContributorsListReportTest" />
     </classes>
   </test>
 </suite>
