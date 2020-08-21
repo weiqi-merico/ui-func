@@ -1502,6 +1502,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void enterIntoCodeQuality4GroupCodeQuality() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Report_Problems_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Report_Problems_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public String getBranchHashCopyTooltip4ReportProblems() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Report_Problems_Info_Hash_Copy_Tooltip_Css));
     	String tooltip = driver.findElement(By.cssSelector(RepoReportControls.Report_Problems_Info_Hash_Copy_Tooltip_Css)).getText().trim();
@@ -1591,6 +1598,18 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void searchByAuthor4GroupReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_All_Authors_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_All_Authors_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public void clearAuthor4ReportProblems() {
     	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[3]"));
     	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[3]")).click();
@@ -1598,7 +1617,18 @@ public class RepoReportPage extends Page {
     	Actions builder = new Actions(driver);
     	builder.sendKeys(Keys.BACK_SPACE).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void clearAuthor4GroupReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[1]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[1]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -1622,6 +1652,18 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void searchByRule4GroupReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_All_Rules_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_All_Rules_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public void clearRule4ReportProblems() {
     	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[4]"));
     	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[4]")).click();
@@ -1629,7 +1671,18 @@ public class RepoReportPage extends Page {
     	Actions builder = new Actions(driver);
     	builder.sendKeys(Keys.BACK_SPACE).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void clearRule4GroupReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[2]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[2]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -1660,7 +1713,18 @@ public class RepoReportPage extends Page {
     	Actions builder = new Actions(driver);
     	builder.sendKeys(Keys.BACK_SPACE).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void clearType4GroupReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[3]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[3]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -1691,7 +1755,18 @@ public class RepoReportPage extends Page {
     	Actions builder = new Actions(driver);
     	builder.sendKeys(Keys.BACK_SPACE).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public void clearSeverity4GroupReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[4]"));
+    	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[4]")).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.BACK_SPACE).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -1722,7 +1797,7 @@ public class RepoReportPage extends Page {
     	for (int i = 0; i < 4; i++)	{
     		builder.sendKeys(Keys.BACK_SPACE).perform();
     	}
-    	Utilities.staticTimeDelay(3000);
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -1772,6 +1847,25 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void paginationJumper4GroupReportProblems() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Group_Report_Problems_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.movePageToLocation(driver, "900");
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Page_Jumper_Input_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Jumper_Input_Textbox_Xpath)).clear();
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Jumper_Input_Textbox_Xpath)).sendKeys("2");
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public String getPaginationFocus4ReportProblems() {
 //    	Utilities.movePageToLocation(driver, "900");
     	Utilities.waitForControlPresent(driver, By.linkText("2"));
@@ -1784,6 +1878,18 @@ public class RepoReportPage extends Page {
     @AutoIntercept
     public void fixedPagination4ReportProblems() {
     	WebElement element = driver.findElement(By.xpath(RepoReportControls.Report_Problems_Page_Fixed_Jumper_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void fixedPagination4GroupReportProblems() {
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Group_Report_Problems_Page_Fixed_Jumper_Xpath));
 	    Actions builder = new Actions(driver);
 	    builder.moveToElement(element).perform();
 	    Utilities.staticTimeDelay(100);

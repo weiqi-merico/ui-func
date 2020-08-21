@@ -638,6 +638,8 @@ public class RepoReportControls {
     
     public static final String Report_Problems_Page_Fixed_Jumper_Xpath = getProperty("report_problems_page_fixed_jumper_xpath");
     
+    public static final String Group_Report_Problems_Page_Fixed_Jumper_Xpath = getProperty("group_report_problems_page_fixed_jumper_xpath");
+    
     public static final String Report_Problems_Page_Jumper_Input_Textbox_Xpath = getProperty("report_problems_page_jumper_input_textbox_xpath");
     
     public static final String Report_Problems_Page_Row_Count_Css = getProperty("report_problems_page_row_count_css");

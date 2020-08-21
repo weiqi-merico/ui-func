@@ -113,6 +113,7 @@
     		<class name="com.merico.selenium.test.ee.test.GroupCommitsListReportTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupContributorsListReportTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupMetricsTrendsTest" />
+    		<class name="com.merico.selenium.test.ee.test.GroupCodeQualityTest" />
     </classes>
   </test>
 </suite>
