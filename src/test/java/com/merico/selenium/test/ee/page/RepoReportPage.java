@@ -2341,6 +2341,7 @@ public class RepoReportPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    	Utilities.staticTimeDelay(2000);
     }
     
     @AutoIntercept
@@ -2363,10 +2364,11 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Textbox_Css)).sendKeys("invited@autotest.com");
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Btn_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Btn_Css)).click();
-    	Utilities.staticTimeDelay(7000);
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
-    	
+    	Utilities.staticTimeDelay(11000);
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
+//    	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Members_Invite_Members_Btn_Css)).click();
     }
@@ -2383,7 +2385,7 @@ public class RepoReportPage extends Page {
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	Utilities.staticTimeDelay(100);
     	builder.sendKeys(Keys.ENTER).perform();
-    	Utilities.staticTimeDelay(500);
+    	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Members_Close_Toast_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Members_Close_Toast_Css)).click();
     	
