@@ -502,7 +502,11 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_Sloc_Label_Css = getProperty("metrics_trends_sloc_label_css");
     
+    public static final String Group_Metrics_Trends_Sloc_Label_Xpath = Utilities.utf8Char(getProperty("group_metrics_trends_sloc_label_xpath"));
+    
     public static final String Metrics_Trends_Num_Of_Commits_Label_Css = getProperty("metrics_trends_num_of_commits_label_css");
+    
+    public static final String Group_Metrics_Trends_Num_Of_Commits_Label_Xpath = Utilities.utf8Char(getProperty("group_metrics_trends_num_of_commits_label_xpath"));
     
     public static final String Metrics_Trends_Cyclomatic_Complexity_Label_Css = getProperty("metrics_trends_cyclomatic_complexity_label_css");
     
@@ -532,13 +536,21 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_Guides_Question_Mark_Xpath = getProperty("metrics_trends_guides_question_mark_xpath");
     
+    public static final String Group_Metrics_Trends_Guides_Question_Mark_Xpath = getProperty("group_metrics_trends_guides_question_mark_xpath");
+    
     public static final String Metrics_Trends_Guides_Tooltip_Css = getProperty("metrics_trends_guides_tooltip_css");
     
     public static final String Metrics_Trends_Last_Week_Label_Css = getProperty("metrics_trends_last_week_label_css");
     
+    public static final String Group_Metrics_Trends_Last_Week_Label_Css = getProperty("group_metrics_trends_last_week_label_css");
+    
     public static final String Metrics_Trends_Last_Month_Label_Css = getProperty("metrics_trends_last_month_label_css");
     
+    public static final String Group_Metrics_Trends_Last_Month_Label_Css = getProperty("group_metrics_trends_last_month_label_css");
+    
     public static final String Metrics_Trends_Last_Year_Label_Css = getProperty("metrics_trends_last_year_label_css");
+    
+    public static final String Group_Metrics_Trends_Last_Year_Label_Css = getProperty("group_metrics_trends_last_year_label_css");
     
     public static final String metrics_trends_all_time_label_css = getProperty("metrics_trends_all_time_label_css");
     
@@ -546,11 +558,19 @@ public class RepoReportControls {
     
     public static final String Metrics_Trends_By_Day_Label_Css = getProperty("metrics_trends_by_day_label_css");
     
+    public static final String Group_Metrics_Trends_By_Day_Label_Css = getProperty("group_metrics_trends_by_day_label_css");
+    
     public static final String Metrics_Trends_By_Week_Label_Css = getProperty("metrics_trends_by_week_label_css");
+    
+    public static final String Group_Metrics_Trends_By_week_Label_Css = getProperty("group_metrics_trends_by_week_label_css");
     
     public static final String Metrics_Trends_By_Month_Label_Css = getProperty("metrics_trends_by_month_label_css");
     
+    public static final String Group_Metrics_Trends_By_Month_Label_Css = getProperty("group_metrics_trends_by_month_label_css");
+    
     public static final String Metrics_Trends_By_Year_Label_Css = getProperty("metrics_trends_by_year_label_css");
+    
+    public static final String Group_Metrics_Trends_By_Year_Label_Css = getProperty("group_metrics_trends_by_year_label_css");
     
     public static final String Metrics_Trends_Date_Start_Time_Textbox_Css = getProperty("metrics_trends_date_start_time_textbox_css");
     

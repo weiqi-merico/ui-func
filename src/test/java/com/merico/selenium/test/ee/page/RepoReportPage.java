@@ -944,10 +944,30 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void slocLineChartDisplay4GroupMetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Trends_Sloc_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Trends_Sloc_Label_Xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public void slocBarChartDisplay4MetricsTrends() {
 //    	Utilities.movePageToLocation(driver, "-500");
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Sloc_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Sloc_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void slocBarChartDisplay4GroupMetricsTrends() {
+//    	Utilities.movePageToLocation(driver, "-500");
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Trends_Sloc_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Trends_Sloc_Label_Xpath)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
     	Utilities.staticTimeDelay(3000);
@@ -963,9 +983,27 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void numOfCommitsLineChartDisplay4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Trends_Num_Of_Commits_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Trends_Num_Of_Commits_Label_Xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Line_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public void numOfCommitsBarChartDisplay4MetricsTrends() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Num_Of_Commits_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Num_Of_Commits_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void numOfCommitsBarChartDisplay4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Trends_Num_Of_Commits_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Trends_Num_Of_Commits_Label_Xpath)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
     	Utilities.staticTimeDelay(3000);
@@ -1098,6 +1136,15 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void guidesQuestionMark4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Trends_Guides_Question_Mark_Xpath));
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Trends_Guides_Question_Mark_Xpath));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+    }
+    
+    @AutoIntercept
     public String getTooltip4MetricsTrends() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Guides_Tooltip_Css));
     	String tooltip = driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Guides_Tooltip_Css)).getText().trim();
@@ -1118,11 +1165,33 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void lastWeekDisplay4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Week_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Week_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Day_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Day_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public void lastMonthDisplayByDay4MetricsTrends() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Last_Month_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Last_Month_Label_Css)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_By_Day_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_By_Day_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void lastMonthDisplayByDay4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Month_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Month_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Day_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Day_Label_Css)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
     	Utilities.staticTimeDelay(3000);
@@ -1140,11 +1209,33 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void lastMonthDisplayByWeek4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Month_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Month_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_week_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_week_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public void lastYearDisplayByDay4MetricsTrends() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Last_Year_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Last_Year_Label_Css)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_By_Day_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_By_Day_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void lastYearDisplayByDay4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Year_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Year_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Day_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Day_Label_Css)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
     	Utilities.staticTimeDelay(3000);
@@ -1162,11 +1253,34 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void lastYearDisplayByWeek4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Year_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Year_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_week_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_week_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    
+    @AutoIntercept
     public void lastYearDisplayByMonth4MetricsTrends() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_Last_Year_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_Last_Year_Label_Css)).click();
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Metrics_Trends_By_Month_Label_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Metrics_Trends_By_Month_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void lastYearDisplayByMonth4GroupMetricsTrends() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Year_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_Last_Year_Label_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Month_Label_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Trends_By_Month_Label_Css)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Metrics_Trends_Bar_Chart_Label_Xpath)).click();
     	Utilities.staticTimeDelay(3000);
