@@ -1505,7 +1505,7 @@ public class RepoReportPage extends Page {
     public void enterIntoCodeQuality4GroupCodeQuality() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Report_Problems_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Report_Problems_Link_Link)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -1929,7 +1929,7 @@ public class RepoReportPage extends Page {
     public void enterIntoCodeDuplicates4GroupCodeDuplicates() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Code_Duplicates_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Code_Duplicates_Link_Link)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
     }
     
     @AutoIntercept
@@ -2049,6 +2049,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void enterIntoTestCoverage4GroupTestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Test_Coverage_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Test_Coverage_Link_Link)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
     public String getHashCopyTooltip4TestCoverage() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Info_Hash_Copy_Tooltip_Xpath));
     	String tooltip = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Info_Hash_Copy_Tooltip_Xpath)).getText().trim();
@@ -2123,6 +2130,24 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void uncoveredFunctionsLoadMore4GroupTestCoverage() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Function_Page_Header_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Function_Page_Header_Xpath)).click();
+    	WebElement element = driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_Uncovered_Functions_Load_More_Btn_Css));
+	    Actions builder = new Actions(driver);
+	    builder.moveToElement(element).perform();
+	    Utilities.staticTimeDelay(100);
+//	    Utilities.movePageToElement(driver, By.cssSelector(RepoReportControls.Test_Coverage_Uncovered_Functions_Load_More_Btn_Css));
+//	    Utilities.movePageToLocation(driver, "50");
+	    for (int i = 0; i < 3; i++) {
+	    	builder.sendKeys(Keys.TAB).perform();
+	    }
+	    builder.sendKeys(Keys.ENTER).perform();
+//    	element.click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public Boolean getUncoveredFunctionsItems4TestCoverage() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Uncovered_Functions_Items_Xpath));
     	boolean flag = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Uncovered_Functions_Items_Xpath)).isEnabled();
@@ -2134,6 +2159,16 @@ public class RepoReportPage extends Page {
     @AutoIntercept
     public void sortByRepoName4TestCoverage() {
     	Utilities.movePageToLocation(driver, "300");
+    	for (int i = 0; i < 3; i++) {
+    		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath));
+        	driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath)).click();
+        	Utilities.staticTimeDelay(1000);
+    	}
+    }
+    
+    @AutoIntercept
+    public void sortByRepoName4GroupTestCoverage() {
+    	Utilities.movePageToLocation(driver, "10");
     	for (int i = 0; i < 3; i++) {
     		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath));
         	driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Files_Table_Repo_Col_Xpath)).click();
@@ -2674,7 +2709,7 @@ public class RepoReportPage extends Page {
     	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Project_Group_Top_Node_View_Report_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Project_Group_Top_Node_View_Report_Xpath)).click();
-    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.General_Report_Header_Name_Xpath));
-    	Utilities.staticTimeDelay(2000);
+//    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.General_Report_Header_Name_Xpath));
+    	Utilities.staticTimeDelay(5000);
     }
 }
