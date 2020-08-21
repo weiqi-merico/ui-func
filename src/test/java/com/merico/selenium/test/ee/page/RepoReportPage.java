@@ -2273,6 +2273,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void enterIntoDocCoverage4GroupDocCoverage() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Doc_Coverage_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Doc_Coverage_Link_Link)).click();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
     public void branchHashCopy4ComplexityFunctions() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Complexity_Functions_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Complexity_Functions_Link_Link)).click();

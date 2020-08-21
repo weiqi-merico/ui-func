@@ -116,6 +116,7 @@
     		<class name="com.merico.selenium.test.ee.test.GroupCodeQualityTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupCodeDuplicatesTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupTestCoverageTest" />
+    		<class name="com.merico.selenium.test.ee.test.GroupDocCoverageTest" />
     </classes>
   </test>
 </suite>
