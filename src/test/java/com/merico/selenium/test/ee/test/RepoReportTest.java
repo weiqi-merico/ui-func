@@ -193,6 +193,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertEquals(repoReportPage.getFunctionPageHeader(), "贡献者列表", "Navigate to Contributors Detail Page Failed!");
 		
 		repoReportPage.back();
+		repoReportPage.back();
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopContributorsDetailLink"}, alwaysRun = true)
