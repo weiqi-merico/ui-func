@@ -42,4 +42,14 @@ public class SettingsControls {
     public static final String number_of_dev_question_mark_xpath = getProperty("number_of_dev_question_mark_xpath");
     
     public static final String number_of_dev_tooltip_css = getProperty("number_of_dev_tooltip_css");
+    
+    public static final String metrics_comparison_two_col_contents_css = getProperty("metrics_comparison_two_col_contents_css");
+    
+    public static final String metrics_comparison_close_first_tab_css = getProperty("metrics_comparison_close_first_tab_css");
+    
+    public static final String metrics_comparison_close_second_tab_css = getProperty("metrics_comparison_close_second_tab_css");
+    
+    public static final String metrics_comparison_export_data_btn_xpath = Utilities.utf8Char(getProperty("metrics_comparison_export_data_btn_xpath"));
+    
+    public static final String metrics_comparison_export_data_error_msg_xpath = getProperty("metrics_comparison_export_data_error_msg_xpath");
 }
