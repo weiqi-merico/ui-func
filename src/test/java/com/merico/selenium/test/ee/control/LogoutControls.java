@@ -3,6 +3,8 @@ package com.merico.selenium.test.ee.control;
 import java.io.InputStream;
 import java.util.Properties;
 
+import com.merico.selenium.test.ee.utils.Utilities;
+
 public class LogoutControls {
 	private static Properties props = null;
 	static{
@@ -37,5 +39,5 @@ public class LogoutControls {
 	/**
 	 * 退出
 	 */
-	public static final String Logout_Xpath = getProperty("logout_xpath");
+	public static final String Logout_Xpath = Utilities.utf8Char(getProperty("logout_xpath"));
 }

@@ -124,4 +124,19 @@
     		<class name="com.merico.selenium.test.ee.test.GroupMetricsComparisonTest" />
     </classes>
   </test>
+  
+  <test name="Settings_Test" preserve-order="true">
+	<groups>
+		<run>
+			<include name="BVT"></include>
+			<include name="ACCEPTANCE"></include>
+			<include name="COMPREHENSIVE"></include>
+			<exclude name="CURRENT_DEBUG"></exclude>
+			<exclude name="DEPRECATED"></exclude>
+		</run>
+	</groups>
+    <classes>
+    		<class name="com.merico.selenium.test.ee.test.SettingsMetricsComparisonTest" />
+    </classes>
+  </test>
 </suite>
