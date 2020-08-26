@@ -2727,4 +2727,114 @@ public class RepoReportPage extends Page {
 //    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.General_Report_Header_Name_Xpath));
     	Utilities.staticTimeDelay(5000);
     }
+    
+    @AutoIntercept
+    public void timeTooltip4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Group_Metrics_Comparison_Link_Link));
+    	driver.findElement(By.linkText(RepoReportControls.Group_Metrics_Comparison_Link_Link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Comparison_Repo_Comparison_Tab_Xpath));
+    	Actions builder = new Actions(driver);
+    	WebElement element = driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Comparison_Time_Question_Mark_Xpath));
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getDateTimeTooltip4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Tooltip_Css));
+    	String info = driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Tooltip_Css)).getText().trim();
+    	System.out.println("Tooltip Info is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public void repoComparison4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Start_Date_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Start_Date_Css)).click();
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Start_Date_Css)).clear();
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Start_Date_Css)).sendKeys("2020-01-01");
+ 
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(100);
+    	builder.sendKeys("2020-12-31").perform();
+    	Utilities.staticTimeDelay(100);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(1000);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+
+    @AutoIntercept
+    public void projectGroupComparison4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Comparison_Project_Group_Comparison_Tab_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Comparison_Project_Group_Comparison_Tab_Xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+ 
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(100);
+    	builder.sendKeys("2020-01-01").perform();
+    	Utilities.staticTimeDelay(100);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys("2020-12-31").perform();
+    	Utilities.staticTimeDelay(100);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(1000);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void delComparison4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Close_Second_Tab_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Close_Second_Tab_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Close_First_Tab_Css));
+    	driver.findElement(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Close_First_Tab_Css)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public int getComparisonCount4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Two_Col_Contents_Css));
+    	int repoCount = driver.findElements(By.cssSelector(RepoReportControls.Group_Metrics_Comparison_Two_Col_Contents_Css)).size();
+    	System.out.println("Comparison's Count is: " + repoCount);
+    	
+    	return repoCount;
+    }
+    
+    @AutoIntercept
+    public void errExportData4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Comparison_Export_Data_Btn_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Comparison_Export_Data_Btn_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getErrExportDataMsg4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Group_Metrics_Comparison_Export_Data_Error_Msg_Xpath));
+    	String info = driver.findElement(By.xpath(RepoReportControls.Group_Metrics_Comparison_Export_Data_Error_Msg_Xpath)).getText().trim();
+    	System.out.println("Export Data Error Msg is: " + info);
+    	
+    	return info;
+    }
 }

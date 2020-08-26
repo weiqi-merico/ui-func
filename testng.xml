@@ -121,6 +121,7 @@
     		<class name="com.merico.selenium.test.ee.test.GroupTalentSearchTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupTeamRobustnessTest" />
     		<class name="com.merico.selenium.test.ee.test.GroupMembersTest" />
+    		<class name="com.merico.selenium.test.ee.test.GroupMetricsComparisonTest" />
     </classes>
   </test>
 </suite>

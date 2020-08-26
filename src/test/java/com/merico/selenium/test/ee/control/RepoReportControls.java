@@ -805,4 +805,28 @@ public class RepoReportControls {
     public static final String Members_Invite_Close_Btn_Css = getProperty("members_invite_close_btn_css");
     
     public static final String Project_Group_Top_Node_View_Report_Xpath = Utilities.utf8Char(getProperty("project_group_top_node_view_report_xpath"));
+    
+    public static final String Group_Metrics_Comparison_Link_Link = Utilities.utf8Char(getProperty("group_metrics_comparison_link_link"));
+    
+    public static final String Group_Metrics_Comparison_Repo_Comparison_Tab_Xpath = Utilities.utf8Char(getProperty("group_metrics_comparison_repo_comparison_tab_xpath"));
+    
+    public static final String Group_Metrics_Comparison_Project_Group_Comparison_Tab_Xpath = Utilities.utf8Char(getProperty("group_metrics_comparison_project_group_comparison_tab_xpath"));
+    
+    public static final String Group_Metrics_Comparison_Start_Date_Css = getProperty("group_metrics_comparison_start_date_css");
+    
+    public static final String Group_Metrics_Comparison_Time_Question_Mark_Xpath = getProperty("group_metrics_comparison_time_question_mark_xpath");
+    
+    public static final String Group_Metrics_Comparison_Tooltip_Css = getProperty("group_metrics_comparison_tooltip_css");
+    
+    public static final String Group_Metrics_Comparison_Table_Xpath = getProperty("group_metrics_comparison_table_xpath");
+    
+    public static final String Group_Metrics_Comparison_Two_Col_Contents_Css = getProperty("group_metrics_comparison_two_col_contents_css");
+    
+    public static final String Group_Metrics_Comparison_Close_First_Tab_Css = getProperty("group_metrics_comparison_close_first_tab_css");
+    
+    public static final String Group_Metrics_Comparison_Close_Second_Tab_Css = getProperty("group_metrics_comparison_close_second_tab_css");
+    
+    public static final String Group_Metrics_Comparison_Export_Data_Btn_Xpath = Utilities.utf8Char(getProperty("group_metrics_comparison_export_data_btn_xpath"));
+    
+    public static final String Group_Metrics_Comparison_Export_Data_Error_Msg_Xpath = getProperty("group_metrics_comparison_export_data_error_msg_xpath");
 }
