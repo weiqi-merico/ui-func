@@ -165,12 +165,16 @@ public class SettingsPage extends Page {
     }
     
     @AutoIntercept
-    public String getAddedMember4Personnel() {
+    public void searchAddedMember4Personnel() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).clear();
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).sendKeys(email);
     	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getAddedMember4Personnel() {
     	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_second_col_cell_xpath));
     	String email = driver.findElement(By.xpath(SettingsControls.personnel_members_table_second_col_cell_xpath)).getText().trim();
     	System.out.println("Added Member Email is: " + email);

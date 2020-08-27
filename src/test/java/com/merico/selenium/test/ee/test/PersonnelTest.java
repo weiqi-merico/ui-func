@@ -53,6 +53,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
 		settingsPage.navigateToSettings();
 		settingsPage.addMember4Personnel();
+		settingsPage.searchAddedMember4Personnel();
 		
 		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email.toLowerCase(), "Add Member for Personnel Failed!");
 	}
