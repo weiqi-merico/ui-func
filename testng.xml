@@ -137,6 +137,7 @@
 	</groups>
     <classes>
     		<class name="com.merico.selenium.test.ee.test.SettingsMetricsComparisonTest" />
+    		<class name="com.merico.selenium.test.ee.test.PersonnelTest" />
     </classes>
   </test>
 </suite>

@@ -23,6 +23,8 @@ public class SettingsPage extends Page {
         return true;
     }
     
+    public String name = Utilities.getRandomString(8);
+    
     @AutoIntercept
     public void back() {
     	Utilities.staticTimeDelay(1000);
@@ -130,5 +132,48 @@ public class SettingsPage extends Page {
     	System.out.println("Export Data Error Msg is: " + info);
     	
     	return info;
+    }
+    
+    @AutoIntercept
+    public void addMember4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.personnel_link_link));
+    	driver.findElement(By.linkText(SettingsControls.personnel_link_link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_btn_css)).click();
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.personnel_add_member_dialog_name_textbox_id));
+    	driver.findElement(By.id(SettingsControls.personnel_add_member_dialog_name_textbox_id)).click();
+    	driver.findElement(By.id(SettingsControls.personnel_add_member_dialog_name_textbox_id)).clear();
+    	driver.findElement(By.id(SettingsControls.personnel_add_member_dialog_name_textbox_id)).sendKeys(name);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css)).click();
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css)).clear();
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(name + "@test.com").perform();
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css)).sendKeys(name + "@test.com");
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(500);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+    }
+    
+    @AutoIntercept
+    public String getAddedMember4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).sendKeys(name + "@test.com");
+    	Utilities.staticTimeDelay(3000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_second_col_cell_xpath));
+    	String email = driver.findElement(By.xpath(SettingsControls.personnel_members_table_second_col_cell_xpath)).getText().trim();
+    	System.out.println("Added Member Email is: " + email);
+    	
+    	return email;
     }
 }

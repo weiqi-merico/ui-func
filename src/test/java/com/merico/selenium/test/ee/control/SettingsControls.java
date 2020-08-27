@@ -52,4 +52,42 @@ public class SettingsControls {
     public static final String metrics_comparison_export_data_btn_xpath = Utilities.utf8Char(getProperty("metrics_comparison_export_data_btn_xpath"));
     
     public static final String metrics_comparison_export_data_error_msg_xpath = getProperty("metrics_comparison_export_data_error_msg_xpath");
+    
+    public static final String personnel_link_link = Utilities.utf8Char(getProperty("personnel_link_link"));
+    
+    public static final String personnel_add_member_btn_css = getProperty("personnel_add_member_btn_css");
+    
+    public static final String personnel_add_member_dialog_name_textbox_id = getProperty("personnel_add_member_dialog_name_textbox_id");
+    
+    public static final String personnel_add_member_dialog_emails_textbox_css = getProperty("personnel_add_member_dialog_emails_textbox_css");
+    
+    public static final String personnel_add_member_dialog_privilege_dropdown_css = getProperty("personnel_add_member_dialog_privilege_dropdown_css");
+    
+    public static final String personnel_add_member_confirm_btn_css = getProperty("personnel_add_member_confirm_btn_css");
+    
+    public static final String personnel_members_toast_close_css = getProperty("personnel_members_toast_close_css");
+    
+    public static final String personnel_members_search_textbox_css = getProperty("personnel_members_search_textbox_css");
+    
+    public static final String personnel_members_table_second_col_cell_xpath = getProperty("personnel_members_table_second_col_cell_xpath");
+    
+    public static final String personnel_members_edit_link_css = getProperty("personnel_members_edit_link_css");
+    
+    public static final String personnel_members_reset_link_css = getProperty("personnel_members_reset_link_css");
+    
+    public static final String personnel_members_disable_link_css = getProperty("personnel_members_disable_link_css");
+    
+    public static final String personnel_members_delete_link_css = getProperty("personnel_members_delete_link_css");
+    
+    public static final String personnel_members_confirm_btn_css = getProperty("personnel_members_confirm_btn_css");
+    
+    public static final String personnel_members_reset_password_copy_flag_css = getProperty("personnel_members_reset_password_copy_flag_css");
+    
+    public static final String personnel_members_reset_password_confirm_btn_css = getProperty("personnel_members_reset_password_confirm_btn_css");
+    
+    public static final String personnel_members_table_name_col_xpath = getProperty("personnel_members_table_name_col_xpath");
+    
+    public static final String personnel_members_paging_fixed_jumper_css = getProperty("personnel_members_paging_fixed_jumper_css");
+    
+    public static final String personnel_members_paging_jumper_input_css = getProperty("personnel_members_paging_jumper_input_css");
 }
