@@ -23,7 +23,8 @@ public class SettingsPage extends Page {
         return true;
     }
     
-    public String name = Utilities.getRandomString(8);
+    public String name = Utilities.getRandomString(10);
+    public String email = name + "@addmember.com";
     
     @AutoIntercept
     public void back() {
@@ -148,10 +149,10 @@ public class SettingsPage extends Page {
     	driver.findElement(By.id(SettingsControls.personnel_add_member_dialog_name_textbox_id)).sendKeys(name);
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css)).click();
-//    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css)).clear();
+
     	Actions builder = new Actions(driver);
-    	builder.sendKeys(name + "@test.com").perform();
-//    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_dialog_emails_textbox_css)).sendKeys(name + "@test.com");
+    	builder.sendKeys(email).perform();
+
     	builder.sendKeys(Keys.TAB).perform();
     	Utilities.staticTimeDelay(500);
     	
@@ -168,7 +169,7 @@ public class SettingsPage extends Page {
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).clear();
-    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).sendKeys(name + "@test.com");
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).sendKeys(email);
     	Utilities.staticTimeDelay(3000);
     	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_second_col_cell_xpath));
     	String email = driver.findElement(By.xpath(SettingsControls.personnel_members_table_second_col_cell_xpath)).getText().trim();

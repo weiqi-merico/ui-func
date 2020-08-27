@@ -54,6 +54,6 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		settingsPage.navigateToSettings();
 		settingsPage.addMember4Personnel();
 		
-		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), (settingsPage.name + "@test.com").toLowerCase(), "Add Member for Personnel Failed!");
+		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email.toLowerCase(), "Add Member for Personnel Failed!");
 	}
 }
