@@ -181,4 +181,113 @@ public class SettingsPage extends Page {
     	
     	return email;
     }
+    
+    @AutoIntercept
+    public void editMember4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_edit_link_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_edit_link_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_add_member_dialog_privilege_dropdown_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_add_member_dialog_privilege_dropdown_xpath)).click();
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+    }
+    
+    @AutoIntercept
+    public String getEditMemberPrivilege4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_fourth_col_cell_xpath));
+    	String privilege = driver.findElement(By.xpath(SettingsControls.personnel_members_table_fourth_col_cell_xpath)).getText().trim();
+    	System.out.println("Privilege After Editing Member is: " + privilege);
+    	
+    	return privilege;
+    }
+    
+    @AutoIntercept
+    public void enableMember4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_disable_link_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_disable_link_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getEnableMemberStatus4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_third_col_cell_xpath));
+    	String status = driver.findElement(By.xpath(SettingsControls.personnel_members_table_third_col_cell_xpath)).getText().trim();
+    	System.out.println("Status After Enabling Member is: " + status);
+    	
+    	return status;
+    }
+    
+    @AutoIntercept
+    public void resetMember4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_reset_link_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_reset_link_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_reset_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_reset_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(12000);
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_reset_password_copy_flag_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_reset_password_copy_flag_css)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public void resetMemberOk4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_reset_password_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_reset_password_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public String getResetMemberPasswordCopyTooltip4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.number_of_dev_tooltip_css));
+    	String info = driver.findElement(By.cssSelector(SettingsControls.number_of_dev_tooltip_css)).getText().trim();
+    	System.out.println("Tooltip Info is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public void deleteMember4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_delete_link_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_delete_link_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	Utilities.staticTimeDelay(1000);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1500);
+//    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath));
+//    	driver.findElement(By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath)).click();
+//    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+    	Utilities.staticTimeDelay(1500);
+    }
+    
+    @AutoIntercept
+    public String getMemberNoDataDesc4MetricsComparison() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_no_data_desc_xpath));
+    	String desc = driver.findElement(By.xpath(SettingsControls.personnel_members_no_data_desc_xpath)).getText().trim();
+    	System.out.println("No Data Description is: " + desc);
+    	
+    	return desc;
+    }
 }

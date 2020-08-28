@@ -61,7 +61,7 @@ public class SettingsControls {
     
     public static final String personnel_add_member_dialog_emails_textbox_css = getProperty("personnel_add_member_dialog_emails_textbox_css");
     
-    public static final String personnel_add_member_dialog_privilege_dropdown_css = getProperty("personnel_add_member_dialog_privilege_dropdown_css");
+    public static final String personnel_add_member_dialog_privilege_dropdown_xpath = getProperty("personnel_add_member_dialog_privilege_dropdown_xpath");
     
     public static final String personnel_add_member_confirm_btn_css = getProperty("personnel_add_member_confirm_btn_css");
     
@@ -70,6 +70,10 @@ public class SettingsControls {
     public static final String personnel_members_search_textbox_css = getProperty("personnel_members_search_textbox_css");
     
     public static final String personnel_members_table_second_col_cell_xpath = getProperty("personnel_members_table_second_col_cell_xpath");
+    
+    public static final String personnel_members_table_third_col_cell_xpath = getProperty("personnel_members_table_third_col_cell_xpath");
+    
+    public static final String personnel_members_table_fourth_col_cell_xpath = getProperty("personnel_members_table_fourth_col_cell_xpath");
     
     public static final String personnel_members_edit_link_css = getProperty("personnel_members_edit_link_css");
     
@@ -81,9 +85,15 @@ public class SettingsControls {
     
     public static final String personnel_members_confirm_btn_css = getProperty("personnel_members_confirm_btn_css");
     
+    public static final String personnel_members_reset_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_reset_confirm_btn_xpath"));
+    
+    public static final String personnel_members_delete_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_delete_confirm_btn_xpath"));
+    
     public static final String personnel_members_reset_password_copy_flag_css = getProperty("personnel_members_reset_password_copy_flag_css");
     
     public static final String personnel_members_reset_password_confirm_btn_css = getProperty("personnel_members_reset_password_confirm_btn_css");
+    
+    public static final String personnel_members_no_data_desc_xpath = getProperty("personnel_members_no_data_desc_xpath");
     
     public static final String personnel_members_table_name_col_xpath = getProperty("personnel_members_table_name_col_xpath");
     

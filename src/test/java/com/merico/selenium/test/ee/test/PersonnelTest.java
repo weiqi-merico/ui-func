@@ -57,4 +57,45 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email.toLowerCase(), "Add Member for Personnel Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddMember"}, alwaysRun = true)
+	public void testEditMember() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.editMember4Personnel();
+		
+		Assert.assertEquals(settingsPage.getEditMemberPrivilege4Personnel(), "管理员", "Edit Member for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEditMember"}, alwaysRun = true)
+	public void testEnableMember() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.enableMember4Personnel();
+		
+		Assert.assertEquals(settingsPage.getEnableMemberStatus4Personnel(), "已启用", "Enable Member for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEnableMember"}, alwaysRun = true)
+	public void testDisableMember() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.enableMember4Personnel();
+		
+		Assert.assertEquals(settingsPage.getEnableMemberStatus4Personnel(), "已禁用", "Disable Member for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDisableMember"}, alwaysRun = true)
+	public void testResetMember() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.resetMember4Personnel();
+		
+		Assert.assertEquals(settingsPage.getResetMemberPasswordCopyTooltip4MetricsComparison(), "Copied", "Reset Member for Personnel Failed!");
+		settingsPage.resetMemberOk4Personnel();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testResetMember"}, alwaysRun = true)
+	public void testDeleteMember() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.deleteMember4Personnel();
+		
+		Assert.assertEquals(settingsPage.getMemberNoDataDesc4MetricsComparison(), "暂无数据", "Delete Member for Personnel Failed!");
+	}
 }
