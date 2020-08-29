@@ -158,10 +158,10 @@ public class SettingsPage extends Page {
     	
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(8000);
     	
-    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
-    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
     }
     
     @AutoIntercept
@@ -195,9 +195,10 @@ public class SettingsPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css)).click();
-    	Utilities.staticTimeDelay(500);
-    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
-    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+    	Utilities.staticTimeDelay(6000);
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+//    	Utilities.staticTimeDelay(1000);
     }
     
     @AutoIntercept
@@ -216,10 +217,10 @@ public class SettingsPage extends Page {
     	Utilities.staticTimeDelay(1000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_confirm_btn_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_confirm_btn_css)).click();
-    	Utilities.staticTimeDelay(500);
-    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
-    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(6000);
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+//    	Utilities.staticTimeDelay(2000);
     }
     
     @AutoIntercept
@@ -273,13 +274,13 @@ public class SettingsPage extends Page {
     	}
     	Utilities.staticTimeDelay(1000);
     	builder.sendKeys(Keys.ENTER).perform();
-    	Utilities.staticTimeDelay(1500);
+    	Utilities.staticTimeDelay(6000);
 //    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath));
 //    	driver.findElement(By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath)).click();
 //    	Utilities.staticTimeDelay(500);
-    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
-    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
-    	Utilities.staticTimeDelay(1500);
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
+//    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
+//    	Utilities.staticTimeDelay(1500);
     }
     
     @AutoIntercept
@@ -290,4 +291,52 @@ public class SettingsPage extends Page {
     	
     	return desc;
     }
+    
+    @AutoIntercept
+    public void fixedPagingJumper4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 24; i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	Utilities.staticTimeDelay(1000);
+    	
+    	WebElement element = driver.findElement(By.cssSelector(SettingsControls.personnel_members_paging_fixed_jumper_css));
+    	builder.moveToElement(element).perform();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_paging_fixed_jumper_css));
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public int getfixedPagingRowCount4Personnel() {
+    	int rowCount = driver.findElements(By.xpath(SettingsControls.personnel_members_table_tr_xpath)).size();
+    	System.out.println("Table Table Row is: " + rowCount);
+    	
+    	return rowCount;
+    }
+    
+
+    @AutoIntercept
+    public void paginationJumper4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css)).sendKeys("2");
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
+    
 }

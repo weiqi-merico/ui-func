@@ -98,4 +98,20 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(settingsPage.getMemberNoDataDesc4MetricsComparison(), "暂无数据", "Delete Member for Personnel Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDeleteMember"}, alwaysRun = true)
+	public void testFixedPaging() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.fixedPagingJumper4Personnel();
+		
+		Assert.assertNotEquals(settingsPage.getfixedPagingRowCount4Personnel(), 20, "Fixed Paging for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFixedPaging"}, alwaysRun = true)
+	public void testPagingJumper() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.paginationJumper4Personnel();
+		
+		Assert.assertEquals(settingsPage.getPaginationFocus4Personnel(), "rgba(202, 69, 33, 1)", "Paging Jumper for Personnel Failed!");
+	}
 }
