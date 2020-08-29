@@ -99,7 +99,21 @@ public class SettingsControls {
     
     public static final String personnel_members_table_tr_xpath = getProperty("personnel_members_table_tr_xpath");
     
-    public static final String personnel_members_table_name_col_xpath = getProperty("personnel_members_table_name_col_xpath");
+    public static final String personnel_members_table_name_col_xpath = Utilities.utf8Char(getProperty("personnel_members_table_name_col_xpath"));
+    
+    public static final String personnel_members_second_row_second_col_cell_xpath = getProperty("personnel_members_second_row_second_col_cell_xpath");
+    
+    public static final String personnel_members_table_status_filter_col_xpath = getProperty("personnel_members_table_status_filter_col_xpath");
+    
+    public static final String personnel_members_table_status_filter_enable_radiobtn_xpath = getProperty("personnel_members_table_status_filter_enable_radiobtn_xpath");
+    
+    public static final String personnel_members_table_status_filter_disable_radiobtn_xpath = getProperty("personnel_members_table_status_filter_disable_radiobtn_xpath");
+    
+    public static final String personnel_members_table_status_filter_reset_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_table_status_filter_reset_btn_xpath"));
+    
+    public static final String personnel_members_table_status_filter_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_table_status_filter_confirm_btn_xpath"));
+    
+    public static final String personnel_members_table_enable_filter_status_cell_xpath = getProperty("personnel_members_table_enable_filter_status_cell_xpath");
     
     public static final String personnel_members_paging_fixed_jumper_css = getProperty("personnel_members_paging_fixed_jumper_css");
     

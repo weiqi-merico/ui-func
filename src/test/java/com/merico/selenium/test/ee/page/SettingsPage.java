@@ -158,7 +158,7 @@ public class SettingsPage extends Page {
     	
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css)).click();
-    	Utilities.staticTimeDelay(8000);
+    	Utilities.staticTimeDelay(10000);
     	
 //    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
 //    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
@@ -195,7 +195,7 @@ public class SettingsPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_confirm_btn_css)).click();
-    	Utilities.staticTimeDelay(6000);
+    	Utilities.staticTimeDelay(10000);
 //    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_toast_close_css));
 //    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_toast_close_css)).click();
 //    	Utilities.staticTimeDelay(1000);
@@ -272,7 +272,8 @@ public class SettingsPage extends Page {
     	for (int i = 0; i < 4; i++) {
     		builder.sendKeys(Keys.TAB).perform();
     	}
-    	Utilities.staticTimeDelay(1000);
+    	Utilities.staticTimeDelay(1500);
+    	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(6000);
 //    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath));
@@ -339,4 +340,79 @@ public class SettingsPage extends Page {
     	return cssVal;
     }
     
+    @AutoIntercept
+    public void pagingToOnePage4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css)).sendKeys("1");
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(3000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_btn_css));
+    	WebElement element = driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_btn_css));
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void sortByName4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_name_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_name_col_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getSortNameVal4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_second_row_second_col_cell_xpath));
+    	String val =  driver.findElement(By.xpath(SettingsControls.personnel_members_second_row_second_col_cell_xpath)).getText().trim();
+    	System.out.println("Sort Value By Name is : " + val);
+    	
+    	return val;
+    }
+    
+    @AutoIntercept
+    public void enableStatusFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_col_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_enable_radiobtn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_enable_radiobtn_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void disableStatusFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_col_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_disable_radiobtn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_disable_radiobtn_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void resetStatusFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_col_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_status_filter_reset_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_status_filter_reset_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getEnableStatusFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_enable_filter_status_cell_xpath));
+    	String status = driver.findElement(By.xpath(SettingsControls.personnel_members_table_enable_filter_status_cell_xpath)).getText().trim();
+    	System.out.println("Enalble Filter Status is: " + status);
+    	
+    	return status;
+    }
 }

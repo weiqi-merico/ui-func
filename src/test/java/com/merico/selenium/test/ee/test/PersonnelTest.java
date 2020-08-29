@@ -114,4 +114,28 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(settingsPage.getPaginationFocus4Personnel(), "rgba(202, 69, 33, 1)", "Paging Jumper for Personnel Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPagingJumper"}, alwaysRun = true)
+	public void testSortByName() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.pagingToOnePage4Personnel();
+		settingsPage.sortByName4Personnel();		
+		Assert.assertEquals(settingsPage.getSortNameVal4Personnel(), "", "Sort By Name Asc for Personnel Failed!");
+		
+		settingsPage.sortByName4Personnel();
+		Assert.assertNotEquals(settingsPage.getSortNameVal4Personnel(), "", "Sort By Name Desc for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSortByName"}, alwaysRun = true)
+	public void testEnableStatusFilter() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.enableStatusFilter4Personnel();
+		Assert.assertEquals(settingsPage.getEnableStatusFilter4Personnel(), "已启用", "Enable Status Filter for Personnel Failed!");
+		
+		settingsPage.disableStatusFilter4Personnel();
+		Assert.assertEquals(settingsPage.getEnableStatusFilter4Personnel(), "已禁用", "Disabled Status Filter for Personnel Failed!");
+		
+		settingsPage.resetStatusFilter4Personnel();
+		Assert.assertTrue(settingsPage.getEnableStatusFilter4Personnel().contains("已"), "Reset Status Filter for Personnel Failed!");
+	}
 }
