@@ -138,4 +138,17 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		settingsPage.resetStatusFilter4Personnel();
 		Assert.assertTrue(settingsPage.getEnableStatusFilter4Personnel().contains("已"), "Reset Status Filter for Personnel Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEnableStatusFilter"}, alwaysRun = true)
+	public void testPrivilegeFilter() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.adminPrivilegeFilter4Personnel();
+		Assert.assertEquals(settingsPage.getPrivilegeFilter4Personnel(), "管理员", "Privilege Filter Admin for Personnel Failed!");
+		
+		settingsPage.userPrivilegeFilter4Personnel();
+		Assert.assertEquals(settingsPage.getPrivilegeFilter4Personnel(), "普通员工", "Privilege Filter User for Personnel Failed!");
+		
+		settingsPage.resetPrivilegeFilter4Personnel();
+		Assert.assertNotEquals(settingsPage.getPrivilegeFilter4Personnel().length(), 0, "Privilege Filter Reset for Personnel Failed!");
+	}
 }

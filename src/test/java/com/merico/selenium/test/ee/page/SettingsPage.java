@@ -415,4 +415,52 @@ public class SettingsPage extends Page {
     	
     	return status;
     }
+    
+    @AutoIntercept
+    public void adminPrivilegeFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_col_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_admin_checkbox_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_admin_checkbox_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void userPrivilegeFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_col_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_admin_checkbox_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_admin_checkbox_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_user_checkbox_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_user_checkbox_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void resetPrivilegeFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_col_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_reset_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_reset_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public String getPrivilegeFilter4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_privilege_filter_cell_xpath));
+    	String role = driver.findElement(By.xpath(SettingsControls.personnel_members_table_privilege_filter_cell_xpath)).getText().trim();
+    	System.out.println("Privilege Filter Role is: " + role);
+    	
+    	return role;
+    }
 }
