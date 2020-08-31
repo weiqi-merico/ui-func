@@ -251,7 +251,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		Assert.assertTrue(repoReportPage.getPie4DeveloperStrengths4Group(), "Pie Canvas for Developer Strengths Displayed Failed!");
 	}
 	
-	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDeveloperStrengths"}, alwaysRun = true)
+	@Test(groups = {CasePriority.DEPRECATED}, dependsOnMethods = {"testDeveloperStrengths"}, alwaysRun = true)
 	public void testTopicTags() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.topicTags();
