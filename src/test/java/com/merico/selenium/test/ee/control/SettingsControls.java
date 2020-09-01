@@ -130,4 +130,36 @@ public class SettingsControls {
     public static final String personnel_members_paging_fixed_jumper_css = getProperty("personnel_members_paging_fixed_jumper_css");
     
     public static final String personnel_members_paging_jumper_input_css = getProperty("personnel_members_paging_jumper_input_css");
+    
+    public static final String personnel_members_table_first_col_all_checkbox_css = getProperty("personnel_members_table_first_col_all_checkbox_css");
+    
+    public static final String personnel_members_batch_enable_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_batch_enable_btn_xpath"));
+    
+    public static final String personnel_members_batch_disable_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_batch_disable_btn_xpath"));
+    
+    public static final String personnel_members_change_department_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_change_department_btn_xpath"));
+    
+    public static final String personnel_members_merge_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_merge_btn_xpath"));
+    
+    public static final String personnel_members_export_btn_xpath = getProperty("personnel_members_export_btn_xpath");
+    
+    public static final String personnel_members_three_dots_btn_css = getProperty("personnel_members_three_dots_btn_css");
+    
+    public static final String personnel_members_import_from_csv_dropdown_xpath = getProperty("personnel_members_import_from_csv_dropdown_xpath");
+    
+    public static final String personnel_members_import_from_gitlab_dropdown_xpath = getProperty("personnel_members_import_from_gitlab_dropdown_xpath");
+    
+    public static final String personnel_members_change_department_auto_depart_xpath = getProperty("personnel_members_change_department_auto_depart_xpath");
+    
+    public static final String personnel_members_change_department_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_change_department_dialog_confirm_btn_xpath"));
+    
+    public static final String personnel_members_table_fifth_col_department_xpath = getProperty("personnel_members_table_fifth_col_department_xpath");
+    
+    public static final String personnel_members_merge_move_up_xpath = getProperty("personnel_members_merge_move_up_xpath");
+    
+    public static final String personnel_members_merge_move_down_xpath = getProperty("personnel_members_merge_move_down_xpath");
+    
+    public static final String personnel_members_merge_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_merge_dialog_confirm_btn_xpath"));
+    
+    public static final String personnel_members_edit_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_edit_dialog_confirm_btn_xpath"));
 }

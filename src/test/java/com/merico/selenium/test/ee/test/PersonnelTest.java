@@ -52,7 +52,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	public void testAddMember() throws Exception {
 		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
 		settingsPage.navigateToSettings();
-		settingsPage.addMember4Personnel();
+		settingsPage.enterIntoPersonnel();
+		settingsPage.addMember4Personnel(settingsPage.name, settingsPage.email);
 		settingsPage.searchAddedMember4Personnel();
 		
 		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email.toLowerCase(), "Add Member for Personnel Failed!");
@@ -150,5 +151,37 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		settingsPage.resetPrivilegeFilter4Personnel();
 		Assert.assertNotEquals(settingsPage.getPrivilegeFilter4Personnel().length(), 0, "Privilege Filter Reset for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testPrivilegeFilter"}, alwaysRun = true)
+	public void testBatchEnableMembers() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.batchEnableMembers4Personnel(settingsPage.name, settingsPage.email);
+		
+		Assert.assertEquals(settingsPage.getEnableMemberStatus4Personnel(), "已启用", "Batch Enable Member for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBatchEnableMembers"}, alwaysRun = true)
+	public void testBatchDisableMembers() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.batchDisableMembers4Personnel();
+		
+		Assert.assertEquals(settingsPage.getEnableMemberStatus4Personnel(), "已禁用", "Batch Disable Member for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testBatchDisableMembers"}, alwaysRun = true)
+	public void testChangeDepartment() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.changeDepartment4Personnel();
+		
+		Assert.assertEquals(settingsPage.getDepartmentInfo4Personnel(), "Auto", "Change Department for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testChangeDepartment"}, alwaysRun = true)
+	public void testMergeMembers() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.mergeMembers4Personnel();
+		
+		Assert.assertEquals(settingsPage.getMergedMembersRows4Personnel() - 1, 1, "Merge Members for Personnel Failed!");
 	}
 }

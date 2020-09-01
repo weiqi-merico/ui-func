@@ -24,7 +24,9 @@ public class SettingsPage extends Page {
     }
     
     public String name = Utilities.getRandomString(10);
+    public String name2 = Utilities.getRandomString(11);
     public String email = name + "@addmember.com";
+    public String email2 = name2 + "@addmember.com";
     
     @AutoIntercept
     public void back() {
@@ -136,11 +138,14 @@ public class SettingsPage extends Page {
     }
     
     @AutoIntercept
-    public void addMember4Personnel() {
+    public void enterIntoPersonnel() {
     	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.personnel_link_link));
     	driver.findElement(By.linkText(SettingsControls.personnel_link_link)).click();
     	Utilities.staticTimeDelay(2000);
-    	
+    }
+    
+    @AutoIntercept
+    public void addMember4Personnel(String name, String email) {
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_add_member_btn_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_add_member_btn_css)).click();
     	Utilities.waitForControlPresent(driver, By.id(SettingsControls.personnel_add_member_dialog_name_textbox_id));
@@ -170,6 +175,15 @@ public class SettingsPage extends Page {
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).clear();
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).sendKeys(email);
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void searchAddedMembers4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).sendKeys("@addmember.com");
     	Utilities.staticTimeDelay(3000);
     }
     
@@ -320,7 +334,6 @@ public class SettingsPage extends Page {
     	return rowCount;
     }
     
-
     @AutoIntercept
     public void paginationJumper4Personnel() {
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_paging_jumper_input_css));
@@ -462,5 +475,75 @@ public class SettingsPage extends Page {
     	System.out.println("Privilege Filter Role is: " + role);
     	
     	return role;
+    }
+    
+    @AutoIntercept
+    public void batchEnableMembers4Personnel(String name, String email) {
+    	Utilities.movePageToLocation(driver, "-300");
+    	
+    	this.addMember4Personnel(name, email);
+    	this.addMember4Personnel(name2, email2);
+    	this.searchAddedMembers4Personnel();
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_table_first_col_all_checkbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_table_first_col_all_checkbox_css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_batch_enable_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_batch_enable_btn_xpath)).click();
+    	Utilities.staticTimeDelay(7000);
+    }
+    
+    @AutoIntercept
+    public void batchDisableMembers4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_batch_disable_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_batch_disable_btn_xpath)).click();
+    	Utilities.staticTimeDelay(7000);
+    }
+    
+    @AutoIntercept
+    public void changeDepartment4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_change_department_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_change_department_btn_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_change_department_auto_depart_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_change_department_auto_depart_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_change_department_dialog_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_change_department_dialog_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getDepartmentInfo4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_table_fifth_col_department_xpath));
+    	String department = driver.findElement(By.xpath(SettingsControls.personnel_members_table_fifth_col_department_xpath)).getText().trim();
+    	System.out.println("Department is: " + department);
+    	
+    	return department;
+    }
+    
+    @AutoIntercept
+    public void mergeMembers4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_merge_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_merge_btn_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_merge_move_up_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_merge_move_up_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_merge_move_down_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_merge_move_down_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_merge_dialog_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_merge_dialog_confirm_btn_xpath)).click();
+    	
+    	WebElement element = driver.findElement(By.xpath(SettingsControls.personnel_members_edit_dialog_confirm_btn_xpath));
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(500);
+    	element.click();
+    	Utilities.staticTimeDelay(11000);
+    }
+    
+    @AutoIntercept
+    public int getMergedMembersRows4Personnel() {
+    	int rowCount = driver.findElements(By.xpath(SettingsControls.personnel_members_table_tr_xpath)).size();
+    	System.out.println("Merged Members Rows are: " + rowCount);
+    	
+    	return rowCount;
     }
 }
