@@ -493,14 +493,14 @@ public class SettingsPage extends Page {
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_table_first_col_all_checkbox_css)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_batch_enable_btn_xpath));
     	driver.findElement(By.xpath(SettingsControls.personnel_members_batch_enable_btn_xpath)).click();
-    	Utilities.staticTimeDelay(7000);
+    	Utilities.staticTimeDelay(9000);
     }
     
     @AutoIntercept
     public void batchDisableMembers4Personnel() {
     	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_batch_disable_btn_xpath));
     	driver.findElement(By.xpath(SettingsControls.personnel_members_batch_disable_btn_xpath)).click();
-    	Utilities.staticTimeDelay(7000);
+    	Utilities.staticTimeDelay(9000);
     }
     
     @AutoIntercept
@@ -512,7 +512,7 @@ public class SettingsPage extends Page {
     	Utilities.staticTimeDelay(1000);
     	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_change_department_dialog_confirm_btn_xpath));
     	driver.findElement(By.xpath(SettingsControls.personnel_members_change_department_dialog_confirm_btn_xpath)).click();
-    	Utilities.staticTimeDelay(6000);
+    	Utilities.staticTimeDelay(9000);
     }
     
     @AutoIntercept
