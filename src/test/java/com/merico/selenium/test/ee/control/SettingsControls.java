@@ -145,7 +145,7 @@ public class SettingsControls {
     
     public static final String personnel_members_three_dots_btn_css = getProperty("personnel_members_three_dots_btn_css");
     
-    public static final String personnel_members_import_from_csv_dropdown_xpath = getProperty("personnel_members_import_from_csv_dropdown_xpath");
+    public static final String personnel_members_import_from_csv_dropdown_xpath = Utilities.utf8Char(getProperty("personnel_members_import_from_csv_dropdown_xpath"));
     
     public static final String personnel_members_import_from_gitlab_dropdown_xpath = getProperty("personnel_members_import_from_gitlab_dropdown_xpath");
     
@@ -162,4 +162,34 @@ public class SettingsControls {
     public static final String personnel_members_merge_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_merge_dialog_confirm_btn_xpath"));
     
     public static final String personnel_members_edit_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_edit_dialog_confirm_btn_xpath"));
+    
+    public static final String personnel_members_import_member_add_row_btn_xpath = Utilities.utf8Char(getProperty("personnel_members_import_member_add_row_btn_xpath"));
+    
+    public static final String personnel_members_import_member_add_row_name_field_css = getProperty("personnel_members_import_member_add_row_name_field_css");
+    
+    public static final String personnel_members_import_member_add_row_email_field_css = getProperty("personnel_members_import_member_add_row_email_field_css");
+    
+    public static final String personnel_members_import_member_dialog_confirm_btn_xpath = getProperty("personnel_members_import_member_dialog_confirm_btn_xpath");
+    
+    public static final String personnel_department_auto_node_css = getProperty("personnel_department_auto_node_css");
+    
+    public static final String personnel_department_selected_node_css = getProperty("personnel_department_selected_node_css");
+    
+    public static final String personnel_department_add_department_xpath = Utilities.utf8Char(getProperty("personnel_department_add_department_xpath"));
+    
+    public static final String personnel_department_edit_department_xpath = Utilities.utf8Char(getProperty("personnel_department_edit_department_xpath"));
+    
+    public static final String personnel_department_delete_department_xpath = Utilities.utf8Char(getProperty("personnel_department_delete_department_xpath"));
+    
+    public static final String personnel_department_add_department_name_css = getProperty("personnel_department_add_department_name_css");
+    
+    public static final String personnel_department_add_department_head_css = getProperty("personnel_department_add_department_head_css");
+    
+    public static final String personnel_department_add_parent_department_xpath = getProperty("personnel_department_add_parent_department_xpath");
+    
+    public static final String personnel_department_add_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_department_add_dialog_confirm_btn_xpath"));
+    
+    public static final String personnel_department_auto_child_node_css = getProperty("personnel_department_auto_child_node_css");
+    
+    public static final String personnel_department_del_department_dialog_confirm_btn_css = getProperty("personnel_department_del_department_dialog_confirm_btn_css");
 }

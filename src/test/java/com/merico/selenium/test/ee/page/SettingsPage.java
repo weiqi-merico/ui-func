@@ -25,8 +25,10 @@ public class SettingsPage extends Page {
     
     public String name = Utilities.getRandomString(10);
     public String name2 = Utilities.getRandomString(11);
+    public String name3 = Utilities.getRandomString(8);
     public String email = name + "@addmember.com";
     public String email2 = name2 + "@addmember.com";
+    public String email3 = name3 + "@addmember.com";
     
     @AutoIntercept
     public void back() {
@@ -75,6 +77,7 @@ public class SettingsPage extends Page {
     	}
     	Utilities.staticTimeDelay(500);
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(3000);
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
@@ -93,6 +96,7 @@ public class SettingsPage extends Page {
     	builder.sendKeys(Keys.TAB).perform();
     	builder.sendKeys(Keys.TAB).perform();
     	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(3000);
@@ -170,7 +174,7 @@ public class SettingsPage extends Page {
     }
     
     @AutoIntercept
-    public void searchAddedMember4Personnel() {
+    public void searchAddedMember4Personnel(String email) {
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
     	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).clear();
@@ -289,7 +293,7 @@ public class SettingsPage extends Page {
     	Utilities.staticTimeDelay(1500);
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ENTER).perform();
-    	Utilities.staticTimeDelay(6000);
+    	Utilities.staticTimeDelay(8000);
 //    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath));
 //    	driver.findElement(By.xpath(SettingsControls.personnel_members_delete_confirm_btn_xpath)).click();
 //    	Utilities.staticTimeDelay(500);
@@ -546,4 +550,46 @@ public class SettingsPage extends Page {
     	
     	return rowCount;
     }
+    
+    @AutoIntercept
+    public void addRowMember4Personnel(String name, String email) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_three_dots_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_three_dots_btn_css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_import_from_csv_dropdown_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_import_from_csv_dropdown_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_import_member_add_row_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_import_member_add_row_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_import_member_add_row_name_field_css));
+    	WebElement nameFieldElement = driver.findElement(By.cssSelector(SettingsControls.personnel_members_import_member_add_row_name_field_css));
+    	Actions builder = new Actions(driver);
+    	builder.doubleClick(nameFieldElement).perform();
+    	builder.sendKeys(name).perform();
+    	
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	Utilities.staticTimeDelay(500);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_import_member_add_row_email_field_css));
+    	WebElement emailFieldElement = driver.findElement(By.cssSelector(SettingsControls.personnel_members_import_member_add_row_email_field_css));
+    	builder.doubleClick(emailFieldElement).perform();
+    	builder.sendKeys(email).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_members_import_member_dialog_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_members_import_member_dialog_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(11000);
+    }
+    
+    @AutoIntercept
+    public void backSpace4SearchBox4Personnel(int loop) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_members_search_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_members_search_textbox_css)).click();
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < loop; i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	Utilities.staticTimeDelay(1000);
+    }	
 }

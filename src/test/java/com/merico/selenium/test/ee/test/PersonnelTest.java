@@ -54,7 +54,7 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		settingsPage.navigateToSettings();
 		settingsPage.enterIntoPersonnel();
 		settingsPage.addMember4Personnel(settingsPage.name, settingsPage.email);
-		settingsPage.searchAddedMember4Personnel();
+		settingsPage.searchAddedMember4Personnel(settingsPage.email);
 		
 		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email.toLowerCase(), "Add Member for Personnel Failed!");
 	}
@@ -183,5 +183,18 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		settingsPage.mergeMembers4Personnel();
 		
 		Assert.assertEquals(settingsPage.getMergedMembersRows4Personnel() - 1, 1, "Merge Members for Personnel Failed!");
+		settingsPage.deleteMember4Personnel();
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testMergeMembers"}, alwaysRun = true)
+	public void testAddRowMember() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.addRowMember4Personnel(settingsPage.name3, settingsPage.email3);
+		settingsPage.backSpace4SearchBox4Personnel(14);
+		settingsPage.searchAddedMember4Personnel(settingsPage.email3);
+		
+		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email3.toLowerCase(), "Add Row Member for Personnel Failed!");
+		
+		settingsPage.deleteMember4Personnel();
 	}
 }
