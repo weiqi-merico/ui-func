@@ -70,8 +70,8 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		TeamViewPage teamViewPage = PageFactory.createPage(TeamViewPage.class, driver);
 		teamViewPage.qualityAsc();
 
-//		Assert.assertTrue(teamViewPage.getQualityDataFlag().contains("%"), "Quality Asc failed!");
-		Assert.assertTrue(teamViewPage.getQualityDataFlag().contains("大幅"), "Quality Asc failed!");
+		Assert.assertTrue(teamViewPage.getQualityDataFlag().contains("%"), "Quality Asc failed!");
+//		Assert.assertTrue(teamViewPage.getQualityDataFlag().contains("大幅"), "Quality Asc failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testQualityAsc"}, alwaysRun = true)
