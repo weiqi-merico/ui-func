@@ -2767,6 +2767,7 @@ public class RepoReportPage extends Page {
     	builder.sendKeys(Keys.TAB).perform();
     	Utilities.staticTimeDelay(1000);
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(3000);
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
@@ -2794,6 +2795,7 @@ public class RepoReportPage extends Page {
     	builder.sendKeys(Keys.TAB).perform();
     	builder.sendKeys(Keys.TAB).perform();
     	Utilities.staticTimeDelay(1000);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(3000);
