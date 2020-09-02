@@ -255,10 +255,10 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Test(groups = {CasePriority.DEPRECATED}, dependsOnMethods = {"testDeveloperStrengths"}, alwaysRun = true)
 	public void testTopicTags() throws Exception {
-		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.topicTags();
-		
-		Assert.assertTrue(repoReportPage.getTopicTags(), "Topic Tags Displayed Failed!");
+//		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+//		repoReportPage.topicTags();
+//		
+//		Assert.assertTrue(repoReportPage.getTopicTags(), "Topic Tags Displayed Failed!");
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testTopicTags"}, alwaysRun = true)
