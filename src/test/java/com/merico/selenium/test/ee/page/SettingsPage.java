@@ -676,4 +676,39 @@ public class SettingsPage extends Page {
     	driver.findElement(By.cssSelector(SettingsControls.personnel_department_del_department_dialog_confirm_btn_css)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void addNotificationGroup4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.notification_settings_link_link));
+    	driver.findElement(By.linkText(SettingsControls.notification_settings_link_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.notification_settings_selection_dropdown_css));
+    	driver.findElement(By.cssSelector(SettingsControls.notification_settings_selection_dropdown_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.notification_settings_add_notification_group_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.notification_settings_add_notification_group_btn_css)).click();
+    	Utilities.staticTimeDelay(3000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.notification_settings_repo_dropdown_xpath));
+    	driver.findElement(By.xpath(SettingsControls.notification_settings_repo_dropdown_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.notification_settings_decline_percent_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.notification_settings_decline_percent_textbox_css)).click();
+    	builder.sendKeys(Keys.ARROW_UP).perform();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.notification_settings_recipients_dropdown_css));
+    	driver.findElement(By.cssSelector(SettingsControls.notification_settings_recipients_dropdown_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.notification_settings_delete_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.notification_settings_delete_btn_xpath)).click();
+    	Utilities.staticTimeDelay(7000);
+    }
 }

@@ -194,4 +194,20 @@ public class SettingsControls {
     public static final String personnel_department_auto_child_node_edit_xpath = getProperty("personnel_department_auto_child_node_edit_xpath");
     
     public static final String personnel_department_del_department_dialog_confirm_btn_css = getProperty("personnel_department_del_department_dialog_confirm_btn_css");
+    
+    public static final String notification_settings_link_link = Utilities.utf8Char(getProperty("notification_settings_link_link"));
+    
+    public static final String notification_settings_selection_dropdown_css = getProperty("notification_settings_selection_dropdown_css");
+    
+    public static final String notification_settings_add_notification_group_btn_css = getProperty("notification_settings_add_notification_group_btn_css");
+    
+    public static final String notification_settings_repo_dropdown_xpath = getProperty("notification_settings_repo_dropdown_xpath");
+    
+    public static final String notification_settings_decline_percent_textbox_css = getProperty("notification_settings_decline_percent_textbox_css");
+    
+    public static final String notification_settings_recipients_dropdown_css = getProperty("notification_settings_recipients_dropdown_css");
+    
+    public static final String notification_settings_add_notification_group_btn_two_css = getProperty("notification_settings_add_notification_group_btn_two_css");
+    
+    public static final String notification_settings_delete_btn_xpath = Utilities.utf8Char(getProperty("notification_settings_delete_btn_xpath"));
 }
