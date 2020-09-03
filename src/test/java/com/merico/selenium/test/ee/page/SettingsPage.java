@@ -26,9 +26,11 @@ public class SettingsPage extends Page {
     public String name = Utilities.getRandomString(10);
     public String name2 = Utilities.getRandomString(11);
     public String name3 = Utilities.getRandomString(8);
-    public String email = name + "@addmember.com";
-    public String email2 = name2 + "@addmember.com";
-    public String email3 = name3 + "@addmember.com";
+    public String mailSurface = "@addmember.com";
+    public String email = name + mailSurface;
+    public String email2 = name2 + mailSurface;
+    public String email3 = name3 + mailSurface;
+    public String departmentName = "Child One";
     
     @AutoIntercept
     public void back() {
@@ -590,6 +592,88 @@ public class SettingsPage extends Page {
     	for (int i = 0; i < loop; i++) {
     		builder.sendKeys(Keys.BACK_SPACE).perform();
     	}
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void addDepartment4Personnel(String departmentName) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_auto_node_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_auto_node_css)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_selected_node_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_selected_node_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_add_department_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_department_add_department_xpath)).click();
     	Utilities.staticTimeDelay(1000);
-    }	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_add_department_name_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_name_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_name_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_name_css)).sendKeys(departmentName);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_add_department_head_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_head_css)).click();
+    	
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(500);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_add_dialog_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_department_add_dialog_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(7000);
+    }
+    
+    @AutoIntercept
+    public String getAddedDepartmentName4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_auto_child_node_xpath));
+    	String departmentName = driver.findElement(By.xpath(SettingsControls.personnel_department_auto_child_node_xpath)).getText().trim();
+    	System.out.println("Added Department is: " + departmentName);
+    	
+    	return departmentName;
+    }
+    
+    @AutoIntercept
+    public void editDepartment4Personnel(String departmentName) {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_auto_child_node_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_department_auto_child_node_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_selected_node_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_selected_node_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_edit_department_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_department_edit_department_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_add_department_name_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_name_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_name_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_add_department_name_css)).sendKeys(departmentName + " Updated");
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_add_dialog_confirm_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_department_add_dialog_confirm_btn_xpath)).click();
+    	Utilities.staticTimeDelay(7000);
+    }
+    
+    @AutoIntercept
+    public String getEditedDepartmentName4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_auto_child_node_edit_xpath));
+    	String departmentName = driver.findElement(By.xpath(SettingsControls.personnel_department_auto_child_node_edit_xpath)).getText().trim();
+    	System.out.println("Added Department is: " + departmentName);
+    	
+    	return departmentName;
+    }
+    
+    @AutoIntercept
+    public void deleteDepartment4Personnel() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_selected_node_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_selected_node_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.personnel_department_delete_department_xpath));
+    	driver.findElement(By.xpath(SettingsControls.personnel_department_delete_department_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.personnel_department_del_department_dialog_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.personnel_department_del_department_dialog_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }

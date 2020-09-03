@@ -190,11 +190,36 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	public void testAddRowMember() throws Exception {
 		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
 		settingsPage.addRowMember4Personnel(settingsPage.name3, settingsPage.email3);
-		settingsPage.backSpace4SearchBox4Personnel(14);
+		settingsPage.backSpace4SearchBox4Personnel(settingsPage.mailSurface.length());
 		settingsPage.searchAddedMember4Personnel(settingsPage.email3);
 		
 		Assert.assertEquals(settingsPage.getAddedMember4Personnel(), settingsPage.email3.toLowerCase(), "Add Row Member for Personnel Failed!");
 		
 		settingsPage.deleteMember4Personnel();
+		settingsPage.backSpace4SearchBox4Personnel(settingsPage.email3.length());
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddRowMember"}, alwaysRun = true)
+	public void testAddDepartment() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.addDepartment4Personnel(settingsPage.departmentName);
+		
+		Assert.assertEquals(settingsPage.getAddedDepartmentName4Personnel(), settingsPage.departmentName, "Add Department for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testAddDepartment"}, alwaysRun = true)
+	public void testEditDepartment() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.editDepartment4Personnel(settingsPage.departmentName);
+		
+		Assert.assertEquals(settingsPage.getEditedDepartmentName4Personnel(), settingsPage.departmentName + settingsPage.departmentName + " Updated", "Edit Department for Personnel Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEditDepartment"}, alwaysRun = true)
+	public void testDeleteDepartment() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.deleteDepartment4Personnel();
+		
+//		Assert.assertEquals(settingsPage.getEditedDepartmentName4Personnel(), settingsPage.departmentName + settingsPage.departmentName + " Updated", "Edit Department for Personnel Failed!");
 	}
 }

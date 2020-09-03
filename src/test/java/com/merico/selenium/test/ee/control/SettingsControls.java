@@ -189,7 +189,9 @@ public class SettingsControls {
     
     public static final String personnel_department_add_dialog_confirm_btn_xpath = Utilities.utf8Char(getProperty("personnel_department_add_dialog_confirm_btn_xpath"));
     
-    public static final String personnel_department_auto_child_node_css = getProperty("personnel_department_auto_child_node_css");
+    public static final String personnel_department_auto_child_node_xpath = getProperty("personnel_department_auto_child_node_xpath");
+    
+    public static final String personnel_department_auto_child_node_edit_xpath = getProperty("personnel_department_auto_child_node_edit_xpath");
     
     public static final String personnel_department_del_department_dialog_confirm_btn_css = getProperty("personnel_department_del_department_dialog_confirm_btn_css");
 }
