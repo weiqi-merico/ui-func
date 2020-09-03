@@ -210,4 +210,32 @@ public class SettingsControls {
     public static final String notification_settings_add_notification_group_btn_two_css = getProperty("notification_settings_add_notification_group_btn_two_css");
     
     public static final String notification_settings_delete_btn_xpath = Utilities.utf8Char(getProperty("notification_settings_delete_btn_xpath"));
+    
+    public static final String rule_settings_link_link = Utilities.utf8Char(getProperty("rule_settings_link_link"));
+    
+    public static final String rule_settings_list_cpp_xpath = getProperty("rule_settings_list_cpp_xpath");
+    
+    public static final String rule_settings_rule_search_textbox_css = getProperty("rule_settings_rule_search_textbox_css");
+    
+    public static final String rule_settings_all_type_dropdown_xpath = Utilities.utf8Char(getProperty("rule_settings_all_type_dropdown_xpath"));
+    
+    public static final String rule_settings_all_severities_dropdown_xpath = Utilities.utf8Char(getProperty("rule_settings_all_severities_dropdown_xpath"));
+    
+    public static final String rule_settings_rule_number_label_css = getProperty("rule_settings_rule_number_label_css");
+    
+    public static final String rule_settings_rule_close_lable_css = getProperty("rule_settings_rule_close_lable_css");
+    
+    public static final String rule_settings_paging_fixed_jumper_css = getProperty("rule_settings_paging_fixed_jumper_css");
+    
+    public static final String rule_settings_rule_lonely_label_css = getProperty("rule_settings_rule_lonely_label_css");
+    
+    public static final String rule_settings_type_lonely_label_css = getProperty("rule_settings_type_lonely_label_css");
+    
+    public static final String rule_settings_severities_lonely_label_css = getProperty("rule_settings_severities_lonely_label_css");
+    
+    public static final String rule_settings_clear_type_xpath = getProperty("rule_settings_clear_type_xpath");
+    
+    public static final String rule_settings_clear_severities_xpath = getProperty("rule_settings_clear_severities_xpath");
+    
+    public static final String rule_settings_page_row_count_css = getProperty("rule_settings_page_row_count_css");
 }

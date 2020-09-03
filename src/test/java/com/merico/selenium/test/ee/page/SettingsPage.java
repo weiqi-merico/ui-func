@@ -711,4 +711,115 @@ public class SettingsPage extends Page {
     	driver.findElement(By.xpath(SettingsControls.notification_settings_delete_btn_xpath)).click();
     	Utilities.staticTimeDelay(7000);
     }
+    
+    @AutoIntercept
+    public void searchByRule4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.rule_settings_link_link));
+    	driver.findElement(By.linkText(SettingsControls.rule_settings_link_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css)).sendKeys("Array");
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getRuleSearchResult4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_rule_lonely_label_css));
+    	String rule = driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_lonely_label_css)).getText().trim();
+    	System.out.println("Rule is: " + rule);
+    	
+    	return rule;
+    }
+    
+    @AutoIntercept
+    public void clearRuleSearch4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_rule_close_lable_css));
+    	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_close_lable_css)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void searchByType4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.rule_settings_all_type_dropdown_xpath));
+    	
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getTypeSearchResult4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_type_lonely_label_css));
+    	String type = driver.findElement(By.cssSelector(SettingsControls.rule_settings_type_lonely_label_css)).getText().trim();
+    	System.out.println("Type is: " + type);
+    	
+    	return type;
+    }
+    
+    @AutoIntercept
+    public void clearTypeSearch4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.rule_settings_clear_type_xpath));
+    	WebElement element = driver.findElement(By.xpath(SettingsControls.rule_settings_clear_type_xpath));
+    	
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(1000);
+//    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_rule_close_lable_css));
+    	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_close_lable_css)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void searchBySeverities4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.rule_settings_all_severities_dropdown_xpath));
+    	
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	for (int i = 0; i < 2; i++) {
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getSeveritiesSearchResult4RuleSettings() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_severities_lonely_label_css));
+    	String severities = driver.findElement(By.cssSelector(SettingsControls.rule_settings_severities_lonely_label_css)).getText().trim();
+    	System.out.println("Severities is: " + severities);
+    	
+    	return severities;
+    }
+    
+    @AutoIntercept
+    public void fixedPaging4RuleSettings() {
+    	driver.navigate().refresh();
+    	Utilities.staticTimeDelay(5000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_paging_fixed_jumper_css));
+    	WebElement element = driver.findElement(By.cssSelector(SettingsControls.rule_settings_paging_fixed_jumper_css));
+    	
+    	Actions builder = new Actions(driver);
+    	builder.moveToElement(element).perform();
+    	Utilities.staticTimeDelay(500);
+    	element.click();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public int getFixedPagingRows4RuleSettings() {
+    	int rows = driver.findElements(By.cssSelector(SettingsControls.rule_settings_page_row_count_css)).size();
+    	System.out.println("Rows Count is: " + rows);
+    	
+    	return rows;
+    }
 }

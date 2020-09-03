@@ -139,6 +139,7 @@
     		<class name="com.merico.selenium.test.ee.test.SettingsMetricsComparisonTest" />
     		<class name="com.merico.selenium.test.ee.test.PersonnelTest" />
     		<class name="com.merico.selenium.test.ee.test.NotificationSettingsTest" />
+    		<class name="com.merico.selenium.test.ee.test.RuleSettingsTest" />
     </classes>
   </test>
 </suite>
