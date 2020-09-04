@@ -273,7 +273,7 @@ public class SettingsControls {
     
     public static final String skill_tags_language_filter_btn_xpath = getProperty("skill_tags_language_filter_btn_xpath");
     
-    public static final String skill_tags_c_language_checkbox_xpath = getProperty("skill_tags_c_language_checkbox_xpath");
+    public static final String skill_tags_go_language_checkbox_xpath = getProperty("skill_tags_go_language_checkbox_xpath");
     
     public static final String skill_tags_language_toast_confirm_btn_css = getProperty("skill_tags_language_toast_confirm_btn_css");
     
@@ -292,6 +292,8 @@ public class SettingsControls {
     public static final String skill_tags_tags_col_filter_xpath = getProperty("skill_tags_tags_col_filter_xpath");
     
     public static final String skill_tags_tag_input_textbox_css = getProperty("skill_tags_tag_input_textbox_css");
+    
+    public static final String skill_tags_tag_checkbox_xpath = getProperty("skill_tags_tag_checkbox_xpath");
     
     public static final String skill_tags_paging_fixed_jumper_css = getProperty("skill_tags_paging_fixed_jumper_css");
     

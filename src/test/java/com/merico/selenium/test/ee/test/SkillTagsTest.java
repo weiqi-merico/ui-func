@@ -97,4 +97,36 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertFalse(settingsPage.getToolsSource4SkillTags().contains("lz"), "Filter Reset By Tools Source for Skill Tags Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFilterResetByToolsSource"}, alwaysRun = true)
+	public void testFilterByLanguage() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.filterByLanguage4SkillTags();
+		
+		Assert.assertEquals(settingsPage.getLanguage4SkillTags(), "go", "Filter By Language for Skill Tags Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFilterByLanguage"}, alwaysRun = true)
+	public void testFilterResetByLanguage() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.filterResetByLanguage4SkillTags();
+		
+		Assert.assertEquals(settingsPage.getLanguage4SkillTags(), "java", "Filter Reset By Language for Skill Tags Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFilterResetByLanguage"}, alwaysRun = true)
+	public void testFilterByTags() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.filterByTags4SkillTags();
+		
+		Assert.assertTrue(settingsPage.getTags4SkillTags().contains("Web 前端"), "Filter By Tags for Skill Tags Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFilterByTags"}, alwaysRun = true)
+	public void testFilterResetByTags() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.filterResetByTags4SkillTags();
+		
+		Assert.assertFalse(settingsPage.getTags4SkillTags().contains("Web 前端"), "Filter Reset By Tags for Skill Tags Failed!");
+	}
 }

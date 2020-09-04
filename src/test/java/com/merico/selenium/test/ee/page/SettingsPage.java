@@ -894,4 +894,54 @@ public class SettingsPage extends Page {
     	
     	return toolsSource;
     }
+    
+    @AutoIntercept
+    public void filterByLanguage4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_language_filter_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_language_filter_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_go_language_checkbox_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_go_language_checkbox_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_language_toast_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_language_toast_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void filterResetByLanguage4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_language_filter_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_language_filter_btn_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_language_toast_reset_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_language_toast_reset_btn_css)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void filterByTags4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tags_col_filter_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_tags_col_filter_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_tag_input_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_input_textbox_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_input_textbox_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_input_textbox_css)).sendKeys("css");
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tag_checkbox_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_tag_checkbox_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_input_toast_confirm_link));
+    	driver.findElement(By.linkText(SettingsControls.skill_tags_input_toast_confirm_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void filterResetByTags4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tags_col_filter_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_tags_col_filter_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_input_toast_reset_link));
+    	driver.findElement(By.linkText(SettingsControls.skill_tags_input_toast_reset_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
 }
