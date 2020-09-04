@@ -32,6 +32,8 @@ public class SettingsPage extends Page {
     public String email3 = name3 + mailSurface;
     public String departmentName = "Child One";
     
+    public String tagName = "Tag Test";
+    
     @AutoIntercept
     public void back() {
     	Utilities.staticTimeDelay(1000);
@@ -827,7 +829,7 @@ public class SettingsPage extends Page {
     public void navigateToSkillTags() {
     	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_link_link));
     	driver.findElement(By.linkText(SettingsControls.skill_tags_link_link)).click();
-    	Utilities.staticTimeDelay(4000);
+    	Utilities.staticTimeDelay(8000);
     }
     
     @AutoIntercept
@@ -942,6 +944,75 @@ public class SettingsPage extends Page {
     	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_input_toast_reset_link));
     	driver.findElement(By.linkText(SettingsControls.skill_tags_input_toast_reset_link)).click();
-    	Utilities.staticTimeDelay(4000);
+    	Utilities.staticTimeDelay(8000);
+    }
+    
+    @AutoIntercept
+    public void newTags4SkillTags(String tagName) {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_new_tag_node_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_new_tag_node_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tree_first_node_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_tree_first_node_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_plus_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_plus_btn_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_tag_name_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_name_textbox_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_name_textbox_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_name_textbox_css)).sendKeys(tagName);
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_tag_name_dialog_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tag_name_dialog_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(8000);
+    }
+    
+    @AutoIntercept
+    public String getNewTagName4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_new_added_tag_node_xpath));
+    	String newTagName = driver.findElement(By.xpath(SettingsControls.skill_tags_new_added_tag_node_xpath)).getText().trim();
+    	System.out.println("New Tag is: " + newTagName);
+    	
+    	return newTagName;
+    }
+    //.ant-btn-two-chinese-chars
+    @AutoIntercept
+    public void editTags4SkillTags(String tagName) {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_new_added_tag_node_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_new_added_tag_node_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_edit_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_edit_btn_css)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < tagName.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	builder.sendKeys(tagName + " Updated").perform();
+    	Utilities.staticTimeDelay(500);
+    	
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(8000);
+    }
+    
+    @AutoIntercept
+    public void deleteTags4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_new_added_tag_node_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_new_added_tag_node_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.TAB).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_delete_confirm_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_delete_confirm_btn_css)).click();
+    	Utilities.staticTimeDelay(7000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_cancel_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_cancel_btn_css)).click();
+    	Utilities.staticTimeDelay(2000);
     }
 }

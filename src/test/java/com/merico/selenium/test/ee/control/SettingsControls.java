@@ -247,7 +247,7 @@ public class SettingsControls {
     
     public static final String skill_tags_close_lable_css = getProperty("skill_tags_close_lable_css");
     
-    public static final String skill_tags_tree_first_node_css = getProperty("skill_tags_tree_first_node_css");
+    public static final String skill_tags_tree_first_node_xpath = Utilities.utf8Char(getProperty("skill_tags_tree_first_node_xpath"));
     
     public static final String skill_tags_plus_btn_css = getProperty("skill_tags_plus_btn_css");
     
@@ -261,7 +261,11 @@ public class SettingsControls {
     
     public static final String skill_tags_tag_name_dialog_confirm_btn_css = getProperty("skill_tags_tag_name_dialog_confirm_btn_css");
     
-    public static final String skill_tags_new_tag_node_css = getProperty("skill_tags_new_tag_node_css");
+    public static final String skill_tags_new_added_tag_node_xpath = getProperty("skill_tags_new_added_tag_node_xpath");
+    
+    public static final String skill_tags_new_tag_node_xpath = Utilities.utf8Char(getProperty("skill_tags_new_tag_node_xpath"));
+    
+    public static final String skill_tags_cancel_btn_css = getProperty("skill_tags_cancel_btn_css");
     
     public static final String skill_tags_language_col_xpath = Utilities.utf8Char(getProperty("skill_tags_language_col_xpath"));
     

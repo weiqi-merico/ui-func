@@ -129,4 +129,27 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertFalse(settingsPage.getTags4SkillTags().contains("Web 前端"), "Filter Reset By Tags for Skill Tags Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFilterResetByTags"}, alwaysRun = true)
+	public void testNewTag() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.newTags4SkillTags(settingsPage.tagName);
+		
+		Assert.assertEquals(settingsPage.getNewTagName4SkillTags(), settingsPage.tagName,  "New Tag for Skill Tags Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testNewTag"}, alwaysRun = true)
+	public void testEditTag() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.editTags4SkillTags(settingsPage.tagName);
+		
+		Assert.assertEquals(settingsPage.getNewTagName4SkillTags(), settingsPage.tagName + " Updated",  "Edit Tag for Skill Tags Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testEditTag"}, alwaysRun = true)
+	public void testDeleteTag() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.deleteTags4SkillTags();
+
+	}
 }
