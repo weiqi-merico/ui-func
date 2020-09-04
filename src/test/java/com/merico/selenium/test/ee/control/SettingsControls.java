@@ -238,4 +238,62 @@ public class SettingsControls {
     public static final String rule_settings_clear_severities_xpath = getProperty("rule_settings_clear_severities_xpath");
     
     public static final String rule_settings_page_row_count_css = getProperty("rule_settings_page_row_count_css");
+    
+    public static final String skill_tags_link_link = Utilities.utf8Char(getProperty("skill_tags_link_link"));
+    
+    public static final String skill_tags_new_tag_btn_css = getProperty("skill_tags_new_tag_btn_css");
+    
+    public static final String skill_tags_search_tag_textbox_css = getProperty("skill_tags_search_tag_textbox_css");
+    
+    public static final String skill_tags_close_lable_css = getProperty("skill_tags_close_lable_css");
+    
+    public static final String skill_tags_tree_first_node_css = getProperty("skill_tags_tree_first_node_css");
+    
+    public static final String skill_tags_plus_btn_css = getProperty("skill_tags_plus_btn_css");
+    
+    public static final String skill_tags_edit_btn_css = getProperty("skill_tags_edit_btn_css");
+    
+    public static final String skill_tags_delete_btn_css = getProperty("skill_tags_delete_btn_css");
+    
+    public static final String skill_tags_delete_confirm_btn_css = getProperty("skill_tags_delete_confirm_btn_css");
+    
+    public static final String skill_tags_tag_name_textbox_css = getProperty("skill_tags_tag_name_textbox_css");
+    
+    public static final String skill_tags_tag_name_dialog_confirm_btn_css = getProperty("skill_tags_tag_name_dialog_confirm_btn_css");
+    
+    public static final String skill_tags_new_tag_node_css = getProperty("skill_tags_new_tag_node_css");
+    
+    public static final String skill_tags_language_col_xpath = Utilities.utf8Char(getProperty("skill_tags_language_col_xpath"));
+    
+    public static final String skill_tags_language_cell_xpath = getProperty("skill_tags_language_cell_xpath");
+    
+    public static final String skill_tags_tags_col_xpath = Utilities.utf8Char(getProperty("skill_tags_tags_col_xpath"));
+    
+    public static final String skill_tags_tags_cell_xpath = getProperty("skill_tags_tags_cell_xpath");
+    
+    public static final String skill_tags_language_filter_btn_xpath = getProperty("skill_tags_language_filter_btn_xpath");
+    
+    public static final String skill_tags_c_language_checkbox_xpath = getProperty("skill_tags_c_language_checkbox_xpath");
+    
+    public static final String skill_tags_language_toast_confirm_btn_css = getProperty("skill_tags_language_toast_confirm_btn_css");
+    
+    public static final String skill_tags_language_toast_reset_btn_css = getProperty("skill_tags_language_toast_reset_btn_css");
+    
+    public static final String skill_tags_tools_source_col_filter_css = getProperty("skill_tags_tools_source_col_filter_css");
+    
+    public static final String skill_tags_tools_source_input_textbox_css = getProperty("skill_tags_tools_source_input_textbox_css");
+    
+    public static final String skill_tags_input_toast_confirm_link = Utilities.utf8Char(getProperty("skill_tags_input_toast_confirm_link"));
+    
+    public static final String skill_tags_input_toast_reset_link = Utilities.utf8Char(getProperty("skill_tags_input_toast_reset_link"));
+    
+    public static final String skill_tags_tools_source_cell_xpath = getProperty("skill_tags_tools_source_cell_xpath");
+    
+    public static final String skill_tags_tags_col_filter_xpath = getProperty("skill_tags_tags_col_filter_xpath");
+    
+    public static final String skill_tags_tag_input_textbox_css = getProperty("skill_tags_tag_input_textbox_css");
+    
+    public static final String skill_tags_paging_fixed_jumper_css = getProperty("skill_tags_paging_fixed_jumper_css");
+    
+    public static final String skill_tags_paging_input_jumper_css = getProperty("skill_tags_paging_input_jumper_css");
 }

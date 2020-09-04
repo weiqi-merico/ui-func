@@ -822,4 +822,76 @@ public class SettingsPage extends Page {
     	
     	return rows;
     }
+    
+    @AutoIntercept
+    public void navigateToSkillTags() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_link_link));
+    	driver.findElement(By.linkText(SettingsControls.skill_tags_link_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void sortByLanguage4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_language_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_language_col_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getLanguage4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_language_cell_xpath));
+    	String language = driver.findElement(By.xpath(SettingsControls.skill_tags_language_cell_xpath)).getText().trim();
+    	System.out.println("Language is: " + language);
+    	
+    	return language;
+    }
+    
+    @AutoIntercept
+    public void sortByTags4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tags_col_xpath));
+    	driver.findElement(By.xpath(SettingsControls.skill_tags_tags_col_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getTags4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tags_cell_xpath));
+    	String tags = driver.findElement(By.xpath(SettingsControls.skill_tags_tags_cell_xpath)).getText().trim();
+    	System.out.println("Tags is: " + tags);
+    	
+    	return tags;
+    }
+    
+    @AutoIntercept
+    public void filterByToolsSource4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_tools_source_col_filter_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tools_source_col_filter_css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_tools_source_input_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tools_source_input_textbox_css)).click();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tools_source_input_textbox_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tools_source_input_textbox_css)).sendKeys("lz");
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_input_toast_confirm_link));
+    	driver.findElement(By.linkText(SettingsControls.skill_tags_input_toast_confirm_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public void filterResetByToolsSource4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_tools_source_col_filter_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_tools_source_col_filter_css)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.skill_tags_input_toast_reset_link));
+    	driver.findElement(By.linkText(SettingsControls.skill_tags_input_toast_reset_link)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getToolsSource4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.skill_tags_tools_source_cell_xpath));
+    	String toolsSource = driver.findElement(By.xpath(SettingsControls.skill_tags_tools_source_cell_xpath)).getText().trim();
+    	System.out.println("Tools Source is: " + toolsSource);
+    	
+    	return toolsSource;
+    }
 }

@@ -140,6 +140,7 @@
     		<class name="com.merico.selenium.test.ee.test.PersonnelTest" />
     		<class name="com.merico.selenium.test.ee.test.NotificationSettingsTest" />
     		<class name="com.merico.selenium.test.ee.test.RuleSettingsTest" />
+    		<class name="com.merico.selenium.test.ee.test.SkillTagsTest" />
     </classes>
   </test>
 </suite>
