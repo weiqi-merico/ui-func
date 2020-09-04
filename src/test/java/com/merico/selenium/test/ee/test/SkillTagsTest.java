@@ -150,6 +150,5 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	public void testDeleteTag() throws Exception {
 		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
 		settingsPage.deleteTags4SkillTags();
-
 	}
 }
