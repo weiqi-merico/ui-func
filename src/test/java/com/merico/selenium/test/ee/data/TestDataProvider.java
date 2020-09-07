@@ -72,4 +72,16 @@ public class TestDataProvider {
 				{ repoUrl }
 		};
 	}
+	
+	@DataProvider(name="saveGitlabAddrInfoProvider")
+	public static Object[][] saveGitlabAddrInfoProviderImpl() throws Exception {
+		
+		String gitlabAddr = "http://i.test.meri.co:8022";
+		String appId = "fa60766f4407e7297d87b4c300ff655b32215408ab9456d9c3fa4d5b486ed132";
+		String secret = "48ce03284944ac98bf1b10ba30d65c1c9ed2a3840826311a5514f7660ea2c5aa";
+		
+		return new Object[][]{
+				{ gitlabAddr, appId, secret }
+		};
+	}
 }

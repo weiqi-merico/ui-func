@@ -1078,9 +1078,44 @@ public class SettingsPage extends Page {
     }
     
     @AutoIntercept
-    public void saveGitlabIntegrationInfo4SystemIntegration() {
-    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.system_configurations_link_link));
-    	driver.findElement(By.linkText(SettingsControls.system_configurations_link_link)).click();
-    	Utilities.staticTimeDelay(6000);
+    public void saveGitlabIntegrationInfo4SystemIntegration(String gitlabAddr, String appId, String secret) {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_gitlab_addr_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_gitlab_addr_textbox_css)).click();
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < gitlabAddr.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_gitlab_addr_textbox_css)).sendKeys(gitlabAddr);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_app_id_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_app_id_textbox_css)).click();
+
+    	for (int i = 0; i < appId.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_app_id_textbox_css)).sendKeys(appId);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_secret_textbox_css));
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_secret_textbox_css)).click();
+
+    	for (int i = 0; i < secret.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_secret_textbox_css)).sendKeys(secret);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_save_btn_css));
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_save_btn_css)).click();
+    	
+    	Utilities.staticTimeDelay(5000);
+    }
+    
+    @AutoIntercept
+    public String getGitlabIntegrationInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_gitlab_addr_textbox_css));
+    	String gitlabAddr = driver.findElement(By.cssSelector(SettingsControls.system_configurations_gitlab_addr_textbox_css)).getAttribute("value").trim();
+    	System.out.println("Gitlab Address is: " + gitlabAddr);
+    	
+    	return gitlabAddr;
     }
 }

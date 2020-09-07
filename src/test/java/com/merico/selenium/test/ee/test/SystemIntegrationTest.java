@@ -57,4 +57,12 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(settingsPage.getCopyGitlabAddrTooltip4SkillTags(), "复制成功", "Copy Gitlab Addr for System Integration Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dataProvider = "saveGitlabAddrInfoProvider", dataProviderClass = TestDataProvider.class, dependsOnMethods = {"testCopyGitlabAddr"}, alwaysRun = true)
+	public void testSaveGitlabIntegrationInfo(String gitlabAddr, String appId, String secret) throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.saveGitlabIntegrationInfo4SystemIntegration(gitlabAddr, appId, secret);
+		
+		Assert.assertEquals(settingsPage.getGitlabIntegrationInfo4SystemIntegration(), gitlabAddr, "Save Gitlab Integration Info for System Integration Failed!");
+	}
 }
