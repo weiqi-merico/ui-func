@@ -322,4 +322,20 @@ public class SettingsControls {
     public static final String system_integration_toast_close_css = getProperty("system_integration_toast_close_css");
     
     public static final String system_integration_integrate_btn_css = getProperty("system_integration_integrate_btn_css");
+    
+    public static final String system_configurations_link_link = Utilities.utf8Char(getProperty("system_configurations_link_link"));
+    
+    public static final String system_configurations_basic_settings_site_url_id = getProperty("system_configurations_basic_settings_site_url_id");
+    
+    public static final String system_configurations_basic_settings_system_time_zone_css = getProperty("system_configurations_basic_settings_system_time_zone_css");
+    
+    public static final String system_configurations_basic_settings_workdays_mon_xpath = Utilities.utf8Char(getProperty("system_configurations_basic_settings_workdays_mon_xpath"));
+    
+    public static final String system_configurations_basic_settings_team_ranks_css = getProperty("system_configurations_basic_settings_team_ranks_css");
+    
+    public static final String system_configurations_basic_settings_allow_notification_xpath = Utilities.utf8Char(getProperty("system_configurations_basic_settings_allow_notification_xpath"));
+    
+    public static final String system_configurations_basic_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_basic_settings_save_btn_xpath"));
+    
+    public static final String system_configurations_basic_settings_reset_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_basic_settings_reset_btn_xpath"));
 }

@@ -1118,4 +1118,23 @@ public class SettingsPage extends Page {
     	
     	return gitlabAddr;
     }
+    
+    @AutoIntercept
+    public void navigateToSystemConfigurations() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.system_configurations_link_link));
+    	driver.findElement(By.linkText(SettingsControls.system_configurations_link_link)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void basicSettings4SystemConfigurations() {
+    	Utilities.movePageToLocation(driver, "200");
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_basic_settings_allow_notification_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_basic_settings_allow_notification_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_basic_settings_reset_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_basic_settings_reset_btn_xpath)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_basic_settings_save_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_basic_settings_save_btn_xpath)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
 }
