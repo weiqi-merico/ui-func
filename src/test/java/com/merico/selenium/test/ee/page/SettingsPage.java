@@ -1053,4 +1053,34 @@ public class SettingsPage extends Page {
     	
     	return cssVal;
     }
+    
+    @AutoIntercept
+    public void navigateToSystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.system_configurations_link_link));
+    	driver.findElement(By.linkText(SettingsControls.system_configurations_link_link)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void copyGitlabAddrInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_copy_gitlab_addr_css));
+    	driver.findElement(By.cssSelector(SettingsControls.system_configurations_copy_gitlab_addr_css)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getCopyGitlabAddrTooltip4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_copy_gitlab_addr_tooltip_css));
+    	String tooltip = driver.findElement(By.cssSelector(SettingsControls.system_configurations_copy_gitlab_addr_tooltip_css)).getText().trim();
+    	System.out.println("Copy Gitlab Addr Tooltip is : " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void saveGitlabIntegrationInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.linkText(SettingsControls.system_configurations_link_link));
+    	driver.findElement(By.linkText(SettingsControls.system_configurations_link_link)).click();
+    	Utilities.staticTimeDelay(6000);
+    }
 }

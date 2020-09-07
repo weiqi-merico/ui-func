@@ -304,4 +304,22 @@ public class SettingsControls {
     public static final String skill_tags_paging_input_jumper_css = getProperty("skill_tags_paging_input_jumper_css");
     
     public static final String skill_tags_table_tr_xpath = getProperty("skill_tags_table_tr_xpath");
+    
+    public static final String system_configurations_link_link = Utilities.utf8Char(getProperty("system_configurations_link_link"));
+    
+    public static final String system_configurations_copy_gitlab_addr_css = getProperty("system_configurations_copy_gitlab_addr_css");
+    
+    public static final String system_configurations_copy_gitlab_addr_tooltip_css = getProperty("system_configurations_copy_gitlab_addr_tooltip_css");
+    
+    public static final String system_configurations_gitlab_addr_textbox_css = getProperty("system_configurations_gitlab_addr_textbox_css");
+    
+    public static final String system_configurations_app_id_textbox_css = getProperty("system_configurations_app_id_textbox_css");
+    
+    public static final String system_configurations_secret_textbox_css = getProperty("system_configurations_secret_textbox_css");
+    
+    public static final String system_configurations_save_btn_css = getProperty("system_configurations_save_btn_css");
+    
+    public static final String system_configurations_toast_close_css = getProperty("system_configurations_toast_close_css");
+    
+    public static final String system_configurations_integrate_btn_css = getProperty("system_configurations_integrate_btn_css");
 }
