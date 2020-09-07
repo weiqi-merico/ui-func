@@ -302,4 +302,6 @@ public class SettingsControls {
     public static final String skill_tags_paging_fixed_jumper_css = getProperty("skill_tags_paging_fixed_jumper_css");
     
     public static final String skill_tags_paging_input_jumper_css = getProperty("skill_tags_paging_input_jumper_css");
+    
+    public static final String skill_tags_table_tr_xpath = getProperty("skill_tags_table_tr_xpath");
 }

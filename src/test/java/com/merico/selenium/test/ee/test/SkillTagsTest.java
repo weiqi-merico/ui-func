@@ -151,4 +151,20 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
 		settingsPage.deleteTags4SkillTags();
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testDeleteTag"}, alwaysRun = true)
+	public void testFixedPaging() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.fixedPagingJumper4SkillTags();
+		
+		Assert.assertNotEquals(settingsPage.getfixedPagingRowCount4SkillTags(), 20,  "Fixed Paging for Skill Tags Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testFixedPaging"}, alwaysRun = true)
+	public void testPagingJumper() throws Exception {
+		SettingsPage settingsPage = PageFactory.createPage(SettingsPage.class, driver);
+		settingsPage.paginationJumper4SkillTags();
+		
+		Assert.assertEquals(settingsPage.getPaginationFocus4SkillTags(), "rgba(202, 69, 33, 1)",  "Paging Jumper for Skill Tags Failed!");
+	}
 }

@@ -1015,4 +1015,42 @@ public class SettingsPage extends Page {
     	driver.findElement(By.cssSelector(SettingsControls.skill_tags_cancel_btn_css)).click();
     	Utilities.staticTimeDelay(2000);
     }
+    
+    @AutoIntercept
+    public void fixedPagingJumper4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_paging_fixed_jumper_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_paging_fixed_jumper_css)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public int getfixedPagingRowCount4SkillTags() {
+    	int rowCount = driver.findElements(By.xpath(SettingsControls.skill_tags_table_tr_xpath)).size();
+    	System.out.println("Table Table Row is: " + rowCount);
+    	
+    	return rowCount;
+    }
+    
+    @AutoIntercept
+    public void paginationJumper4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.skill_tags_paging_input_jumper_css));
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_paging_input_jumper_css)).clear();
+    	driver.findElement(By.cssSelector(SettingsControls.skill_tags_paging_input_jumper_css)).sendKeys("2");
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getPaginationFocus4SkillTags() {
+    	Utilities.waitForControlPresent(driver, By.linkText("2"));
+    	String cssVal =  driver.findElement(By.linkText("2")).getCssValue("color").trim();
+    	System.out.println("Pagination Focus Color Value is : " + cssVal);
+    	
+    	return cssVal;
+    }
 }
