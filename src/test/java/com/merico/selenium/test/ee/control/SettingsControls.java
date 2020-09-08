@@ -325,6 +325,8 @@ public class SettingsControls {
     
     public static final String system_configurations_link_link = Utilities.utf8Char(getProperty("system_configurations_link_link"));
     
+    public static final String system_configurations_toast_msg_css = getProperty("system_configurations_toast_msg_css");
+    
     public static final String system_configurations_basic_settings_site_url_id = getProperty("system_configurations_basic_settings_site_url_id");
     
     public static final String system_configurations_basic_settings_system_time_zone_css = getProperty("system_configurations_basic_settings_system_time_zone_css");
@@ -338,4 +340,56 @@ public class SettingsControls {
     public static final String system_configurations_basic_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_basic_settings_save_btn_xpath"));
     
     public static final String system_configurations_basic_settings_reset_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_basic_settings_reset_btn_xpath"));
+    
+    public static final String system_configurations_smtp_settings_smtp_email_id = getProperty("system_configurations_smtp_settings_smtp_email_id");
+    
+    public static final String system_configurations_smtp_settings_smtp_password_id = getProperty("system_configurations_smtp_settings_smtp_password_id");
+    
+    public static final String system_configurations_smtp_settings_smtp_smtp_id = getProperty("system_configurations_smtp_settings_smtp_smtp_id");
+    
+    public static final String system_configurations_smtp_settings_use_secure_connection_xpath = Utilities.utf8Char(getProperty("system_configurations_smtp_settings_use_secure_connection_xpath"));
+    
+    public static final String system_configurations_smtp_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_smtp_settings_save_btn_xpath"));
+    
+    public static final String system_configurations_oauth_settings_oauth_site_url_id = getProperty("system_configurations_oauth_settings_oauth_site_url_id");
+    
+    public static final String system_configurations_oauth_settings_appid_id = getProperty("system_configurations_oauth_settings_appid_id");
+    
+    public static final String system_configurations_oauth_settings_secret_id = getProperty("system_configurations_oauth_settings_secret_id");
+    
+    public static final String system_configurations_oauth_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_oauth_settings_save_btn_xpath"));
+    
+    public static final String system_configurations_ldap_settings_url_id = getProperty("system_configurations_ldap_settings_url_id");
+    
+    public static final String system_configurations_ldap_settings_bind_dn_id = getProperty("system_configurations_ldap_settings_bind_dn_id");
+    
+    public static final String system_configurations_ldap_settings_bind_credentials_id = getProperty("system_configurations_ldap_settings_bind_credentials_id");
+    
+    public static final String system_configurations_ldap_settings_ca_cert_id = getProperty("system_configurations_ldap_settings_ca_cert_id");
+    
+    public static final String system_configurations_ldap_settings_search_base_id = getProperty("system_configurations_ldap_settings_search_base_id");
+    
+    public static final String system_configurations_ldap_settings_search_filter_id = getProperty("system_configurations_ldap_settings_search_filter_id");
+    
+    public static final String system_configurations_ldap_settings_email_attr_id = getProperty("system_configurations_ldap_settings_email_attr_id");
+    
+    public static final String system_configurations_ldap_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_ldap_settings_save_btn_xpath"));
+    
+    public static final String system_configurations_ldap_settings_test_conn_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_ldap_settings_test_conn_btn_xpath"));
+    
+    public static final String system_configurations_function_switchs_save_btn_xapth = Utilities.utf8Char(getProperty("system_configurations_function_switchs_save_btn_xapth"));
+    
+    public static final String system_configurations_schedule_settings_weekly_id = getProperty("system_configurations_schedule_settings_weekly_id");
+    
+    public static final String system_configurations_schedule_settings_daily_id = getProperty("system_configurations_schedule_settings_daily_id");
+    
+    public static final String system_configurations_schedule_settings_weekly_reanalysis_id = getProperty("system_configurations_schedule_settings_weekly_reanalysis_id");
+    
+    public static final String system_configurations_schedule_settings_daily_reanalysis_id = getProperty("system_configurations_schedule_settings_daily_reanalysis_id");
+    
+    public static final String system_configurations_schedule_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_schedule_settings_save_btn_xpath"));
+    
+    public static final String system_configurations_analysis_settings_scala_textbox_id = getProperty("system_configurations_analysis_settings_scala_textbox_id");
+    
+    public static final String system_configurations_analysis_settings_save_btn_xpath = Utilities.utf8Char(getProperty("system_configurations_analysis_settings_save_btn_xpath"));
 }

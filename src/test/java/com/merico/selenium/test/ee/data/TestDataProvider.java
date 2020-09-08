@@ -84,4 +84,28 @@ public class TestDataProvider {
 				{ gitlabAddr, appId, secret }
 		};
 	}
+	
+	@DataProvider(name="smtpInfoProvider")
+	public static Object[][] smtpInfoProviderImpl() throws Exception {
+		
+		String email = "himerico@163.com";
+		String password = "EPJFWNGAGZBPLZNJ";
+		String smtp = "smtp.163.com:465";
+		
+		return new Object[][]{
+				{ email, password, smtp }
+		};
+	}
+	
+	@DataProvider(name="oauthInfoProvider")
+	public static Object[][] oauthInfoProviderImpl() throws Exception {
+		
+		String siteUrl = "http://114.116.225.29:5555";
+		String appId = "auth-code-client-i-test";
+		String appSecret = "secret";
+		
+		return new Object[][]{
+				{ siteUrl, appId, appSecret }
+		};
+	}
 }

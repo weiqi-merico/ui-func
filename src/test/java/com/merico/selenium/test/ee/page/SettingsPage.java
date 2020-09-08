@@ -1135,6 +1135,177 @@ public class SettingsPage extends Page {
     	driver.findElement(By.xpath(SettingsControls.system_configurations_basic_settings_reset_btn_xpath)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_basic_settings_save_btn_xpath));
     	driver.findElement(By.xpath(SettingsControls.system_configurations_basic_settings_save_btn_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getSaveSuccessInfo4SystemConfigurations() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.system_configurations_toast_msg_css));
+    	String info = driver.findElement(By.cssSelector(SettingsControls.system_configurations_toast_msg_css)).getText().trim();
+    	System.out.println("Basic Settings Save Success Info is: " + info);
+    	
+    	return info;
+    }
+    
+    @AutoIntercept
+    public String getBasicSettingsInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_basic_settings_site_url_id));
+    	String sitUrl = driver.findElement(By.id(SettingsControls.system_configurations_basic_settings_site_url_id)).getAttribute("value").trim();
+    	System.out.println("Site Url for Basic Settings is: " + sitUrl);
+    	
+    	return sitUrl;
+    }
+    
+    @AutoIntercept
+    public void smtpSettings4SystemConfigurations(String email, String password, String smtp) {
+    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_smtp_settings_smtp_email_id));
+    	driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_email_id)).click();
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < email.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_email_id)).sendKeys(email);
+    	
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_smtp_settings_smtp_password_id));
+    	driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_password_id)).click();
+    	
+    	for (int i = 0; i < password.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_password_id)).sendKeys(password);
+    	
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_smtp_settings_smtp_smtp_id));
+    	driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_smtp_id)).click();
+    	
+    	for (int i = 0; i < smtp.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_smtp_id)).sendKeys(smtp);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_smtp_settings_use_secure_connection_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_smtp_settings_use_secure_connection_xpath)).click();
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_smtp_settings_use_secure_connection_xpath)).click();
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_smtp_settings_save_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_smtp_settings_save_btn_xpath)).click();
+    	
+    	Utilities.staticTimeDelay(8000);
+    }
+    
+    @AutoIntercept
+    public String getSmtpSettingsInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_smtp_settings_smtp_email_id));
+    	String email = driver.findElement(By.id(SettingsControls.system_configurations_smtp_settings_smtp_email_id)).getAttribute("value").trim();
+    	System.out.println("Email for Smtp Settings is: " + email);
+    	
+    	return email;
+    }
+    
+    @AutoIntercept
+    public void oauthSettings4SystemConfigurations(String siteUrl, String appId, String appSecret) {
+    	Utilities.movePageToLocation(driver, "500");
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_oauth_settings_oauth_site_url_id));
+    	driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_oauth_site_url_id)).click();
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < siteUrl.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_oauth_site_url_id)).sendKeys(siteUrl);
+    	
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_oauth_settings_appid_id));
+    	driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_appid_id)).click();
+    	
+    	for (int i = 0; i < appId.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_appid_id)).sendKeys(appId);
+    	
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_oauth_settings_secret_id));
+    	driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_secret_id)).click();
+    	
+    	for (int i = 0; i < appSecret.length(); i++) {
+    		builder.sendKeys(Keys.BACK_SPACE).perform();
+    	}
+    	driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_secret_id)).sendKeys(appSecret);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_oauth_settings_save_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_oauth_settings_save_btn_xpath)).click();
+    	
     	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getOauthSettingsInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_oauth_settings_oauth_site_url_id));
+    	String sitUrl = driver.findElement(By.id(SettingsControls.system_configurations_oauth_settings_oauth_site_url_id)).getAttribute("value").trim();
+    	System.out.println("Oauth Site Url for Oauth Settings is: " + sitUrl);
+    	
+    	return sitUrl;
+    }
+    
+    @AutoIntercept
+    public void saveLdapSettings4SystemConfigurations() {
+    	Utilities.movePageToLocation(driver, "800");
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_ldap_settings_save_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_ldap_settings_save_btn_xpath)).click();
+    	
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getLdapSettingsInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_ldap_settings_url_id));
+    	String sitUrl = driver.findElement(By.id(SettingsControls.system_configurations_ldap_settings_url_id)).getAttribute("value").trim();
+    	System.out.println("Ldap Site Url for Ldap Settings is: " + sitUrl);
+    	
+    	return sitUrl;
+    }
+    
+    @AutoIntercept
+    public void functionSwitchs4SystemConfigurations() {
+    	Utilities.movePageToLocation(driver, "600");
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_function_switchs_save_btn_xapth));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_function_switchs_save_btn_xapth)).click();
+    	
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public void scheduleSettings4SystemConfigurations() {
+    	Utilities.movePageToLocation(driver, "600");
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_schedule_settings_save_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_schedule_settings_save_btn_xpath)).click();
+    	
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getScheduleSettingsInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_schedule_settings_daily_reanalysis_id));
+    	String sitUrl = driver.findElement(By.id(SettingsControls.system_configurations_schedule_settings_daily_reanalysis_id)).getAttribute("value").trim();
+    	System.out.println("Daily Reports Reanalysis Schedule for Schedule Settings is: " + sitUrl);
+    	
+    	return sitUrl;
+    }
+    
+    @AutoIntercept
+    public void analysisSettings4SystemConfigurations() {
+    	Utilities.movePageToLocation(driver, "600");
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.system_configurations_analysis_settings_save_btn_xpath));
+    	driver.findElement(By.xpath(SettingsControls.system_configurations_analysis_settings_save_btn_xpath)).click();
+    	
+    	Utilities.staticTimeDelay(6000);
+    }
+    
+    @AutoIntercept
+    public String getAnalysisSettingsInfo4SystemIntegration() {
+    	Utilities.waitForControlPresent(driver, By.id(SettingsControls.system_configurations_analysis_settings_scala_textbox_id));
+    	String lineNum = driver.findElement(By.id(SettingsControls.system_configurations_analysis_settings_scala_textbox_id)).getAttribute("value").trim();
+    	System.out.println("Scala Max lines per function for Analysis Settings is: " + lineNum);
+    	
+    	return lineNum;
     }
 }
