@@ -2839,4 +2839,23 @@ public class RepoReportPage extends Page {
     	
     	return info;
     }
+    
+    @AutoIntercept
+    public void repoNameInEfficiency4IndustryMetrics() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.industry_metrics_link_link));
+    	driver.findElement(By.linkText(RepoReportControls.industry_metrics_link_link)).click();
+    	Utilities.staticTimeDelay(2000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.industry_metrics_repo_info_repo_name_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.industry_metrics_repo_info_repo_name_xpath)).click();
+    }
+    
+    @AutoIntercept
+    public String getRepoNameInEfficiency4IndustryMetrics() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.industry_metrics_repo_info_repo_name_xpath));
+    	String repoName = driver.findElement(By.xpath(RepoReportControls.industry_metrics_repo_info_repo_name_xpath)).getText().trim();
+    	System.out.println("Repo Name in Efficiency is: " + repoName);
+    	
+    	return repoName;
+    }
 }

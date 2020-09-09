@@ -829,4 +829,28 @@ public class RepoReportControls {
     public static final String Group_Metrics_Comparison_Export_Data_Btn_Xpath = Utilities.utf8Char(getProperty("group_metrics_comparison_export_data_btn_xpath"));
     
     public static final String Group_Metrics_Comparison_Export_Data_Error_Msg_Xpath = getProperty("group_metrics_comparison_export_data_error_msg_xpath");
+    
+    public static final String industry_metrics_link_link = Utilities.utf8Char(getProperty("industry_metrics_link_link"));
+    
+    public static final String industry_metrics_efficiency_tab_id = getProperty("industry_metrics_efficiency_tab_id");
+    
+    public static final String industry_metrics_quality_tab_id = getProperty("industry_metrics_quality_tab_id");
+    
+    public static final String industry_metrics_efficiency_start_date_input_css = getProperty("industry_metrics_efficiency_start_date_input_css");
+    
+    public static final String industry_metrics_repo_info_repo_name_xpath = getProperty("industry_metrics_repo_info_repo_name_xpath");
+    
+    public static final String industry_metrics_industry_info_repo_num_css = getProperty("industry_metrics_industry_info_repo_num_css");
+    
+    public static final String industry_metrics_industry_info_language_css = getProperty("industry_metrics_industry_info_language_css");
+    
+    public static final String industry_metrics_acc_dev_eq_chat_label_xpath = Utilities.utf8Char(getProperty("industry_metrics_acc_dev_eq_chat_label_xpath"));
+    
+    public static final String industry_metrics_acc_dev_equ_table_label_xpath = Utilities.utf8Char(getProperty("industry_metrics_acc_dev_equ_table_label_xpath"));
+    
+    public static final String industry_metrics_acc_dev_equ_table_rows_to_cols_xpath = Utilities.utf8Char(getProperty("industry_metrics_acc_dev_equ_table_rows_to_cols_xpath"));
+    
+    public static final String industry_metrics_acc_dev_equ_step_by_1_week = Utilities.utf8Char(getProperty("industry_metrics_acc_dev_equ_step_by_1_week"));
+    
+    public static final String industry_metrics_acc_dev_equ_recharts_css = getProperty("industry_metrics_acc_dev_equ_recharts_css");
 }
