@@ -832,13 +832,15 @@ public class RepoReportControls {
     
     public static final String industry_metrics_link_link = Utilities.utf8Char(getProperty("industry_metrics_link_link"));
     
-    public static final String industry_metrics_efficiency_tab_id = getProperty("industry_metrics_efficiency_tab_id");
+    public static final String industry_metrics_efficiency_tab_xpath = Utilities.utf8Char(getProperty("industry_metrics_efficiency_tab_xpath"));
     
-    public static final String industry_metrics_quality_tab_id = getProperty("industry_metrics_quality_tab_id");
+    public static final String industry_metrics_quality_tab_xpath = Utilities.utf8Char(getProperty("industry_metrics_quality_tab_xpath"));
     
     public static final String industry_metrics_efficiency_start_date_input_css = getProperty("industry_metrics_efficiency_start_date_input_css");
     
     public static final String industry_metrics_repo_info_repo_name_xpath = getProperty("industry_metrics_repo_info_repo_name_xpath");
+    
+    public static final String industry_metrics_repo_info_language_css = getProperty("industry_metrics_repo_info_language_css");
     
     public static final String industry_metrics_industry_info_repo_num_css = getProperty("industry_metrics_industry_info_repo_num_css");
     
@@ -853,4 +855,6 @@ public class RepoReportControls {
     public static final String industry_metrics_acc_dev_equ_step_by_1_week = Utilities.utf8Char(getProperty("industry_metrics_acc_dev_equ_step_by_1_week"));
     
     public static final String industry_metrics_acc_dev_equ_recharts_css = getProperty("industry_metrics_acc_dev_equ_recharts_css");
+    
+    public static final String industry_metrics_tooltip_css = getProperty("industry_metrics_tooltip_css");
 }

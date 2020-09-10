@@ -38,7 +38,7 @@ public class RepoReportPage extends Page {
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Search_By_Git_Addr_Textbox_Css));
     	driver.findElement(By.cssSelector(RepoReportControls.Search_By_Git_Addr_Textbox_Css)).click();
     	driver.findElement(By.cssSelector(RepoReportControls.Search_By_Git_Addr_Textbox_Css)).sendKeys(repoUrl);
-        Utilities.staticTimeDelay(3000);
+        Utilities.staticTimeDelay(5000);
         Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.View_Report_Btn_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.View_Report_Btn_Xpath)).click();
     	Utilities.staticTimeDelay(8000);
@@ -2846,6 +2846,8 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.linkText(RepoReportControls.industry_metrics_link_link)).click();
     	Utilities.staticTimeDelay(2000);
     	
+//    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.industry_metrics_efficiency_tab_xpath));
+//    	driver.findElement(By.xpath(RepoReportControls.industry_metrics_efficiency_tab_xpath)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.industry_metrics_repo_info_repo_name_xpath));
     	driver.findElement(By.xpath(RepoReportControls.industry_metrics_repo_info_repo_name_xpath)).click();
     }
@@ -2857,5 +2859,21 @@ public class RepoReportPage extends Page {
     	System.out.println("Repo Name in Efficiency is: " + repoName);
     	
     	return repoName;
+    }
+    
+    @AutoIntercept
+    public void languageInfoInEfficiency4IndustryMetrics() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.industry_metrics_repo_info_language_css));
+    	driver.findElement(By.cssSelector(RepoReportControls.industry_metrics_repo_info_language_css)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getTooltip4IndustryMetrics() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.industry_metrics_tooltip_css));
+    	String tooltip = driver.findElement(By.cssSelector(RepoReportControls.industry_metrics_tooltip_css)).getText().trim();
+    	System.out.println("Tooltip is: " + tooltip);
+    	
+    	return tooltip;
     }
 }

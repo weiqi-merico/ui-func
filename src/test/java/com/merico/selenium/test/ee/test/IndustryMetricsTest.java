@@ -56,4 +56,12 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getRepoNameInEfficiency4IndustryMetrics(), "meri.co/vdev.co", "Repo Name in Efficiency for Industry Metrics Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testRepoNameInEfficiency"}, alwaysRun = true)
+	public void testLanguageInfoInEfficiency() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.languageInfoInEfficiency4IndustryMetrics();
+		
+		Assert.assertTrue(repoReportPage.getTooltip4IndustryMetrics().contains("Go"), "Language Name in Efficiency for Industry Metrics Failed!");
+	}
 }
