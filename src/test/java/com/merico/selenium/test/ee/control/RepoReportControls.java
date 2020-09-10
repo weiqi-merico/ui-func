@@ -857,4 +857,26 @@ public class RepoReportControls {
     public static final String industry_metrics_acc_dev_equ_recharts_css = getProperty("industry_metrics_acc_dev_equ_recharts_css");
     
     public static final String industry_metrics_tooltip_css = getProperty("industry_metrics_tooltip_css");
+    
+    public static final String efficiency_report_link_link = Utilities.utf8Char(getProperty("efficiency_report_link_link"));
+    
+    public static final String efficiency_report_data_range_selection_textbox_css = getProperty("efficiency_report_data_range_selection_textbox_css");
+    
+    public static final String efficiency_report_start_date_input_css = getProperty("efficiency_report_start_date_input_css");
+    
+    public static final String efficiency_report_acc_dev_eq_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_acc_dev_eq_chart_label_xpath"));
+    
+    public static final String efficiency_report_acc_dev_eq_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_acc_dev_eq_table_label_xpath"));
+    
+    public static final String efficiency_report_acc_dev_eq_recharts_css = getProperty("efficiency_report_acc_dev_eq_recharts_css");
+    
+    public static final String efficiency_report_new_dev_eq_trend_recharts_css = getProperty("efficiency_report_new_dev_eq_trend_recharts_css");
+    
+    public static final String efficiency_report_dev_eq_per_rank_recharts_css = getProperty("efficiency_report_dev_eq_per_rank_recharts_css");
+    
+    public static final String efficiency_report_dev_eq_ratio_canvas_xpath = getProperty("efficiency_report_dev_eq_ratio_canvas_xpath");
+    
+    public static final String efficiency_report_effi_boxplot_canvas_xpath = getProperty("efficiency_report_effi_boxplot_canvas_xpath");
+    
+    public static final String efficiency_report_dev_eq_pareto_recharts_css = getProperty("efficiency_report_dev_eq_pareto_recharts_css");
 }

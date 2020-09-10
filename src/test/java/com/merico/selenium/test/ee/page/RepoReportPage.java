@@ -2876,4 +2876,35 @@ public class RepoReportPage extends Page {
     	
     	return tooltip;
     }
+    
+    @AutoIntercept
+    public void accDevEqChartStepByDay4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.efficiency_report_link_link));
+    	driver.findElement(By.linkText(RepoReportControls.efficiency_report_link_link)).click();
+    	Utilities.staticTimeDelay(5000);
+    	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_data_range_selection_textbox_css));
+    	driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_data_range_selection_textbox_css)).click();
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 9; i++)	{
+    		builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	}
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public Boolean getAccDevEqChartDisplayed4IndustryMetrics() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_acc_dev_eq_recharts_css));
+    	boolean displayed = driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_acc_dev_eq_recharts_css)).isEnabled();
+    	System.out.println("Acc Dev Eq Chart Displayed: " + displayed);
+    	
+    	return displayed;
+    }
 }
