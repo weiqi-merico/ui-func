@@ -876,6 +876,22 @@ public class RepoReportControls {
     
     public static final String efficiency_report_cells_xpath = getProperty("efficiency_report_cells_xpath");
     
+    public static final String efficiency_report_tooltip_css = getProperty("efficiency_report_tooltip_css");
+    
+    public static final String efficiency_report_new_dev_eq_trend_question_mark_xpath = getProperty("efficiency_report_new_dev_eq_trend_question_mark_xpath");
+    
+    public static final String efficiency_report_new_dev_eq_trend_outlier_xpath = Utilities.utf8Char(getProperty("efficiency_report_new_dev_eq_trend_outlier_xpath"));
+    
+    public static final String efficiency_report_new_dev_eq_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_new_dev_eq_chart_label_xpath"));
+    
+    public static final String efficiency_report_new_dev_eq_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_new_dev_eq_table_label_xpath"));
+    
+    public static final String efficiency_report_new_dev_eq_table_row_to_col_xpath = Utilities.utf8Char(getProperty("efficiency_report_new_dev_eq_table_row_to_col_xpath"));
+    
+    public static final String efficiency_report_new_dev_eq_table_header_contributor_xpath = getProperty("efficiency_report_new_dev_eq_table_header_contributor_xpath");
+    
+    public static final String efficiency_report_new_dev_eq_table_header_date_xpath = getProperty("efficiency_report_new_dev_eq_table_header_date_xpath");
+    
     public static final String efficiency_report_acc_dev_eq_recharts_css = getProperty("efficiency_report_acc_dev_eq_recharts_css");
     
     public static final String efficiency_report_new_dev_eq_trend_recharts_css = getProperty("efficiency_report_new_dev_eq_trend_recharts_css");

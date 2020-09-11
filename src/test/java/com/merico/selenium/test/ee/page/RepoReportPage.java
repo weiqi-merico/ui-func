@@ -2999,4 +2999,129 @@ public class RepoReportPage extends Page {
     	
     	return count;
     }
+    
+    @AutoIntercept
+    public void newDevEqTooltip4EfficiencyReport() {
+//    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath));
+//    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath)).click();
+//    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_question_mark_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_question_mark_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public String getTooltip4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_tooltip_css));
+    	String tooltip = driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_tooltip_css)).getText().trim();
+    	System.out.println("Tooltip is: " + tooltip);
+    	
+    	return tooltip;
+    }
+    
+    @AutoIntercept
+    public void newDevEqOutlier4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_outlier_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_outlier_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void newDevEqChartStepByWeek4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_outlier_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_outlier_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(100);
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void newDevEqChartStepByMonth4EfficiencyReport() {
+    	Actions builder = new Actions(driver);
+    	
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void newDevEqChartStepByQuarter4EfficiencyReport() {
+    	Actions builder = new Actions(driver);
+    	
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void newDevEqChartStepByYear4EfficiencyReport() {
+    	Actions builder = new Actions(driver);
+    	
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	
+    	Utilities.staticTimeDelay(8000);
+    }
+    
+    @AutoIntercept
+    public Boolean getNewDevEqChartDisplayed4IndustryMetrics() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_new_dev_eq_trend_recharts_css));
+    	boolean displayed = driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_new_dev_eq_trend_recharts_css)).isEnabled();
+    	System.out.println("Acc Dev Eq Chart Displayed: " + displayed);
+    	
+    	return displayed;
+    }
+    
+    @AutoIntercept
+    public void newDevEqTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getNewDevEqTableContributorHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_header_contributor_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_header_contributor_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public String getNewDevEqTableDateHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_header_date_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_header_date_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public void newDevEqTableRowToCol4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_row_to_col_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }
