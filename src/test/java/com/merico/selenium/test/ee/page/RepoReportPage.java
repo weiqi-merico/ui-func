@@ -3097,6 +3097,13 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void groupNewDevEqTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_new_dev_eq_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_new_dev_eq_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
     public String getNewDevEqTableContributorHeader4EfficiencyReport() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_header_contributor_xpath));
     	String header = driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_table_header_contributor_xpath)).getText().trim();
@@ -3429,6 +3436,37 @@ public class RepoReportPage extends Page {
     public void groupAccDevEqTableRowToCol4EfficiencyReport() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_row_to_col_xpath));
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void groupNewDevEqTooltip4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_new_dev_eq_trend_question_mark_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_new_dev_eq_trend_question_mark_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public void groupNewDevEqChartStepByWeek4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_outlier_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_new_dev_eq_trend_outlier_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_new_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_new_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(100);
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 4; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	
     	Utilities.staticTimeDelay(3000);
     }
 }
