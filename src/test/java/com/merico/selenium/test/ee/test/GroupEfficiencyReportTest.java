@@ -49,11 +49,60 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	}
 	
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testLogin4Admin"}, alwaysRun = true)
-	public void testGroupAccDevEqChartStepByWeek() throws Exception {
+	public void testGroupAccDevEqChartStepByDay() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
 		repoReportPage.enterIntoOverallReport();
 		repoReportPage.groupAccDevEqChartStepByDay4EfficiencyReport();
 		
+		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Day for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupAccDevEqChartStepByDay"}, alwaysRun = true)
+	public void testGroupAccDevEqChartStepByWeek() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupAccDevEqChartStepByWeek4EfficiencyReport();
+		
 		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Week for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupAccDevEqChartStepByWeek"}, alwaysRun = true)
+	public void testGroupAccDevEqChartStepByMonth() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupAccDevEqChartStepByMonth4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Month for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupAccDevEqChartStepByMonth"}, alwaysRun = true)
+	public void testGroupAccDevEqChartStepByQuarter() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupAccDevEqChartStepByQuarter4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Quarter for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupAccDevEqChartStepByQuarter"}, alwaysRun = true)
+	public void testGroupAccDevEqChartStepByYear() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupAccDevEqChartStepByYear4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Year for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupAccDevEqChartStepByYear"}, alwaysRun = true)
+	public void testGroupAccDevEqTableHeaderContributorAndDate() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupAccDevEqTableHeaderContributor4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getGroupAccDevEqTableContributorHeader4EfficiencyReport(), "项目组", "Get Group Acc Dev Eq Table Header Project Group for Efficiency Report Failed!");
+		Assert.assertTrue(repoReportPage.getGroupAccDevEqTableDateHeader4EfficiencyReport().contains("01-01"), "Get Group Acc Dev Eq Table Header Date for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupAccDevEqTableHeaderContributorAndDate"}, alwaysRun = true)
+	public void testGroupAccDevEqTableRowToCol() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupAccDevEqTableRowToCol4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get Group Acc Dev Eq Table Row to Col for Efficiency Report Failed!");
 	}
 }

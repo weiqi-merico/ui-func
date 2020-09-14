@@ -3348,4 +3348,87 @@ public class RepoReportPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Utilities.movePageToLocation(driver, "300");
     }
+    
+    @AutoIntercept
+    public void groupAccDevEqChartStepByWeek4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	
+    	Actions builder = new Actions(driver);
+    	for (int i = 0; i < 3; i++) {
+    		builder.sendKeys(Keys.TAB).perform();
+    	}
+    	Utilities.staticTimeDelay(500);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void groupAccDevEqChartStepByMonth4EfficiencyReport() {
+    	Actions builder = new Actions(driver);
+ 
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void groupAccDevEqChartStepByQuarter4EfficiencyReport() {
+    	Actions builder = new Actions(driver);
+ 
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void groupAccDevEqChartStepByYear4EfficiencyReport() {
+    	Actions builder = new Actions(driver);
+ 
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+
+    	Utilities.staticTimeDelay(8000);
+    }
+    
+    @AutoIntercept
+    public void groupAccDevEqTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public String getGroupAccDevEqTableContributorHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_header_project_group_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_header_project_group_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public String getGroupAccDevEqTableDateHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_header_date_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_header_date_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public void groupAccDevEqTableRowToCol4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_row_to_col_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }
