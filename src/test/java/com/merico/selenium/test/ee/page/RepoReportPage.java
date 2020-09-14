@@ -3336,4 +3336,16 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.efficiency_report_dev_eq_pareto_table_row_to_col_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void groupAccDevEqChartStepByDay4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.efficiency_report_link_link));
+    	driver.findElement(By.linkText(RepoReportControls.efficiency_report_link_link)).click();
+    	Utilities.staticTimeDelay(5000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Utilities.movePageToLocation(driver, "300");
+    }
 }

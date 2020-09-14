@@ -943,4 +943,14 @@ public class RepoReportControls {
     public static final String efficiency_report_effi_boxplot_canvas_xpath = getProperty("efficiency_report_effi_boxplot_canvas_xpath");
     
     public static final String efficiency_report_dev_eq_pareto_recharts_css = getProperty("efficiency_report_dev_eq_pareto_recharts_css");
+    
+    public static final String group_efficiency_report_acc_dev_eq_chart_label_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_acc_dev_eq_chart_label_xpath"));
+    
+    public static final String group_efficiency_report_acc_dev_eq_table_label_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_acc_dev_eq_table_label_xpath"));
+    
+    public static final String group_efficiency_report_acc_dev_eq_table_row_to_col_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_acc_dev_eq_table_row_to_col_xpath"));
+    
+    public static final String group_efficiency_report_acc_dev_eq_table_header_contributor_xpath = getProperty("group_efficiency_report_acc_dev_eq_table_header_contributor_xpath");
+    
+    public static final String group_efficiency_report_acc_dev_eq_table_header_ee_xpath = getProperty("group_efficiency_report_acc_dev_eq_table_header_ee_xpath");
 }
