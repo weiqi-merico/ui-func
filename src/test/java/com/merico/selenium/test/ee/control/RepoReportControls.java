@@ -892,6 +892,46 @@ public class RepoReportControls {
     
     public static final String efficiency_report_new_dev_eq_table_header_date_xpath = getProperty("efficiency_report_new_dev_eq_table_header_date_xpath");
     
+    public static final String efficiency_report_dev_eq_per_rank_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_per_rank_chart_label_xpath"));
+    
+    public static final String efficiency_report_dev_eq_per_rank_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_per_rank_table_label_xpath"));
+    
+    public static final String efficiency_report_dev_eq_per_rank_table_row_to_col_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_per_rank_table_row_to_col_xpath"));
+    
+    public static final String efficiency_report_dev_eq_per_rank_table_header_contributor_xpath = getProperty("efficiency_report_dev_eq_per_rank_table_header_contributor_xpath");
+    
+    public static final String efficiency_report_dev_eq_per_rank_table_header_date_xpath = getProperty("efficiency_report_dev_eq_per_rank_table_header_date_xpath");
+    
+    public static final String efficiency_report_dev_eq_ratio_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_ratio_chart_label_xpath"));
+    
+    public static final String efficiency_report_dev_eq_ratio_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_ratio_table_label_xpath"));
+    
+    public static final String efficiency_report_dev_eq_ratio_table_row_to_col_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_ratio_table_row_to_col_xpath"));
+    
+    public static final String efficiency_report_dev_eq_ratio_table_header_contributor_xpath = getProperty("efficiency_report_dev_eq_ratio_table_header_contributor_xpath");
+    
+    public static final String efficiency_report_dev_eq_ratio_table_header_dev_eq_xpath = getProperty("efficiency_report_dev_eq_ratio_table_header_dev_eq_xpath");
+    
+    public static final String efficiency_report_efficiency_boxplot_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_efficiency_boxplot_chart_label_xpath"));
+    
+    public static final String efficiency_report_efficiency_boxplot_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_efficiency_boxplot_table_label_xpath"));
+    
+    public static final String efficiency_report_efficiency_boxplot_table_row_to_col_xpath = Utilities.utf8Char(getProperty("efficiency_report_efficiency_boxplot_table_row_to_col_xpath"));
+    
+    public static final String efficiency_report_efficiency_boxplot_table_header_contributor_xpath = getProperty("efficiency_report_efficiency_boxplot_table_header_contributor_xpath");
+    
+    public static final String efficiency_report_efficiency_boxplot_table_header_date_xpath = getProperty("efficiency_report_efficiency_boxplot_table_header_date_xpath");
+    
+    public static final String efficiency_report_dev_eq_pareto_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_pareto_chart_label_xpath"));
+    
+    public static final String efficiency_report_dev_eq_pareto_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_pareto_table_label_xpath"));
+    
+    public static final String efficiency_report_dev_eq_pareto_table_row_to_col_xpath = Utilities.utf8Char(getProperty("efficiency_report_dev_eq_pareto_table_row_to_col_xpath"));
+    
+    public static final String efficiency_report_dev_eq_pareto_table_header_contributor_xpath = getProperty("efficiency_report_dev_eq_pareto_table_header_contributor_xpath");
+    
+    public static final String efficiency_report_dev_eq_pareto_table_header_dev_eq_xpath = getProperty("efficiency_report_dev_eq_pareto_table_header_dev_eq_xpath");
+    
     public static final String efficiency_report_acc_dev_eq_recharts_css = getProperty("efficiency_report_acc_dev_eq_recharts_css");
     
     public static final String efficiency_report_new_dev_eq_trend_recharts_css = getProperty("efficiency_report_new_dev_eq_trend_recharts_css");
