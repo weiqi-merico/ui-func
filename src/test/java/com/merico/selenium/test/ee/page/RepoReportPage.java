@@ -3690,4 +3690,56 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_ratio_table_row_to_col_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void groupEfficiencyBoxPlotChart4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_ratio_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_ratio_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public Boolean getGroupEfficiencyBoxPlotChartDisplayed4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_chart_xpath));
+    	boolean displayed = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_chart_xpath)).isEnabled();
+    	System.out.println("Group Efficiency BoxPlot Chart Displayed: " + displayed);
+    	
+    	return displayed;
+    }
+    
+    @AutoIntercept
+    public void groupEfficiencyBoxPlotTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getGroupEfficiencyBoxPlotTableContributorHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_header_contributor_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_header_contributor_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public String getGroupEfficiencyBoxPlotTableMinimumHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_header_date_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_header_date_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public void groupEfficiencyBoxPlotTableRowToCol4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_row_to_col_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }

@@ -285,4 +285,29 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get Group Dev Eq Ratio Table Row to Col for Efficiency Report Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqRatioTableRowToCol"}, alwaysRun = true)
+	public void testGroupEfficiencyBoxPlotChart() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyBoxPlotChart4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupEfficiencyBoxPlotChartDisplayed4EfficiencyReport(), "Group Efficiency BoxPlot Chart for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupEfficiencyBoxPlotChart"}, alwaysRun = true)
+	public void testGroupEfficiencyBoxPlotTableHeaderContributorAndDevEq() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyBoxPlotTableHeaderContributor4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getGroupEfficiencyBoxPlotTableContributorHeader4EfficiencyReport(), "项目组", "Get Group Efficiency BoxPlot Table Header Contributor for Efficiency Report Failed!");
+		Assert.assertTrue(repoReportPage.getGroupEfficiencyBoxPlotTableMinimumHeader4EfficiencyReport().contains("最小值"), "Get Group Efficiency BoxPlot Table Header Minimum for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupEfficiencyBoxPlotTableHeaderContributorAndDevEq"}, alwaysRun = true)
+	public void testGroupEfficiencyBoxPlotTableRowToCol() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyBoxPlotTableRowToCol4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 42, "Get Group Efficiency BoxPlot Table Row to Col for Efficiency Report Failed!");
+	}
 }
