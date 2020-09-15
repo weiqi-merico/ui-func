@@ -3803,4 +3803,56 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_row_to_col_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void groupDevEqParetoChart4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public Boolean getGroupDevEqParetoChartDisplayed4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_chart_xpath));
+    	boolean displayed = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_chart_xpath)).isEnabled();
+    	System.out.println("Group Efficiency BoxPlot Chart Displayed: " + displayed);
+    	
+    	return displayed;
+    }
+    
+    @AutoIntercept
+    public void groupDevEqParetoTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getGroupDevEqParetoTableContributorHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_header_contributor_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_header_contributor_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public String getGroupDevEqParetoTableDevEqHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_header_date_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_header_date_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public void groupDevEqParetoTableRowToCol4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_row_to_col_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }
