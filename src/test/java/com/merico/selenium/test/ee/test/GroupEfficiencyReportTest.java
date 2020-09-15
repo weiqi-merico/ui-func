@@ -310,4 +310,37 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 42, "Get Group Efficiency BoxPlot Table Row to Col for Efficiency Report Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupEfficiencyBoxPlotTableRowToCol"}, alwaysRun = true)
+	public void testGroupEfficiencyStabilityTooltip() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyStabilityTooltip4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getTooltip4EfficiencyReport().contains("此图用来评估开发过程中的效率稳定"), "Group Efficiency and Stability Tooltip for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupEfficiencyStabilityTooltip"}, alwaysRun = true)
+	public void testGroupEfficiencyStabilityChart() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyStabilityChart4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupEfficiencyStabilityChartDisplayed4EfficiencyReport(), "Group Efficiency and Stability Chart for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupEfficiencyStabilityChart"}, alwaysRun = true)
+	public void testGroupEfficiencyStabilityTableHeaderContributorAndDevEq() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyStabilityTableHeaderContributor4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getGroupEfficiencyStabilityTableContributorHeader4EfficiencyReport(), "项目组", "Get Group Efficiency and Stability Table Header Contributor for Efficiency Report Failed!");
+		Assert.assertTrue(repoReportPage.getGroupEfficiencyStabilityTableMinimumHeader4EfficiencyReport().contains("平均开发当量"), "Get Group Efficiency and Stability Table Header Minimum for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupEfficiencyStabilityTableHeaderContributorAndDevEq"}, alwaysRun = true)
+	public void testGroupEfficiencyStabilityTableRowToCol() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupEfficiencyStabilityTableRowToCol4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 14, "Get Group Efficiency and Stability Table Row to Col for Efficiency Report Failed!");
+	}
 }

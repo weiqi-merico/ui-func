@@ -3742,4 +3742,65 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_table_row_to_col_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void groupEfficiencyStabilityTooltip4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_boxplot_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.movePageToLocation(driver, "600");
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_question_mark_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_question_mark_xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    }
+    
+    @AutoIntercept
+    public void groupEfficiencyStabilityChart4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public Boolean getGroupEfficiencyStabilityChartDisplayed4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_xpath));
+    	boolean displayed = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_chart_xpath)).isEnabled();
+    	System.out.println("Group Efficiency BoxPlot Chart Displayed: " + displayed);
+    	
+    	return displayed;
+    }
+    
+    @AutoIntercept
+    public void groupEfficiencyStabilityTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getGroupEfficiencyStabilityTableContributorHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_header_contributor_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_header_contributor_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public String getGroupEfficiencyStabilityTableMinimumHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_header_date_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_header_date_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public void groupEfficiencyStabilityTableRowToCol4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_row_to_col_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_efficiency_stability_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }
