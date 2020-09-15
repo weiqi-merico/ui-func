@@ -170,4 +170,69 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get New Dev Eq Table Row to Col for Efficiency Report Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupNewDevEqTableRowToCol"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaTrendTooltip() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaTrendTooltip4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getTooltip4EfficiencyReport().contains("趋势图上下限公式"), "Group Dev Eq Per Capita Tooltip for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaTrendTooltip"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaOutlier() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaTrendOutlier4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupDevEqPerCapitaTrendChartDisplayed4EfficiencyReport(), "Group Dev Eq Per Capita Outlier for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaOutlier"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaChartStepByWeek() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaChartStepByWeek4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupDevEqPerCapitaTrendChartDisplayed4EfficiencyReport(), "Group Dev Eq Per Capita Chart Step By Week for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaChartStepByWeek"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaChartStepByMonth() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaChartStepByMonth4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupDevEqPerCapitaTrendChartDisplayed4EfficiencyReport(), "Group Dev Eq Per Capita Chart Step By Month for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaChartStepByMonth"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaChartStepByQuarter() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaChartStepByQuarter4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupDevEqPerCapitaTrendChartDisplayed4EfficiencyReport(), "Group Dev Eq Per Capita Chart Step By Quarter for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaChartStepByQuarter"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaChartStepByYear() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaChartStepByYear4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupDevEqPerCapitaTrendChartDisplayed4EfficiencyReport(), "Group Dev Eq Per Capita Chart Step By Year for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaChartStepByYear"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaTableHeaderContributorAndDate() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaTableHeaderContributor4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getGroupDevEqPerCapitaTableContributorHeader4EfficiencyReport(), "项目组", "Get Group Dev Eq Per Capita Table Header Contributor for Efficiency Report Failed!");
+		Assert.assertTrue(repoReportPage.getGroupDevEqPerCapitaTableDateHeader4EfficiencyReport().contains("01-01"), "Get Group Dev Eq Per Capita Table Header Date for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerCapitaTableHeaderContributorAndDate"}, alwaysRun = true)
+	public void testGroupDevEqPerCapitaTableRowToCol() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqPerCapitaTableRowToCol4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get Group Dev Eq Per Capita Table Row to Col for Efficiency Report Failed!");
+	}
 }
