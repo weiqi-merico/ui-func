@@ -3584,4 +3584,56 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_capita_trend_table_row_to_col_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void groupDevEqPerRankChart4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_capita_trend_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_capita_trend_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    	
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_chart_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_chart_label_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
+    }
+    
+    @AutoIntercept
+    public Boolean getGroupDevEqPerRankChartDisplayed4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.group_efficiency_report_dev_eq_per_rank_recharts_css));
+    	boolean displayed = driver.findElement(By.cssSelector(RepoReportControls.group_efficiency_report_dev_eq_per_rank_recharts_css)).isEnabled();
+    	System.out.println("Acc Dev Eq Chart Displayed: " + displayed);
+    	
+    	return displayed;
+    }
+    
+    @AutoIntercept
+    public void groupDevEqPerRankTableHeaderContributor4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_label_xpath)).click();
+    	Utilities.staticTimeDelay(4000);
+    }
+    
+    @AutoIntercept
+    public String getGroupDevEqPerRankTableContributorHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_header_project_group_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_header_project_group_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public String getGroupDevEqPerRankTableDevEqHeader4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_header_dev_eq_xpath));
+    	String header = driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_header_dev_eq_xpath)).getText().trim();
+    	System.out.println("Header is: " + header);
+    	
+    	return header;
+    }
+    
+    @AutoIntercept
+    public void groupDevEqPerRankTableRowToCol4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_row_to_col_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_per_rank_table_row_to_col_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }
