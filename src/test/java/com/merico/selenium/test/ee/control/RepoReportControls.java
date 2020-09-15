@@ -995,4 +995,16 @@ public class RepoReportControls {
     public static final String group_efficiency_report_dev_eq_per_rank_table_header_project_group_xpath = getProperty("group_efficiency_report_dev_eq_per_rank_table_header_project_group_xpath");
     
     public static final String group_efficiency_report_dev_eq_per_rank_table_header_dev_eq_xpath = getProperty("group_efficiency_report_dev_eq_per_rank_table_header_dev_eq_xpath");
+    
+    public static final String group_efficiency_report_dev_eq_ratio_recharts_xpath = getProperty("group_efficiency_report_dev_eq_ratio_recharts_xpath");
+    
+    public static final String group_efficiency_report_dev_eq_ratio_chart_label_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_dev_eq_ratio_chart_label_xpath"));
+    
+    public static final String group_efficiency_report_dev_eq_ratio_table_label_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_dev_eq_ratio_table_label_xpath"));
+    
+    public static final String group_efficiency_report_dev_eq_ratio_table_row_to_col_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_dev_eq_ratio_table_row_to_col_xpath"));
+    
+    public static final String group_efficiency_report_dev_eq_ratio_table_header_contributor_xpath = getProperty("group_efficiency_report_dev_eq_ratio_table_header_contributor_xpath");
+    
+    public static final String group_efficiency_report_dev_eq_ratio_table_header_dev_eq_xpath = getProperty("group_efficiency_report_dev_eq_ratio_table_header_dev_eq_xpath");
 }

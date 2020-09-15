@@ -260,4 +260,29 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get Group Dev Eq Ratio Table Row to Col for Efficiency Report Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqPerRankTableRowToCol"}, alwaysRun = true)
+	public void testGroupDevEqRatioChart() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqRatioChart4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getGroupDevEqRatioChartDisplayed4EfficiencyReport(), "Group Dev Eq Ratio Chart for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqRatioChart"}, alwaysRun = true)
+	public void testGroupDevEqRatioTableHeaderContributorAndDevEq() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqRatioTableHeaderContributor4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getGroupDevEqRatioTableContributorHeader4EfficiencyReport(), "项目组", "Get Group Dev Eq Ratio Table Header Contributor for Efficiency Report Failed!");
+		Assert.assertTrue(repoReportPage.getGroupDevEqRatioTableDevEqHeader4EfficiencyReport().contains("开发当量"), "Get Group Dev Eq Ratio Table Header Dev Eq for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqRatioTableHeaderContributorAndDevEq"}, alwaysRun = true)
+	public void testGroupDevEqRatioTableRowToCol() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.groupDevEqRatioTableRowToCol4EfficiencyReport();
+		
+		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get Group Dev Eq Ratio Table Row to Col for Efficiency Report Failed!");
+	}
 }
