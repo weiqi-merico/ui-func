@@ -535,6 +535,7 @@ public class TeamViewPage extends Page {
     	Utilities.staticTimeDelay(500);
     	Actions builder = new Actions(driver);
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	Utilities.staticTimeDelay(6000);
     }
