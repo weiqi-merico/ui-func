@@ -1706,6 +1706,20 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void groupSearchByType4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_All_Types_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_All_Types_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
     public void clearType4ReportProblems() {
     	Utilities.waitForControlPresent(driver, By.xpath("(//div[@class='ant-select-selector'])[5]"));
     	driver.findElement(By.xpath("(//div[@class='ant-select-selector'])[5]")).click();
@@ -1742,6 +1756,19 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Severities_Dropdown_Xpath)).click();
     	Utilities.staticTimeDelay(500);
     	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ENTER).perform();
+    	builder.sendKeys(Keys.ESCAPE).perform();
+    	Utilities.staticTimeDelay(2000);
+    }
+    
+    @AutoIntercept
+    public void groupSearchBySeverity4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Severities_Dropdown_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Severities_Dropdown_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
+    	builder.sendKeys(Keys.ARROW_DOWN).perform();
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
     	Utilities.staticTimeDelay(2000);
@@ -1789,12 +1816,22 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
+    public void groupSearchByFile4ReportProblems() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath));
+    	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath)).click();
+    	Utilities.staticTimeDelay(500);
+    	Actions builder = new Actions(driver);
+    	builder.sendKeys("*.java").perform();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
     public void clearFile4ReportProblems() {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Unix_Glob_Syntax_Textbox_Xpath)).click();
     	Utilities.staticTimeDelay(500);
     	Actions builder = new Actions(driver);
-    	for (int i = 0; i < 4; i++)	{
+    	for (int i = 0; i < 6; i++)	{
     		builder.sendKeys(Keys.BACK_SPACE).perform();
     	}
     	Utilities.staticTimeDelay(5000);

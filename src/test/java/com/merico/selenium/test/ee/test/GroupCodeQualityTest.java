@@ -78,9 +78,9 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchByRule"}, alwaysRun = true)
 	public void testSearchByType() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.searchByType4ReportProblems();
+		repoReportPage.groupSearchByType4ReportProblems();
 		
-		Assert.assertTrue(repoReportPage.getSearchResultByType4ReportProblems().contains("漏洞"), "Search By Type Failed!");
+		Assert.assertTrue(repoReportPage.getSearchResultByType4ReportProblems().contains("异味"), "Search By Type Failed!");
 		
 		repoReportPage.clearType4GroupReportProblems();
 	}
@@ -88,9 +88,9 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchByType"}, alwaysRun = true)
 	public void testSearchBySeverity() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.searchBySeverity4ReportProblems();
+		repoReportPage.groupSearchBySeverity4ReportProblems();
 		
-		Assert.assertTrue(repoReportPage.getSearchResultBySeverity4ReportProblems().contains("阻塞"), "Search By Severity Failed!");
+		Assert.assertTrue(repoReportPage.getSearchResultBySeverity4ReportProblems().contains("主要"), "Search By Severity Failed!");
 		
 		repoReportPage.clearSeverity4GroupReportProblems();
 	}
@@ -98,10 +98,10 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testSearchBySeverity"}, alwaysRun = true)
 	public void testSearchByFile() throws Exception {
 		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
-		repoReportPage.searchByFile4ReportProblems();
+		repoReportPage.groupSearchByFile4ReportProblems();
 		
-		Assert.assertTrue(repoReportPage.getSearchResultByFile4ReportProblems().contains(".js"), "Search By File Failed!");
-		Assert.assertTrue(repoReportPage.getSearchResultByFileDiagram4ReportProblems().contains(".js"), "Search By File Diagram Failed!");
+		Assert.assertTrue(repoReportPage.getSearchResultByFile4ReportProblems().contains(".java"), "Search By File Failed!");
+		Assert.assertTrue(repoReportPage.getSearchResultByFileDiagram4ReportProblems().contains(".java"), "Search By File Diagram Failed!");
 		Assert.assertTrue(repoReportPage.getSearchResultByFileSource4ReportProblems(), "Source File Diagram Displayed Failed!");
 		
 		repoReportPage.clearFile4ReportProblems();
