@@ -368,4 +368,22 @@ protected Logger logger = LoggerFactory.getLogger(getClass());
 		
 		Assert.assertEquals(repoReportPage.getTableCellsCount4EfficiencyReport(), 7, "Get Group Group Dev Eq Pareto Table Row to Col for Efficiency Report Failed!");
 	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupDevEqParetoTableHeaderContributorAndDevEq"}, alwaysRun = true)
+	public void testGroupRepoTabAccDevEqChartStepByDay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.enterIntoRepoTab4EfficiencyReport();
+		repoReportPage.groupAccDevEqChartStepByWeek4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Week in Repo Tab for Efficiency Report Failed!");
+	}
+	
+	@Test(groups = {CasePriority.BVT}, dependsOnMethods = {"testGroupRepoTabAccDevEqChartStepByDay"}, alwaysRun = true)
+	public void testGroupContributorsTabAccDevEqChartStepByDay() throws Exception {
+		RepoReportPage repoReportPage = PageFactory.createPage(RepoReportPage.class, driver);
+		repoReportPage.enterIntoRepoTab4EfficiencyReport();
+		repoReportPage.enterIntoContributorsTab4EfficiencyReport();
+		
+		Assert.assertTrue(repoReportPage.getAccDevEqChartDisplayed4EfficiencyReport(), "Group Acc Dev Eq Chart By Week in Contributors Tab for Efficiency Report Failed!");
+	}
 }

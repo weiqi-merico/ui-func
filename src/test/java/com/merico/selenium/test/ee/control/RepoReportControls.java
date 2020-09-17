@@ -1045,4 +1045,8 @@ public class RepoReportControls {
     public static final String group_efficiency_report_dev_eq_pareto_table_header_contributor_xpath = getProperty("group_efficiency_report_dev_eq_pareto_table_header_contributor_xpath");
     
     public static final String group_efficiency_report_dev_eq_pareto_table_header_date_xpath = getProperty("group_efficiency_report_dev_eq_pareto_table_header_date_xpath");
+    
+    public static final String group_efficiency_report_repo_tab_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_repo_tab_xpath"));
+    
+    public static final String group_efficiency_report_contributors_tab_xpath = Utilities.utf8Char(getProperty("group_efficiency_report_contributors_tab_xpath"));
 }

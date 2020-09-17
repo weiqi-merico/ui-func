@@ -3892,4 +3892,19 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_dev_eq_pareto_table_row_to_col_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
+    
+    @AutoIntercept
+    public void enterIntoRepoTab4EfficiencyReport() {
+    	Utilities.movePageToLocation(driver, "-2000");
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_repo_tab_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_repo_tab_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
+    
+    @AutoIntercept
+    public void enterIntoContributorsTab4EfficiencyReport() {
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_contributors_tab_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_contributors_tab_xpath)).click();
+    	Utilities.staticTimeDelay(3000);
+    }
 }
