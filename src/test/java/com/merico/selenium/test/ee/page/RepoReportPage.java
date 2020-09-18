@@ -106,6 +106,7 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void modularityLabel4Radar() {
+    	Utilities.movePageToLocation(driver, "500");
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Modularity_Label_Xpath));
 		WebElement element = driver.findElement(By.xpath(RepoReportControls.Modularity_Label_Xpath));
 	    Actions builder = new Actions(driver);
@@ -213,7 +214,7 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void topContributorsAllTimeTab4Group() {
-    	Utilities.movePageToLocation(driver, "1000");
+    	Utilities.movePageToLocation(driver, "600");
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath));
 		driver.findElement(By.xpath(RepoReportControls.Top_Contributors_All_Time_Tab_Xpath)).click();
 		Utilities.staticTimeDelay(2000);
@@ -266,7 +267,7 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void topCommitsAllTimeTab4Group() {
-    	Utilities.movePageToLocation(driver, "1000");
+    	Utilities.movePageToLocation(driver, "600");
 		Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath));
 		driver.findElement(By.xpath(RepoReportControls.Top_Commits_All_Time_Tab_Xpath)).click();
 		Utilities.staticTimeDelay(2000);
@@ -338,7 +339,7 @@ public class RepoReportPage extends Page {
     	WebElement element = driver.findElement(By.xpath("(//span[contains(@class,'ant-select-selection-item')])[11]"));
 		Actions builder = new Actions(driver);
 		builder.moveToElement(element).perform();
-		Utilities.movePageToLocation(driver, "500");
+		Utilities.movePageToLocation(driver, "-200");
 		element.click();
 		Utilities.staticTimeDelay(200);
     	builder.sendKeys(Keys.ARROW_DOWN).perform();
