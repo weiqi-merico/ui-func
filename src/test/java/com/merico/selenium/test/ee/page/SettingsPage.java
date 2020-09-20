@@ -720,6 +720,9 @@ public class SettingsPage extends Page {
     	driver.findElement(By.linkText(SettingsControls.rule_settings_link_link)).click();
     	Utilities.staticTimeDelay(4000);
     	
+    	Utilities.waitForControlPresent(driver, By.xpath(SettingsControls.rule_settings_list_cpp_xpath));
+    	driver.findElement(By.xpath(SettingsControls.rule_settings_list_cpp_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
     	Utilities.waitForControlPresent(driver, By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css));
     	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css)).click();
     	driver.findElement(By.cssSelector(SettingsControls.rule_settings_rule_search_textbox_css)).clear();
