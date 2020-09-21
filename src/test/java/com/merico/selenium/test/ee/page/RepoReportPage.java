@@ -2903,8 +2903,8 @@ public class RepoReportPage extends Page {
     
     @AutoIntercept
     public void languageInfoInEfficiency4IndustryMetrics() {
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.industry_metrics_repo_info_language_css));
-    	driver.findElement(By.cssSelector(RepoReportControls.industry_metrics_repo_info_language_css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.industry_metrics_repo_info_language_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.industry_metrics_repo_info_language_xpath)).click();
     	Utilities.staticTimeDelay(500);
     }
     

@@ -840,7 +840,7 @@ public class RepoReportControls {
     
     public static final String industry_metrics_repo_info_repo_name_xpath = getProperty("industry_metrics_repo_info_repo_name_xpath");
     
-    public static final String industry_metrics_repo_info_language_css = getProperty("industry_metrics_repo_info_language_css");
+    public static final String industry_metrics_repo_info_language_xpath = getProperty("industry_metrics_repo_info_language_xpath");
     
     public static final String industry_metrics_industry_info_repo_num_css = getProperty("industry_metrics_industry_info_repo_num_css");
     
