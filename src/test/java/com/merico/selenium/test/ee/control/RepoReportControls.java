@@ -690,7 +690,7 @@ public class RepoReportControls {
     
     public static final String Test_Coverage_Uncovered_Functions_Items_Xpath = getProperty("test_coverage_uncovered_functions_items_xpath");
     
-    public static final String Test_Coverage_By_Files_Load_More_Btn_Css = getProperty("test_coverage_by_files_load_more_btn_css");
+    public static final String test_coverage_by_files_load_more_btn_xpath = Utilities.utf8Char(getProperty("test_coverage_by_files_load_more_btn_xpath"));
     
     public static final String Test_Coverage_By_Files_Table_Row_Xpath = getProperty("test_coverage_by_files_table_row_xpath");
     

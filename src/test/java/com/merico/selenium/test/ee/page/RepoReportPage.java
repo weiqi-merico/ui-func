@@ -2282,8 +2282,8 @@ public class RepoReportPage extends Page {
     @AutoIntercept
     public void fileCoverageLoadMore4TestCoverage() {
     	Utilities.movePageToLocation(driver, "1200");
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Test_Coverage_By_Files_Load_More_Btn_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Test_Coverage_By_Files_Load_More_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.test_coverage_by_files_load_more_btn_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.test_coverage_by_files_load_more_btn_xpath)).click();
     	Utilities.staticTimeDelay(3000);
     }
     
