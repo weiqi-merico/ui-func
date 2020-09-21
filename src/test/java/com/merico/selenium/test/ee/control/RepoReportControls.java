@@ -309,7 +309,7 @@ public class RepoReportControls {
     /**
      * Backward Analysis Button
      */
-    public static final String Backward_Analysis_Btn_Css = getProperty("backward_analysis_btn_css");
+    public static final String backward_analysis_btn_xpath = Utilities.utf8Char(getProperty("backward_analysis_btn_xpath"));
     
     /**
      * Due Date Input

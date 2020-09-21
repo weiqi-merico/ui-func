@@ -504,8 +504,10 @@ public class RepoReportPage extends Page {
     public void backwardAnalysis() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.analysis_task_list_link));
     	driver.findElement(By.linkText(RepoReportControls.analysis_task_list_link)).click();
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Backward_Analysis_Btn_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Backward_Analysis_Btn_Css)).click();
+    	Utilities.staticTimeDelay(3000);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.backward_analysis_btn_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.backward_analysis_btn_xpath)).click();
+    	Utilities.staticTimeDelay(1000);
     	Utilities.waitForControlPresent(driver, By.name(RepoReportControls.Due_Date_Input_Name));
     	driver.findElement(By.name(RepoReportControls.Due_Date_Input_Name)).click();
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.First_Commit_Btn_Link));
