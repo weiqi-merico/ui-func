@@ -600,8 +600,8 @@ public class RepoReportPage extends Page {
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
     	Utilities.staticTimeDelay(1000);
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Search_Btn_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Search_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.commits_search_btn_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.commits_search_btn_xpath)).click();
     	Utilities.staticTimeDelay(6000);
     }
     
@@ -619,8 +619,8 @@ public class RepoReportPage extends Page {
     	Utilities.waitForControlPresent(driver, By.id(RepoReportControls.Commits_Search_Title_Textbox_Id));
     	driver.findElement(By.id(RepoReportControls.Commits_Search_Title_Textbox_Id)).click();
     	driver.findElement(By.id(RepoReportControls.Commits_Search_Title_Textbox_Id)).sendKeys("merge");
-    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.Commits_Search_Btn_Css));
-    	driver.findElement(By.cssSelector(RepoReportControls.Commits_Search_Btn_Css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.commits_search_btn_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.commits_search_btn_xpath)).click();
     	Utilities.staticTimeDelay(4000);
     }
     

@@ -394,7 +394,7 @@ public class RepoReportControls {
     /**
      * Commits Search Button
      */
-    public static final String Commits_Search_Btn_Css = getProperty("commits_search_btn_css");
+    public static final String commits_search_btn_xpath = Utilities.utf8Char(getProperty("commits_search_btn_xpath"));
     
     /**
      * Commits Info
