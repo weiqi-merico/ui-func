@@ -1525,7 +1525,7 @@ public class RepoReportPage extends Page {
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Report_Problems_Select_Branch_Xpath));
     	driver.findElement(By.xpath(RepoReportControls.Report_Problems_Select_Branch_Xpath)).click();
     	Actions builder = new Actions(driver);
-    	for (int i = 0; i < 4; i++) {
+    	for (int i = 0; i < 2; i++) {
     		builder.sendKeys(Keys.ARROW_DOWN).perform();
     	}
     	builder.sendKeys(Keys.ENTER).perform();
