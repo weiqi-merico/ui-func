@@ -2937,8 +2937,10 @@ public class RepoReportPage extends Page {
     	
     	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_start_date_input_css));
     	driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_start_date_input_css)).click();
+    	Utilities.staticTimeDelay(200);
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_date_past_thirty_days_label_xpath));
     	driver.findElement(By.xpath(RepoReportControls.efficiency_report_date_past_thirty_days_label_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath));
     	driver.findElement(By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath)).click();
     	Utilities.staticTimeDelay(500);
@@ -3395,6 +3397,13 @@ public class RepoReportPage extends Page {
     	driver.findElement(By.linkText(RepoReportControls.efficiency_report_link_link)).click();
     	Utilities.staticTimeDelay(5000);
     	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_start_date_input_css));
+    	Utilities.movePageToLocation(driver, "100");
+    	driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_start_date_input_css)).click();
+    	Utilities.staticTimeDelay(200);
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_date_past_thirty_days_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_date_past_thirty_days_label_xpath)).click();
+    	Utilities.staticTimeDelay(2000);
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath));
     	driver.findElement(By.xpath(RepoReportControls.group_efficiency_report_acc_dev_eq_chart_label_xpath)).click();
     	Utilities.staticTimeDelay(500);
