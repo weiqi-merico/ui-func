@@ -2933,11 +2933,16 @@ public class RepoReportPage extends Page {
     	builder.sendKeys(Keys.ENTER).perform();
     	builder.sendKeys(Keys.ESCAPE).perform();
     	Utilities.staticTimeDelay(5000);
+    	Utilities.movePageToLocation(driver, "100");
     	
+    	Utilities.waitForControlPresent(driver, By.cssSelector(RepoReportControls.efficiency_report_start_date_input_css));
+    	driver.findElement(By.cssSelector(RepoReportControls.efficiency_report_start_date_input_css)).click();
+    	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_date_past_thirty_days_label_xpath));
+    	driver.findElement(By.xpath(RepoReportControls.efficiency_report_date_past_thirty_days_label_xpath)).click();
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath));
     	driver.findElement(By.xpath(RepoReportControls.efficiency_report_acc_dev_eq_chart_label_xpath)).click();
     	Utilities.staticTimeDelay(500);
-    	Utilities.movePageToLocation(driver, "300");
+    	Utilities.movePageToLocation(driver, "200");
     }
     
     @AutoIntercept

@@ -864,6 +864,8 @@ public class RepoReportControls {
     
     public static final String efficiency_report_start_date_input_css = getProperty("efficiency_report_start_date_input_css");
     
+    public static final String efficiency_report_date_past_thirty_days_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_date_past_thirty_days_label_xpath"));
+    
     public static final String efficiency_report_acc_dev_eq_chart_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_acc_dev_eq_chart_label_xpath"));
     
     public static final String efficiency_report_acc_dev_eq_table_label_xpath = Utilities.utf8Char(getProperty("efficiency_report_acc_dev_eq_table_label_xpath"));
