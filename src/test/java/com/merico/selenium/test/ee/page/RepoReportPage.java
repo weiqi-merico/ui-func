@@ -2076,7 +2076,7 @@ public class RepoReportPage extends Page {
     public void branchHashCopy4TestCoverage() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Test_Coverage_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Test_Coverage_Link_Link)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
     	
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Info_Svg_Xpath));
     	WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Info_Svg_Xpath));
@@ -2300,7 +2300,7 @@ public class RepoReportPage extends Page {
     public void branchHashCopy4DocCoverage() {
     	Utilities.waitForControlPresent(driver, By.linkText(RepoReportControls.Doc_Coverage_Link_Link));
     	driver.findElement(By.linkText(RepoReportControls.Doc_Coverage_Link_Link)).click();
-    	Utilities.staticTimeDelay(2000);
+    	Utilities.staticTimeDelay(5000);
     	
     	Utilities.waitForControlPresent(driver, By.xpath(RepoReportControls.Test_Coverage_Info_Svg_Xpath));
     	WebElement element = driver.findElement(By.xpath(RepoReportControls.Test_Coverage_Info_Svg_Xpath));
