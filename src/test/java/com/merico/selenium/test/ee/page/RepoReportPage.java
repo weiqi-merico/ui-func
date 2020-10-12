@@ -3040,11 +3040,11 @@ public class RepoReportPage extends Page {
     }
     
     @AutoIntercept
-    public int getTableCellsCount4EfficiencyReport() {
-    	int count = driver.findElements(By.xpath(RepoReportControls.efficiency_report_cells_xpath)).size();
+    public String getTableCellsCount4EfficiencyReport() {
+    	Integer count = driver.findElements(By.xpath(RepoReportControls.efficiency_report_cells_xpath)).size();
     	System.out.println("Cell's Count after Row to Col is: " + count);
     	
-    	return count;
+    	return count.toString();
     }
     
     @AutoIntercept
